@@ -7,7 +7,7 @@
 <meta name="description" content="Концепт раздела подкастов EYRA: аудиоверсии статей журнала.">
 <link rel="icon" href="assets/eyra-mark.svg">
 <link rel="preload" href="assets/manrope-variable.woff" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="shared.css?v=hub7">
+<link rel="stylesheet" href="shared.css?v=hub8">
 </head>
 <body class="is-playing" data-duration="420" data-progress="0.42">
 <div class="grain" aria-hidden="true"></div>
@@ -33,30 +33,25 @@
 
 <main class="page">
   <div class="show-hero-bg" style="--accent:#a8bdd9"></div>
+  <p class="crumb show-crumb"><a href="hub.html">Подкасты</a> · Отдых и впечатления</p>
   <section class="show-hero" style="--accent:#a8bdd9">
     <div class="hero-art typo-cover">
-      <img src="assets/maya.webp" alt="Майя">
+      <img src="assets/maya.webp" alt="Майя" width="800" height="800">
       <div class="typo-copy"><span class="eyebrow">Колонка · Майя</span><b>Отдых и впечатления</b></div>
-      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
     </div>
     <div class="show-copy">
-      <p class="crumb"><a href="hub.html">Подкасты</a> · <a href="https://eyra.ink/journal/dosug/">Отдых и впечатления</a></p>
       <h1>Отдых и впечатления</h1>
-      <p class="dek">Практичные выпуски про вечер, выходные и отдых без надрыва. Каждый — аудиоверсия статьи Майи из журнала EYRA: можно слушать или сразу читать.</p>
+      <p class="dek">Практичные выпуски про вечер, выходные и отдых без надрыва.</p>
       <div class="host">
         <img src="assets/maya.webp" alt="">
         <div><b>Майя</b><span>Лайфстайл-ассистент · <a href="https://eyra.ink/experts/maya/">Страница эксперта</a></span></div>
       </div>
       <div class="show-actions">
-        <button class="btn-round-play" data-play data-keep-label aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
-        <div class="mode-switch">
-          <button class="is-on" data-play data-keep-label><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg> Слушать</button>
-          <a href="https://eyra.ink/journal/dosug/kak-rasplanovat-vecher-doma/" target="_blank" rel="noopener">Читать статью</a>
-        </div>
+        <button class="btn-round-play" data-play data-keep-label aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/><rect x="14" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/></svg></button>
+        <a class="btn-ghost" href="https://eyra.ink/journal/dosug/" target="_blank" rel="noopener">Читать</a>
         <button class="btn-ghost like" aria-label="Сохранить колонку"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg> Сохранить</button>
         <button class="icon-btn" aria-label="Ещё"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="6" cy="12" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="18" cy="12" r="1.4"/></svg></button>
       </div>
-      <div class="stats"><span><b>20</b> выпусков</span><span>Рубрика журнала «Отдых и впечатления»</span></div>
     </div>
   </section>
 
@@ -71,317 +66,199 @@
       <button data-view="compact" aria-label="Компактный список"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     </div>
   </div>
-  <div class="ep-table">
+    <div class="ep-table">
     <div class="head">
-      <span>#</span><span class="h-cov"></span><span>Выпуск</span><span class="h-date">Рубрика</span><span>Время</span><span class="h-bar"></span><span></span>
+      <span>#</span><span>Выпуск</span><span>Время</span><span class="h-bar"></span><span></span>
     </div>
     <article class="ep-item is-active" data-episode>
-    <span class="ep-num">1</span>
-    <a class="cov" href="player.html"><div class="typo-cover " style="--accent:#a8bdd9">
-      <img src="assets/maya.webp" alt="Майя">
-      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Как распланировать вечер дома, чтобы успеть и отдохнуть</b></div>
-      
-    </div></a>
-    <div>
+    <button class="ep-num" data-play aria-label="Слушать «Как распланировать вечер дома, чтобы успеть и отдохнуть»"><span>1</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    <div class="ep-body">
       <p class="t"><a href="player.html">Как распланировать вечер дома, чтобы успеть и отдохнуть</a></p>
-      <p class="x">Практический принцип распределения вечерних часов: сколько дел реально вмещает вечер, в каком порядке чередовать дела и отдых, что вычеркнуть первым и как не уйти весь вечер в телефон. · <a class="read-link" href="https://eyra.ink/journal/dosug/kak-rasplanovat-vecher-doma/" target="_blank" rel="noopener">Читать статью</a></p>
     </div>
-    <span class="date">Отдых и впечатления</span>
     <span class="dur">7 мин</span>
     <div class="ep-prog"><div class="progress-pip"><i style="width:42%"></i></div></div>
     <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
-  </article><article class="ep-item" data-episode>
-    <span class="ep-num">2</span>
-    <a class="cov" href="player.html"><div class="typo-cover " style="--accent:#a8bdd9">
-      <img src="assets/maya.webp" alt="Майя">
-      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Вечер дома при низких силах: отдых, который реально восстанавливает</b></div>
-      
-    </div></a>
-    <div>
+  </article>
+    <article class="ep-item" data-episode>
+    <button class="ep-num" data-play aria-label="Слушать «Вечер дома при низких силах: отдых, который реально восстанавливает»"><span>2</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    <div class="ep-body">
       <p class="t"><a href="player.html">Вечер дома при низких силах: отдых, который реально восстанавливает</a></p>
-      <p class="x">Чем заняться вечером дома, когда сил почти нет: чем восстанавливающий отдых отличается от пассивного, почему скроллинг не возвращает энергию и какие минимальные занятия дают чувство наполненности. · <a class="read-link" href="https://eyra.ink/journal/dosug/vecher-kogda-net-sil-vosstanavlivayushchiy-otdyh/" target="_blank" rel="noopener">Читать статью</a></p>
     </div>
-    <span class="date">Отдых и впечатления</span>
     <span class="dur">6 мин</span>
-    <div class="ep-prog"></div>
-    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
-  </article><article class="ep-item" data-episode>
-    <span class="ep-num">3</span>
-    <a class="cov" href="player.html"><div class="typo-cover " style="--accent:#a8bdd9">
-      <img src="assets/maya.webp" alt="Майя">
-      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Выходные без экранов: чем заменить гаджеты детям и как ввести правило без скандала</b></div>
-      
-    </div></a>
-    <div>
-      <p class="t"><a href="player.html">Выходные без экранов: чем заменить гаджеты детям и как ввести правило без скандала</a></p>
-      <p class="x">Офлайн-форматы по возрастам, сценарий мягкого введения безэкранного правила, что делать со скукой и нарушенными договорённостями, и где разумный компромисс. · <a class="read-link" href="https://eyra.ink/journal/dosug/vyhodnye-bez-ekranov-detyam/" target="_blank" rel="noopener">Читать статью</a></p>
-    </div>
-    <span class="date">Отдых и впечатления</span>
-    <span class="dur">9 мин</span>
-    <div class="ep-prog"></div>
-    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
-  </article><article class="ep-item" data-episode>
-    <span class="ep-num">4</span>
-    <a class="cov" href="player.html"><div class="typo-cover " style="--accent:#a8bdd9">
-      <img src="assets/maya.webp" alt="Майя">
-      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Как вовлечь подростка в семейные выходные: приглашение вместо приказа</b></div>
-      
-    </div></a>
-    <div>
-      <p class="t"><a href="player.html">Как вовлечь подростка в семейные выходные: приглашение вместо приказа</a></p>
-      <p class="x">Почему подросток отказывается от «обязательных семейных программ» и что работает вместо них: право выбора, роль в плане, пересечение с его интересами и разумные договорённости о телефоне. · <a class="read-link" href="https://eyra.ink/journal/dosug/vyhodnye-s-podrostkom/" target="_blank" rel="noopener">Читать статью</a></p>
-    </div>
-    <span class="date">Отдых и впечатления</span>
-    <span class="dur">10 мин</span>
-    <div class="ep-prog"></div>
-    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
-  </article><article class="ep-item" data-episode>
-    <span class="ep-num">5</span>
-    <a class="cov" href="player.html"><div class="typo-cover " style="--accent:#a8bdd9">
-      <img src="assets/maya.webp" alt="Майя">
-      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Как договориться с партнёром о распределении выходных</b></div>
-      
-    </div></a>
-    <div>
-      <p class="t"><a href="player.html">Как договориться с партнёром о распределении выходных</a></p>
-      <p class="x">Схема переговоров и шаблон распределения выходных: гарантированные личные часы у каждого, дежурство по блокам, разный режим работы и без списка претензий. · <a class="read-link" href="https://eyra.ink/journal/dosug/raspredelenie-vyhodnyh-s-partnerom/" target="_blank" rel="noopener">Читать статью</a></p>
-    </div>
-    <span class="date">Отдых и впечатления</span>
-    <span class="dur">8 мин</span>
-    <div class="ep-prog"></div>
-    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
-  </article><article class="ep-item" data-episode>
-    <span class="ep-num">6</span>
-    <a class="cov" href="player.html"><div class="typo-cover " style="--accent:#a8bdd9">
-      <img src="assets/maya.webp" alt="Майя">
-      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Восстановительный выходной, когда сил на активности нет</b></div>
-      
-    </div></a>
-    <div>
-      <p class="t"><a href="player.html">Восстановительный выходной, когда сил на активности нет</a></p>
-      <p class="x">Как спланировать выходные в режиме низкой энергии: спокойные форматы для детей без постоянного экрана, правило чередования тишины и движения и минимальная подготовка накануне. · <a class="read-link" href="https://eyra.ink/journal/dosug/vosstanovitelnyy-vyhodnoy-s-maloy-energiey/" target="_blank" rel="noopener">Читать статью</a></p>
-    </div>
-    <span class="date">Отдых и впечатления</span>
-    <span class="dur">8 мин</span>
-    <div class="ep-prog"></div>
-    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
-  </article><article class="ep-item" data-episode>
-    <span class="ep-num">7</span>
-    <a class="cov" href="player.html"><div class="typo-cover " style="--accent:#a8bdd9">
-      <img src="assets/maya.webp" alt="Майя">
-      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Выходные, если один родитель с детьми на весь день: как спланировать и не выгореть</b></div>
-      
-    </div></a>
-    <div>
-      <p class="t"><a href="player.html">Выходные, если один родитель с детьми на весь день: как спланировать и не выгореть</a></p>
-      <p class="x">Как построить день с детьми одному: ритм по блокам, форматы, где один взрослый справляется, еда и быт, время на себя и план Б. · <a class="read-link" href="https://eyra.ink/journal/dosug/vyhodnye-odin-roditel-s-detmi/" target="_blank" rel="noopener">Читать статью</a></p>
-    </div>
-    <span class="date">Отдых и впечатления</span>
-    <span class="dur">12 мин</span>
-    <div class="ep-prog"></div>
-    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
-  </article><article class="ep-item" data-episode>
-    <span class="ep-num">8</span>
-    <a class="cov" href="player.html"><div class="typo-cover " style="--accent:#a8bdd9">
-      <img src="assets/maya.webp" alt="Майя">
-      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Выходные с детьми разных возрастов: как совместить интересы малыша и подростка</b></div>
-      
-    </div></a>
-    <div>
-      <p class="t"><a href="player.html">Выходные с детьми разных возрастов: как совместить интересы малыша и подростка</a></p>
-      <p class="x">Практический гайд для семей с разновозрастными детьми: какие форматы работают для всех сразу, когда делить выходные на индивидуальные блоки и как собрать план, где никто не остаётся «приложением» к чужим интересам. · <a class="read-link" href="https://eyra.ink/journal/dosug/vyhodnye-s-raznovozrastnymi-detmi/" target="_blank" rel="noopener">Читать статью</a></p>
-    </div>
-    <span class="date">Отдых и впечатления</span>
-    <span class="dur">9 мин</span>
-    <div class="ep-prog"></div>
-    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
-  </article><article class="ep-item" data-episode>
-    <span class="ep-num">9</span>
-    <a class="cov" href="player.html"><div class="typo-cover " style="--accent:#a8bdd9">
-      <img src="assets/maya.webp" alt="Майя">
-      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Семейные выходные традиции в новом городе: как завести с нуля</b></div>
-      
-    </div></a>
-    <div>
-      <p class="t"><a href="player.html">Семейные выходные традиции в новом городе: как завести с нуля</a></p>
-      <p class="x">План разведки нового города за 3–4 выходных: как искать свои места, вовлечь детей, зафиксировать результаты и понять, что традиция найдена. · <a class="read-link" href="https://eyra.ink/journal/dosug/semejnye-tradicii-v-novom-gorode/" target="_blank" rel="noopener">Читать статью</a></p>
-    </div>
-    <span class="date">Отдых и впечатления</span>
-    <span class="dur">8 мин</span>
-    <div class="ep-prog"></div>
-    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
-  </article><article class="ep-item" data-episode>
-    <span class="ep-num">10</span>
-    <a class="cov" href="player.html"><div class="typo-cover " style="--accent:#a8bdd9">
-      <img src="assets/maya.webp" alt="Майя">
-      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Как заложить семейные выходные традиции</b></div>
-      
-    </div></a>
-    <div>
-      <p class="t"><a href="player.html">Как заложить семейные выходные традиции</a></p>
-      <p class="x">Как выбрать одну-две семейные традиции выходных, которые не надоедают: критерии отбора, гибкость вместо жёсткости, адаптация по возрасту детей и план пересмотра. · <a class="read-link" href="https://eyra.ink/journal/dosug/semejnye-tradicii-vyhodnyh/" target="_blank" rel="noopener">Читать статью</a></p>
-    </div>
-    <span class="date">Отдых и впечатления</span>
-    <span class="dur">9 мин</span>
-    <div class="ep-prog"></div>
-    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
-  </article><article class="ep-item" data-episode>
-    <span class="ep-num">11</span>
-    <a class="cov" href="player.html"><div class="typo-cover " style="--accent:#a8bdd9">
-      <img src="assets/maya.webp" alt="Майя">
-      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Что делать в Москве зимой на улице без больших трат</b></div>
-      
-    </div></a>
-    <div>
-      <p class="t"><a href="player.html">Что делать в Москве зимой на улице без больших трат</a></p>
-      <p class="x">Уличные зимние занятия в Москве на минимальный бюджет: прогулочные маршруты, парки, катки, ярмарки и как собрать недорогой зимний день. · <a class="read-link" href="https://eyra.ink/journal/dosug/zimoj-v-moskve-na-ulice-nedorogo/" target="_blank" rel="noopener">Читать статью</a></p>
-    </div>
-    <span class="date">Отдых и впечатления</span>
-    <span class="dur">9 мин</span>
-    <div class="ep-prog"></div>
-    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
-  </article><article class="ep-item" data-episode>
-    <span class="ep-num">12</span>
-    <a class="cov" href="player.html"><div class="typo-cover " style="--accent:#a8bdd9">
-      <img src="assets/maya.webp" alt="Майя">
-      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Вечер пятницы: чем заняться — по силам, а не по программе</b></div>
-      
-    </div></a>
-    <div>
-      <p class="t"><a href="player.html">Вечер пятницы: чем заняться — по силам, а не по программе</a></p>
-      <p class="x">Чем вечер пятницы отличается от буднего вечера и как выбрать сценарий — тихий отдых, компактный выход или вечер вдвоём — по уровню оставшихся сил. · <a class="read-link" href="https://eyra.ink/journal/dosug/chem-zanyatsya-vecherom-pyatnitsy/" target="_blank" rel="noopener">Читать статью</a></p>
-    </div>
-    <span class="date">Отдых и впечатления</span>
-    <span class="dur">9 мин</span>
-    <div class="ep-prog"></div>
-    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
-  </article><article class="ep-item" data-episode>
-    <span class="ep-num">13</span>
-    <a class="cov" href="player.html"><div class="typo-cover " style="--accent:#a8bdd9">
-      <img src="assets/maya.webp" alt="Майя">
-      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Как провести выходные в Москве недорого: форматы, бесплатные дни и контроль скрытых трат</b></div>
-      
-    </div></a>
-    <div>
-      <p class="t"><a href="player.html">Как провести выходные в Москве недорого: форматы, бесплатные дни и контроль скрытых трат</a></p>
-      <p class="x">Практический гайд: за счёт чего городские выходные в Москве стоят дёшево или бесплатно — парки, музейные недели, бесплатные экскурсии и кино, спортпроекты, планирование на два дня без лишних трат. · <a class="read-link" href="https://eyra.ink/journal/dosug/vyhodnye-v-moskve-nedorogo/" target="_blank" rel="noopener">Читать статью</a></p>
-    </div>
-    <span class="date">Отдых и впечатления</span>
-    <span class="dur">8 мин</span>
-    <div class="ep-prog"></div>
-    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
-  </article><article class="ep-item" data-episode>
-    <span class="ep-num">14</span>
-    <a class="cov" href="player.html"><div class="typo-cover " style="--accent:#a8bdd9">
-      <img src="assets/maya.webp" alt="Майя">
-      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Чем заняться вечером, кроме сериалов: замены, которые дают то же удовольствие</b></div>
-      
-    </div></a>
-    <div>
-      <p class="t"><a href="player.html">Чем заняться вечером, кроме сериалов: замены, которые дают то же удовольствие</a></p>
-      <p class="x">Почему сериалы так легко становятся вечерней привычкой, какие занятия закрывают те же потребности и как добавить их в вечер без резкого отказа. · <a class="read-link" href="https://eyra.ink/journal/dosug/chem-zanyatsya-vecherom-krome-serialov/" target="_blank" rel="noopener">Читать статью</a></p>
-    </div>
-    <span class="date">Отдых и впечатления</span>
-    <span class="dur">7 мин</span>
-    <div class="ep-prog"></div>
-    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
-  </article><article class="ep-item" data-episode>
-    <span class="ep-num">15</span>
-    <a class="cov" href="player.html"><div class="typo-cover " style="--accent:#a8bdd9">
-      <img src="assets/maya.webp" alt="Майя">
-      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Как провести выходные с мужем: формат под состояние, а не по шаблону</b></div>
-      
-    </div></a>
-    <div>
-      <p class="t"><a href="player.html">Как провести выходные с мужем: формат под состояние, а не по шаблону</a></p>
-      <p class="x">Практический гид: как выбрать сценарий выходных вдвоём — тихие домашние, выезд с впечатлениями или день дома, — как договориться о плане без переговоров и не заполнить оба дня бытовыми делами. · <a class="read-link" href="https://eyra.ink/journal/dosug/maya-couple-weekend/" target="_blank" rel="noopener">Читать статью</a></p>
-    </div>
-    <span class="date">Отдых и впечатления</span>
-    <span class="dur">13 мин</span>
-    <div class="ep-prog"></div>
-    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
-  </article><article class="ep-item" data-episode>
-    <span class="ep-num">16</span>
-    <a class="cov" href="player.html"><div class="typo-cover " style="--accent:#a8bdd9">
-      <img src="assets/maya.webp" alt="Майя">
-      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Лайфстайл — что это значит и как собрать свой образ жизни</b></div>
-      
-    </div></a>
-    <div>
-      <p class="t"><a href="player.html">Лайфстайл — что это значит и как собрать свой образ жизни</a></p>
-      <p class="x">Что входит в понятие лайфстайл, чем образ жизни отличается от картинки в соцсетях, какие принципы здоровой основы называет ВОЗ и как за несколько шагов собрать свой ритм — с питанием, движением, отдыхом и впечатлениями. · <a class="read-link" href="https://eyra.ink/journal/dosug/lifestyle/" target="_blank" rel="noopener">Читать статью</a></p>
-    </div>
-    <span class="date">Отдых и впечатления</span>
-    <span class="dur">10 мин</span>
-    <div class="ep-prog"></div>
-    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
-  </article><article class="ep-item" data-episode>
-    <span class="ep-num">17</span>
-    <a class="cov" href="player.html"><div class="typo-cover " style="--accent:#a8bdd9">
-      <img src="assets/maya.webp" alt="Майя">
-      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Что делать вечером без телефона: занятия и план перехода</b></div>
-      
-    </div></a>
-    <div>
-      <p class="t"><a href="player.html">Что делать вечером без телефона: занятия и план перехода</a></p>
-      <p class="x">Чем заполнить два-три часа вечера без экрана, как пережить первые минуты скуки и выстроить безэкранный вечер как выбор, а не наказание. · <a class="read-link" href="https://eyra.ink/journal/dosug/vecher-bez-telefona/" target="_blank" rel="noopener">Читать статью</a></p>
-    </div>
-    <span class="date">Отдых и впечатления</span>
-    <span class="dur">9 мин</span>
-    <div class="ep-prog"></div>
-    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
-  </article><article class="ep-item" data-episode>
-    <span class="ep-num">18</span>
-    <a class="cov" href="player.html"><div class="typo-cover " style="--accent:#a8bdd9">
-      <img src="assets/maya.webp" alt="Майя">
-      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Как провести выходные с семьёй: идеи под возраст детей, погоду и силы взрослых</b></div>
-      
-    </div></a>
-    <div>
-      <p class="t"><a href="player.html">Как провести выходные с семьёй: идеи под возраст детей, погоду и силы взрослых</a></p>
-      <p class="x">Практический гайд: как выбрать формат семейных выходных — выезд на природу, домашнее приключение или прогулка по городу, как вовлечь детей в подготовку и не превратить отдых в перегруженный план. · <a class="read-link" href="https://eyra.ink/journal/dosug/vyhodnye-s-semyej/" target="_blank" rel="noopener">Читать статью</a></p>
-    </div>
-    <span class="date">Отдых и впечатления</span>
-    <span class="dur">8 мин</span>
-    <div class="ep-prog"></div>
-    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
-  </article><article class="ep-item" data-episode>
-    <span class="ep-num">19</span>
-    <a class="cov" href="player.html"><div class="typo-cover " style="--accent:#a8bdd9">
-      <img src="assets/maya.webp" alt="Майя">
-      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Как провести выходные, чтобы отдохнуть, а не устать ещё больше</b></div>
-      
-    </div></a>
-    <div>
-      <p class="t"><a href="player.html">Как провести выходные, чтобы отдохнуть, а не устать ещё больше</a></p>
-      <p class="x">Как спланировать выходные под своё состояние: восстановиться, получить впечатления или разобраться с делами. Практические шаги, таблица сценариев, ошибки и ответы на частые вопросы. · <a class="read-link" href="https://eyra.ink/journal/dosug/kak-provesti-vyhodnye/" target="_blank" rel="noopener">Читать статью</a></p>
-    </div>
-    <span class="date">Отдых и впечатления</span>
-    <span class="dur">8 мин</span>
-    <div class="ep-prog"></div>
-    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
-  </article><article class="ep-item" data-episode>
-    <span class="ep-num">20</span>
-    <a class="cov" href="player.html"><div class="typo-cover " style="--accent:#a8bdd9">
-      <img src="assets/maya.webp" alt="Майя">
-      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Чем заняться вечером: как выбрать формат по своему состоянию</b></div>
-      
-    </div></a>
-    <div>
-      <p class="t"><a href="player.html">Чем заняться вечером: как выбрать формат по своему состоянию</a></p>
-      <p class="x">Практический гайд: как понять, какой вечер вам нужен — восстановление, переключение, впечатления или спокойное завершение дел, — из чего собрать вечер дома и наедине с собой и зачем нужен маленький ритуал перед сном. · <a class="read-link" href="https://eyra.ink/journal/dosug/chem-zanyatsya-vecherom/" target="_blank" rel="noopener">Читать статью</a></p>
-    </div>
-    <span class="date">Отдых и впечатления</span>
-    <span class="dur">7 мин</span>
-    <div class="ep-prog"></div>
+    <div class="ep-prog"><div class="progress-pip"><i style="width:0"></i></div></div>
     <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
   </article>
+    <article class="ep-item is-played" data-episode>
+    <button class="ep-num" data-play aria-label="Слушать «Выходные без экранов: чем заменить гаджеты детям и как ввести правило без скандала»"><span>3</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    <div class="ep-body">
+      <p class="t"><a href="player.html">Выходные без экранов: чем заменить гаджеты детям и как ввести правило без скандала</a></p>
+    </div>
+    <span class="dur">9 мин</span>
+    <div class="ep-prog"><div class="progress-pip"><i style="width:100%"></i></div></div>
+    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
+  </article>
+    <article class="ep-item" data-episode>
+    <button class="ep-num" data-play aria-label="Слушать «Как вовлечь подростка в семейные выходные: приглашение вместо приказа»"><span>4</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    <div class="ep-body">
+      <p class="t"><a href="player.html">Как вовлечь подростка в семейные выходные: приглашение вместо приказа</a></p>
+    </div>
+    <span class="dur">10 мин</span>
+    <div class="ep-prog"><div class="progress-pip"><i style="width:0"></i></div></div>
+    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
+  </article>
+    <article class="ep-item is-played" data-episode>
+    <button class="ep-num" data-play aria-label="Слушать «Как договориться с партнёром о распределении выходных»"><span>5</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    <div class="ep-body">
+      <p class="t"><a href="player.html">Как договориться с партнёром о распределении выходных</a></p>
+    </div>
+    <span class="dur">8 мин</span>
+    <div class="ep-prog"><div class="progress-pip"><i style="width:100%"></i></div></div>
+    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
+  </article>
+    <article class="ep-item" data-episode>
+    <button class="ep-num" data-play aria-label="Слушать «Восстановительный выходной, когда сил на активности нет»"><span>6</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    <div class="ep-body">
+      <p class="t"><a href="player.html">Восстановительный выходной, когда сил на активности нет</a></p>
+    </div>
+    <span class="dur">8 мин</span>
+    <div class="ep-prog"><div class="progress-pip"><i style="width:0"></i></div></div>
+    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
+  </article>
+    <article class="ep-item" data-episode>
+    <button class="ep-num" data-play aria-label="Слушать «Выходные, если один родитель с детьми на весь день: как спланировать и не выгореть»"><span>7</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    <div class="ep-body">
+      <p class="t"><a href="player.html">Выходные, если один родитель с детьми на весь день: как спланировать и не выгореть</a></p>
+    </div>
+    <span class="dur">12 мин</span>
+    <div class="ep-prog"><div class="progress-pip"><i style="width:0"></i></div></div>
+    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
+  </article>
+    <article class="ep-item" data-episode>
+    <button class="ep-num" data-play aria-label="Слушать «Выходные с детьми разных возрастов: как совместить интересы малыша и подростка»"><span>8</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    <div class="ep-body">
+      <p class="t"><a href="player.html">Выходные с детьми разных возрастов: как совместить интересы малыша и подростка</a></p>
+    </div>
+    <span class="dur">9 мин</span>
+    <div class="ep-prog"><div class="progress-pip"><i style="width:0"></i></div></div>
+    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
+  </article>
+    <article class="ep-item" data-episode>
+    <button class="ep-num" data-play aria-label="Слушать «Семейные выходные традиции в новом городе: как завести с нуля»"><span>9</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    <div class="ep-body">
+      <p class="t"><a href="player.html">Семейные выходные традиции в новом городе: как завести с нуля</a></p>
+    </div>
+    <span class="dur">8 мин</span>
+    <div class="ep-prog"><div class="progress-pip"><i style="width:0"></i></div></div>
+    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
+  </article>
+    <article class="ep-item" data-episode>
+    <button class="ep-num" data-play aria-label="Слушать «Как заложить семейные выходные традиции»"><span>10</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    <div class="ep-body">
+      <p class="t"><a href="player.html">Как заложить семейные выходные традиции</a></p>
+    </div>
+    <span class="dur">9 мин</span>
+    <div class="ep-prog"><div class="progress-pip"><i style="width:0"></i></div></div>
+    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
+  </article>
+    <article class="ep-item is-more" data-episode>
+    <button class="ep-num" data-play aria-label="Слушать «Что делать в Москве зимой на улице без больших трат»"><span>11</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    <div class="ep-body">
+      <p class="t"><a href="player.html">Что делать в Москве зимой на улице без больших трат</a></p>
+    </div>
+    <span class="dur">9 мин</span>
+    <div class="ep-prog"><div class="progress-pip"><i style="width:0"></i></div></div>
+    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
+  </article>
+    <article class="ep-item is-more" data-episode>
+    <button class="ep-num" data-play aria-label="Слушать «Вечер пятницы: чем заняться — по силам, а не по программе»"><span>12</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    <div class="ep-body">
+      <p class="t"><a href="player.html">Вечер пятницы: чем заняться — по силам, а не по программе</a></p>
+    </div>
+    <span class="dur">9 мин</span>
+    <div class="ep-prog"><div class="progress-pip"><i style="width:0"></i></div></div>
+    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
+  </article>
+    <article class="ep-item is-more" data-episode>
+    <button class="ep-num" data-play aria-label="Слушать «Как провести выходные в Москве недорого: форматы, бесплатные дни и контроль скрытых трат»"><span>13</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    <div class="ep-body">
+      <p class="t"><a href="player.html">Как провести выходные в Москве недорого: форматы, бесплатные дни и контроль скрытых трат</a></p>
+    </div>
+    <span class="dur">8 мин</span>
+    <div class="ep-prog"><div class="progress-pip"><i style="width:0"></i></div></div>
+    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
+  </article>
+    <article class="ep-item is-more" data-episode>
+    <button class="ep-num" data-play aria-label="Слушать «Чем заняться вечером, кроме сериалов: замены, которые дают то же удовольствие»"><span>14</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    <div class="ep-body">
+      <p class="t"><a href="player.html">Чем заняться вечером, кроме сериалов: замены, которые дают то же удовольствие</a></p>
+    </div>
+    <span class="dur">7 мин</span>
+    <div class="ep-prog"><div class="progress-pip"><i style="width:0"></i></div></div>
+    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
+  </article>
+    <article class="ep-item is-more" data-episode>
+    <button class="ep-num" data-play aria-label="Слушать «Как провести выходные с мужем: формат под состояние, а не по шаблону»"><span>15</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    <div class="ep-body">
+      <p class="t"><a href="player.html">Как провести выходные с мужем: формат под состояние, а не по шаблону</a></p>
+    </div>
+    <span class="dur">13 мин</span>
+    <div class="ep-prog"><div class="progress-pip"><i style="width:0"></i></div></div>
+    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
+  </article>
+    <article class="ep-item is-more" data-episode>
+    <button class="ep-num" data-play aria-label="Слушать «Лайфстайл — что это значит и как собрать свой образ жизни»"><span>16</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    <div class="ep-body">
+      <p class="t"><a href="player.html">Лайфстайл — что это значит и как собрать свой образ жизни</a></p>
+    </div>
+    <span class="dur">10 мин</span>
+    <div class="ep-prog"><div class="progress-pip"><i style="width:0"></i></div></div>
+    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
+  </article>
+    <article class="ep-item is-more" data-episode>
+    <button class="ep-num" data-play aria-label="Слушать «Что делать вечером без телефона: занятия и план перехода»"><span>17</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    <div class="ep-body">
+      <p class="t"><a href="player.html">Что делать вечером без телефона: занятия и план перехода</a></p>
+    </div>
+    <span class="dur">9 мин</span>
+    <div class="ep-prog"><div class="progress-pip"><i style="width:0"></i></div></div>
+    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
+  </article>
+    <article class="ep-item is-more" data-episode>
+    <button class="ep-num" data-play aria-label="Слушать «Как провести выходные с семьёй: идеи под возраст детей, погоду и силы взрослых»"><span>18</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    <div class="ep-body">
+      <p class="t"><a href="player.html">Как провести выходные с семьёй: идеи под возраст детей, погоду и силы взрослых</a></p>
+    </div>
+    <span class="dur">8 мин</span>
+    <div class="ep-prog"><div class="progress-pip"><i style="width:0"></i></div></div>
+    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
+  </article>
+    <article class="ep-item is-more" data-episode>
+    <button class="ep-num" data-play aria-label="Слушать «Как провести выходные, чтобы отдохнуть, а не устать ещё больше»"><span>19</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    <div class="ep-body">
+      <p class="t"><a href="player.html">Как провести выходные, чтобы отдохнуть, а не устать ещё больше</a></p>
+    </div>
+    <span class="dur">8 мин</span>
+    <div class="ep-prog"><div class="progress-pip"><i style="width:0"></i></div></div>
+    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
+  </article>
+    <article class="ep-item is-more" data-episode>
+    <button class="ep-num" data-play aria-label="Слушать «Чем заняться вечером: как выбрать формат по своему состоянию»"><span>20</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    <div class="ep-body">
+      <p class="t"><a href="player.html">Чем заняться вечером: как выбрать формат по своему состоянию</a></p>
+    </div>
+    <span class="dur">7 мин</span>
+    <div class="ep-prog"><div class="progress-pip"><i style="width:0"></i></div></div>
+    <button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
+  </article>
+    <button class="btn-ghost show-more" type="button" data-show-more>Показать ещё</button>
   </div>
-  <p class="ph-note">Названия выпусков — реальные заголовки статей журнала eyra.ink/journal (202 материала). Каждый выпуск — аудиоверсия статьи: можно слушать или открыть текст. Состояние плеера в макете — пример.</p>
-<footer class="site-foot">
-  <span>EYRA · концепт раздела «Подкасты»</span>
-  <span>Не продакшен eyra.ink</span>
-</footer>
+  
+  <section class="cont-block shelf" id="other-cols">
+    <div class="shelf-head"><h2 class="h-section">Другие колонки</h2></div>
+    <div class="rail rail-exp"><a class="card-expert" href="show.html"><div class="avatar-wrap"><img src="assets/asya.webp" alt="Ася" width="200" height="200"></div><b>Ася</b><span>Психолог</span></a><a class="card-expert" href="show.html"><div class="avatar-wrap"><img src="assets/kira.webp" alt="Кира" width="200" height="200"></div><b>Кира</b><span>Нутрициолог</span></a><a class="card-expert" href="show.html"><div class="avatar-wrap"><img src="assets/vera.webp" alt="Вера" width="200" height="200"></div><b>Вера</b><span>Астролог</span></a><a class="card-expert" href="show.html"><div class="avatar-wrap"><img src="assets/lera.webp" alt="Лера" width="200" height="200"></div><b>Лера</b><span>Таролог</span></a><a class="card-expert" href="show.html"><div class="avatar-wrap"><img src="assets/mira.webp" alt="Мира" width="200" height="200"></div><b>Мира</b><span>Нумеролог</span></a><a class="card-expert" href="show.html"><div class="avatar-wrap"><img src="assets/nika.webp" alt="Ника" width="200" height="200"></div><b>Ника</b><span>Продюсер</span></a><a class="card-expert" href="show.html"><div class="avatar-wrap"><img src="assets/eva.webp" alt="Ева" width="200" height="200"></div><b>Ева</b><span>Нетворкинг</span></a><a class="card-expert" href="show.html"><div class="avatar-wrap"><img src="assets/sofia.webp" alt="София" width="200" height="200"></div><b>София</b><span>Финансы</span></a><a class="card-expert" href="show.html"><div class="avatar-wrap"><img src="assets/alisa.webp" alt="Алиса" width="200" height="200"></div><b>Алиса</b><span>Дейтинг</span></a></div>
+  </section>
+
+<footer class="site-foot is-quiet"><span>EYRA</span></footer>
 
 </main>
 <div class="mini-player" role="region" aria-label="Сейчас играет">
@@ -464,5 +341,5 @@
   </div>
 </div>
 
-<script src="player.js?v=hub7"></script>
+<script src="player.js?v=hub8"></script>
 </body></html>

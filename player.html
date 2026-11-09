@@ -7,7 +7,7 @@
 <meta name="description" content="Концепт раздела подкастов EYRA: аудиоверсии статей журнала.">
 <link rel="icon" href="assets/eyra-mark.svg">
 <link rel="preload" href="assets/manrope-variable.woff" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="shared.css?v=hub7">
+<link rel="stylesheet" href="shared.css?v=hub8">
 </head>
 <body class="is-playing" data-duration="420" data-progress="0.42">
 <div class="grain" aria-hidden="true"></div>
@@ -32,14 +32,16 @@
 </header>
 
 <main class="now-page">
-  <p class="crumb" style="margin:8px 0 20px;color:var(--muted);font-size:13px"><a href="hub.html">Подкасты</a> · <a href="show.html">Отдых и впечатления</a></p>
+  <p class="crumb"><a href="hub.html">Подкасты</a> · <a href="show.html">Отдых и впечатления</a></p>
   <div class="now-stage">
+    <div class="now-art-col">
     <div class="now-art-wrap" style="--accent:#a8bdd9">
       <div class="glow"></div>
-      <div class="typo-cover " style="--accent:#a8bdd9">
-      <img src="assets/maya.webp" alt="Майя">
-      <div class="typo-copy"><span class="eyebrow">Отдых и впечатления</span><b>Как распланировать вечер дома, чтобы успеть и отдохнуть</b></div>
+      <div class="typo-cover" style="--accent:#a8bdd9">
+      <img src="assets/maya.webp" alt="Майя" width="800" height="800">
+      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Как распланировать вечер дома, чтобы успеть и отдохнуть</b></div>
       
+    </div>
     </div>
     </div>
     <div class="now-copy">
@@ -47,37 +49,138 @@
       <h1>Как распланировать вечер дома, чтобы успеть и отдохнуть</h1>
       <div class="host-line"><img src="assets/maya.webp" alt="">Майя · Лайфстайл-ассистент · 7 мин</div>
       <div class="mode-switch">
-        <button class="is-on" data-play data-keep-label><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg> Слушать</button>
-        <a href="https://eyra.ink/journal/dosug/kak-rasplanovat-vecher-doma/" target="_blank" rel="noopener">Читать статью</a>
+        <button class="is-on" data-play data-keep-label><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/><rect x="14" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/></svg> Слушать</button>
+        <a href="https://eyra.ink/journal/dosug/kak-rasplanovat-vecher-doma/" target="_blank" rel="noopener">Читать</a>
       </div>
-      <div class="player-controls" style="margin-top:28px">
+      <div class="player-controls">
         <div class="timeline-block">
           <div class="bar" data-progress><i></i></div>
           <div class="times"><span data-time-cur>2:56</span><span data-time-left>-4:04</span></div>
         </div>
         <div class="ctrl-row">
-          <button class="side" aria-label="Назад 15 секунд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 8 4 11l3 3"/><path d="M4 11h9a5 5 0 1 1 0 10H8"/><text x="11.5" y="14.5" font-size="6" fill="currentColor" stroke="none" text-anchor="middle">15</text></svg></button>
           <button class="main" data-play data-keep-label aria-label="Пауза"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/><rect x="14" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/></svg></button>
+          <button class="side" aria-label="Назад 15 секунд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 8 4 11l3 3"/><path d="M4 11h9a5 5 0 1 1 0 10H8"/><text x="11.5" y="14.5" font-size="6" fill="currentColor" stroke="none" text-anchor="middle">15</text></svg></button>
           <button class="side" aria-label="Вперёд 15 секунд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 8 20 11l-3 3"/><path d="M20 11H11a5 5 0 1 0 0 10h5"/></svg></button>
-        </div>
-        <div class="chips">
           <button class="chip-act" data-speed>1×</button>
           <button class="chip-act" data-sleep><span data-sleep-label>Таймер</span></button>
+          <button class="like" aria-label="Сохранить"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
+          <button class="icon-btn" aria-label="Поделиться"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 4v10"/><path d="m8 8 4-4 4 4"/><path d="M6 13v5h12v-5"/></svg></button>
         </div>
       </div>
       <div class="now-extra">
         <h3>О выпуске</h3>
-        <p>Практический принцип распределения вечерних часов: сколько дел реально вмещает вечер, в каком порядке чередовать дела и отдых, что вычеркнуть первым и как не уйти весь вечер в телефон. Это аудиоверсия статьи Майи в журнале. Можно переключиться на текст в любой момент.</p>
-        <p style="margin-top:12px"><a class="read-link" href="https://eyra.ink/journal/dosug/kak-rasplanovat-vecher-doma/" target="_blank" rel="noopener">Открыть статью на eyra.ink →</a></p>
+        <p>Практический принцип распределения вечерних часов: сколько дел реально вмещает вечер, в каком порядке чередовать дела и отдых, что вычеркнуть первым и как не уйти весь вечер в телефон.</p>
       </div>
     </div>
   </div>
-  <p class="ph-note">Названия выпусков — заголовки статей журнала EYRA. Состояние плеера в макете — пример.</p>
-<footer class="site-foot">
-  <span>EYRA · концепт раздела «Подкасты»</span>
-  <span>Не продакшен eyra.ink</span>
-</footer>
 
+  <section class="cont-block" id="dalee">
+    <h2 class="h-section">Далее</h2>
+    <a class="up-next-card" href="player.html" style="--accent:#a8bdd9">
+      <div class="typo-cover" style="--accent:#a8bdd9">
+      <img src="assets/maya.webp" alt="Майя" width="800" height="800">
+      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Вечер дома при низких силах: отдых, который реально восстанавливает</b></div>
+      
+    </div>
+      <div class="up-next-copy">
+        <p class="eyebrow" data-upnext-hint>Далее через 5 с</p>
+        <h3>Вечер дома при низких силах: отдых, который реально восстанавливает</h3>
+        <p>Майя · 6 мин</p>
+      </div>
+      <span class="play-inline" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></span>
+    </a>
+    <div class="up-queue">
+      <a class="up-q-row" href="player.html">
+        <img src="assets/maya.webp" alt="">
+        <div><b>Выходные без экранов: чем заменить гаджеты детям и как ввести правило без скандала</b><span>Майя · 9 мин</span></div>
+      </a><a class="up-q-row" href="player.html">
+        <img src="assets/maya.webp" alt="">
+        <div><b>Как вовлечь подростка в семейные выходные: приглашение вместо приказа</b><span>Майя · 10 мин</span></div>
+      </a><a class="up-q-row" href="player.html">
+        <img src="assets/maya.webp" alt="">
+        <div><b>Как договориться с партнёром о распределении выходных</b><span>Майя · 8 мин</span></div>
+      </a><a class="up-q-row" href="player.html">
+        <img src="assets/maya.webp" alt="">
+        <div><b>Восстановительный выходной, когда сил на активности нет</b><span>Майя · 8 мин</span></div>
+      </a>
+    </div>
+  </section>
+
+  <section class="cont-block shelf" id="esche">
+    <div class="shelf-head"><h2 class="h-section">Ещё у Майи</h2>
+      <div class="shelf-tools"><a href="show.html">Все</a></div>
+    </div>
+    <div class="rail"><article class="card-ep" data-episode>
+    <a href="player.html"><div class="typo-cover" style="--accent:#a8bdd9">
+      <img src="assets/maya.webp" alt="Майя" width="800" height="800">
+      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Выходные, если один родитель с детьми на весь день: как спланировать и не выгореть</b></div>
+      
+    </div></a>
+    <div class="card-meta"><p>Майя · 12 мин</p></div>
+  </article><article class="card-ep" data-episode>
+    <a href="player.html"><div class="typo-cover" style="--accent:#a8bdd9">
+      <img src="assets/maya.webp" alt="Майя" width="800" height="800">
+      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Выходные с детьми разных возрастов: как совместить интересы малыша и подростка</b></div>
+      
+    </div></a>
+    <div class="card-meta"><p>Майя · 9 мин</p></div>
+  </article><article class="card-ep" data-episode>
+    <a href="player.html"><div class="typo-cover" style="--accent:#a8bdd9">
+      <img src="assets/maya.webp" alt="Майя" width="800" height="800">
+      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Семейные выходные традиции в новом городе: как завести с нуля</b></div>
+      
+    </div></a>
+    <div class="card-meta"><p>Майя · 8 мин</p></div>
+  </article><article class="card-ep" data-episode>
+    <a href="player.html"><div class="typo-cover" style="--accent:#a8bdd9">
+      <img src="assets/maya.webp" alt="Майя" width="800" height="800">
+      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Как заложить семейные выходные традиции</b></div>
+      
+    </div></a>
+    <div class="card-meta"><p>Майя · 9 мин</p></div>
+  </article><article class="card-ep" data-episode>
+    <a href="player.html"><div class="typo-cover" style="--accent:#a8bdd9">
+      <img src="assets/maya.webp" alt="Майя" width="800" height="800">
+      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Что делать в Москве зимой на улице без больших трат</b></div>
+      
+    </div></a>
+    <div class="card-meta"><p>Майя · 9 мин</p></div>
+  </article><article class="card-ep" data-episode>
+    <a href="player.html"><div class="typo-cover" style="--accent:#a8bdd9">
+      <img src="assets/maya.webp" alt="Майя" width="800" height="800">
+      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Вечер пятницы: чем заняться — по силам, а не по программе</b></div>
+      
+    </div></a>
+    <div class="card-meta"><p>Майя · 9 мин</p></div>
+  </article></div>
+  </section>
+
+  <section class="cont-block" id="pohozhee">
+    <h2 class="h-section">Похожее у других экспертов</h2>
+    <div class="alike-list"><a class="alike-row" href="player.html">
+      <img src="assets/asya.webp" alt="Ася">
+      <div><b>Не с кем поговорить: что делать прямо сейчас</b><span>Ася · 9 мин</span></div>
+    </a><a class="alike-row" href="player.html">
+      <img src="assets/eva.webp" alt="Ева">
+      <div><b>Как найти друзей, когда все вокруг заняты семьями и детьми</b><span>Ева · 8 мин</span></div>
+    </a><a class="alike-row" href="player.html">
+      <img src="assets/kira.webp" alt="Кира">
+      <div><b>Как менять привычки питания, если раньше не получалось</b><span>Кира · 10 мин</span></div>
+    </a><a class="alike-row" href="player.html">
+      <img src="assets/eva.webp" alt="Ева">
+      <div><b>Как найти друзей в 40 лет женщине: где искать подруг и как сделать первый шаг</b><span>Ева · 9 мин</span></div>
+    </a></div>
+  </section>
+
+  <section class="end-cta" style="--accent:#a8bdd9">
+    <p class="eyebrow">Telegram</p>
+    <h2>Вы дослушали колонку</h2>
+    <div class="acts">
+      <a class="btn-paper" href="https://t.me/maya_lifestile_bot" target="_blank" rel="noopener">Написать Майе в Telegram</a>
+      <a class="btn-ghost" href="hub.html">Включить волну</a>
+    </div>
+  </section>
+<footer class="site-foot is-quiet"><span>EYRA</span></footer>
 </main>
 <div class="mini-player" role="region" aria-label="Сейчас играет">
   <div class="mini-left">
@@ -122,9 +225,9 @@
   <div class="inner">
     <div class="now-art-wrap" style="--accent:#a8bdd9">
       <div class="glow" style="background:radial-gradient(circle at 50% 50%, #a8bdd9, transparent 68%)"></div>
-      <div class="typo-cover " style="--accent:#a8bdd9">
-      <img src="assets/maya.webp" alt="Майя">
-      <div class="typo-copy"><span class="eyebrow">Отдых и впечатления</span><b>Как распланировать вечер дома, чтобы успеть и отдохнуть</b></div>
+      <div class="typo-cover" style="--accent:#a8bdd9">
+      <img src="assets/maya.webp" alt="Майя" width="800" height="800">
+      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Как распланировать вечер дома, чтобы успеть и отдохнуть</b></div>
       
     </div>
     </div>
@@ -132,32 +235,50 @@
       <a class="show-link" href="show.html">Отдых и впечатления</a>
       <h1>Как распланировать вечер дома, чтобы успеть и отдохнуть</h1>
       <div class="host-line"><img src="assets/maya.webp" alt="">Майя · Лайфстайл-ассистент · 7 мин</div>
-      <div class="mode-switch" role="tablist" aria-label="Формат">
-        <button class="is-on" data-play data-keep-label><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg> Слушать</button>
-        <a href="https://eyra.ink/journal/dosug/kak-rasplanovat-vecher-doma/" target="_blank" rel="noopener">Читать статью</a>
+      <div class="mode-switch">
+        <button class="is-on" data-play data-keep-label><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/><rect x="14" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/></svg> Слушать</button>
+        <a href="https://eyra.ink/journal/dosug/kak-rasplanovat-vecher-doma/" target="_blank" rel="noopener">Читать</a>
       </div>
-      <div class="player-controls" style="margin-top:28px">
+      <div class="player-controls">
         <div class="timeline-block">
           <div class="bar" data-progress><i></i></div>
           <div class="times"><span data-time-cur>2:56</span><span data-time-left>-4:04</span></div>
         </div>
         <div class="ctrl-row">
-          <button class="side" aria-label="Назад 15 секунд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 8 4 11l3 3"/><path d="M4 11h9a5 5 0 1 1 0 10H8"/><text x="11.5" y="14.5" font-size="6" fill="currentColor" stroke="none" text-anchor="middle">15</text></svg></button>
           <button class="main" data-play data-keep-label aria-label="Пауза"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/><rect x="14" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/></svg></button>
+          <button class="side" aria-label="Назад 15 секунд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 8 4 11l3 3"/><path d="M4 11h9a5 5 0 1 1 0 10H8"/><text x="11.5" y="14.5" font-size="6" fill="currentColor" stroke="none" text-anchor="middle">15</text></svg></button>
           <button class="side" aria-label="Вперёд 15 секунд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 8 20 11l-3 3"/><path d="M20 11H11a5 5 0 1 0 0 10h5"/></svg></button>
-        </div>
-        <div class="chips">
           <button class="chip-act" data-speed>1×</button>
           <button class="chip-act" data-sleep><span data-sleep-label>Таймер</span></button>
+          <button class="like" aria-label="Сохранить"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>
+          <button class="icon-btn" aria-label="Поделиться"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 4v10"/><path d="m8 8 4-4 4 4"/><path d="M6 13v5h12v-5"/></svg></button>
         </div>
       </div>
       <div class="now-extra">
         <h3>О выпуске</h3>
-        <p>Практический принцип распределения вечерних часов: сколько дел реально вмещает вечер, в каком порядке чередовать дела и отдых, что вычеркнуть первым и как не уйти весь вечер в телефон. Аудиоверсия статьи из журнала EYRA.</p>
+        <p>Практический принцип распределения вечерних часов: сколько дел реально вмещает вечер, в каком порядке чередовать дела и отдых.</p>
+      </div>
+
+      <div class="fp-more">
+        <div class="fp-chapters">
+          <h3>Главы</h3>
+          <ol>
+            <li><button type="button"><span>0:00</span> Вступление</button></li>
+            <li class="is-on"><button type="button"><span>1:20</span> Сколько дел вмещает вечер</button></li>
+            <li><button type="button"><span>3:10</span> Порядок дел и отдыха</button></li>
+            <li><button type="button"><span>5:00</span> Что вычеркнуть первым</button></li>
+          </ol>
+        </div>
+        <div class="fp-upnext">
+          <h3>Далее</h3>
+          <a class="up-q-row" href="player.html">
+            <img src="assets/maya.webp" alt="">
+            <div><b>Вечер дома при низких силах: отдых, который реально восстанавливает</b><span>Майя · 6 мин · Далее через 5 с</span></div>
+          </a>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-<script src="player.js?v=hub7"></script>
+<script src="player.js?v=hub8"></script>
 </body></html>

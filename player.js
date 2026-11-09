@@ -191,6 +191,17 @@
   }
   initFeature();
 
+
+  function initShowMore(){
+    const btn=document.querySelector("[data-show-more]");
+    if(!btn) return;
+    btn.addEventListener("click",()=>{
+      document.querySelectorAll(".ep-item.is-more").forEach(el=>el.classList.remove("is-more"));
+      btn.hidden=true;
+    });
+  }
+  initShowMore();
+
   setPlaying(playing);
   applyProgress();
   if($("#full-player") && document.body.dataset.openFull==="1"){
