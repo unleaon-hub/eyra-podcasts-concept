@@ -1,430 +1,1051 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Подкасты экспертов — EYRA</title>
-<meta name="description" content="Слушайте выпуски десяти экспертов EYRA: короткие разговоры о чувствах, питании, деньгах, отношениях и планах."/>
-<link rel="stylesheet" href="shared.css"/>
+<meta name="description" content="Концепт раздела подкастов EYRA: аудиоверсии статей журнала.">
+<link rel="icon" href="assets/eyra-mark.svg">
+<link rel="stylesheet" href="shared.css">
 </head>
-<body class="is-playing" data-progress="0.57" data-duration="1692" style="--accent:#ddb79c">
-<a class="skip" href="#main">К содержимому</a>
-<header class="header">
-  <a class="brand" href="hub.html" style="color:var(--gold)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M24 20C17 14 19 6 24 3C29 6 31 14 24 20Z" transform="rotate(0 24 24)"/><path d="M24 20C17 14 19 6 24 3C29 6 31 14 24 20Z" transform="rotate(72 24 24)"/><path d="M24 20C17 14 19 6 24 3C29 6 31 14 24 20Z" transform="rotate(144 24 24)"/><path d="M24 20C17 14 19 6 24 3C29 6 31 14 24 20Z" transform="rotate(216 24 24)"/><path d="M24 20C17 14 19 6 24 3C29 6 31 14 24 20Z" transform="rotate(288 24 24)"/></g></svg><span style="color:var(--text)">EYRA</span></a>
-  <nav class="header-nav" aria-label="Основное"><a href="https://eyra.ink/#experts">Эксперты</a><a href="hub.html" aria-current="page">Подкасты</a><a href="https://eyra.ink/journal/">Блог</a><a href="https://eyra.ink/">Telegram</a></nav>
-  <button class="menu-toggle" aria-label="Меню"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h14"/></svg></button>
+<body class="is-playing" data-duration="420" data-progress="0.42">
+<div class="grain" aria-hidden="true"></div>
+<header class="site-header">
+  <a class="brand" href="https://eyra.ink/" rel="noopener">
+    <img src="assets/eyra-mark.svg" alt="">
+    <span>EYRA</span>
+  </a>
+  <nav class="nav" aria-label="Разделы сайта">
+    <a href="https://eyra.ink/#experts">Эксперты</a>
+    <a href="https://eyra.ink/#how">Как это работает</a>
+    <a href="https://eyra.ink/journal/">Журнал</a>
+    <a href="hub.html" class="is-on">Подкасты</a>
+  </nav>
+  <label class="header-search">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 5 5"/></svg>
+    <input type="search" placeholder="Найти выпуск или статью" aria-label="Поиск выпусков">
+  </label>
+  <div class="header-actions">
+    <a class="btn-paper" href="https://eyra.ink/#experts">Выбрать эксперта</a>
+  </div>
 </header>
 
-<main id="main" class="page page-with-player">
-  <section class="hub-hero">
-    <div class="hub-copy">
-    <p class="eyebrow">Подкасты экспертов</p>
-    <h1 class="display">Голос рядом.<br>В вашем темпе.</h1>
-    <p class="lede" style="margin-top:20px">Короткие выпуски от десяти экспертов EYRA — о чувствах, питании, деньгах, отдыхе и отношениях. Можно продолжить с того места, где остановились, или включить волну на сегодня.</p>
+<main class="page">
+  <section class="wave" style="--asya:#ddb79c;--kira:#b9cebb;--mira:#c7b9df;--maya:#a8bdd9">
+    <div class="wave-copy">
+    <div class="wave-kicker"><span class="dot"></span><span class="eyebrow">Подкасты из журнала</span></div>
+    <h1 class="display">Журнал, который можно слушать</h1>
+    <p class="lede">Каждая статья из журнала EYRA получает голос. 202 выпуска десяти экспертов — психология, питание, астрология, таро, карьера, деньги, знакомства и отдых. Слушайте или сразу открывайте текст.</p>
+    <div class="wave-cta">
+      <button class="btn-paper" data-play data-keep-label style="height:48px;padding:0 22px"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg> Слушать волну</button>
+      <a class="btn-ghost" href="#novoe">Новое из журнала</a>
+      <div class="wave-meta"><div class="wave-faces"><img src="assets/asya.webp" alt=""><img src="assets/kira.webp" alt=""><img src="assets/vera.webp" alt=""><img src="assets/lera.webp" alt=""><img src="assets/mira.webp" alt=""><img src="assets/nika.webp" alt=""></div><span>10 экспертов · 202 выпуска</span></div>
     </div>
-  
-<div class="mosaic" aria-hidden="true">
-  <a href="show.html"><img src="assets/asya.webp" alt=""/></a>
-  <a href="show.html"><img src="assets/kira.webp" alt=""/></a>
-  <a href="show.html"><img src="assets/sofia.webp" alt=""/></a>
-  <a href="show.html"><img src="assets/maya.webp" alt=""/></a>
-  <a href="show.html"><img src="assets/vera.webp" alt=""/></a>
-</div>
-
+    </div>
+    <div class="wave-visual" aria-hidden="true">
+      <div class="typo-cover c1" style="--accent:#a8bdd9">
+      <img src="assets/maya.webp" alt="Майя">
+      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Как распланировать вечер дома, чтобы успеть и отдохнуть</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div>
+      <div class="typo-cover c2" style="--accent:#ddb79c">
+      <img src="assets/asya.webp" alt="Ася">
+      <div class="typo-copy"><span class="eyebrow">Эмоции</span><b>Близкий отказывается от психолога: что делать вам и какие есть бесплатные опции</b></div>
+      
+    </div>
+      <div class="typo-cover c3" style="--accent:#d4b8c9">
+      <img src="assets/lera.webp" alt="Лера">
+      <div class="typo-copy"><span class="eyebrow">Таро</span><b>Таро на деньги: что показывает расклад и как к нему подойти</b></div>
+      
+    </div>
+    </div>
   </section>
 
-  <section class="section" aria-label="Продолжить слушать">
-    <div class="section-head"><h2>Продолжить</h2></div>
-    <article class="continue" style="--accent:#ddb79c">
-      <a class="cover" href="show.html"><img src="assets/asya.webp" alt=""/><div class="wash"></div></a>
-      <div>
-        <p class="eyebrow" style="margin-bottom:8px;color:#ddb79c">Остались 12 минут</p>
-        <h2>Когда сил нет, а день ещё не кончился</h2>
-        <p class="muted" style="margin-top:8px;font-size:15px">Ася · Разговоры с Асей</p>
-        <div class="progress-meta">
-          <div class="bar" data-progress style="--p:57%"><i></i></div>
-          <span>16:04 из 28:12</span>
-        </div>
-      </div>
-      <div class="actions">
-        <button class="play-solid" data-play aria-label="Пауза" style="--button:#efdfd0"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/><rect x="14" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/></svg></button>
+  <section class="shortcuts"><a class="shortcut" href="player.html" style="--accent:#a8bdd9">
+      <div class="typo-cover " style="--accent:#a8bdd9">
+      <img src="assets/maya.webp" alt="Майя">
+      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Отдых</b></div>
+      
+    </div>
+      <div><p class="eyebrow">Продолжить</p><h3>Как распланировать вечер дома, чтобы успеть и отдохнуть</h3><p>Осталось около 4 мин · Майя</p></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </a><a class="shortcut" href="player.html" style="--accent:#a8bdd9">
+      <div class="typo-cover " style="--accent:#a8bdd9">
+      <img src="assets/maya.webp" alt="Майя">
+      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Отдых</b></div>
+      
+    </div>
+      <div><p class="eyebrow">Новое из журнала</p><h3>Вечер дома при низких силах: отдых, который реально восстанавливает</h3><p>Майя · 6 мин</p></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </a><a class="shortcut" href="player.html" style="--accent:#ddb79c">
+      <div class="typo-cover " style="--accent:#ddb79c">
+      <img src="assets/asya.webp" alt="Ася">
+      <div class="typo-copy"><span class="eyebrow">Эмоции</span><b>Эмоции</b></div>
+      
+    </div>
+      <div><p class="eyebrow">За 10 минут</p><h3>Что делает психолог и чем он отличается от психотерапевта и психиатра</h3><p>Ася · 5 мин</p></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </a></section>
+
+  <section class="shelf" id="novoe">
+    <div class="shelf-head">
+    <div>
+      <h2 class="h-section">Новое из журнала</h2>
+      <p class="sub">Свежие статьи — уже в аудио</p>
+    </div>
+    <div class="shelf-tools">
+      <a href="https://eyra.ink/journal/">Показать все</a>
+      <button class="arrow" data-shelf-scroll="rail-new" data-dir="-1" aria-label="Назад"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m15 5-8 7 8 7"/></svg></button>
+      <button class="arrow" data-shelf-scroll="rail-new" data-dir="1" aria-label="Вперёд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m8 5 8 7-8 7"/></svg></button>
+    </div>
+  </div>
+    <div class="rail" id="rail-new"><article class="card-ep" data-episode>
+    <a href="show.html"><div class="typo-cover " style="--accent:#a8bdd9">
+      <img src="assets/maya.webp" alt="Майя">
+      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Как распланировать вечер дома, чтобы успеть и отдохнуть</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="player.html">Как распланировать вечер дома, чтобы успеть и отдохнуть</a>
+      <p>Майя · Отдых и впечатления</p>
+      <div class="mins">7 мин · <a class="read-link" href="https://eyra.ink/journal/dosug/kak-rasplanovat-vecher-doma/" target="_blank" rel="noopener">Читать статью</a></div>
+    </div>
+  </article><article class="card-ep" data-episode>
+    <a href="show.html"><div class="typo-cover " style="--accent:#a8bdd9">
+      <img src="assets/maya.webp" alt="Майя">
+      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Вечер дома при низких силах: отдых, который реально восстанавливает</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="player.html">Вечер дома при низких силах: отдых, который реально восстанавливает</a>
+      <p>Майя · Отдых и впечатления</p>
+      <div class="mins">6 мин · <a class="read-link" href="https://eyra.ink/journal/dosug/vecher-kogda-net-sil-vosstanavlivayushchiy-otdyh/" target="_blank" rel="noopener">Читать статью</a></div>
+    </div>
+  </article><article class="card-ep" data-episode>
+    <a href="show.html"><div class="typo-cover " style="--accent:#ddb79c">
+      <img src="assets/asya.webp" alt="Ася">
+      <div class="typo-copy"><span class="eyebrow">Эмоции</span><b>Близкий отказывается от психолога: что делать вам и какие есть бесплатные опции</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="player.html">Близкий отказывается от психолога: что делать вам и какие есть бесплатные опции</a>
+      <p>Ася · Эмоции и отношения</p>
+      <div class="mins">13 мин · <a class="read-link" href="https://eyra.ink/journal/emotsii/blizkij-otkazyvaetsya-ot-psihologa/" target="_blank" rel="noopener">Читать статью</a></div>
+    </div>
+  </article><article class="card-ep" data-episode>
+    <a href="show.html"><div class="typo-cover " style="--accent:#ddb79c">
+      <img src="assets/asya.webp" alt="Ася">
+      <div class="typo-copy"><span class="eyebrow">Эмоции</span><b>Психологические чаты и форумы взаимопомощи: чем поддерживают и где опасны</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="player.html">Психологические чаты и форумы взаимопомощи: чем поддерживают и где опасны</a>
+      <p>Ася · Эмоции и отношения</p>
+      <div class="mins">11 мин · <a class="read-link" href="https://eyra.ink/journal/emotsii/psihologicheskie-chaty-vzaimopomoshhi/" target="_blank" rel="noopener">Читать статью</a></div>
+    </div>
+  </article><article class="card-ep" data-episode>
+    <a href="show.html"><div class="typo-cover " style="--accent:#b9c58e">
+      <img src="assets/sofia.webp" alt="София">
+      <div class="typo-copy"><span class="eyebrow">Финансы</span><b>Куда откладывать деньги на компьютер: где хранить накопления, чтобы не потратить раньше времени</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="player.html">Куда откладывать деньги на компьютер: где хранить накопления, чтобы не потратить раньше времени</a>
+      <p>София · Личные финансы</p>
+      <div class="mins">11 мин · <a class="read-link" href="https://eyra.ink/journal/finansy/kuda-otkladyvat-dengi-na-kompyuter/" target="_blank" rel="noopener">Читать статью</a></div>
+    </div>
+  </article><article class="card-ep" data-episode>
+    <a href="show.html"><div class="typo-cover " style="--accent:#d4afa3">
+      <img src="assets/nika.webp" alt="Ника">
+      <div class="typo-copy"><span class="eyebrow">Карьера</span><b>Как говорить о слабых местах в самопрезентации: пробелы в стаже, смена сферы, нехватка навыка</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="player.html">Как говорить о слабых местах в самопрезентации: пробелы в стаже, смена сферы, нехватка навыка</a>
+      <p>Ника · Карьера и самопрезентация</p>
+      <div class="mins">12 мин · <a class="read-link" href="https://eyra.ink/journal/karera/samoprezentaciya-slabye-mesta/" target="_blank" rel="noopener">Читать статью</a></div>
+    </div>
+  </article><article class="card-ep" data-episode>
+    <a href="show.html"><div class="typo-cover " style="--accent:#d4afa3">
+      <img src="assets/nika.webp" alt="Ника">
+      <div class="typo-copy"><span class="eyebrow">Карьера</span><b>Самопрезентация, если опыта в профессии мало: на что опираться вместо стажа</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="player.html">Самопрезентация, если опыта в профессии мало: на что опираться вместо стажа</a>
+      <p>Ника · Карьера и самопрезентация</p>
+      <div class="mins">8 мин · <a class="read-link" href="https://eyra.ink/journal/karera/samoprezentatsiya-bez-opyta/" target="_blank" rel="noopener">Читать статью</a></div>
+    </div>
+  </article><article class="card-ep" data-episode>
+    <a href="show.html"><div class="typo-cover " style="--accent:#b9cebb">
+      <img src="assets/kira.webp" alt="Кира">
+      <div class="typo-copy"><span class="eyebrow">Питание</span><b>Как менять привычки питания, если раньше не получалось</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="player.html">Как менять привычки питания, если раньше не получалось</a>
+      <p>Кира · Питание и привычки</p>
+      <div class="mins">10 мин · <a class="read-link" href="https://eyra.ink/journal/pitanie/kak-menyat-privychki-pitaniya/" target="_blank" rel="noopener">Читать статью</a></div>
+    </div>
+  </article><article class="card-ep" data-episode>
+    <a href="show.html"><div class="typo-cover " style="--accent:#b9cebb">
+      <img src="assets/kira.webp" alt="Кира">
+      <div class="typo-copy"><span class="eyebrow">Питание</span><b>Как собрать меню на неделю и не сорваться к среде</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="player.html">Как собрать меню на неделю и не сорваться к среде</a>
+      <p>Кира · Питание и привычки</p>
+      <div class="mins">9 мин · <a class="read-link" href="https://eyra.ink/journal/pitanie/menyu-na-nedelyu/" target="_blank" rel="noopener">Читать статью</a></div>
+    </div>
+  </article><article class="card-ep" data-episode>
+    <a href="show.html"><div class="typo-cover " style="--accent:#b9cebb">
+      <img src="assets/kira.webp" alt="Кира">
+      <div class="typo-copy"><span class="eyebrow">Питание</span><b>По каким признакам понять, что питание по ИИ-плану даёт результат</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="player.html">По каким признакам понять, что питание по ИИ-плану даёт результат</a>
+      <p>Кира · Питание и привычки</p>
+      <div class="mins">9 мин · <a class="read-link" href="https://eyra.ink/journal/pitanie/priznaki-rezultata-pitaniya-po-planu/" target="_blank" rel="noopener">Читать статью</a></div>
+    </div>
+  </article></div>
+  </section>
+
+  <section class="shelf">
+    <div class="shelf-head">
+    <div>
+      <h2 class="h-section">Рубрики</h2>
+      <p class="sub">Как в журнале: у каждого эксперта своя тема</p>
+    </div>
+    <div class="shelf-tools">
+      <a href="show.html">Показать все</a>
+      <button class="arrow" data-shelf-scroll="rail-rub" data-dir="-1" aria-label="Назад"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m15 5-8 7 8 7"/></svg></button>
+      <button class="arrow" data-shelf-scroll="rail-rub" data-dir="1" aria-label="Вперёд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m8 5 8 7-8 7"/></svg></button>
+    </div>
+  </div>
+  </section>
+  <div class="rubric-grid"><a class="rubric" href="show.html" style="background:#efdfd0">
+      <i></i><b>Эмоции и отношения</b><span>Ася · 20 выпусков</span>
+    </a><a class="rubric" href="show.html" style="background:#e1ebdd">
+      <i></i><b>Питание и привычки</b><span>Кира · 20 выпусков</span>
+    </a><a class="rubric" href="show.html" style="background:#f0e3cf">
+      <i></i><b>Астрология</b><span>Вера · 20 выпусков</span>
+    </a><a class="rubric" href="show.html" style="background:#e9dce6">
+      <i></i><b>Таро</b><span>Лера · 20 выпусков</span>
+    </a><a class="rubric" href="show.html" style="background:#e7dff1">
+      <i></i><b>Нумерология</b><span>Мира · 20 выпусков</span>
+    </a><a class="rubric" href="show.html" style="background:#eddbd0">
+      <i></i><b>Карьера и самопрезентация</b><span>Ника · 21 выпуск</span>
+    </a><a class="rubric" href="show.html" style="background:#efe2c4">
+      <i></i><b>Друзья и связи</b><span>Ева · 21 выпуск</span>
+    </a><a class="rubric" href="show.html" style="background:#dce6f2">
+      <i></i><b>Отдых и впечатления</b><span>Майя · 20 выпусков</span>
+    </a><a class="rubric" href="show.html" style="background:#e4e9cf">
+      <i></i><b>Личные финансы</b><span>София · 20 выпусков</span>
+    </a><a class="rubric" href="show.html" style="background:#eedde4">
+      <i></i><b>Знакомства</b><span>Алиса · 20 выпусков</span>
+    </a></div>
+
+  <div class="ritual-row">
+    <article class="ritual" style="--accent:#d8b988">
+      <div class="who"><img src="assets/vera.webp" alt="Вера"><div><b>Вера</b><small>Астролог · ориентиры на неделю</small></div></div>
+      <p class="eyebrow">Прогноз недели</p>
+      <h2>Ориентиры Веры на эти дни</h2>
+      <p>По будням Вера даёт короткие ориентиры на день. Здесь — как вообще строятся прогнозы астрологов, и разборы карты, которые можно слушать целиком.</p>
+      <div class="acts">
+        <button class="btn-paper" data-play data-keep-label><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg> Слушать</button>
+        <a class="btn-ghost" href="https://eyra.ink/journal/astrologiya/prognozy-astrologov/" target="_blank" rel="noopener">Читать статью</a>
       </div>
     </article>
-  </section>
-
-  <section class="section" aria-label="Волна для вас">
-    <article class="wave">
-      <div class="blobs" aria-hidden="true">
-        <span class="blob blob-a"></span><span class="blob blob-b"></span>
-        <span class="blob blob-c"></span><span class="blob blob-d"></span>
-      </div>
-      <div class="inner">
-        <p class="eyebrow">Для вас</p>
-        <h2 class="display-sm">Волна на сегодня</h2>
-        <p class="lede" style="margin-top:12px;max-width:28rem">Подборка выпусков с учётом того, что вы уже слушали. Без спешки — можно сменить настроение одной кнопкой.</p>
-        <div class="moods">
-          <button class="chip is-on" aria-pressed="true">Сейчас</button>
-          <button class="chip" aria-pressed="false">Утром</button>
-          <button class="chip" aria-pressed="false">В дороге</button>
-          <button class="chip" aria-pressed="false">Перед сном</button>
-        </div>
-        <div style="margin-top:22px;display:flex;gap:12px;flex-wrap:wrap">
-          <button class="cta" data-play data-keep-label="1" style="--button:#efe4d2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg> Слушать волну</button>
-          <button class="btn-ghost">Встряхнуть</button>
-        </div>
-      </div>
-      <div class="faces" aria-hidden="true">
-        <div class="stack">
-          <img src="assets/asya.webp" alt=""/>
-          <img src="assets/kira.webp" alt=""/>
-          <img src="assets/sofia.webp" alt=""/>
-          <img src="assets/maya.webp" alt=""/>
-        </div>
+    <article class="ritual" style="--accent:#d4b8c9">
+      <div class="who"><img src="assets/lera.webp" alt="Лера"><div><b>Лера</b><small>Таролог · карта дня</small></div></div>
+      <p class="eyebrow">Карта дня</p>
+      <h2>Короткий расклад, с которого начать день</h2>
+      <p>Ежедневный формат Леры. Чтобы карта была полезной, сначала — как задать вопрос Таро; рядом расклады на любовь, работу и деньги.</p>
+      <div class="acts">
+        <button class="btn-paper" data-play data-keep-label><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg> Слушать</button>
+        <a class="btn-ghost" href="https://eyra.ink/journal/taro/kak-zadat-vopros-taro/" target="_blank" rel="noopener">Читать статью</a>
       </div>
     </article>
-  </section>
+  </div>
 
-  <section class="section">
-    <div class="section-head">
-      <h2>Все подкасты</h2>
-      <span class="muted" style="font-size:14px">10 экспертов</span>
+  <section class="shelf" id="sostoianie">
+    <div class="shelf-head">
+    <div>
+      <h2 class="h-section">Подборки под состояние</h2>
+      <p class="sub">Вечер, мало сил, тревога — из реальных статей журнала</p>
     </div>
-    <div class="shelf">
-<a class="cover-card" href="show.html" style="--accent:#ddb79c">
-  <div class="cover">
-    <img src="assets/asya.webp" alt=""/>
-    <div class="wash"></div>
-    <span class="play-float play-circle" data-play aria-label="Слушать «Разговоры с Асей»"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></span>
-  </div>
-  <div class="meta">
-    <div class="name">Разговоры с Асей</div>
-    <div class="role">Ася · Психолог</div>
-  </div>
-</a>
-
-<a class="cover-card" href="show.html" style="--accent:#b9cebb">
-  <div class="cover">
-    <img src="assets/kira.webp" alt=""/>
-    <div class="wash"></div>
-    <span class="play-float play-circle" data-play aria-label="Слушать «За столом с Кирой»"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></span>
-  </div>
-  <div class="meta">
-    <div class="name">За столом с Кирой</div>
-    <div class="role">Кира · Нутрициолог</div>
-  </div>
-</a>
-
-<a class="cover-card" href="show.html" style="--accent:#d8b988">
-  <div class="cover">
-    <img src="assets/vera.webp" alt=""/>
-    <div class="wash"></div>
-    <span class="play-float play-circle" data-play aria-label="Слушать «Карта неба»"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></span>
-  </div>
-  <div class="meta">
-    <div class="name">Карта неба</div>
-    <div class="role">Вера · Астролог</div>
-  </div>
-</a>
-
-<a class="cover-card" href="show.html" style="--accent:#d4b8c9">
-  <div class="cover">
-    <img src="assets/lera.webp" alt=""/>
-    <div class="wash"></div>
-    <span class="play-float play-circle" data-play aria-label="Слушать «Расклад Леры»"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></span>
-  </div>
-  <div class="meta">
-    <div class="name">Расклад Леры</div>
-    <div class="role">Лера · Таролог</div>
-  </div>
-</a>
-
-<a class="cover-card" href="show.html" style="--accent:#c7b9df">
-  <div class="cover">
-    <img src="assets/mira.webp" alt=""/>
-    <div class="wash"></div>
-    <span class="play-float play-circle" data-play aria-label="Слушать «Числа дня»"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></span>
-  </div>
-  <div class="meta">
-    <div class="name">Числа дня</div>
-    <div class="role">Мира · Нумеролог</div>
-  </div>
-</a>
-
-<a class="cover-card" href="show.html" style="--accent:#d4afa3">
-  <div class="cover">
-    <img src="assets/nika.webp" alt=""/>
-    <div class="wash"></div>
-    <span class="play-float play-circle" data-play aria-label="Слушать «Сцена для себя»"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></span>
-  </div>
-  <div class="meta">
-    <div class="name">Сцена для себя</div>
-    <div class="role">Ника · Продюсер</div>
-  </div>
-</a>
-
-<a class="cover-card" href="show.html" style="--accent:#d8ba78">
-  <div class="cover">
-    <img src="assets/eva.webp" alt=""/>
-    <div class="wash"></div>
-    <span class="play-float play-circle" data-play aria-label="Слушать «Первое сообщение»"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></span>
-  </div>
-  <div class="meta">
-    <div class="name">Первое сообщение</div>
-    <div class="role">Ева · Нетворкинг</div>
-  </div>
-</a>
-
-<a class="cover-card" href="show.html" style="--accent:#a8bdd9">
-  <div class="cover">
-    <img src="assets/maya.webp" alt=""/>
-    <div class="wash"></div>
-    <span class="play-float play-circle" data-play aria-label="Слушать «Вечер с Майей»"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></span>
-  </div>
-  <div class="meta">
-    <div class="name">Вечер с Майей</div>
-    <div class="role">Майя · Лайфстайл</div>
-  </div>
-</a>
-
-<a class="cover-card" href="show.html" style="--accent:#b9c58e">
-  <div class="cover">
-    <img src="assets/sofia.webp" alt=""/>
-    <div class="wash"></div>
-    <span class="play-float play-circle" data-play aria-label="Слушать «Счёт и смысл»"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></span>
-  </div>
-  <div class="meta">
-    <div class="name">Счёт и смысл</div>
-    <div class="role">София · Финансы</div>
-  </div>
-</a>
-
-<a class="cover-card" href="show.html" style="--accent:#d8a9ba">
-  <div class="cover">
-    <img src="assets/alisa.webp" alt=""/>
-    <div class="wash"></div>
-    <span class="play-float play-circle" data-play aria-label="Слушать «На равных»"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></span>
-  </div>
-  <div class="meta">
-    <div class="name">На равных</div>
-    <div class="role">Алиса · Дейтинг</div>
-  </div>
-</a></div>
-    <div class="hshelf mobile-only">
-<a class="cover-card" href="show.html" style="--accent:#ddb79c">
-  <div class="cover">
-    <img src="assets/asya.webp" alt=""/>
-    <div class="wash"></div>
-    <span class="play-float play-circle" data-play aria-label="Слушать «Разговоры с Асей»"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></span>
-  </div>
-  <div class="meta">
-    <div class="name">Разговоры с Асей</div>
-    <div class="role">Ася · Психолог</div>
-  </div>
-</a>
-
-<a class="cover-card" href="show.html" style="--accent:#b9cebb">
-  <div class="cover">
-    <img src="assets/kira.webp" alt=""/>
-    <div class="wash"></div>
-    <span class="play-float play-circle" data-play aria-label="Слушать «За столом с Кирой»"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></span>
-  </div>
-  <div class="meta">
-    <div class="name">За столом с Кирой</div>
-    <div class="role">Кира · Нутрициолог</div>
-  </div>
-</a>
-
-<a class="cover-card" href="show.html" style="--accent:#d8b988">
-  <div class="cover">
-    <img src="assets/vera.webp" alt=""/>
-    <div class="wash"></div>
-    <span class="play-float play-circle" data-play aria-label="Слушать «Карта неба»"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></span>
-  </div>
-  <div class="meta">
-    <div class="name">Карта неба</div>
-    <div class="role">Вера · Астролог</div>
-  </div>
-</a>
-
-<a class="cover-card" href="show.html" style="--accent:#d4b8c9">
-  <div class="cover">
-    <img src="assets/lera.webp" alt=""/>
-    <div class="wash"></div>
-    <span class="play-float play-circle" data-play aria-label="Слушать «Расклад Леры»"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></span>
-  </div>
-  <div class="meta">
-    <div class="name">Расклад Леры</div>
-    <div class="role">Лера · Таролог</div>
-  </div>
-</a>
-
-<a class="cover-card" href="show.html" style="--accent:#c7b9df">
-  <div class="cover">
-    <img src="assets/mira.webp" alt=""/>
-    <div class="wash"></div>
-    <span class="play-float play-circle" data-play aria-label="Слушать «Числа дня»"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></span>
-  </div>
-  <div class="meta">
-    <div class="name">Числа дня</div>
-    <div class="role">Мира · Нумеролог</div>
-  </div>
-</a>
-
-<a class="cover-card" href="show.html" style="--accent:#d4afa3">
-  <div class="cover">
-    <img src="assets/nika.webp" alt=""/>
-    <div class="wash"></div>
-    <span class="play-float play-circle" data-play aria-label="Слушать «Сцена для себя»"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></span>
-  </div>
-  <div class="meta">
-    <div class="name">Сцена для себя</div>
-    <div class="role">Ника · Продюсер</div>
-  </div>
-</a>
-
-<a class="cover-card" href="show.html" style="--accent:#d8ba78">
-  <div class="cover">
-    <img src="assets/eva.webp" alt=""/>
-    <div class="wash"></div>
-    <span class="play-float play-circle" data-play aria-label="Слушать «Первое сообщение»"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></span>
-  </div>
-  <div class="meta">
-    <div class="name">Первое сообщение</div>
-    <div class="role">Ева · Нетворкинг</div>
-  </div>
-</a>
-
-<a class="cover-card" href="show.html" style="--accent:#a8bdd9">
-  <div class="cover">
-    <img src="assets/maya.webp" alt=""/>
-    <div class="wash"></div>
-    <span class="play-float play-circle" data-play aria-label="Слушать «Вечер с Майей»"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></span>
-  </div>
-  <div class="meta">
-    <div class="name">Вечер с Майей</div>
-    <div class="role">Майя · Лайфстайл</div>
-  </div>
-</a>
-
-<a class="cover-card" href="show.html" style="--accent:#b9c58e">
-  <div class="cover">
-    <img src="assets/sofia.webp" alt=""/>
-    <div class="wash"></div>
-    <span class="play-float play-circle" data-play aria-label="Слушать «Счёт и смысл»"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></span>
-  </div>
-  <div class="meta">
-    <div class="name">Счёт и смысл</div>
-    <div class="role">София · Финансы</div>
-  </div>
-</a>
-
-<a class="cover-card" href="show.html" style="--accent:#d8a9ba">
-  <div class="cover">
-    <img src="assets/alisa.webp" alt=""/>
-    <div class="wash"></div>
-    <span class="play-float play-circle" data-play aria-label="Слушать «На равных»"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></span>
-  </div>
-  <div class="meta">
-    <div class="name">На равных</div>
-    <div class="role">Алиса · Дейтинг</div>
-  </div>
-</a></div>
-  </section>
-
-  <section class="section">
-    <div class="section-head">
-      <h2>Новые выпуски</h2>
-      <a class="link-more" href="show.html">Все новые <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <div class="shelf-tools">
+      <a href="#">Показать все</a>
+      <button class="arrow" data-shelf-scroll="rail-state" data-dir="-1" aria-label="Назад"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m15 5-8 7 8 7"/></svg></button>
+      <button class="arrow" data-shelf-scroll="rail-state" data-dir="1" aria-label="Вперёд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m8 5 8 7-8 7"/></svg></button>
     </div>
-    <div class="hshelf"><a class="cover-card" href="show.html" style="--accent:#ddb79c"><div class="cover"><img src="assets/asya.webp" alt=""/><div class="wash"></div></div><div class="meta"><div class="name">Когда сил нет, а день ещё не кончился</div><div class="role">Сегодня · 28 мин</div></div></a>
-<a class="cover-card" href="show.html" style="--accent:#b9cebb"><div class="cover"><img src="assets/kira.webp" alt=""/><div class="wash"></div></div><div class="meta"><div class="name">Ужин, который не нужно заслуживать</div><div class="role">Вчера · 19 мин</div></div></a>
-<a class="cover-card" href="show.html" style="--accent:#b9c58e"><div class="cover"><img src="assets/sofia.webp" alt=""/><div class="wash"></div></div><div class="meta"><div class="name">Если зарплата есть, а воздуха нет</div><div class="role">8 нояб. · 24 мин</div></div></a>
-<a class="cover-card" href="show.html" style="--accent:#a8bdd9"><div class="cover"><img src="assets/maya.webp" alt=""/><div class="wash"></div></div><div class="meta"><div class="name">Выходные без большого плана</div><div class="role">7 нояб. · 16 мин</div></div></a>
-<a class="cover-card" href="show.html" style="--accent:#d8ba78"><div class="cover"><img src="assets/eva.webp" alt=""/><div class="wash"></div></div><div class="meta"><div class="name">Сообщение, которое можно отправить сегодня</div><div class="role">6 нояб. · 21 мин</div></div></a>
-<a class="cover-card" href="show.html" style="--accent:#d4afa3"><div class="cover"><img src="assets/nika.webp" alt=""/><div class="wash"></div></div><div class="meta"><div class="name">Как назвать то, что вы умеете</div><div class="role">5 нояб. · 27 мин</div></div></a></div>
+  </div>
+  </section>
+  <div class="mood-grid"><a class="mood" href="#sostoianie" style="background:#dce6f2">
+      <b>Вечер</b><span>Дом, низкие силы, вечер без телефона</span>
+    </a><a class="mood" href="#sostoianie" style="background:#e1ebdd">
+      <b>Когда мало сил</b><span>Восстановление без подвига</span>
+    </a><a class="mood" href="#sostoianie" style="background:#efdfd0">
+      <b>Тревога</b><span>Неуверенность, страх отказа, долги</span>
+    </a><a class="mood" href="#sostoianie" style="background:#f0e3cf">
+      <b>На день</b><span>Короткие ориентиры: планеты, Солнце, числа на часах</span>
+    </a><a class="mood" href="#sostoianie" style="background:#dce6f2">
+      <b>Выходные</b><span>С семьёй, с партнёром, в одиночку</span>
+    </a><a class="mood" href="#sostoianie" style="background:#e1ebdd">
+      <b>Привычки</b><span>Питание, меню, вечернее переедание</span>
+    </a></div>
+  <div class="mood-btns" role="group" aria-label="Состояние"><button class="is-on" type="button">Вечер</button> <button class="" type="button">Когда мало сил</button> <button class="" type="button">Тревога</button> <button class="" type="button">На день</button> <button class="" type="button">Выходные</button> <button class="" type="button">Привычки</button></div>
+  <div class="shelf" style="margin-top:18px"><div class="rail" id="rail-state"><article class="card-ep" data-episode>
+    <a href="show.html"><div class="typo-cover " style="--accent:#a8bdd9">
+      <img src="assets/maya.webp" alt="Майя">
+      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Как распланировать вечер дома, чтобы успеть и отдохнуть</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="player.html">Как распланировать вечер дома, чтобы успеть и отдохнуть</a>
+      <p>Майя · Отдых и впечатления</p>
+      <div class="mins">7 мин · <a class="read-link" href="https://eyra.ink/journal/dosug/kak-rasplanovat-vecher-doma/" target="_blank" rel="noopener">Читать статью</a></div>
+    </div>
+  </article><article class="card-ep" data-episode>
+    <a href="show.html"><div class="typo-cover " style="--accent:#a8bdd9">
+      <img src="assets/maya.webp" alt="Майя">
+      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Вечер дома при низких силах: отдых, который реально восстанавливает</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="player.html">Вечер дома при низких силах: отдых, который реально восстанавливает</a>
+      <p>Майя · Отдых и впечатления</p>
+      <div class="mins">6 мин · <a class="read-link" href="https://eyra.ink/journal/dosug/vecher-kogda-net-sil-vosstanavlivayushchiy-otdyh/" target="_blank" rel="noopener">Читать статью</a></div>
+    </div>
+  </article><article class="card-ep" data-episode>
+    <a href="show.html"><div class="typo-cover " style="--accent:#a8bdd9">
+      <img src="assets/maya.webp" alt="Майя">
+      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Вечер пятницы: чем заняться — по силам, а не по программе</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="player.html">Вечер пятницы: чем заняться — по силам, а не по программе</a>
+      <p>Майя · Отдых и впечатления</p>
+      <div class="mins">9 мин · <a class="read-link" href="https://eyra.ink/journal/dosug/chem-zanyatsya-vecherom-pyatnitsy/" target="_blank" rel="noopener">Читать статью</a></div>
+    </div>
+  </article><article class="card-ep" data-episode>
+    <a href="show.html"><div class="typo-cover " style="--accent:#a8bdd9">
+      <img src="assets/maya.webp" alt="Майя">
+      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Чем заняться вечером, кроме сериалов: замены, которые дают то же удовольствие</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="player.html">Чем заняться вечером, кроме сериалов: замены, которые дают то же удовольствие</a>
+      <p>Майя · Отдых и впечатления</p>
+      <div class="mins">7 мин · <a class="read-link" href="https://eyra.ink/journal/dosug/chem-zanyatsya-vecherom-krome-serialov/" target="_blank" rel="noopener">Читать статью</a></div>
+    </div>
+  </article><article class="card-ep" data-episode>
+    <a href="show.html"><div class="typo-cover " style="--accent:#a8bdd9">
+      <img src="assets/maya.webp" alt="Майя">
+      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Что делать вечером без телефона: занятия и план перехода</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="player.html">Что делать вечером без телефона: занятия и план перехода</a>
+      <p>Майя · Отдых и впечатления</p>
+      <div class="mins">9 мин · <a class="read-link" href="https://eyra.ink/journal/dosug/vecher-bez-telefona/" target="_blank" rel="noopener">Читать статью</a></div>
+    </div>
+  </article><article class="card-ep" data-episode>
+    <a href="show.html"><div class="typo-cover " style="--accent:#a8bdd9">
+      <img src="assets/maya.webp" alt="Майя">
+      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Чем заняться вечером: как выбрать формат по своему состоянию</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="player.html">Чем заняться вечером: как выбрать формат по своему состоянию</a>
+      <p>Майя · Отдых и впечатления</p>
+      <div class="mins">7 мин · <a class="read-link" href="https://eyra.ink/journal/dosug/chem-zanyatsya-vecherom/" target="_blank" rel="noopener">Читать статью</a></div>
+    </div>
+  </article><article class="card-ep" data-episode>
+    <a href="show.html"><div class="typo-cover " style="--accent:#b9cebb">
+      <img src="assets/kira.webp" alt="Кира">
+      <div class="typo-copy"><span class="eyebrow">Питание</span><b>Как перестать переедать вечером: причины и что реально помогает</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="player.html">Как перестать переедать вечером: причины и что реально помогает</a>
+      <p>Кира · Питание и привычки</p>
+      <div class="mins">7 мин · <a class="read-link" href="https://eyra.ink/journal/pitanie/kira-overeating-evening/" target="_blank" rel="noopener">Читать статью</a></div>
+    </div>
+  </article></div></div>
+
+  <section class="shelf">
+    <div class="shelf-head">
+    <div>
+      <h2 class="h-section">За 10 минут</h2>
+      <p class="sub">Самые короткие выпуски — от 2 до 8 минут</p>
+    </div>
+    <div class="shelf-tools">
+      <a href="#">Показать все</a>
+      <button class="arrow" data-shelf-scroll="rail-short" data-dir="-1" aria-label="Назад"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m15 5-8 7 8 7"/></svg></button>
+      <button class="arrow" data-shelf-scroll="rail-short" data-dir="1" aria-label="Вперёд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m8 5 8 7-8 7"/></svg></button>
+    </div>
+  </div>
+    <div class="rail" id="rail-short"><article class="card-ep" data-episode>
+    <a href="show.html"><div class="typo-cover " style="--accent:#ddb79c">
+      <img src="assets/asya.webp" alt="Ася">
+      <div class="typo-copy"><span class="eyebrow">Эмоции</span><b>Что делает психолог и чем он отличается от психотерапевта и психиатра</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="player.html">Что делает психолог и чем он отличается от психотерапевта и психиатра</a>
+      <p>Ася · Эмоции и отношения</p>
+      <div class="mins">5 мин · <a class="read-link" href="https://eyra.ink/journal/emotsii/chto-delaet-psiholog/" target="_blank" rel="noopener">Читать статью</a></div>
+    </div>
+  </article><article class="card-ep" data-episode>
+    <a href="show.html"><div class="typo-cover " style="--accent:#b9cebb">
+      <img src="assets/kira.webp" alt="Кира">
+      <div class="typo-copy"><span class="eyebrow">Питание</span><b>Меню нутрициолога: что это такое и как строится сбалансированный рацион</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="player.html">Меню нутрициолога: что это такое и как строится сбалансированный рацион</a>
+      <p>Кира · Питание и привычки</p>
+      <div class="mins">6 мин · <a class="read-link" href="https://eyra.ink/journal/pitanie/menyu-nutriciologa/" target="_blank" rel="noopener">Читать статью</a></div>
+    </div>
+  </article><article class="card-ep" data-episode>
+    <a href="show.html"><div class="typo-cover " style="--accent:#d8b988">
+      <img src="assets/vera.webp" alt="Вера">
+      <div class="typo-copy"><span class="eyebrow">Астрология</span><b>Планеты в натальной карте: кто есть кто и как их читать</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="player.html">Планеты в натальной карте: кто есть кто и как их читать</a>
+      <p>Вера · Астрология</p>
+      <div class="mins">5 мин · <a class="read-link" href="https://eyra.ink/journal/astrologiya/vera-planets-general/" target="_blank" rel="noopener">Читать статью</a></div>
+    </div>
+  </article><article class="card-ep" data-episode>
+    <a href="show.html"><div class="typo-cover " style="--accent:#d4b8c9">
+      <img src="assets/lera.webp" alt="Лера">
+      <div class="typo-copy"><span class="eyebrow">Таро</span><b>Таро на деньги: что показывает расклад и как к нему подойти</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="player.html">Таро на деньги: что показывает расклад и как к нему подойти</a>
+      <p>Лера · Таро</p>
+      <div class="mins">6 мин · <a class="read-link" href="https://eyra.ink/journal/taro/taro-na-dengi/" target="_blank" rel="noopener">Читать статью</a></div>
+    </div>
+  </article><article class="card-ep" data-episode>
+    <a href="show.html"><div class="typo-cover " style="--accent:#c7b9df">
+      <img src="assets/mira.webp" alt="Мира">
+      <div class="typo-copy"><span class="eyebrow">Числа</span><b>00:22 на часах: значение в ангельской нумерологии</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="player.html">00:22 на часах: значение в ангельской нумерологии</a>
+      <p>Мира · Нумерология</p>
+      <div class="mins">6 мин · <a class="read-link" href="https://eyra.ink/journal/numerologiya/mira-clock-clock-0022/" target="_blank" rel="noopener">Читать статью</a></div>
+    </div>
+  </article><article class="card-ep" data-episode>
+    <a href="show.html"><div class="typo-cover " style="--accent:#d4afa3">
+      <img src="assets/nika.webp" alt="Ника">
+      <div class="typo-copy"><span class="eyebrow">Карьера</span><b>Самопрезентация: как понятно рассказать о себе</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="player.html">Самопрезентация: как понятно рассказать о себе</a>
+      <p>Ника · Карьера и самопрезентация</p>
+      <div class="mins">2 мин · <a class="read-link" href="https://eyra.ink/journal/karera/samoprezentatsiya/" target="_blank" rel="noopener">Читать статью</a></div>
+    </div>
+  </article><article class="card-ep" data-episode>
+    <a href="show.html"><div class="typo-cover " style="--accent:#d8ba78">
+      <img src="assets/eva.webp" alt="Ева">
+      <div class="typo-copy"><span class="eyebrow">Связи</span><b>Вопросы для нетворкинга: как начать и продолжить разговор</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="player.html">Вопросы для нетворкинга: как начать и продолжить разговор</a>
+      <p>Ева · Друзья и связи</p>
+      <div class="mins">4 мин · <a class="read-link" href="https://eyra.ink/journal/obshchenie/eva-networking-questions/" target="_blank" rel="noopener">Читать статью</a></div>
+    </div>
+  </article><article class="card-ep" data-episode>
+    <a href="show.html"><div class="typo-cover " style="--accent:#a8bdd9">
+      <img src="assets/maya.webp" alt="Майя">
+      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Вечер дома при низких силах: отдых, который реально восстанавливает</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="player.html">Вечер дома при низких силах: отдых, который реально восстанавливает</a>
+      <p>Майя · Отдых и впечатления</p>
+      <div class="mins">6 мин · <a class="read-link" href="https://eyra.ink/journal/dosug/vecher-kogda-net-sil-vosstanavlivayushchiy-otdyh/" target="_blank" rel="noopener">Читать статью</a></div>
+    </div>
+  </article><article class="card-ep" data-episode>
+    <a href="show.html"><div class="typo-cover " style="--accent:#b9c58e">
+      <img src="assets/sofia.webp" alt="София">
+      <div class="typo-copy"><span class="eyebrow">Финансы</span><b>Таблица как накопить деньги: готовые схемы и своя таблица за один вечер</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="player.html">Таблица как накопить деньги: готовые схемы и своя таблица за один вечер</a>
+      <p>София · Личные финансы</p>
+      <div class="mins">6 мин · <a class="read-link" href="https://eyra.ink/journal/finansy/sofia-time-goal-table/" target="_blank" rel="noopener">Читать статью</a></div>
+    </div>
+  </article><article class="card-ep" data-episode>
+    <a href="show.html"><div class="typo-cover " style="--accent:#d8a9ba">
+      <img src="assets/alisa.webp" alt="Алиса">
+      <div class="typo-copy"><span class="eyebrow">Знакомства</span><b>Дейтинг: как знакомиться в приложениях и доводить знакомство до встречи</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="player.html">Дейтинг: как знакомиться в приложениях и доводить знакомство до встречи</a>
+      <p>Алиса · Знакомства</p>
+      <div class="mins">8 мин · <a class="read-link" href="https://eyra.ink/journal/znakomstva/alisa-online-apps/" target="_blank" rel="noopener">Читать статью</a></div>
+    </div>
+  </article><article class="card-ep" data-episode>
+    <a href="show.html"><div class="typo-cover " style="--accent:#ddb79c">
+      <img src="assets/asya.webp" alt="Ася">
+      <div class="typo-copy"><span class="eyebrow">Эмоции</span><b>Онлайн или очно: как формат сессий у психолога влияет на качество разговора</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="player.html">Онлайн или очно: как формат сессий у психолога влияет на качество разговора</a>
+      <p>Ася · Эмоции и отношения</p>
+      <div class="mins">7 мин · <a class="read-link" href="https://eyra.ink/journal/emotsii/onlajn-ili-ochno-format-sessij/" target="_blank" rel="noopener">Читать статью</a></div>
+    </div>
+  </article><article class="card-ep" data-episode>
+    <a href="show.html"><div class="typo-cover " style="--accent:#b9cebb">
+      <img src="assets/kira.webp" alt="Кира">
+      <div class="typo-copy"><span class="eyebrow">Питание</span><b>Нутрициолог: отзывы, которым можно доверять, и как выбрать специалиста</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="player.html">Нутрициолог: отзывы, которым можно доверять, и как выбрать специалиста</a>
+      <p>Кира · Питание и привычки</p>
+      <div class="mins">7 мин · <a class="read-link" href="https://eyra.ink/journal/pitanie/nutriciolog-otzyvy/" target="_blank" rel="noopener">Читать статью</a></div>
+    </div>
+  </article></div>
   </section>
 
-  
-<footer class="footer">
-  <div class="footer-row">
-    <span>EYRA · Подкасты экспертов</span>
-    <span><a href="https://eyra.ink/">Эксперты</a> · <a href="https://eyra.ink/journal/">Блог</a> · <a href="hub.html">Подкасты</a></span>
+  <section class="shelf">
+    <div class="shelf-head">
+    <div>
+      <h2 class="h-section">Сейчас в фокусе</h2>
+      <p class="sub">Редакторская подборка недели · без выдуманных прослушиваний</p>
+    </div>
+    <div class="shelf-tools">
+      <a href="#">Показать все</a>
+      <button class="arrow" data-shelf-scroll="rail-focus" data-dir="-1" aria-label="Назад"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m15 5-8 7 8 7"/></svg></button>
+      <button class="arrow" data-shelf-scroll="rail-focus" data-dir="1" aria-label="Вперёд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m8 5 8 7-8 7"/></svg></button>
+    </div>
   </div>
-  <p class="note">Названия подкастов, выпусков и цифры в этом макете — примерный контент для концепции. Имена, роли и визуальный стиль экспертов соответствуют сайту eyra.ink.</p>
+  </section>
+  <div class="ep-grid focus-list">
+    <article class="ep-row" data-episode>
+    <span class="ep-num">1</span>
+    <a href="player.html"><div class="typo-cover " style="--accent:#a8bdd9">
+      <img src="assets/maya.webp" alt="Майя">
+      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Как распланировать вечер дома, чтобы успеть и отдохнуть</b></div>
+      
+    </div></a>
+    <div class="body">
+      <h3><a href="player.html">Как распланировать вечер дома, чтобы успеть и отдохнуть</a></h3>
+      <p>Майя · Отдых и впечатления · <a class="read-link" href="https://eyra.ink/journal/dosug/kak-rasplanovat-vecher-doma/" target="_blank" rel="noopener">Читать статью</a></p>
+    </div>
+    <span class="dur">7 мин</span>
+    <button class="play-inline" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+  </article><article class="ep-row" data-episode>
+    <span class="ep-num">2</span>
+    <a href="player.html"><div class="typo-cover " style="--accent:#ddb79c">
+      <img src="assets/asya.webp" alt="Ася">
+      <div class="typo-copy"><span class="eyebrow">Эмоции</span><b>Близкий отказывается от психолога: что делать вам и какие есть бесплатные опции</b></div>
+      
+    </div></a>
+    <div class="body">
+      <h3><a href="player.html">Близкий отказывается от психолога: что делать вам и какие есть бесплатные опции</a></h3>
+      <p>Ася · Эмоции и отношения · <a class="read-link" href="https://eyra.ink/journal/emotsii/blizkij-otkazyvaetsya-ot-psihologa/" target="_blank" rel="noopener">Читать статью</a></p>
+    </div>
+    <span class="dur">13 мин</span>
+    <button class="play-inline" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+  </article><article class="ep-row" data-episode>
+    <span class="ep-num">3</span>
+    <a href="player.html"><div class="typo-cover " style="--accent:#b9cebb">
+      <img src="assets/kira.webp" alt="Кира">
+      <div class="typo-copy"><span class="eyebrow">Питание</span><b>Как менять привычки питания, если раньше не получалось</b></div>
+      
+    </div></a>
+    <div class="body">
+      <h3><a href="player.html">Как менять привычки питания, если раньше не получалось</a></h3>
+      <p>Кира · Питание и привычки · <a class="read-link" href="https://eyra.ink/journal/pitanie/kak-menyat-privychki-pitaniya/" target="_blank" rel="noopener">Читать статью</a></p>
+    </div>
+    <span class="dur">10 мин</span>
+    <button class="play-inline" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+  </article><article class="ep-row" data-episode>
+    <span class="ep-num">4</span>
+    <a href="player.html"><div class="typo-cover " style="--accent:#d4b8c9">
+      <img src="assets/lera.webp" alt="Лера">
+      <div class="typo-copy"><span class="eyebrow">Таро</span><b>Таро на деньги: что показывает расклад и как к нему подойти</b></div>
+      
+    </div></a>
+    <div class="body">
+      <h3><a href="player.html">Таро на деньги: что показывает расклад и как к нему подойти</a></h3>
+      <p>Лера · Таро · <a class="read-link" href="https://eyra.ink/journal/taro/taro-na-dengi/" target="_blank" rel="noopener">Читать статью</a></p>
+    </div>
+    <span class="dur">6 мин</span>
+    <button class="play-inline" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+  </article><article class="ep-row" data-episode>
+    <span class="ep-num">5</span>
+    <a href="player.html"><div class="typo-cover " style="--accent:#d4afa3">
+      <img src="assets/nika.webp" alt="Ника">
+      <div class="typo-copy"><span class="eyebrow">Карьера</span><b>Самопрезентация, если опыта в профессии мало: на что опираться вместо стажа</b></div>
+      
+    </div></a>
+    <div class="body">
+      <h3><a href="player.html">Самопрезентация, если опыта в профессии мало: на что опираться вместо стажа</a></h3>
+      <p>Ника · Карьера и самопрезентация · <a class="read-link" href="https://eyra.ink/journal/karera/samoprezentatsiya-bez-opyta/" target="_blank" rel="noopener">Читать статью</a></p>
+    </div>
+    <span class="dur">8 мин</span>
+    <button class="play-inline" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+  </article><article class="ep-row" data-episode>
+    <span class="ep-num">6</span>
+    <a href="player.html"><div class="typo-cover " style="--accent:#d8a9ba">
+      <img src="assets/alisa.webp" alt="Алиса">
+      <div class="typo-copy"><span class="eyebrow">Знакомства</span><b>Как справиться со страхом отказа при знакомстве</b></div>
+      
+    </div></a>
+    <div class="body">
+      <h3><a href="player.html">Как справиться со страхом отказа при знакомстве</a></h3>
+      <p>Алиса · Знакомства · <a class="read-link" href="https://eyra.ink/journal/znakomstva/strah-otkaza-pri-znakomstve/" target="_blank" rel="noopener">Читать статью</a></p>
+    </div>
+    <span class="dur">11 мин</span>
+    <button class="play-inline" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+  </article><article class="ep-row" data-episode>
+    <span class="ep-num">7</span>
+    <a href="player.html"><div class="typo-cover " style="--accent:#d8b988">
+      <img src="assets/vera.webp" alt="Вера">
+      <div class="typo-copy"><span class="eyebrow">Астрология</span><b>Прогнозы астрологов: на чём они строятся и что на самом деле описывают</b></div>
+      
+    </div></a>
+    <div class="body">
+      <h3><a href="player.html">Прогнозы астрологов: на чём они строятся и что на самом деле описывают</a></h3>
+      <p>Вера · Астрология · <a class="read-link" href="https://eyra.ink/journal/astrologiya/prognozy-astrologov/" target="_blank" rel="noopener">Читать статью</a></p>
+    </div>
+    <span class="dur">8 мин</span>
+    <button class="play-inline" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+  </article><article class="ep-row" data-episode>
+    <span class="ep-num">8</span>
+    <a href="player.html"><div class="typo-cover " style="--accent:#c7b9df">
+      <img src="assets/mira.webp" alt="Мира">
+      <div class="typo-copy"><span class="eyebrow">Числа</span><b>00:33 на часах: значение в ангельской нумерологии</b></div>
+      
+    </div></a>
+    <div class="body">
+      <h3><a href="player.html">00:33 на часах: значение в ангельской нумерологии</a></h3>
+      <p>Мира · Нумерология · <a class="read-link" href="https://eyra.ink/journal/numerologiya/mira-clock-clock-0033/" target="_blank" rel="noopener">Читать статью</a></p>
+    </div>
+    <span class="dur">9 мин</span>
+    <button class="play-inline" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+  </article>
+  </div>
+
+  <section class="shelf">
+    <div class="shelf-head">
+    <div>
+      <h2 class="h-section">Одна тема — разные взгляды</h2>
+      <p class="sub">Один вопрос глазами разных экспертов</p>
+    </div>
+    <div class="shelf-tools">
+      <a href="#">Показать все</a>
+      <button class="arrow" data-shelf-scroll="#" data-dir="-1" aria-label="Назад"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m15 5-8 7 8 7"/></svg></button>
+      <button class="arrow" data-shelf-scroll="#" data-dir="1" aria-label="Вперёд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m8 5 8 7-8 7"/></svg></button>
+    </div>
+  </div>
+  </section>
+  <div class="views"><article class="view-card">
+        <h3>Деньги</h3>
+        <p class="lead">План накоплений Софии и расклады Леры на деньги и зарплату — одна тема, два языка.</p>
+        <a class="take" href="player.html">
+          <img src="assets/sofia.webp" alt="София">
+          <div><em>София · Финансовый советник</em><b>Как накопить деньги: план для обычной жизни</b></div>
+          <span class="mins">8 мин</span>
+        </a><a class="take" href="player.html">
+          <img src="assets/lera.webp" alt="Лера">
+          <div><em>Лера · Таролог</em><b>Таро на деньги: что показывает расклад и как к нему подойти</b></div>
+          <span class="mins">6 мин</span>
+        </a><a class="take" href="player.html">
+          <img src="assets/lera.webp" alt="Лера">
+          <div><em>Лера · Таролог</em><b>Расклад на переговоры о зарплате: схема из 6 карт и как её читать</b></div>
+          <span class="mins">8 мин</span>
+        </a>
+      </article><article class="view-card">
+        <h3>Работа и перемены</h3>
+        <p class="lead">Самопрезентация, если опыта мало, и карты о смене профессии, оффере, увольнении.</p>
+        <a class="take" href="player.html">
+          <img src="assets/nika.webp" alt="Ника">
+          <div><em>Ника · Продюсер</em><b>Самопрезентация, если опыта в профессии мало: на что опираться вместо стажа</b></div>
+          <span class="mins">8 мин</span>
+        </a><a class="take" href="player.html">
+          <img src="assets/lera.webp" alt="Лера">
+          <div><em>Лера · Таролог</em><b>Карты Таро, говорящие о смене профессии</b></div>
+          <span class="mins">9 мин</span>
+        </a><a class="take" href="player.html">
+          <img src="assets/lera.webp" alt="Лера">
+          <div><em>Лера · Таролог</em><b>Таро на вопрос «стоит ли принимать оффер»: как сформулировать вопрос и прочитать расклад</b></div>
+          <span class="mins">8 мин</span>
+        </a>
+      </article><article class="view-card">
+        <h3>Расставание и чувства</h3>
+        <p class="lead">Как пережить расставание — и что показывают расклады на бывшего и на любовь.</p>
+        <a class="take" href="player.html">
+          <img src="assets/asya.webp" alt="Ася">
+          <div><em>Ася · Психолог</em><b>Как пережить расставание</b></div>
+          <span class="mins">9 мин</span>
+        </a><a class="take" href="player.html">
+          <img src="assets/lera.webp" alt="Лера">
+          <div><em>Лера · Таролог</em><b>Таро на бывшего: что показывают карты и как читать расклад без самообмана</b></div>
+          <span class="mins">10 мин</span>
+        </a><a class="take" href="player.html">
+          <img src="assets/lera.webp" alt="Лера">
+          <div><em>Лера · Таролог</em><b>Таро на любовь: что показывают расклады на отношения и чего от них ждать</b></div>
+          <span class="mins">7 мин</span>
+        </a>
+      </article></div>
+
+  <section class="shelf">
+    <div class="shelf-head">
+    <div>
+      <h2 class="h-section">Эксперты</h2>
+      <p class="sub">Круглый портрет как на сайте, без текста на фото</p>
+    </div>
+    <div class="shelf-tools">
+      <a href="https://eyra.ink/#experts">Показать все</a>
+      <button class="arrow" data-shelf-scroll="rail-exp" data-dir="-1" aria-label="Назад"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m15 5-8 7 8 7"/></svg></button>
+      <button class="arrow" data-shelf-scroll="rail-exp" data-dir="1" aria-label="Вперёд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m8 5 8 7-8 7"/></svg></button>
+    </div>
+  </div>
+    <div class="rail" id="rail-exp"><article class="card-expert" style="--accent:#ddb79c">
+    <a class="avatar-wrap" href="show.html">
+      <img src="assets/asya.webp" alt="Ася">
+      <button class="play-float" data-play aria-label="Слушать Ася"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </a>
+    <h3>Ася</h3>
+    <p class="field">Психолог</p>
+    <a class="mini-ep" href="player.html">
+      <p class="k">Последний выпуск</p>
+      <p>Близкий отказывается от психолога: что делать вам и какие есть бесплатные опции</p>
+    </a>
+  </article><article class="card-expert" style="--accent:#b9cebb">
+    <a class="avatar-wrap" href="show.html">
+      <img src="assets/kira.webp" alt="Кира">
+      <button class="play-float" data-play aria-label="Слушать Кира"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </a>
+    <h3>Кира</h3>
+    <p class="field">Нутрициолог</p>
+    <a class="mini-ep" href="player.html">
+      <p class="k">Последний выпуск</p>
+      <p>Как менять привычки питания, если раньше не получалось</p>
+    </a>
+  </article><article class="card-expert" style="--accent:#d8b988">
+    <a class="avatar-wrap" href="show.html">
+      <img src="assets/vera.webp" alt="Вера">
+      <button class="play-float" data-play aria-label="Слушать Вера"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </a>
+    <h3>Вера</h3>
+    <p class="field">Астролог</p>
+    <a class="mini-ep" href="player.html">
+      <p class="k">Последний выпуск</p>
+      <p>Лилит в Скорпионе в натальной карте: что это значит</p>
+    </a>
+  </article><article class="card-expert" style="--accent:#d4b8c9">
+    <a class="avatar-wrap" href="show.html">
+      <img src="assets/lera.webp" alt="Лера">
+      <button class="play-float" data-play aria-label="Слушать Лера"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </a>
+    <h3>Лера</h3>
+    <p class="field">Таролог</p>
+    <a class="mini-ep" href="player.html">
+      <p class="k">Последний выпуск</p>
+      <p>Кубки и пентакли в работе: как масти делят сферы карьеры</p>
+    </a>
+  </article><article class="card-expert" style="--accent:#c7b9df">
+    <a class="avatar-wrap" href="show.html">
+      <img src="assets/mira.webp" alt="Мира">
+      <button class="play-float" data-play aria-label="Слушать Мира"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </a>
+    <h3>Мира</h3>
+    <p class="field">Нумеролог</p>
+    <a class="mini-ep" href="player.html">
+      <p class="k">Последний выпуск</p>
+      <p>00:33 на часах: значение в ангельской нумерологии</p>
+    </a>
+  </article><article class="card-expert" style="--accent:#d4afa3">
+    <a class="avatar-wrap" href="show.html">
+      <img src="assets/nika.webp" alt="Ника">
+      <button class="play-float" data-play aria-label="Слушать Ника"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </a>
+    <h3>Ника</h3>
+    <p class="field">Продюсер</p>
+    <a class="mini-ep" href="player.html">
+      <p class="k">Последний выпуск</p>
+      <p>Как говорить о слабых местах в самопрезентации: пробелы в стаже, смена сферы, нехватка навыка</p>
+    </a>
+  </article><article class="card-expert" style="--accent:#d8ba78">
+    <a class="avatar-wrap" href="show.html">
+      <img src="assets/eva.webp" alt="Ева">
+      <button class="play-float" data-play aria-label="Слушать Ева"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </a>
+    <h3>Ева</h3>
+    <p class="field">Ассистент по нетворкингу</p>
+    <a class="mini-ep" href="player.html">
+      <p class="k">Последний выпуск</p>
+      <p>Как найти друзей, когда все вокруг заняты семьями и детьми</p>
+    </a>
+  </article><article class="card-expert" style="--accent:#a8bdd9">
+    <a class="avatar-wrap" href="show.html">
+      <img src="assets/maya.webp" alt="Майя">
+      <button class="play-float" data-play aria-label="Слушать Майя"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </a>
+    <h3>Майя</h3>
+    <p class="field">Лайфстайл-ассистент</p>
+    <a class="mini-ep" href="player.html">
+      <p class="k">Последний выпуск</p>
+      <p>Как распланировать вечер дома, чтобы успеть и отдохнуть</p>
+    </a>
+  </article><article class="card-expert" style="--accent:#b9c58e">
+    <a class="avatar-wrap" href="show.html">
+      <img src="assets/sofia.webp" alt="София">
+      <button class="play-float" data-play aria-label="Слушать София"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </a>
+    <h3>София</h3>
+    <p class="field">Финансовый советник</p>
+    <a class="mini-ep" href="player.html">
+      <p class="k">Последний выпуск</p>
+      <p>Куда откладывать деньги на компьютер: где хранить накопления, чтобы не потратить раньше времени</p>
+    </a>
+  </article><article class="card-expert" style="--accent:#d8a9ba">
+    <a class="avatar-wrap" href="show.html">
+      <img src="assets/alisa.webp" alt="Алиса">
+      <button class="play-float" data-play aria-label="Слушать Алиса"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </a>
+    <h3>Алиса</h3>
+    <p class="field">Дейтинг-ассистент</p>
+    <a class="mini-ep" href="player.html">
+      <p class="k">Последний выпуск</p>
+      <p>Как справиться со страхом отказа при знакомстве</p>
+    </a>
+  </article></div>
+  </section>
+
+  <section class="shelf">
+    <div class="shelf-head">
+    <div>
+      <h2 class="h-section">Колонки</h2>
+      <p class="sub">Квадратные обложки в системе журнала: фото справа, название слева</p>
+    </div>
+    <div class="shelf-tools">
+      <a href="#">Показать все</a>
+      <button class="arrow" data-shelf-scroll="rail-cols" data-dir="-1" aria-label="Назад"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m15 5-8 7 8 7"/></svg></button>
+      <button class="arrow" data-shelf-scroll="rail-cols" data-dir="1" aria-label="Вперёд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m8 5 8 7-8 7"/></svg></button>
+    </div>
+  </div>
+    <div class="rail" id="rail-cols"><article class="card-show">
+    <a href="show.html"><div class="typo-cover " style="--accent:#ddb79c">
+      <img src="assets/asya.webp" alt="Ася">
+      <div class="typo-copy"><span class="eyebrow">Ася</span><b>Эмоции и отношения</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="show.html">Эмоции и отношения</a>
+      <p>Ася · Психолог · 20 выпусков</p>
+    </div>
+  </article><article class="card-show">
+    <a href="show.html"><div class="typo-cover " style="--accent:#b9cebb">
+      <img src="assets/kira.webp" alt="Кира">
+      <div class="typo-copy"><span class="eyebrow">Кира</span><b>Питание и привычки</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="show.html">Питание и привычки</a>
+      <p>Кира · Нутрициолог · 20 выпусков</p>
+    </div>
+  </article><article class="card-show">
+    <a href="show.html"><div class="typo-cover " style="--accent:#d8b988">
+      <img src="assets/vera.webp" alt="Вера">
+      <div class="typo-copy"><span class="eyebrow">Вера</span><b>Астрология</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="show.html">Астрология</a>
+      <p>Вера · Астролог · 20 выпусков</p>
+    </div>
+  </article><article class="card-show">
+    <a href="show.html"><div class="typo-cover " style="--accent:#d4b8c9">
+      <img src="assets/lera.webp" alt="Лера">
+      <div class="typo-copy"><span class="eyebrow">Лера</span><b>Таро</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="show.html">Таро</a>
+      <p>Лера · Таролог · 20 выпусков</p>
+    </div>
+  </article><article class="card-show">
+    <a href="show.html"><div class="typo-cover " style="--accent:#c7b9df">
+      <img src="assets/mira.webp" alt="Мира">
+      <div class="typo-copy"><span class="eyebrow">Мира</span><b>Нумерология</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="show.html">Нумерология</a>
+      <p>Мира · Нумеролог · 20 выпусков</p>
+    </div>
+  </article><article class="card-show">
+    <a href="show.html"><div class="typo-cover " style="--accent:#d4afa3">
+      <img src="assets/nika.webp" alt="Ника">
+      <div class="typo-copy"><span class="eyebrow">Ника</span><b>Карьера и самопрезентация</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="show.html">Карьера и самопрезентация</a>
+      <p>Ника · Продюсер · 21 выпусков</p>
+    </div>
+  </article><article class="card-show">
+    <a href="show.html"><div class="typo-cover " style="--accent:#d8ba78">
+      <img src="assets/eva.webp" alt="Ева">
+      <div class="typo-copy"><span class="eyebrow">Ева</span><b>Друзья и связи</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="show.html">Друзья и связи</a>
+      <p>Ева · Ассистент по нетворкингу · 21 выпусков</p>
+    </div>
+  </article><article class="card-show">
+    <a href="show.html"><div class="typo-cover " style="--accent:#a8bdd9">
+      <img src="assets/maya.webp" alt="Майя">
+      <div class="typo-copy"><span class="eyebrow">Майя</span><b>Отдых и впечатления</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="show.html">Отдых и впечатления</a>
+      <p>Майя · Лайфстайл-ассистент · 20 выпусков</p>
+    </div>
+  </article><article class="card-show">
+    <a href="show.html"><div class="typo-cover " style="--accent:#b9c58e">
+      <img src="assets/sofia.webp" alt="София">
+      <div class="typo-copy"><span class="eyebrow">София</span><b>Личные финансы</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="show.html">Личные финансы</a>
+      <p>София · Финансовый советник · 20 выпусков</p>
+    </div>
+  </article><article class="card-show">
+    <a href="show.html"><div class="typo-cover " style="--accent:#d8a9ba">
+      <img src="assets/alisa.webp" alt="Алиса">
+      <div class="typo-copy"><span class="eyebrow">Алиса</span><b>Знакомства</b></div>
+      <button class="play-float" data-play aria-label="Слушать"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></button>
+    </div></a>
+    <div class="card-meta">
+      <a class="title" href="show.html">Знакомства</a>
+      <p>Алиса · Дейтинг-ассистент · 20 выпусков</p>
+    </div>
+  </article></div>
+  </section>
+
+  <section class="promo">
+    <div>
+      <span class="eyebrow">В Telegram</span>
+      <h2 class="h-section">Слушаете выпуск — можете сразу написать эксперту</h2>
+      <p class="lede">7 дней бесплатно у каждого. Потом 990 ₽ за 30 дней, без автосписания. Подкаст — вход в разговор, который уже идёт в чате.</p>
+      <a class="btn-paper" href="https://eyra.ink/#experts">Выбрать эксперта</a>
+    </div>
+    <div class="qr-card">
+      <img src="assets/qr-eyra.png" alt="QR-код на eyra.ink">
+      <span>eyra.ink</span>
+    </div>
+  </section>
+
+  <p class="ph-note">Названия выпусков — реальные заголовки статей журнала eyra.ink/journal (202 материала). Каждый выпуск — аудиоверсия статьи: можно слушать или открыть текст. Состояние плеера в макете — пример.</p>
+<footer class="site-foot">
+  <span>EYRA · концепт раздела «Подкасты»</span>
+  <span>Не продакшен eyra.ink</span>
 </footer>
 
 </main>
-
-<div class="mini-player" style="--accent:#ddb79c">
-  <button class="now" data-open-full aria-label="Открыть плеер">
-    <img src="assets/asya.webp" alt=""/>
-    <span class="t">
-      <b>Когда сил нет, а день ещё не кончился</b>
-      <span>Ася · Разговоры с Асей</span>
-    </span>
-  </button>
-  <div class="transport">
-    <div class="row">
-      <button class="skip15" type="button" aria-label="На 15 секунд назад"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 7l-6 5 6 5"/><path d="M19 7l-6 5 6 5"/></svg><b>15</b></button>
-      <button class="play skip-m" data-play aria-label="Пауза"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/><rect x="14" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/></svg></button>
-      <button class="skip15" type="button" aria-label="На 15 секунд вперёд"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 7l6 5-6 5"/><path d="M5 7l6 5-6 5"/></svg><b>15</b></button>
-    </div>
-    <div class="timeline" data-progress style="--p:57%">
-      <span data-time-cur>16:04</span>
-      <div class="track" aria-hidden="true"><i></i></div>
-      <span data-time-left>-12:08</span>
+<div class="mini-player" role="region" aria-label="Сейчас играет">
+  <div class="mini-left">
+    <button data-open-full aria-label="Открыть плеер"><div class="typo-cover " style="--accent:#a8bdd9">
+      <img src="assets/maya.webp" alt="Майя">
+      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Как распланировать вечер дома, чтобы успеть и отдохнуть</b></div>
+      
+    </div></button>
+    <div class="meta">
+      <b>Как распланировать вечер дома, чтобы успеть и отдохнуть</b>
+      <span>Майя · Отдых и впечатления</span>
     </div>
   </div>
-  <div class="mini-extras">
-    <button class="speed-chip" data-speed aria-label="Скорость 1×">1×</button>
-    <button class="icon-btn" data-sleep data-state="Выкл" aria-label="Таймер сна: Выкл"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 4.5A7.5 7.5 0 1 0 20 14.6 6.5 6.5 0 0 1 15.5 4.5z"/></svg></button>
-    <button class="icon-btn" aria-label="Очередь"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h10"/></svg></button>
+  <div class="mini-mid">
+    <div class="mini-ctrls">
+      <button class="side" aria-label="Назад 15 секунд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 8 4 11l3 3"/><path d="M4 11h9a5 5 0 1 1 0 10H8"/><text x="11.5" y="14.5" font-size="6" fill="currentColor" stroke="none" text-anchor="middle">15</text></svg></button>
+      <button class="main" data-play data-keep-label aria-label="Пауза"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/><rect x="14" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/></svg></button>
+      <button class="side" aria-label="Вперёд 15 секунд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 8 20 11l-3 3"/><path d="M20 11H11a5 5 0 1 0 0 10h5"/></svg></button>
+    </div>
+    <div class="timeline-block" style="width:100%">
+      <div class="bar" data-progress aria-hidden="true"><i></i></div>
+      <div class="times"><span data-time-cur>2:56</span><span data-time-left>-4:04</span></div>
+    </div>
+  </div>
+  <div class="mini-right">
+    <button class="icon-btn" data-speed aria-label="Скорость 1×">1×</button>
+    <button class="icon-btn hide-sm" data-sleep aria-label="Таймер сна: Выкл"><span data-sleep-label>Таймер</span></button>
+    <a class="read-link hide-sm" href="https://eyra.ink/journal/dosug/kak-rasplanovat-vecher-doma/" target="_blank" rel="noopener">Читать статью</a>
+    <div class="vol hide-sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 10v4h3l4 3V7L7 10H4z"/><path d="M16 9.5a4 4 0 0 1 0 5"/></svg><div class="bar"><i></i></div></div>
+    <button class="icon-btn" data-open-full aria-label="Развернуть плеер"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m6 14 6-6 6 6"/></svg></button>
   </div>
 </div>
 
+<nav class="tabbar" aria-label="Мобильная навигация"><a href="https://eyra.ink/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 11 12 4l8 7v8a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-8z"/></svg>Главная</a><a href="hub.html" class="is-on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 12a6 6 0 0 0 12 0M12 18v3"/></svg>Подкасты</a><a href="https://eyra.ink/#experts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><circle cx="17" cy="9" r="2.4"/><path d="M21.5 19a4.5 4.5 0 0 0-6-4"/></svg>Эксперты</a><a href="https://eyra.ink/journal/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 5h6v14H5zM13 5h6v14h-6z"/></svg>Журнал</a></nav>
 
-<div id="full-player" class="full-player" aria-hidden="true" role="dialog" aria-label="Сейчас играет" tabindex="-1" style="--accent:#ddb79c;--button:#efdfd0">
-  <div class="bg"><img src="assets/asya.webp" alt=""/><div class="veil"></div></div>
-  <div class="full-head">
-    <button class="icon-btn" data-close-full aria-label="Свернуть плеер"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 10l6 6 6-6"/></svg></button>
-    <span>Сейчас играет · Разговоры с Асей</span>
-    <button class="icon-btn" aria-label="Ещё"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="18" cy="12" r="1.3" fill="currentColor" stroke="none"/></svg></button>
-  </div>
-  <div class="full-shell">
-    <div class="full-art"><img src="assets/asya.webp" alt="Обложка подкаста Аси"/></div>
-    <div class="full-info">
-      <p class="eyebrow">Выпуск · 8 ноября 2026</p>
-      <h1>Когда сил нет, а день ещё не кончился</h1>
-      <p class="by">Ася · ИИ-психолог</p>
-      <div class="full-controls">
-        <div class="timeline" data-progress style="--p:57%">
-          <span data-time-cur>16:04</span>
-          <div class="track"><i></i></div>
-          <span data-time-left>-12:08</span>
+<div id="full-player" class="full-player" hidden role="dialog" aria-modal="true" aria-label="Сейчас играет" aria-hidden="true">
+  <header class="fp-bar">
+    <button class="fp-close" data-close-full aria-label="Свернуть"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m6 14 6-6 6 6"/></svg></button>
+    <span class="eyebrow">Сейчас играет</span>
+    <button class="fp-close" data-close-full aria-label="Закрыть"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+  </header>
+  <div class="inner">
+    <div class="now-art-wrap" style="--accent:#a8bdd9">
+      <div class="glow" style="background:radial-gradient(circle at 50% 50%, #a8bdd9, transparent 68%)"></div>
+      <div class="typo-cover " style="--accent:#a8bdd9">
+      <img src="assets/maya.webp" alt="Майя">
+      <div class="typo-copy"><span class="eyebrow">Отдых и впечатления</span><b>Как распланировать вечер дома, чтобы успеть и отдохнуть</b></div>
+      
+    </div>
+    </div>
+    <div class="now-copy">
+      <a class="show-link" href="show.html">Отдых и впечатления</a>
+      <h1>Как распланировать вечер дома, чтобы успеть и отдохнуть</h1>
+      <div class="host-line"><img src="assets/maya.webp" alt="">Майя · Лайфстайл-ассистент · 7 мин</div>
+      <div class="mode-switch" role="tablist" aria-label="Формат">
+        <button class="is-on" data-play data-keep-label><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg> Слушать</button>
+        <a href="https://eyra.ink/journal/dosug/kak-rasplanovat-vecher-doma/" target="_blank" rel="noopener">Читать статью</a>
+      </div>
+      <div class="player-controls" style="margin-top:28px">
+        <div class="timeline-block">
+          <div class="bar" data-progress><i></i></div>
+          <div class="times"><span data-time-cur>2:56</span><span data-time-left>-4:04</span></div>
         </div>
-        <div class="full-row">
-          <button class="skip15" type="button" aria-label="На 15 секунд назад"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 7l-6 5 6 5"/><path d="M19 7l-6 5 6 5"/></svg><b>15</b></button>
-          <button class="play-solid" data-play aria-label="Пауза"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/><rect x="14" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/></svg></button>
-          <button class="skip15" type="button" aria-label="На 15 секунд вперёд"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 7l6 5-6 5"/><path d="M5 7l6 5-6 5"/></svg><b>15</b></button>
+        <div class="ctrl-row">
+          <button class="side" aria-label="Назад 15 секунд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 8 4 11l3 3"/><path d="M4 11h9a5 5 0 1 1 0 10H8"/><text x="11.5" y="14.5" font-size="6" fill="currentColor" stroke="none" text-anchor="middle">15</text></svg></button>
+          <button class="main" data-play data-keep-label aria-label="Пауза"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/><rect x="14" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/></svg></button>
+          <button class="side" aria-label="Вперёд 15 секунд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 8 20 11l-3 3"/><path d="M20 11H11a5 5 0 1 0 0 10h5"/></svg></button>
         </div>
-        <div class="full-tools">
-          <button class="chip" data-speed aria-label="Скорость 1×">1×</button>
-          <button class="chip" data-sleep data-state="Выкл" aria-label="Таймер сна: Выкл"><span data-sleep-label>Таймер</span></button>
-          <button class="icon-btn" aria-label="Сохранить"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19s-7-4.4-7-9.1A3.9 3.9 0 0 1 12 7a3.9 3.9 0 0 1 7 2.9C19 14.6 12 19 12 19z"/></svg></button>
-          <button class="icon-btn" aria-label="Поделиться"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5.5" r="2.2"/><circle cx="18" cy="18.5" r="2.2"/><circle cx="6" cy="12" r="2.2"/><path d="M8 11.2l8-4.4M8 12.8l8 4.4"/></svg></button>
+        <div class="chips">
+          <button class="chip-act" data-speed>1×</button>
+          <button class="chip-act" data-sleep><span data-sleep-label>Таймер</span></button>
         </div>
       </div>
-      <div class="chapters">
-        <h2>Главы</h2>
-        <button class="chapter"><span>Как отличить усталость от опустошения</span><time>0:00</time></button>
-        <button class="chapter is-on"><span>Один разговор, который можно отложить</span><time>9:40</time></button>
-        <button class="chapter"><span>Маленький шаг до вечера</span><time>19:15</time></button>
+      <div class="now-extra">
+        <h3>О выпуске</h3>
+        <p>Практический принцип распределения вечерних часов: сколько дел реально вмещает вечер, в каком порядке чередовать дела и отдых, что вычеркнуть первым и как не уйти весь вечер в телефон. Аудиоверсия статьи из журнала EYRA.</p>
       </div>
     </div>
   </div>
 </div>
-
-<nav class="tabbar" aria-label="Разделы"><a href="https://eyra.ink/"><svg viewBox="0 0 24 24"><path d="M4 11.5L12 5l8 6.5V20H15v-5H9v5H4z"/></svg><span>Главная</span></a><a href="hub.html" aria-current="page"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4M9 21h6"/></svg><span>Подкасты</span></a><a href="https://eyra.ink/#experts"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 19c.6-3 2.8-4.5 5.5-4.5s4.9 1.5 5.5 4.5"/><circle cx="17" cy="9" r="2.4"/><path d="M16 14.6c2 .3 3.6 1.5 4.2 3.4"/></svg><span>Эксперты</span></a><a href="#"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.2"/><path d="M5 19.2c.8-3.3 3.2-5 7-5s6.2 1.7 7 5"/></svg><span>Моё</span></a></nav>
 
 <script src="player.js"></script>
 </body></html>

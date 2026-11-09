@@ -1,96 +1,162 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Сейчас играет — Разговоры с Асей — EYRA</title>
-<meta name="description" content="Полноэкранный плеер подкаста EYRA."/>
-<link rel="stylesheet" href="shared.css"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Как распланировать вечер дома, чтобы успеть и отдохнуть — EYRA</title>
+<meta name="description" content="Концепт раздела подкастов EYRA: аудиоверсии статей журнала.">
+<link rel="icon" href="assets/eyra-mark.svg">
+<link rel="stylesheet" href="shared.css">
 </head>
-<body class="is-playing" data-progress="0.57" data-duration="1692" data-open-full="1" style="--accent:#ddb79c;--button:#efdfd0">
-<a class="skip" href="#main">К содержимому</a>
-<header class="header">
-  <a class="brand" href="hub.html" style="color:var(--gold)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M24 20C17 14 19 6 24 3C29 6 31 14 24 20Z" transform="rotate(0 24 24)"/><path d="M24 20C17 14 19 6 24 3C29 6 31 14 24 20Z" transform="rotate(72 24 24)"/><path d="M24 20C17 14 19 6 24 3C29 6 31 14 24 20Z" transform="rotate(144 24 24)"/><path d="M24 20C17 14 19 6 24 3C29 6 31 14 24 20Z" transform="rotate(216 24 24)"/><path d="M24 20C17 14 19 6 24 3C29 6 31 14 24 20Z" transform="rotate(288 24 24)"/></g></svg><span style="color:var(--text)">EYRA</span></a>
-  <nav class="header-nav" aria-label="Основное"><a href="https://eyra.ink/#experts">Эксперты</a><a href="hub.html" aria-current="page">Подкасты</a><a href="https://eyra.ink/journal/">Блог</a><a href="https://eyra.ink/">Telegram</a></nav>
-  <button class="menu-toggle" aria-label="Меню"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h14"/></svg></button>
+<body class="is-playing" data-duration="420" data-progress="0.42">
+<div class="grain" aria-hidden="true"></div>
+<header class="site-header">
+  <a class="brand" href="https://eyra.ink/" rel="noopener">
+    <img src="assets/eyra-mark.svg" alt="">
+    <span>EYRA</span>
+  </a>
+  <nav class="nav" aria-label="Разделы сайта">
+    <a href="https://eyra.ink/#experts">Эксперты</a>
+    <a href="https://eyra.ink/#how">Как это работает</a>
+    <a href="https://eyra.ink/journal/">Журнал</a>
+    <a href="hub.html" class="is-on">Подкасты</a>
+  </nav>
+  <label class="header-search">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 5 5"/></svg>
+    <input type="search" placeholder="Найти выпуск или статью" aria-label="Поиск выпусков">
+  </label>
+  <div class="header-actions">
+    <a class="btn-paper" href="https://eyra.ink/#experts">Выбрать эксперта</a>
+  </div>
 </header>
 
-<main id="main" class="page page-with-player">
-  <p class="eyebrow">Плеер</p>
-  <h1 class="display-sm">Сейчас играет</h1>
-  <p class="lede" style="margin-top:12px">Полноэкранный режим открывается из мини-плеера.</p>
+<main class="now-page">
+  <p class="crumb" style="margin:8px 0 20px;color:var(--muted);font-size:13px"><a href="hub.html">Подкасты</a> · <a href="show.html">Отдых и впечатления</a></p>
+  <div class="now-stage">
+    <div class="now-art-wrap" style="--accent:#a8bdd9">
+      <div class="glow"></div>
+      <div class="typo-cover " style="--accent:#a8bdd9">
+      <img src="assets/maya.webp" alt="Майя">
+      <div class="typo-copy"><span class="eyebrow">Отдых и впечатления</span><b>Как распланировать вечер дома, чтобы успеть и отдохнуть</b></div>
+      
+    </div>
+    </div>
+    <div class="now-copy">
+      <a class="show-link" href="show.html">Отдых и впечатления</a>
+      <h1>Как распланировать вечер дома, чтобы успеть и отдохнуть</h1>
+      <div class="host-line"><img src="assets/maya.webp" alt="">Майя · Лайфстайл-ассистент · 7 мин</div>
+      <div class="mode-switch">
+        <button class="is-on" data-play data-keep-label><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg> Слушать</button>
+        <a href="https://eyra.ink/journal/dosug/kak-rasplanovat-vecher-doma/" target="_blank" rel="noopener">Читать статью</a>
+      </div>
+      <div class="player-controls" style="margin-top:28px">
+        <div class="timeline-block">
+          <div class="bar" data-progress><i></i></div>
+          <div class="times"><span data-time-cur>2:56</span><span data-time-left>-4:04</span></div>
+        </div>
+        <div class="ctrl-row">
+          <button class="side" aria-label="Назад 15 секунд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 8 4 11l3 3"/><path d="M4 11h9a5 5 0 1 1 0 10H8"/><text x="11.5" y="14.5" font-size="6" fill="currentColor" stroke="none" text-anchor="middle">15</text></svg></button>
+          <button class="main" data-play data-keep-label aria-label="Пауза"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/><rect x="14" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/></svg></button>
+          <button class="side" aria-label="Вперёд 15 секунд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 8 20 11l-3 3"/><path d="M20 11H11a5 5 0 1 0 0 10h5"/></svg></button>
+        </div>
+        <div class="chips">
+          <button class="chip-act" data-speed>1×</button>
+          <button class="chip-act" data-sleep><span data-sleep-label>Таймер</span></button>
+        </div>
+      </div>
+      <div class="now-extra">
+        <h3>О выпуске</h3>
+        <p>Практический принцип распределения вечерних часов: сколько дел реально вмещает вечер, в каком порядке чередовать дела и отдых, что вычеркнуть первым и как не уйти весь вечер в телефон. Это аудиоверсия статьи Майи в журнале. Можно переключиться на текст в любой момент.</p>
+        <p style="margin-top:12px"><a class="read-link" href="https://eyra.ink/journal/dosug/kak-rasplanovat-vecher-doma/" target="_blank" rel="noopener">Открыть статью на eyra.ink →</a></p>
+      </div>
+    </div>
+  </div>
+  <p class="ph-note">Названия выпусков — реальные заголовки статей журнала eyra.ink/journal (202 материала). Каждый выпуск — аудиоверсия статьи: можно слушать или открыть текст. Состояние плеера в макете — пример.</p>
+<footer class="site-foot">
+  <span>EYRA · концепт раздела «Подкасты»</span>
+  <span>Не продакшен eyra.ink</span>
+</footer>
+
 </main>
-
-<div class="mini-player" style="--accent:#ddb79c">
-  <button class="now" data-open-full aria-label="Открыть плеер">
-    <img src="assets/asya.webp" alt=""/>
-    <span class="t">
-      <b>Когда сил нет, а день ещё не кончился</b>
-      <span>Ася · Разговоры с Асей</span>
-    </span>
-  </button>
-  <div class="transport">
-    <div class="row">
-      <button class="skip15" type="button" aria-label="На 15 секунд назад"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 7l-6 5 6 5"/><path d="M19 7l-6 5 6 5"/></svg><b>15</b></button>
-      <button class="play skip-m" data-play aria-label="Пауза"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/><rect x="14" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/></svg></button>
-      <button class="skip15" type="button" aria-label="На 15 секунд вперёд"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 7l6 5-6 5"/><path d="M5 7l6 5-6 5"/></svg><b>15</b></button>
-    </div>
-    <div class="timeline" data-progress style="--p:57%">
-      <span data-time-cur>16:04</span>
-      <div class="track" aria-hidden="true"><i></i></div>
-      <span data-time-left>-12:08</span>
+<div class="mini-player" role="region" aria-label="Сейчас играет">
+  <div class="mini-left">
+    <button data-open-full aria-label="Открыть плеер"><div class="typo-cover " style="--accent:#a8bdd9">
+      <img src="assets/maya.webp" alt="Майя">
+      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Как распланировать вечер дома, чтобы успеть и отдохнуть</b></div>
+      
+    </div></button>
+    <div class="meta">
+      <b>Как распланировать вечер дома, чтобы успеть и отдохнуть</b>
+      <span>Майя · Отдых и впечатления</span>
     </div>
   </div>
-  <div class="mini-extras">
-    <button class="speed-chip" data-speed aria-label="Скорость 1×">1×</button>
-    <button class="icon-btn" data-sleep data-state="Выкл" aria-label="Таймер сна: Выкл"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 4.5A7.5 7.5 0 1 0 20 14.6 6.5 6.5 0 0 1 15.5 4.5z"/></svg></button>
-    <button class="icon-btn" aria-label="Очередь"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h10"/></svg></button>
+  <div class="mini-mid">
+    <div class="mini-ctrls">
+      <button class="side" aria-label="Назад 15 секунд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 8 4 11l3 3"/><path d="M4 11h9a5 5 0 1 1 0 10H8"/><text x="11.5" y="14.5" font-size="6" fill="currentColor" stroke="none" text-anchor="middle">15</text></svg></button>
+      <button class="main" data-play data-keep-label aria-label="Пауза"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/><rect x="14" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/></svg></button>
+      <button class="side" aria-label="Вперёд 15 секунд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 8 20 11l-3 3"/><path d="M20 11H11a5 5 0 1 0 0 10h5"/></svg></button>
+    </div>
+    <div class="timeline-block" style="width:100%">
+      <div class="bar" data-progress aria-hidden="true"><i></i></div>
+      <div class="times"><span data-time-cur>2:56</span><span data-time-left>-4:04</span></div>
+    </div>
+  </div>
+  <div class="mini-right">
+    <button class="icon-btn" data-speed aria-label="Скорость 1×">1×</button>
+    <button class="icon-btn hide-sm" data-sleep aria-label="Таймер сна: Выкл"><span data-sleep-label>Таймер</span></button>
+    <a class="read-link hide-sm" href="https://eyra.ink/journal/dosug/kak-rasplanovat-vecher-doma/" target="_blank" rel="noopener">Читать статью</a>
+    <div class="vol hide-sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 10v4h3l4 3V7L7 10H4z"/><path d="M16 9.5a4 4 0 0 1 0 5"/></svg><div class="bar"><i></i></div></div>
+    <button class="icon-btn" data-open-full aria-label="Развернуть плеер"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m6 14 6-6 6 6"/></svg></button>
   </div>
 </div>
 
+<nav class="tabbar" aria-label="Мобильная навигация"><a href="https://eyra.ink/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 11 12 4l8 7v8a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-8z"/></svg>Главная</a><a href="hub.html" class="is-on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 12a6 6 0 0 0 12 0M12 18v3"/></svg>Подкасты</a><a href="https://eyra.ink/#experts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><circle cx="17" cy="9" r="2.4"/><path d="M21.5 19a4.5 4.5 0 0 0-6-4"/></svg>Эксперты</a><a href="https://eyra.ink/journal/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 5h6v14H5zM13 5h6v14h-6z"/></svg>Журнал</a></nav>
 
-<div id="full-player" class="full-player" aria-hidden="true" role="dialog" aria-label="Сейчас играет" tabindex="-1" style="--accent:#ddb79c;--button:#efdfd0">
-  <div class="bg"><img src="assets/asya.webp" alt=""/><div class="veil"></div></div>
-  <div class="full-head">
-    <button class="icon-btn" data-close-full aria-label="Свернуть плеер"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 10l6 6 6-6"/></svg></button>
-    <span>Сейчас играет · Разговоры с Асей</span>
-    <button class="icon-btn" aria-label="Ещё"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="18" cy="12" r="1.3" fill="currentColor" stroke="none"/></svg></button>
-  </div>
-  <div class="full-shell">
-    <div class="full-art"><img src="assets/asya.webp" alt="Обложка подкаста Аси"/></div>
-    <div class="full-info">
-      <p class="eyebrow">Выпуск · 8 ноября 2026</p>
-      <h1>Когда сил нет, а день ещё не кончился</h1>
-      <p class="by">Ася · ИИ-психолог</p>
-      <div class="full-controls">
-        <div class="timeline" data-progress style="--p:57%">
-          <span data-time-cur>16:04</span>
-          <div class="track"><i></i></div>
-          <span data-time-left>-12:08</span>
+<div id="full-player" class="full-player" hidden role="dialog" aria-modal="true" aria-label="Сейчас играет" aria-hidden="true">
+  <header class="fp-bar">
+    <button class="fp-close" data-close-full aria-label="Свернуть"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m6 14 6-6 6 6"/></svg></button>
+    <span class="eyebrow">Сейчас играет</span>
+    <button class="fp-close" data-close-full aria-label="Закрыть"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+  </header>
+  <div class="inner">
+    <div class="now-art-wrap" style="--accent:#a8bdd9">
+      <div class="glow" style="background:radial-gradient(circle at 50% 50%, #a8bdd9, transparent 68%)"></div>
+      <div class="typo-cover " style="--accent:#a8bdd9">
+      <img src="assets/maya.webp" alt="Майя">
+      <div class="typo-copy"><span class="eyebrow">Отдых и впечатления</span><b>Как распланировать вечер дома, чтобы успеть и отдохнуть</b></div>
+      
+    </div>
+    </div>
+    <div class="now-copy">
+      <a class="show-link" href="show.html">Отдых и впечатления</a>
+      <h1>Как распланировать вечер дома, чтобы успеть и отдохнуть</h1>
+      <div class="host-line"><img src="assets/maya.webp" alt="">Майя · Лайфстайл-ассистент · 7 мин</div>
+      <div class="mode-switch" role="tablist" aria-label="Формат">
+        <button class="is-on" data-play data-keep-label><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg> Слушать</button>
+        <a href="https://eyra.ink/journal/dosug/kak-rasplanovat-vecher-doma/" target="_blank" rel="noopener">Читать статью</a>
+      </div>
+      <div class="player-controls" style="margin-top:28px">
+        <div class="timeline-block">
+          <div class="bar" data-progress><i></i></div>
+          <div class="times"><span data-time-cur>2:56</span><span data-time-left>-4:04</span></div>
         </div>
-        <div class="full-row">
-          <button class="skip15" type="button" aria-label="На 15 секунд назад"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 7l-6 5 6 5"/><path d="M19 7l-6 5 6 5"/></svg><b>15</b></button>
-          <button class="play-solid" data-play aria-label="Пауза"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/><rect x="14" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/></svg></button>
-          <button class="skip15" type="button" aria-label="На 15 секунд вперёд"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 7l6 5-6 5"/><path d="M5 7l6 5-6 5"/></svg><b>15</b></button>
+        <div class="ctrl-row">
+          <button class="side" aria-label="Назад 15 секунд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 8 4 11l3 3"/><path d="M4 11h9a5 5 0 1 1 0 10H8"/><text x="11.5" y="14.5" font-size="6" fill="currentColor" stroke="none" text-anchor="middle">15</text></svg></button>
+          <button class="main" data-play data-keep-label aria-label="Пауза"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/><rect x="14" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/></svg></button>
+          <button class="side" aria-label="Вперёд 15 секунд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 8 20 11l-3 3"/><path d="M20 11H11a5 5 0 1 0 0 10h5"/></svg></button>
         </div>
-        <div class="full-tools">
-          <button class="chip" data-speed aria-label="Скорость 1×">1×</button>
-          <button class="chip" data-sleep data-state="Выкл" aria-label="Таймер сна: Выкл"><span data-sleep-label>Таймер</span></button>
-          <button class="icon-btn" aria-label="Сохранить"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19s-7-4.4-7-9.1A3.9 3.9 0 0 1 12 7a3.9 3.9 0 0 1 7 2.9C19 14.6 12 19 12 19z"/></svg></button>
-          <button class="icon-btn" aria-label="Поделиться"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5.5" r="2.2"/><circle cx="18" cy="18.5" r="2.2"/><circle cx="6" cy="12" r="2.2"/><path d="M8 11.2l8-4.4M8 12.8l8 4.4"/></svg></button>
+        <div class="chips">
+          <button class="chip-act" data-speed>1×</button>
+          <button class="chip-act" data-sleep><span data-sleep-label>Таймер</span></button>
         </div>
       </div>
-      <div class="chapters">
-        <h2>Главы</h2>
-        <button class="chapter"><span>Как отличить усталость от опустошения</span><time>0:00</time></button>
-        <button class="chapter is-on"><span>Один разговор, который можно отложить</span><time>9:40</time></button>
-        <button class="chapter"><span>Маленький шаг до вечера</span><time>19:15</time></button>
+      <div class="now-extra">
+        <h3>О выпуске</h3>
+        <p>Практический принцип распределения вечерних часов: сколько дел реально вмещает вечер, в каком порядке чередовать дела и отдых, что вычеркнуть первым и как не уйти весь вечер в телефон. Аудиоверсия статьи из журнала EYRA.</p>
       </div>
     </div>
   </div>
 </div>
-
-<nav class="tabbar" aria-label="Разделы"><a href="https://eyra.ink/"><svg viewBox="0 0 24 24"><path d="M4 11.5L12 5l8 6.5V20H15v-5H9v5H4z"/></svg><span>Главная</span></a><a href="hub.html" aria-current="page"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4M9 21h6"/></svg><span>Подкасты</span></a><a href="https://eyra.ink/#experts"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 19c.6-3 2.8-4.5 5.5-4.5s4.9 1.5 5.5 4.5"/><circle cx="17" cy="9" r="2.4"/><path d="M16 14.6c2 .3 3.6 1.5 4.2 3.4"/></svg><span>Эксперты</span></a><a href="#"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.2"/><path d="M5 19.2c.8-3.3 3.2-5 7-5s6.2 1.7 7 5"/></svg><span>Моё</span></a></nav>
 
 <script src="player.js"></script>
 </body></html>
