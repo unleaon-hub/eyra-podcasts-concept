@@ -11,7 +11,7 @@
   function iconPause(){return '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/><rect x="14" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/></svg>'}
 
   function isGlobalPlay(btn){
-    return btn.closest(".mini-player, .full-player, .continue, .wave, .show-actions, .show-sticky, .now-page, .ritual");
+    return btn.closest(".mini-player, .full-player, .continue, .wave, .show-actions, .show-sticky, .now-page, .ritual, .feature");
   }
   function setIcon(btn, on){
     const html = on ? iconPause() : iconPlay();
@@ -144,6 +144,52 @@
       e.preventDefault(); setPlaying(!playing);
     }
   });
+
+
+  function initFeature(){
+    const root = document.querySelector("[data-feature]");
+    if(!root) return;
+    const slides = [...root.querySelectorAll("[data-feat-slide]")];
+    const dashes = [...root.querySelectorAll(".feature-dash")];
+    const ups = [...root.querySelectorAll(".feature-up-card")];
+    const n = slides.length;
+    if(!n) return;
+    let i = 0;
+    let timer = null;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function go(next){
+      i = (next + n) % n;
+      slides.forEach((s,k)=>s.classList.toggle("is-on", k===i));
+      dashes.forEach((b,k)=>b.classList.toggle("is-on", k===i));
+      ups.forEach((b,k)=>b.classList.toggle("is-current", k===i));
+      restart();
+    }
+    function restart(){
+      if(timer){ clearTimeout(timer); timer=null; }
+      if(reduce) return;
+      if(root.matches(":hover")) return;
+      timer = setTimeout(()=>go(i+1), 7000);
+    }
+    root.addEventListener("click",(e)=>{
+      const prev = e.target.closest("[data-feat-prev]");
+      const next = e.target.closest("[data-feat-next]");
+      const jump = e.target.closest("[data-feat-go]");
+      if(prev){ e.preventDefault(); go(i-1); }
+      else if(next){ e.preventDefault(); go(i+1); }
+      else if(jump){ e.preventDefault(); go(Number(jump.dataset.featGo)); }
+    });
+    root.addEventListener("mouseenter",()=>{ if(timer){ clearTimeout(timer); timer=null; } });
+    root.addEventListener("mouseleave", restart);
+    let x0=null;
+    root.addEventListener("touchstart",(e)=>{ x0=e.changedTouches[0].clientX; }, {passive:true});
+    root.addEventListener("touchend",(e)=>{
+      if(x0==null) return;
+      const dx=e.changedTouches[0].clientX-x0; x0=null;
+      if(Math.abs(dx)>40) go(i + (dx<0?1:-1));
+    }, {passive:true});
+    restart();
+  }
+  initFeature();
 
   setPlaying(playing);
   applyProgress();
