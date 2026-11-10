@@ -158,7 +158,7 @@
       const ex = expert(slugOf(ep));
       const href = playerHref(ep, extra);
       const artEl = document.createElement("article");
-      const started = i===0;
+      const started = extra.markStarted !== false && i===0;
       artEl.className = "ep-item" + (useCover ? " has-cover" : " has-num") + (started ? " is-active is-started" : "") + (i>=10 ? " is-more" : "");
       artEl.dataset.episode = "";
       artEl.dataset.slug = ep.slug;
@@ -172,9 +172,10 @@
         ? '<p class="ep-meta">'+(useCover?eq:"")+'<span class="ep-meta-txt"><a href="'+showHref(ex)+'">'+escapeHtml(ex.name)+'</a> · '+ep.minutes+' мин</span></p>'
         : '<p class="ep-meta">'+(useCover?eq:"")+'<span class="ep-meta-txt">'+ep.minutes+' мин</span></p>';
       const pip = started ? '<div class="progress-pip"><i style="width:42%"></i></div>' : '';
+      const hint = (i===0 && extra.upNext) ? '<p class="eyebrow ep-up-hint">Далее через 5 с</p>' : '';
       artEl.innerHTML =
         thumb+
-        '<div class="ep-body"><p class="t"><a href="'+href+'">'+escapeHtml(ep.title)+'</a></p>'+meta+'</div>'+
+        '<div class="ep-body">'+hint+'<p class="t"><a href="'+href+'">'+escapeHtml(ep.title)+'</a></p>'+meta+'</div>'+
         '<button class="btn-round-play ep-card-play" data-play type="button" aria-label="'+label+'">'+playSvg()+'</button>'+
         '<button class="like" type="button" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>'+
         pip;
@@ -279,32 +280,7 @@
     const crumb = $(".now-page > .crumb");
     if(crumb) crumb.innerHTML = '<a href="hub.html">Подкасты</a> · <a href="'+topicHref(topic)+'">'+escapeHtml(topic.name)+'</a>';
 
-    const up = rest[0];
-    const upCard = $(".up-next-card");
-    if(up && upCard){
-      const ue = expert(slugOf(up));
-      upCard.href = playerHref(up, extra);
-      upCard.style.setProperty("--accent", ue.accent);
-      const img = upCard.querySelector("img");
-      if(img){ img.src = ue.photo; img.alt = ue.name; }
-      const h3 = upCard.querySelector("h3");
-      if(h3) h3.textContent = up.title;
-      const p = upCard.querySelector(".up-next-copy p:not(.eyebrow)");
-      if(p) p.textContent = ue.name + " · " + up.minutes + " мин";
-    }
-    const queue = $(".up-queue");
-    if(queue){
-      const crop = ["62% 10%","40% 22%","78% 18%","50% 36%"];
-      const w = ["100%","80%","92%","86%"];
-      queue.innerHTML = rest.slice(1,5).map((a,i)=>{
-        const oe = expert(slugOf(a));
-        return '<a class="up-q-row" href="'+playerHref(a, extra)+'">'+
-          '<div class="typo-cover" style="--accent:'+oe.accent+';--pos:'+crop[i%4]+';--img-w:'+w[i%4]+'">'+
-          '<img src="'+oe.photo+'" alt=""></div>'+
-          '<b>'+escapeHtml(a.title)+'</b><span class="dur">'+a.minutes+' мин</span>'+
-          '<span class="play-inline" aria-hidden="true">'+playSvg()+'</span></a>';
-      }).join("");
-    }
+    renderEpTable($("#dalee-list"), rest.slice(0,8), Object.assign({}, extra, {host:true, cover:true, markStarted:false, upNext:true}));
 
     const escheTitle = $("#esche .h-section");
     if(escheTitle) escheTitle.textContent = "Ещё у " + ex.genitive;
@@ -314,15 +290,16 @@
     const escheRail = $("#esche .rail");
     if(escheRail){
       escheRail.innerHTML = sameRest.slice(0,6).map(a=>
-        '<article class="card-ep" data-episode data-slug="'+a.slug+'">'+
+        '<article class="card-ep" data-episode data-slug="'+a.slug+'" style="--accent:'+ex.accent+'">'+
           '<a href="'+playerHref(a)+'"><div class="typo-cover" style="--accent:'+ex.accent+'">'+
           '<img src="'+ex.photo+'" alt="'+escapeHtml(ex.name)+'" width="800" height="800">'+
           '<div class="typo-copy"><span class="eyebrow">'+escapeHtml(ex.eyebrow)+'</span><b>'+escapeHtml(a.title)+'</b></div>'+
+          '<button class="play-float" data-play type="button" aria-label="Слушать «'+escapeHtml(a.title)+'»">'+playSvg()+'</button>'+
           '</div></a><div class="card-meta"><p><a href="'+showHref(ex)+'">'+escapeHtml(ex.name)+'</a> · '+a.minutes+' мин</p></div></article>'
       ).join("");
     }
 
-    const alike = $(".alike-grid");
+    const alike = $("#alike-grid, .alike-grid");
     if(alike){
       const others = articles.filter(a=>a.expert!==ex.name);
       const picked = [];
@@ -335,14 +312,7 @@
         if(picked.length===4) break;
         if(!picked.some(p=>p.slug===a.slug)) picked.push(a);
       }
-      alike.innerHTML = picked.map(a=>{
-        const o = expert(slugOf(a));
-        return '<div class="alike-card" style="--accent:'+o.accent+'">'+
-          '<a class="alike-avatar" href="'+showHref(o)+'" aria-label="Колонка: '+escapeHtml(o.name)+'">'+
-          '<img src="'+o.photo+'" alt="'+escapeHtml(o.name)+'"></a>'+
-          '<div><a href="'+playerHref(a)+'"><b>'+escapeHtml(a.title)+'</b></a>'+
-          '<span><a href="'+showHref(o)+'">'+escapeHtml(o.name)+'</a> · '+a.minutes+' мин</span></div></div>';
-      }).join("");
+      renderEpTable(alike, picked, {host:true, cover:true, markStarted:false});
     }
 
     fillExpertCard($(".catalog-expert-slot"), ex);
@@ -362,7 +332,7 @@
     $$(".mini-player [data-open-player]").forEach(a=>{
       if(a.tagName==="A") a.href = playerHref(ep, extra);
     });
-    const readMini = $(".mini-player .read-link");
+    const readMini = $(".mini-player .read-quiet, .mini-player .read-link");
     if(readMini){ readMini.href = ep.url; readMini.setAttribute("target","_blank"); readMini.setAttribute("rel","noopener"); }
 
     window.EYRA_NOW = { expert: ex.slug, episode: ep.slug, href: playerHref(ep, extra) };
@@ -419,7 +389,7 @@
     if(others){
       const list = t.slug==="new" ? TOPICS : TOPICS.filter(x=>x.slug!==t.slug);
       others.innerHTML = list.map(x=>
-        '<a class="chip-pill'+(x.slug===t.slug?' is-on':'')+'" href="'+topicHref(x)+'" style="--accent:'+x.accent+';background:'+x.button+'"><b>'+escapeHtml(x.short)+'</b></a>'
+        '<a class="topic-tile'+(x.slug===t.slug?' is-on':'')+'" href="'+topicHref(x)+'" style="--accent:'+x.accent+';background:'+x.button+'"><b>'+escapeHtml(x.short)+'</b></a>'
       ).join("");
     }
   }

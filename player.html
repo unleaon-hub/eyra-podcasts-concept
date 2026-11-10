@@ -7,7 +7,7 @@
 <meta name="description" content="Концепт раздела подкастов EYRA: аудиоверсии статей журнала.">
 <link rel="icon" href="assets/eyra-mark.svg">
 <link rel="preload" href="assets/manrope-variable.woff" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="shared.css?v=hub18">
+<link rel="stylesheet" href="shared.css?v=hub19">
 </head>
 <body class="is-playing" data-duration="420" data-progress="0.42">
 <div class="grain" aria-hidden="true"></div>
@@ -60,53 +60,7 @@
 
   <section class="cont-block" id="dalee">
     <h2 class="h-section">Далее</h2>
-    <div class="up-pack">
-    <a class="up-next-card" href="player.html" style="--accent:#a8bdd9">
-      <div class="typo-cover" style="--accent:#a8bdd9">
-      <img src="assets/maya.webp" alt="Майя" width="800" height="800">
-    </div>
-      <div class="up-next-copy">
-        <p class="eyebrow" data-upnext-hint>Далее через 5 с</p>
-        <h3>Вечер дома при низких силах: отдых, который реально восстанавливает</h3>
-        <p>Майя · 6 мин</p>
-      </div>
-      <span class="play-inline" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></span>
-    </a>
-    <div class="up-queue">
-      <a class="up-q-row" href="player.html">
-        <div class="typo-cover" style="--accent:#a8bdd9;--pos:62% 10%;--img-w:100%">
-          <img src="assets/maya.webp" alt="">
-        </div>
-        <b>Выходные без экранов: чем заменить гаджеты детям и как ввести правило без скандала</b>
-        <span class="dur">9 мин</span>
-        <span class="play-inline" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></span>
-      </a>
-      <a class="up-q-row" href="player.html">
-        <div class="typo-cover" style="--accent:#a8bdd9;--pos:40% 22%;--img-w:80%">
-          <img src="assets/maya.webp" alt="">
-        </div>
-        <b>Как вовлечь подростка в семейные выходные: приглашение вместо приказа</b>
-        <span class="dur">10 мин</span>
-        <span class="play-inline" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></span>
-      </a>
-      <a class="up-q-row" href="player.html">
-        <div class="typo-cover" style="--accent:#a8bdd9;--pos:78% 18%;--img-w:92%">
-          <img src="assets/maya.webp" alt="">
-        </div>
-        <b>Как договориться с партнёром о распределении выходных</b>
-        <span class="dur">8 мин</span>
-        <span class="play-inline" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></span>
-      </a>
-      <a class="up-q-row" href="player.html">
-        <div class="typo-cover" style="--accent:#a8bdd9;--pos:50% 36%;--img-w:86%">
-          <img src="assets/maya.webp" alt="">
-        </div>
-        <b>Восстановительный выходной, когда сил на активности нет</b>
-        <span class="dur">8 мин</span>
-        <span class="play-inline" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg></span>
-      </a>
-    </div>
-    </div>
+    <div class="ep-table dalee-list" id="dalee-list"></div>
   </section>
 
   <section class="cont-block shelf" id="esche">
@@ -160,24 +114,7 @@
 
   <section class="cont-block" id="pohozhee">
     <h2 class="h-section">Похожее у других экспертов</h2>
-    <div class="alike-grid">
-      <a class="alike-card" href="player.html" style="--accent:#ddb79c">
-        <img src="assets/asya.webp" alt="Ася">
-        <div><b>Не с кем поговорить: что делать прямо сейчас</b><span>Ася · 9 мин</span></div>
-      </a>
-      <a class="alike-card" href="player.html" style="--accent:#d8ba78">
-        <img src="assets/eva.webp" alt="Ева">
-        <div><b>Как найти друзей, когда все вокруг заняты семьями и детьми</b><span>Ева · 8 мин</span></div>
-      </a>
-      <a class="alike-card" href="player.html" style="--accent:#b9cebb">
-        <img src="assets/kira.webp" alt="Кира">
-        <div><b>Как менять привычки питания, если раньше не получалось</b><span>Кира · 10 мин</span></div>
-      </a>
-      <a class="alike-card" href="player.html" style="--accent:#d8ba78">
-        <img src="assets/eva.webp" alt="Ева">
-        <div><b>Как найти друзей в 40 лет женщине: где искать подруг и как сделать первый шаг</b><span>Ева · 9 мин</span></div>
-      </a>
-    </div>
+    <div class="ep-table alike-grid" id="alike-grid"></div>
   </section>
 
 <div class="catalog-expert-slot is-odd">
@@ -243,7 +180,7 @@
   </div>
 </div>
 
-<script src="catalog.js?v=hub18"></script>
-<script src="player.js?v=hub18"></script>
-<script src="eyra-chrome.js?v=hub18"></script>
+<script src="catalog.js?v=hub19"></script>
+<script src="player.js?v=hub19"></script>
+<script src="eyra-chrome.js?v=hub19"></script>
 </body></html>
