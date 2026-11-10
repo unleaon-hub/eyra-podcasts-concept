@@ -317,9 +317,9 @@
       host.setAttribute("data-expert", ex.slug);
       host.style.setProperty("--accent", ex.accent);
       host.style.setProperty("--pos", "var(--focus-"+ex.slug+", 50% 18%)");
-      host.innerHTML = '<a class="host-ava-link" href="'+showHref(ex)+'" aria-label="Колонка: '+escapeHtml(ex.name)+'"><img class="host-ava" src="'+ex.photo+'" alt="" width="24" height="24"></a>'+
-        '<span class="host-name"><a href="'+showHref(ex)+'">'+escapeHtml(ex.name)+'</a></span>'+
-        '<span class="host-rest"> · '+escapeHtml(ex.role)+'</span>';
+      host.innerHTML = '<a class="host-ava-link" href="'+showHref(ex)+'" aria-label="Колонка: '+escapeHtml(ex.name)+'"><img class="host-ava" src="'+ex.photo+'" alt="" width="44" height="44"></a>'+
+        '<span class="host-text"><span class="host-name"><a href="'+showHref(ex)+'">'+escapeHtml(ex.name)+'</a></span>'+
+        '<span class="host-rest"><span class="host-dot"> · </span>'+escapeHtml(ex.role)+'</span></span>';
     }
     $$(".now-copy .read-quiet, .now-copy .mode-switch a").forEach(a=>{
       a.href = ep.url;
