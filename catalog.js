@@ -331,7 +331,7 @@
     const crumb = $(".now-page .crumb, .player-chrome .crumb");
     if(crumb) crumb.innerHTML = '<a href="hub.html">Подкасты</a> · <a href="'+topicHref(topic)+'">'+escapeHtml(topic.name)+'</a>';
 
-    const dalee = rest.slice(0,4);
+    const dalee = rest.slice(0,6);
     const daleeMix = new Set(dalee.map(a=>slugOf(a))).size > 1;
     renderEpTable($("#dalee-list"), dalee, Object.assign({}, extra, {host:true, cover:daleeMix, markStarted:false, upNext:true}));
     const daleeAll = $(".dalee-all a, #dalee .dalee-all a");

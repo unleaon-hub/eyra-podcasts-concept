@@ -5041,3 +5041,24 @@ html.player-page .player-chrome .crumb{
     margin-left:auto;
   }
 }
+
+
+/* ——— hub31: left-aligned filters; soft playing-card ring ——— */
+.list-bar{justify-content:flex-start}
+.view-toggle{display:none !important}
+
+.ep-item.is-active,
+.mood-ep.is-active,
+.ep-item.is-active:hover,
+.mood-ep.is-active:hover,
+.ep-item.is-active:focus-within,
+.mood-ep.is-active:focus-within{
+  background:color-mix(in srgb, #ffffff 3%, var(--card, #171a17));
+  border-color:rgba(204,183,143,.38);
+  box-shadow:none;
+  outline:none;
+}
+.ep-item:focus-within,
+.mood-ep:focus-within{
+  outline:none;
+}

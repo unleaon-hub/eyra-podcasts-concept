@@ -172,13 +172,52 @@
         }
       }
     });
-    if(on) startTick(); else stopTick();
+    if(on) startTick(); else { stopTick(); clearQueueTimer(); }
     writeStore();
+  }
+  let queueTimer = null;
+  function clearQueueTimer(){ if(queueTimer){ clearTimeout(queueTimer); queueTimer=null; } }
+  function nextQueueHref(){
+    if(!isPlayerPage()) return null;
+    const a = document.querySelector("#dalee-list .ep-item .t a[href], #dalee-list .ep-item a[href*='player']");
+    return a ? a.getAttribute("href") : null;
+  }
+  function advanceQueue(){
+    const href = nextQueueHref();
+    if(!href){
+      progress = 0.995;
+      applyProgress();
+      stopTick();
+      return;
+    }
+    stopTick();
+    clearQueueTimer();
+    queueTimer = setTimeout(()=>{
+      queueTimer = null;
+      progress = 0;
+      playing = true;
+      writeStore();
+      try{
+        const u = new URL(href, location.href);
+        u.searchParams.set("play","1");
+        u.searchParams.set("p","0");
+        location.href = u.pathname + u.search + u.hash;
+      }catch(e){
+        location.href = href;
+      }
+    }, 5000);
   }
   function startTick(){
     stopTick();
+    clearQueueTimer();
     timer = setInterval(()=>{
-      progress = Math.min(0.995, progress + 0.00045);
+      progress = progress + 0.00045;
+      if(progress >= 0.999){
+        progress = 1;
+        applyProgress();
+        advanceQueue();
+        return;
+      }
       applyProgress();
     }, 400);
   }
@@ -230,14 +269,6 @@
         c.classList.toggle("is-on", c===mood);
         c.setAttribute("aria-pressed", String(c===mood));
       });
-      return;
-    }
-    const view = e.target.closest("[data-view]");
-    if(view){
-      e.preventDefault();
-      $$("[data-view]").forEach(b=>b.classList.toggle("is-on", b===view));
-      const table = $(".ep-table");
-      if(table) table.classList.toggle("is-compact", view.dataset.view==="compact");
       return;
     }
     const arrow = e.target.closest("[data-shelf-scroll]");
