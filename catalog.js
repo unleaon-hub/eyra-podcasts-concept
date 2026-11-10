@@ -153,7 +153,7 @@
     const head = table.querySelector(".head");
     if(head) head.hidden = true;
     const frag = document.createDocumentFragment();
-    const useCover = !!extra.cover || !!extra.host;
+    const useCover = !!extra.cover;
     eps.forEach((ep, i)=>{
       const ex = expert(slugOf(ep));
       const href = playerHref(ep, extra);
@@ -184,6 +184,26 @@
     if(moreBtn && moreBtn.parentElement===table) table.insertBefore(frag, moreBtn);
     else table.appendChild(frag);
     if(moreBtn) moreBtn.hidden = eps.length <= 10;
+  }
+
+  function leadOfTopic(t){
+    return experts.find(o=>o.rubric===t.slug) || expert("maya");
+  }
+  function rubricTileHtml(x, opts){
+    opts = opts || {};
+    const lead = leadOfTopic(x);
+    const first = (episodesOfTopic(x) || [])[0];
+    const play = first ? playerHref(first, {t:x.slug}) + "&play=1" : topicHref(x);
+    const cls = "rubric-tile" + (opts.big ? " big" : "") + (opts.alt ? " alt" : "");
+    const title = opts.fullName ? x.name : (opts.short===false ? x.name : (opts.big ? x.name : x.short));
+    return '<div class="'+cls+'" style="--accent:'+x.accent+'">'+
+      '<a class="rubric-tile-hit" href="'+topicHref(x)+'">'+
+        '<img src="'+lead.photo+'" alt="'+escapeHtml(lead.name)+'">'+
+        '<span>'+escapeHtml(lead.name)+'</span>'+
+        '<b>'+escapeHtml(title)+'</b>'+
+      '</a>'+
+      '<a class="play-float" href="'+play+'" aria-label="Слушать: '+escapeHtml(x.name)+'">'+playSvg()+'</a>'+
+    '</div>';
   }
 
   function facesHtml(exs){
@@ -280,23 +300,18 @@
     const crumb = $(".now-page > .crumb");
     if(crumb) crumb.innerHTML = '<a href="hub.html">Подкасты</a> · <a href="'+topicHref(topic)+'">'+escapeHtml(topic.name)+'</a>';
 
-    renderEpTable($("#dalee-list"), rest.slice(0,8), Object.assign({}, extra, {host:true, cover:true, markStarted:false, upNext:true}));
+    const dalee = rest.slice(0,8);
+    const daleeMix = new Set(dalee.map(a=>slugOf(a))).size > 1;
+    renderEpTable($("#dalee-list"), dalee, Object.assign({}, extra, {host:true, cover:daleeMix, markStarted:false, upNext:true}));
 
     const escheTitle = $("#esche .h-section");
     if(escheTitle) escheTitle.textContent = "Ещё у " + ex.genitive;
     const escheAll = $("#esche .shelf-tools a");
     if(escheAll) escheAll.href = showHref(ex);
     const sameRest = eps.filter(a=>a.slug!==ep.slug);
-    const escheRail = $("#esche .rail");
-    if(escheRail){
-      escheRail.innerHTML = sameRest.slice(0,6).map(a=>
-        '<article class="card-ep" data-episode data-slug="'+a.slug+'" style="--accent:'+ex.accent+'">'+
-          '<a href="'+playerHref(a)+'"><div class="typo-cover" style="--accent:'+ex.accent+'">'+
-          '<img src="'+ex.photo+'" alt="'+escapeHtml(ex.name)+'" width="800" height="800">'+
-          '<div class="typo-copy"><span class="eyebrow">'+escapeHtml(ex.eyebrow)+'</span><b>'+escapeHtml(a.title)+'</b></div>'+
-          '<button class="play-float" data-play type="button" aria-label="Слушать «'+escapeHtml(a.title)+'»">'+playSvg()+'</button>'+
-          '</div></a><div class="card-meta"><p><a href="'+showHref(ex)+'">'+escapeHtml(ex.name)+'</a> · '+a.minutes+' мин</p></div></article>'
-      ).join("");
+    const escheList = $("#esche-list, #esche .ep-table");
+    if(escheList){
+      renderEpTable(escheList, sameRest.slice(0,6), {markStarted:false});
     }
 
     const alike = $("#alike-grid, .alike-grid");
@@ -375,7 +390,8 @@
     const play = $("a.hero-play, [data-listen-queue]", hero || document);
     if(play && eps[0]) play.href = playerHref(eps[0], {t:t.slug}) + "&play=1";
     if(eps[0]) document.body.dataset.duration = String(eps[0].minutes*60);
-    renderEpTable($(".ep-table"), eps, {host:true, t:t.slug});
+    const topicMix = new Set(eps.map(a=>slugOf(a))).size > 1;
+    renderEpTable($(".ep-table"), eps, {host:true, cover:topicMix, t:t.slug});
     const rail = $("#topic-experts .rail, #topic-experts");
     const expWrap = $("#topic-experts .rail") || $("#topic-experts-rail");
     if(expWrap){
@@ -388,9 +404,8 @@
     const others = $("#other-topics");
     if(others){
       const list = t.slug==="new" ? TOPICS : TOPICS.filter(x=>x.slug!==t.slug);
-      others.innerHTML = list.map(x=>
-        '<a class="topic-tile'+(x.slug===t.slug?' is-on':'')+'" href="'+topicHref(x)+'" style="--accent:'+x.accent+';background:'+x.button+'"><b>'+escapeHtml(x.short)+'</b></a>'
-      ).join("");
+      others.classList.toggle("is-ten", list.length===10);
+      others.innerHTML = list.map(x=>rubricTileHtml(x, {big:true, fullName:true})).join("");
     }
   }
 
@@ -448,6 +463,15 @@
     ).join("");
   }
 
+  function initHub(){
+    const bento = $(".bento");
+    if(!bento || !experts.length) return;
+    const featured = ["emotsii","dosug"];
+    const big = featured.map((s,i)=>rubricTileHtml(topicBy(s), {big:true, alt:i===1, fullName:true}));
+    const rest = TOPICS.filter(x=>!featured.includes(x.slug)).map(x=>rubricTileHtml(x, {big:false}));
+    bento.innerHTML = big.join("") + rest.join("");
+  }
+
   async function boot(){
     try{
       const [e, a] = await Promise.all([
@@ -457,6 +481,7 @@
       experts = e; articles = a;
     }catch(err){ console.warn("catalog load failed", err); return; }
     window.EYRA = { expert, episodesOf, episodeBySlug, showHref, playerHref, slugOf, topicBy, moodBy, experts, articles };
+    if($(".bento")) initHub();
     if($(".show-hero")) initShow();
     if($(".now-page")) initPlayer();
     if($(".topic-hero")) initTopic();

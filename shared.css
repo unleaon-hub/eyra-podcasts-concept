@@ -926,17 +926,22 @@ button svg, a.btn-ghost svg, a.btn-paper svg, .like svg, .arrow svg,
 /* Bento rubrics */
 .bento{
   width:min(var(--max),calc(100% - 56px));margin:0 auto;
-  display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:190px 190px 112px 112px;gap:12px;
+  display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:190px 190px 150px 150px;gap:12px;
 }
-.bento a{
+.bento > a,
+.bento > .rubric-tile{
   border-radius:var(--r);position:relative;overflow:hidden;display:flex;
   flex-direction:column;justify-content:flex-end;padding:18px 18px 16px;
-  color:var(--ink);text-decoration:none;
+  color:var(--text);text-decoration:none;
+  background:#141814;
   transition:transform .4s var(--ease);
 }
-.bento a:hover{transform:translateY(-3px)}
-.bento .big:first-child{grid-column:1 / 3;grid-row:1 / 3}
-.bento .big.alt{grid-column:3 / 5;grid-row:1 / 3}
+.bento > a:hover,
+.bento > .rubric-tile:hover{transform:translateY(-3px)}
+.bento .big:first-child,
+.bento > .rubric-tile.big:first-child{grid-column:1 / 3;grid-row:1 / 3}
+.bento .big.alt,
+.bento > .rubric-tile.big.alt{grid-column:3 / 5;grid-row:1 / 3}
 .bento .big{
   grid-row:1 / span 3;color:var(--text);padding:24px;
   isolation:isolate;
@@ -3146,10 +3151,13 @@ body.is-playing .ep-item.is-active.has-num .ep-card-num .eq i{animation-name:eq-
 .now-page .card-ep .play-float{pointer-events:auto}
 
 #pohozhee .ep-card-thumb{
-  box-shadow:0 0 0 1.5px color-mix(in srgb, var(--accent) 70%, transparent);
-  border-radius:10px;
+  border-radius:50%;
+  overflow:hidden;
+  box-shadow:0 0 0 2px #111412, 0 0 0 3.5px color-mix(in srgb, var(--accent) 75%, transparent);
 }
-#pohozhee .ep-card-thumb img{border-radius:9px}
+#pohozhee .ep-card-thumb img{border-radius:50%;object-fit:cover}
+.now-page .esche-list,
+.now-page #esche-list{width:100%;margin:0;padding:0}
 
 /* Другие рубрики — bento-style tiles, not capsules. Moods stay pills. */
 .other-topics{
@@ -3239,4 +3247,164 @@ body.is-playing .ep-item.is-active.has-num .ep-card-num .eq i{animation-name:eq-
 @media (prefers-reduced-motion:reduce){
   .other-topics > a:hover,
   .other-topics .topic-tile:hover{transform:none}
+}
+
+
+/* ——— hub20: rubric tiles — dark portrait bento, no light fills ——— */
+.rubric-tile{
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+  border-radius:var(--r);
+  background:#141814;
+  color:var(--text);
+  min-height:200px;
+  box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--accent, #ccb78f) 14%, #ffffff10);
+}
+.rubric-tile-hit{
+  position:absolute;inset:0;z-index:2;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:20px 18px 16px;
+  color:var(--text);text-decoration:none;
+}
+.rubric-tile > img,
+.rubric-tile-hit img{
+  position:absolute;inset:0;z-index:0;
+  width:100%;height:100%;max-width:none;
+  object-fit:cover;object-position:50% 18%;
+  -webkit-mask-image:linear-gradient(to right,transparent,#000 40%),linear-gradient(#000,#000);
+  mask-image:linear-gradient(to right,transparent,#000 45%);
+}
+.rubric-tile::after{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    linear-gradient(90deg,#111412f0 0%,#11141288 42%,transparent 75%),
+    linear-gradient(180deg,transparent 40%,#111412e6 100%),
+    color-mix(in srgb, var(--accent, #ccb78f) 12%, transparent);
+}
+.rubric-tile span,
+.rubric-tile b{
+  position:relative;z-index:2;
+}
+.rubric-tile span{
+  display:block;
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold);margin:0 0 8px;font-weight:500;
+}
+.rubric-tile b{
+  font-weight:400;letter-spacing:-.045em;
+  font-size:clamp(20px, 1.8vw, 28px);line-height:1.12;
+  color:var(--text);
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+}
+.rubric-tile .play-float{
+  z-index:3;
+  opacity:.85;transform:none;
+  right:12px;bottom:12px;
+  pointer-events:auto;
+}
+.rubric-tile:hover .play-float,
+.rubric-tile:focus-within .play-float{
+  opacity:1;transform:none;
+}
+
+.bento > .rubric-tile.big{color:var(--text);padding:0;min-height:0}
+.bento > .rubric-tile.big .rubric-tile-hit{padding:24px}
+.bento > .rubric-tile.big b{font-size:clamp(28px,3vw,40px);line-height:1.1;-webkit-line-clamp:3}
+.bento > .rubric-tile:not(.big){min-height:0;padding:0;color:var(--text)}
+.bento > .rubric-tile:not(.big) .rubric-tile-hit{padding:16px 16px 14px}
+.bento > .rubric-tile:not(.big) b{font-size:18px;letter-spacing:-.04em;-webkit-line-clamp:2}
+.bento > .rubric-tile:not(.big) .play-float{width:36px;height:36px;right:10px;bottom:10px}
+.bento > .rubric-tile:not(.big) .play-float svg{width:16px;height:16px}
+
+/* Другие рубрики: 3×3 dark portrait tiles, never a light fill */
+.other-topics{
+  display:grid !important;
+  grid-template-columns:repeat(3, minmax(0,1fr)) !important;
+  gap:12px !important;
+  align-items:stretch;
+  flex-wrap:unset;
+  width:min(var(--max),calc(100% - 56px));
+  margin:8px auto 56px;
+}
+.other-topics.is-ten{
+  grid-template-columns:repeat(5, minmax(0,1fr)) !important;
+}
+.other-topics .rubric-tile,
+.other-topics > a,
+.other-topics .topic-tile,
+.other-topics .chip-pill{
+  display:flex !important;
+  flex:none !important;
+  width:auto !important;
+  height:auto !important;
+  min-height:200px !important;
+  min-width:0 !important;
+  aspect-ratio:auto !important;
+  padding:0 !important;
+  border-radius:var(--r) !important;
+  background:#141814 !important;
+  color:var(--text) !important;
+  box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--accent, #ccb78f) 14%, #ffffff10) !important;
+  filter:none !important;
+  align-items:stretch !important;
+  justify-content:flex-end !important;
+}
+.other-topics .rubric-tile b,
+.other-topics > a b,
+.other-topics .topic-tile b{
+  font-size:clamp(20px, 1.8vw, 28px) !important;
+  font-weight:400 !important;
+  letter-spacing:-.045em !important;
+  line-height:1.12 !important;
+  color:var(--text) !important;
+  white-space:normal !important;
+}
+.other-topics .rubric-tile:hover,
+.other-topics > a:hover{
+  transform:translateY(-3px);
+  filter:none !important;
+}
+
+@media (max-width:1100px){
+  .other-topics{grid-template-columns:repeat(3, minmax(0,1fr)) !important}
+  .other-topics.is-ten{grid-template-columns:repeat(3, minmax(0,1fr)) !important}
+}
+
+@media (max-width:760px){
+  .other-topics,
+  .other-topics.is-ten{
+    display:flex !important;
+    flex-wrap:nowrap !important;
+    gap:10px !important;
+    overflow-x:auto;
+    overflow-y:hidden;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    width:calc(100% - 32px);
+    margin-left:auto;margin-right:auto;
+    padding:0 0 8px;
+  }
+  .other-topics::-webkit-scrollbar{display:none}
+  .other-topics .rubric-tile,
+  .other-topics > a,
+  .other-topics .topic-tile,
+  .other-topics .chip-pill{
+    flex:0 0 78% !important;
+    width:78% !important;
+    min-height:210px !important;
+    height:210px !important;
+    scroll-snap-align:start;
+    border-radius:var(--r) !important;
+    padding:0 !important;
+    background:#141814 !important;
+  }
+  .other-topics .rubric-tile b{font-size:22px !important}
+  .bento > .rubric-tile:not(.big){min-height:140px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .other-topics .rubric-tile:hover,
+  .bento > .rubric-tile:hover{transform:none}
 }
