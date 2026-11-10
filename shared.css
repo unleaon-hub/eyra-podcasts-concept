@@ -26,9 +26,9 @@
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
   font-family:"Manrope",system-ui,sans-serif;font-weight:400;
-  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:clip}
 html{scroll-behavior:smooth}
-body{min-height:100dvh;padding-bottom:calc(var(--mini) + var(--tabbar) + 20px);overflow-x:hidden}
+body{min-height:100dvh;padding-bottom:0;overflow-x:clip}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 button,input{font:inherit;color:inherit}
@@ -2145,4 +2145,186 @@ html.footer-reveal.now-in-view .footer{bottom:12px}
   #rail-exp .avatar-wrap,#other-cols .avatar-wrap,.rail-exp .avatar-wrap{
     height:170px !important;max-height:170px !important;min-height:170px
   }
+}
+
+
+/* ——— v13: official footer reveal + mini clearance, mood pills, play on the ring ——— */
+
+/* Official sticky reveal (bottom offset only to clear the mini-player).
+   No body padding after the footer (that created the dark band). When reveal
+   is on, official 24px footer padding is kept and a cream extension fills
+   the gap under the mini. When reveal is off (short/mobile), padding-bottom
+   itself clears the mini so the last row stays visible. */
+html.footer-reveal .footer{
+  bottom:calc(var(--mini) + env(safe-area-inset-bottom,0px) + 12px);
+  padding-top:calc(56px + var(--mini) + env(safe-area-inset-bottom,0px) + 12px);
+  padding-bottom:24px;
+}
+html.footer-reveal .footer::after{
+  content:"";
+  position:absolute;left:0;right:0;top:100%;
+  height:calc(var(--mini) + env(safe-area-inset-bottom,0px) + 12px);
+  background:var(--paper-deep);
+  pointer-events:none;
+  z-index:-1;
+}
+html.footer-reveal.now-in-view .footer{
+  bottom:12px;
+  padding-bottom:24px;
+}
+html.footer-reveal.now-in-view .footer::after{height:12px}
+.footer{
+  padding-bottom:calc(24px + var(--mini) + env(safe-area-inset-bottom,0px) + 12px);
+}
+html.now-in-view .footer{padding-bottom:24px}
+@media (max-width:760px){
+  .footer{padding-bottom:calc(20px + var(--mini) + env(safe-area-inset-bottom,0px) + 12px)}
+  html.now-in-view .footer{padding-bottom:20px}
+  /* reveal is off on mobile; no sticky lift */
+  html.footer-reveal .footer{bottom:auto;padding-bottom:calc(20px + var(--mini) + env(safe-area-inset-bottom,0px) + 12px)}
+  html.footer-reveal .footer::after{content:none}
+}
+/* No body gap after the footer. A top pad on the sticky footer absorbs the
+   overlap with the content surface, so the wordmark is fully visible at the end. */
+body{padding-bottom:0}
+@media (max-width:860px){
+  body{padding-bottom:0}
+  .now-page{padding-bottom:24px}
+}
+
+/* Настроение: horizontal pill chips on mobile, desktop tiles unchanged. */
+@media (max-width:860px){
+  .mood-grid{
+    display:flex;
+    width:calc(100% - 32px);
+    margin-left:auto;margin-right:auto;
+    gap:8px;
+    overflow-x:auto;
+    overflow-y:visible;
+    scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+    padding:0;
+    grid-template-columns:none;
+  }
+  .mood-grid::-webkit-scrollbar{display:none}
+  .mood{
+    flex:0 0 auto;
+    aspect-ratio:auto;
+    width:auto;
+    height:auto;
+    min-height:44px;
+    padding:10px 18px;
+    border-radius:999px;
+    justify-content:center;
+    align-items:center;
+    overflow:visible;
+  }
+  .mood b{
+    font-size:14px;
+    line-height:1.2;
+    letter-spacing:-.02em;
+    white-space:nowrap;
+    overflow:visible;
+  }
+}
+
+/* Expert play sits on the ring at 4–5 o'clock and may stick out; never clip it. */
+.avatar-wrap{
+  display:block;
+  overflow:visible !important;
+  border-radius:50%;
+  position:relative;
+}
+.avatar-photo{
+  display:block;
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  overflow:hidden;
+  aspect-ratio:1;
+}
+.avatar-wrap img,
+.avatar-photo img{
+  width:100% !important;
+  height:100% !important;
+  max-width:none !important;
+  max-height:none !important;
+  border-radius:50%;
+  object-fit:cover;
+  display:block;
+  transform:none !important;
+  box-shadow:none;
+  transition:filter .25s var(--ease);
+}
+.card-expert:hover .avatar-wrap img,
+.card-expert:hover .avatar-photo img,
+.card-expert:focus-within .avatar-wrap img{
+  transform:none !important;
+  filter:brightness(1.07);
+  box-shadow:none;
+}
+.avatar-wrap .play-float{
+  width:44px;height:44px;
+  right:-8px;bottom:16px;
+  border:1.5px solid #111412;
+  background:var(--paper);
+  color:var(--ink);
+  box-shadow:0 8px 18px #11141259, 0 2px 6px #00000040;
+  opacity:0;
+  transform:scale(.85);
+  transition:opacity .18s var(--ease),transform .18s var(--ease),background .2s var(--ease);
+  z-index:4;
+}
+.card-expert:hover .avatar-wrap .play-float,
+.card-expert:focus-within .avatar-wrap .play-float{
+  opacity:1;
+  transform:scale(1);
+}
+.avatar-wrap .play-float:hover{background:var(--paper-h)}
+.avatar-wrap .play-float.is-playing{opacity:1;transform:scale(1);background:var(--gold)}
+@media (prefers-reduced-motion:reduce){
+  .avatar-wrap .play-float{transition:none;transform:none}
+  .card-expert:hover .avatar-wrap .play-float,
+  .card-expert:focus-within .avatar-wrap .play-float{transform:none}
+}
+
+/* Scroll row: room for rings, the sticking-out play, no overflow hidden on the item. */
+#rail-exp,.rail-exp,#other-cols .rail,
+.shelf .rail{
+  overflow-x:auto;
+  overflow-y:visible;
+  padding-top:16px;
+  padding-bottom:28px;
+  padding-left:4px;
+  padding-right:4px;
+}
+.card-expert{overflow:visible}
+@media (max-width:860px){
+  .avatar-wrap .play-float{right:-6px;bottom:12px}
+}
+
+/* Square typo-cover play stays inset and fully visible inside the cover. */
+.typo-cover{overflow:hidden}
+.typo-cover .play-float{
+  right:10px;bottom:10px;
+  opacity:0;
+  transform:scale(.85);
+  transition:opacity .18s var(--ease),transform .18s var(--ease),background .2s var(--ease);
+  border:1.5px solid #111412;
+  box-shadow:0 8px 18px #11141259, 0 2px 6px #00000040;
+}
+.card-ep:hover .typo-cover .play-float,
+.card-show:hover .typo-cover .play-float,
+.card-ep:focus-within .typo-cover .play-float,
+.card-show:focus-within .typo-cover .play-float,
+.hero-art:hover .play-float,
+.hero-art:focus-within .play-float{
+  opacity:1;transform:scale(1);
+}
+
+/* 1024 mini-player: keep title truncating, comfortable chip gaps */
+@media (max-width:1200px) and (min-width:861px){
+  .mini-left .meta b{padding-right:8px}
+  .mini-right{gap:6px}
+  .mini-player{gap:8px}
 }
