@@ -1,0 +1,302 @@
+[
+  {
+    "slug": "asya",
+    "name": "Ася",
+    "role": "Психолог",
+    "roleShort": "Психолог",
+    "rubric": "emotsii",
+    "category": "Эмоции и отношения",
+    "journal": "https://eyra.ink/journal/emotsii/",
+    "page": "https://eyra.ink/experts/asya/",
+    "accent": "#ddb79c",
+    "button": "#efdfd0",
+    "photo": "assets/asya.webp",
+    "dek": "Разборы чувств, границ и отношений — чтобы было на что опереться в трудный момент.",
+    "card": {
+      "titleHtml": "Ася — ваш<br><span class=\"profession\">ИИ-психолог.</span>",
+      "title": "Ася — ваш ИИ-психолог.",
+      "benefit": "Когда хочется выговориться и разобраться в чувствах.",
+      "description": "Обсудите отношения, усталость или разговор, который не выходит из головы. По будням Ася предложит короткую рекомендацию или простое упражнение с учётом того, что вы рассказали.",
+      "themes": [
+        "Чувства",
+        "Отношения",
+        "Внимание к себе"
+      ],
+      "cta": "Познакомиться с Асей"
+    },
+    "genitive": "Аси",
+    "eyebrow": "Эмоции",
+    "portrait": "assets/asya.webp",
+    "portraitSrcset": ""
+  },
+  {
+    "slug": "kira",
+    "name": "Кира",
+    "role": "Нутрициолог",
+    "roleShort": "Нутрициолог",
+    "rubric": "pitanie",
+    "category": "Питание и привычки",
+    "journal": "https://eyra.ink/journal/pitanie/",
+    "page": "https://eyra.ink/experts/kira/",
+    "accent": "#b9cebb",
+    "button": "#e1ebdd",
+    "photo": "assets/kira.webp",
+    "dek": "Как наладить питание и привычки без жёстких запретов и срывов к среде.",
+    "card": {
+      "titleHtml": "Кира — ваш<br><span class=\"profession\">ИИ-нутрициолог.</span>",
+      "title": "Кира — ваш ИИ-нутрициолог.",
+      "benefit": "Когда хочется наладить питание в своём ритме.",
+      "description": "Обсудите свой рацион и привычки. Кира предложит понятные рекомендации и небольшие шаги, которые можно попробовать в течение дня — без необходимости менять всё сразу.",
+      "themes": [
+        "Питание",
+        "Привычки",
+        "Ритм жизни"
+      ],
+      "cta": "Познакомиться с Кирой"
+    },
+    "genitive": "Киры",
+    "eyebrow": "Питание",
+    "portrait": "assets/kira.webp",
+    "portraitSrcset": ""
+  },
+  {
+    "slug": "vera",
+    "name": "Вера",
+    "role": "Астролог",
+    "roleShort": "Астролог",
+    "rubric": "astrologiya",
+    "category": "Астрология",
+    "journal": "https://eyra.ink/journal/astrologiya/",
+    "page": "https://eyra.ink/experts/vera/",
+    "accent": "#d8b988",
+    "button": "#f0e3cf",
+    "photo": "assets/vera.webp",
+    "dek": "Ориентиры по карте и аспектам — чтобы день и период были понятнее.",
+    "card": {
+      "titleHtml": "Вера — ваш<br><span class=\"profession\">ИИ-астролог.</span>",
+      "title": "Вера — ваш ИИ-астролог.",
+      "benefit": "Когда хочется понять себя и осмыслить свои планы.",
+      "description": "Вера составит личный разбор по данным рождения и объяснит астрологическую интерпретацию применительно к вашим вопросам. По будням утром — короткие ориентиры на день.",
+      "themes": [
+        "Личная карта",
+        "Планы",
+        "Отношения"
+      ],
+      "cta": "Познакомиться с Верой"
+    },
+    "genitive": "Веры",
+    "eyebrow": "Астрология",
+    "portrait": "assets/vera.webp",
+    "portraitSrcset": ""
+  },
+  {
+    "slug": "lera",
+    "name": "Лера",
+    "role": "Таролог",
+    "roleShort": "Таролог",
+    "rubric": "taro",
+    "category": "Таро",
+    "journal": "https://eyra.ink/journal/taro/",
+    "page": "https://eyra.ink/experts/lera/",
+    "accent": "#d4b8c9",
+    "button": "#e9dce6",
+    "photo": "assets/lera.webp",
+    "dek": "Короткие расклады и способы задать вопрос так, чтобы ответ был полезным.",
+    "card": {
+      "titleHtml": "Лера — ваш<br><span class=\"profession\">ИИ-таролог.</span>",
+      "title": "Лера — ваш ИИ-таролог.",
+      "benefit": "Когда перед вами выбор и хочется взглянуть на него иначе.",
+      "description": "Написать первой или подождать? Остаться на привычной работе или подумать о переменах? Лера сделает расклад Таро и поможет обсудить, как его образы соотносятся с вашей ситуацией.",
+      "themes": [
+        "Расклады Таро",
+        "Желания",
+        "Выбор"
+      ],
+      "cta": "Познакомиться с Лерой"
+    },
+    "genitive": "Леры",
+    "eyebrow": "Таро",
+    "portrait": "assets/lera.webp",
+    "portraitSrcset": ""
+  },
+  {
+    "slug": "mira",
+    "name": "Мира",
+    "role": "Нумеролог",
+    "roleShort": "Нумеролог",
+    "rubric": "numerologiya",
+    "category": "Нумерология",
+    "journal": "https://eyra.ink/journal/numerologiya/",
+    "page": "https://eyra.ink/experts/mira/",
+    "accent": "#c7b9df",
+    "button": "#e7dff1",
+    "photo": "assets/mira.webp",
+    "dek": "Числа, циклы и повторяющиеся знаки — как читать их без суеверий.",
+    "card": {
+      "titleHtml": "Мира — ваш<br><span class=\"profession\">ИИ-нумеролог.</span>",
+      "title": "Мира — ваш ИИ-нумеролог.",
+      "benefit": "Когда хочется выбрать, чему уделить внимание сейчас.",
+      "description": "Мира рассчитает личные числа по дате рождения и объяснит их значение для ваших вопросов и планов. По будням — тема дня, понятный разбор и небольшой практический шаг.",
+      "themes": [
+        "Личные числа",
+        "Тема дня",
+        "Практический шаг"
+      ],
+      "cta": "Познакомиться с Мирой"
+    },
+    "genitive": "Миры",
+    "eyebrow": "Числа",
+    "portrait": "assets/mira.webp",
+    "portraitSrcset": ""
+  },
+  {
+    "slug": "nika",
+    "name": "Ника",
+    "role": "Продюсер",
+    "roleShort": "Продюсер",
+    "rubric": "karera",
+    "category": "Карьера и самопрезентация",
+    "journal": "https://eyra.ink/journal/karera/",
+    "page": "https://eyra.ink/experts/nika/",
+    "accent": "#d4afa3",
+    "button": "#eddbd0",
+    "photo": "assets/nika.webp",
+    "dek": "Самопрезентация, карьерные развилки и разговоры, в которых важно быть услышанной.",
+    "card": {
+      "titleHtml": "Ника — ваш<br><span class=\"profession\">ИИ-продюсер.</span>",
+      "title": "Ника — ваш ИИ-продюсер.",
+      "benefit": "Когда хочется стать заметнее в своём деле.",
+      "description": "Обсудите, к какой роли и возможностям вы стремитесь. Ника поможет увидеть сильные стороны, сформулировать свою ценность и выбрать следующий шаг: самопрезентацию, контент, выступление или важный разговор.",
+      "themes": [
+        "Амбиции",
+        "Позиционирование",
+        "Возможности"
+      ],
+      "cta": "Познакомиться с Никой"
+    },
+    "genitive": "Ники",
+    "eyebrow": "Карьера",
+    "portrait": "assets/nika.webp",
+    "portraitSrcset": ""
+  },
+  {
+    "slug": "eva",
+    "name": "Ева",
+    "role": "Ассистент по нетворкингу",
+    "roleShort": "Нетворкинг",
+    "rubric": "obshchenie",
+    "category": "Друзья и связи",
+    "journal": "https://eyra.ink/journal/obshchenie/",
+    "page": "https://eyra.ink/experts/eva/",
+    "accent": "#d8ba78",
+    "button": "#efe2c4",
+    "photo": "assets/eva.webp",
+    "dek": "Как находить людей, держать связь и не теряться, когда все заняты своими жизнями.",
+    "card": {
+      "titleHtml": "Ева — ваш<br><span class=\"profession\">ИИ-ассистент</span><br>по нетворкингу.",
+      "title": "Ева — ваш ИИ-ассистент по нетворкингу.",
+      "benefit": "Когда нужны знакомства, которые открывают возможности.",
+      "description": "Обсудите, с кем и зачем хотите познакомиться. Ева поможет выбрать подходящий контакт, найти повод написать и подготовить первое сообщение. А затем — продолжить общение с учётом реального ответа и взаимного интереса.",
+      "themes": [
+        "Полезные знакомства",
+        "Первое сообщение",
+        "Взаимная польза"
+      ],
+      "cta": "Познакомиться с Евой"
+    },
+    "genitive": "Евы",
+    "eyebrow": "Связи",
+    "portrait": "assets/eva.webp",
+    "portraitSrcset": ""
+  },
+  {
+    "slug": "maya",
+    "name": "Майя",
+    "role": "Лайфстайл-ассистент",
+    "roleShort": "Лайфстайл",
+    "rubric": "dosug",
+    "category": "Отдых и впечатления",
+    "journal": "https://eyra.ink/journal/dosug/",
+    "page": "https://eyra.ink/experts/maya/",
+    "accent": "#a8bdd9",
+    "button": "#dce6f2",
+    "photo": "assets/maya.webp",
+    "dek": "Практичные выпуски про вечер, выходные и отдых без надрыва.",
+    "card": {
+      "titleHtml": "Майя — ваш<br><span class=\"profession\">ИИ-лайфстайл-</span><br>ассистент.",
+      "title": "Майя — ваш ИИ-лайфстайл- ассистент.",
+      "benefit": "Когда дни похожи друг на друга и хочется новых впечатлений.",
+      "description": "Придумайте вечер или выходные вместе с Майей. Она поможет выбрать отдых одному или с близкими, учтёт настроение, время, силы и бюджет — и превратит «хочу что-нибудь интересное» в понятный план.",
+      "themes": [
+        "Идеи для вечера",
+        "Планы на выходные",
+        "Новые впечатления"
+      ],
+      "cta": "Познакомиться с Майей"
+    },
+    "genitive": "Майи",
+    "eyebrow": "Отдых",
+    "portrait": "assets/maya-portrait.webp",
+    "portraitSrcset": "assets/maya-portrait-720w.webp 720w, assets/maya-portrait.webp 941w"
+  },
+  {
+    "slug": "sofia",
+    "name": "София",
+    "role": "Финансовый советник",
+    "roleShort": "Финансы",
+    "rubric": "finansy",
+    "category": "Личные финансы",
+    "journal": "https://eyra.ink/journal/finansy/",
+    "page": "https://eyra.ink/experts/sofia/",
+    "accent": "#b9c58e",
+    "button": "#e4e9cf",
+    "photo": "assets/sofia.webp",
+    "dek": "Деньги в обычной жизни: подушка, траты и разговоры о деньгах без стыда.",
+    "card": {
+      "titleHtml": "София — ваш<br><span class=\"profession\">ИИ-финансовый</span><br>советник.",
+      "title": "София — ваш ИИ-финансовый советник.",
+      "benefit": "Когда хочется разобраться с деньгами и увереннее строить планы.",
+      "description": "Обсудите доходы, расходы и обязательства. София поможет рассчитать кредит или ипотеку, сравнить варианты погашения долгов и составить план накоплений. Для начала достаточно примерных сумм.",
+      "themes": [
+        "Расходы и бюджет",
+        "Кредиты и ипотека",
+        "Накопления"
+      ],
+      "cta": "Познакомиться с Софией"
+    },
+    "genitive": "Софии",
+    "eyebrow": "Финансы",
+    "portrait": "assets/sofia.webp",
+    "portraitSrcset": ""
+  },
+  {
+    "slug": "alisa",
+    "name": "Алиса",
+    "role": "Дейтинг-ассистент",
+    "roleShort": "Дейтинг",
+    "rubric": "znakomstva",
+    "category": "Знакомства",
+    "journal": "https://eyra.ink/journal/znakomstva/",
+    "page": "https://eyra.ink/experts/alisa/",
+    "accent": "#d8a9ba",
+    "button": "#eedde4",
+    "photo": "assets/alisa.webp",
+    "dek": "Знакомства и первые шаги — спокойно, без самообмана и гонки.",
+    "card": {
+      "titleHtml": "Алиса — ваш<br><span class=\"profession\">ИИ-дейтинг-</span><br>ассистент.",
+      "title": "Алиса — ваш ИИ-дейтинг- ассистент.",
+      "benefit": "Когда хочется нравиться, знакомиться и получать больше взаимности.",
+      "description": "Обсудите конкретного человека или новое знакомство. Алиса поможет проявить интерес, подобрать сообщение, пригласить на свидание и понять, как развивается общение. Флирт, романтика, близость или отношения — начните со своих желаний.",
+      "themes": [
+        "Знакомства",
+        "Переписка и флирт",
+        "Свидания"
+      ],
+      "cta": "Познакомиться с Алисой"
+    },
+    "genitive": "Алисы",
+    "eyebrow": "Знакомства",
+    "portrait": "assets/alisa.webp",
+    "portraitSrcset": ""
+  }
+]

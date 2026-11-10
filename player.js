@@ -15,7 +15,8 @@
     }catch(e){}
   }
   function playerHref(){
-    const u = new URL("player.html", location.href);
+    const base = (window.EYRA_NOW && window.EYRA_NOW.href) ? window.EYRA_NOW.href : "player.html";
+    const u = new URL(base, location.href);
     u.searchParams.set("p", progress.toFixed(4));
     u.searchParams.set("play", playing ? "1" : "0");
     if(speedIndex) u.searchParams.set("spd", String(speeds[speedIndex]));
@@ -119,6 +120,7 @@
     const play = e.target.closest("[data-play]");
     if(play){
       e.preventDefault();
+      e.stopPropagation();
       const ep = play.closest("[data-episode], .ep-item, .ep-row, .card-ep, .card-show");
       if(ep){
         $$(".ep-item.is-active, .ep-row.is-active, .episode.is-active").forEach(n=>n.classList.remove("is-active"));
@@ -234,7 +236,7 @@
     const btn=document.querySelector("[data-show-more]");
     if(!btn) return;
     btn.addEventListener("click",()=>{
-      document.querySelectorAll(".ep-item.is-more").forEach(el=>el.classList.remove("is-more"));
+      document.querySelectorAll(".ep-item.is-more, .mood-ep.is-more").forEach(el=>el.classList.remove("is-more"));
       btn.hidden=true;
     });
   }
