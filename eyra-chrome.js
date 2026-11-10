@@ -51,7 +51,9 @@
   function fitFooterReveal(){
     // Mobile browser chrome resizes visualViewport during scrolling. Avoid
     // switching positioning mode mid-gesture; mobile uses ordinary flow.
-    const enabled=desktop.matches&&!motion.matches&&footer.offsetHeight+48<=root.clientHeight;
+    const playerPage=root.classList.contains('player-page');
+    const tooShort=playerPage&&surface.scrollHeight<root.clientHeight-48;
+    const enabled=desktop.matches&&!motion.matches&&footer.offsetHeight+48<=root.clientHeight&&!tooShort;
     root.classList.toggle('footer-reveal',enabled);
     if(enabled)updateCover();
     else{footer.style.removeProperty('--footer-cover');lastCover='';}

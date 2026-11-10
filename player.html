@@ -7,7 +7,7 @@
 <meta name="description" content="Концепт раздела подкастов EYRA: аудиоверсии статей журнала.">
 <link rel="icon" href="assets/eyra-mark.svg">
 <link rel="preload" href="assets/manrope-variable.woff" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="shared.css?v=hub23">
+<link rel="stylesheet" href="shared.css?v=hub24">
 </head>
 <body class="is-playing" data-duration="420" data-progress="0.42">
 <div class="grain" aria-hidden="true"></div>
@@ -34,7 +34,7 @@
     <div class="now-copy">
       <a class="show-link" href="show.html">Отдых и впечатления</a>
       <h1>Как распланировать вечер дома, чтобы успеть и отдохнуть</h1>
-      <p class="host-line"><span class="host-name"><a href="show.html?e=maya">Майя</a></span><span class="host-rest"> · Лайфстайл-ассистент · 7 мин</span></p>
+      <p class="host-line"><a class="host-ava-link" href="show.html?e=maya" aria-label="Колонка: Майя"><img class="host-ava" src="assets/maya.webp" alt="" width="24" height="24"></a><span class="host-name"><a href="show.html?e=maya">Майя</a></span><span class="host-rest"> · Лайфстайл-ассистент</span></p>
       <p class="now-read"><a class="read-quiet" href="https://eyra.ink/journal/dosug/kak-rasplanovat-vecher-doma/" target="_blank" rel="noopener">Читать статью ↗</a></p>
       <div class="player-controls">
         <div class="timeline-block">
@@ -61,84 +61,16 @@
   <section class="cont-block" id="dalee">
     <h2 class="h-section">Далее</h2>
     <div class="ep-table dalee-list" id="dalee-list"></div>
+    <p class="dalee-all"><a href="show.html?e=maya">Все выпуски Майи →</a></p>
   </section>
 
-  <section class="cont-block shelf" id="esche">
-    <div class="shelf-head"><h2 class="h-section">Ещё у Майи</h2>
-      <div class="shelf-tools"><a href="show.html">Все</a></div>
-    </div>
-    <div class="esche-bento" id="esche-list"></div>
-  </section>
-
-  <section class="cont-block" id="pohozhee">
-    <h2 class="h-section">Похожее у других экспертов</h2>
-    <div class="ep-table alike-grid" id="alike-grid"></div>
-  </section>
-
-<div class="catalog-expert-slot is-odd">
-  <section class="expert" id="maya" aria-labelledby="maya-title" style="--accent:#a8bdd9;--button:#dce6f2">
-    <div class="expert-grid">
-      <div class="expert-intro">
-        <p class="eyebrow">Личный разговор в Telegram</p>
-        <h2 id="maya-title">Майя — ваш<br><span class="profession">ИИ-лайфстайл-</span><br>ассистент.</h2>
-      </div>
-      <a class="portrait portrait-link" data-expert-link="maya" href="https://eyra.ink/experts/maya/" rel="noopener" aria-label="Познакомиться: Майя — лайфстайл-ассистент">
-        <img src="assets/maya-portrait.webp" srcset="assets/maya-portrait-720w.webp 720w, assets/maya-portrait.webp 941w" sizes="(max-width:760px) calc(100vw - 32px), 46vw" width="941" height="1672" alt="Майя — ИИ-лайфстайл-ассистент" decoding="async">
-        <span class="video-trigger">
-          <span class="portrait-link-arrow"><svg aria-hidden="true"><use href="#out"/></svg></span>
-          <span>Познакомиться с Майей<small>На личной странице эксперта</small></span>
-        </span>
-      </a>
-      <div class="expert-detail">
-        <p class="benefit">Когда дни похожи друг на друга и хочется новых впечатлений.</p>
-        <p class="expert-description">Придумайте вечер или выходные вместе с Майей. Она поможет выбрать отдых одному или с близкими, учтёт настроение, время, силы и бюджет — и превратит «хочу что-нибудь интересное» в понятный план.</p>
-        <div class="themes"><span>Идеи для вечера</span><span>Планы на выходные</span><span>Новые впечатления</span></div>
-        <a class="cta" data-expert-link="maya" href="https://eyra.ink/experts/maya/" rel="noopener"><span>Познакомиться с Майей</span><svg aria-hidden="true"><use href="#out"/></svg></a>
-        <p class="trial"><span>7 дней бесплатно</span> · Без банковской карты</p>
-      </div>
-    </div>
-  </section>
-</div>
-<p class="wave-continue"><a href="hub.html">Включить волну</a></p>
 </main>
 </div>
 <footer class="footer" aria-label="О EYRA"><div class="wrap">
 <div class="footer-main"><div class="footer-identity"><a class="footer-wordmark" href="https://eyra.ink/" rel="noopener" aria-label="EYRA — на главную">EYRA</a></div><nav class="footer-experts" aria-label="Страницы экспертов"><a href="https://eyra.ink/experts/asya/" data-expert-link="asya"><span>Ася</span><small>Психолог</small><svg aria-hidden="true"><use href="#out"/></svg></a><a href="https://eyra.ink/experts/kira/" data-expert-link="kira"><span>Кира</span><small>Нутрициолог</small><svg aria-hidden="true"><use href="#out"/></svg></a><a href="https://eyra.ink/experts/vera/" data-expert-link="vera"><span>Вера</span><small>Астролог</small><svg aria-hidden="true"><use href="#out"/></svg></a><a href="https://eyra.ink/experts/lera/" data-expert-link="lera"><span>Лера</span><small>Таролог</small><svg aria-hidden="true"><use href="#out"/></svg></a><a href="https://eyra.ink/experts/mira/" data-expert-link="mira"><span>Мира</span><small>Нумеролог</small><svg aria-hidden="true"><use href="#out"/></svg></a><a href="https://eyra.ink/experts/nika/" data-expert-link="nika"><span>Ника</span><small>Продюсер</small><svg aria-hidden="true"><use href="#out"/></svg></a><a href="https://eyra.ink/experts/eva/" data-expert-link="eva"><span>Ева</span><small>Нетворкинг</small><svg aria-hidden="true"><use href="#out"/></svg></a><a href="https://eyra.ink/experts/maya/" data-expert-link="maya"><span>Майя</span><small>Лайфстайл</small><svg aria-hidden="true"><use href="#out"/></svg></a><a href="https://eyra.ink/experts/sofia/" data-expert-link="sofia"><span>София</span><small>Финансист</small><svg aria-hidden="true"><use href="#out"/></svg></a><a href="https://eyra.ink/experts/alisa/" data-expert-link="alisa"><span>Алиса</span><small>Дейтинг</small><svg aria-hidden="true"><use href="#out"/></svg></a></nav></div>
 <div class="footer-utility"><span>© 2026 EYRA</span><nav aria-label="Каталог EYRA"><a href="https://eyra.ink/journal/" data-eyra-journal-entry>Блог</a><a href="https://eyra.ink/#how">Как это работает</a><a href="https://eyra.ink/#questions">Вопросы и ответы</a><a href="#page-top" class="footer-up">Наверх<svg aria-hidden="true"><use href="#arrow"/></svg></a></nav></div>
 </div></footer>
-<div class="mini-player" role="region" aria-label="Сейчас играет">
-  <div class="mini-left">
-    <a href="player.html" data-open-player aria-label="Открыть выпуск"><div class="typo-cover " style="--accent:#a8bdd9">
-      <img src="assets/maya.webp" alt="Майя">
-      <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Как распланировать вечер дома, чтобы успеть и отдохнуть</b></div>
-      
-    </div></a>
-    <a class="meta" href="player.html" data-open-player>
-      <b>Как распланировать вечер дома, чтобы успеть и отдохнуть</b>
-      <span>Майя · Отдых и впечатления</span>
-    </a>
-  </div>
-  <div class="mini-mid">
-    <div class="mini-ctrls">
-      <button class="side" aria-label="Назад 15 секунд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 8 4 11l3 3"/><path d="M4 11h9a5 5 0 1 1 0 10H8"/><text x="11.5" y="14.5" font-size="6" fill="currentColor" stroke="none" text-anchor="middle">15</text></svg></button>
-      <button class="main" data-play data-keep-label aria-label="Пауза"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/><rect x="14" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/></svg></button>
-      <button class="side" aria-label="Вперёд 15 секунд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 8 20 11l-3 3"/><path d="M20 11H11a5 5 0 1 0 0 10h5"/></svg></button>
-    </div>
-    <div class="timeline-block" style="width:100%">
-      <div class="bar" data-progress aria-hidden="true"><i></i></div>
-      <div class="times"><span data-time-cur>2:56</span><span data-time-left>-4:04</span></div>
-    </div>
-  </div>
-  <div class="mini-right">
-    <button class="icon-btn" data-speed aria-label="Скорость 1×">1×</button>
-    <button class="icon-btn hide-sm" data-sleep aria-label="Таймер сна: Выкл"><svg class="chip-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v5l3 2"/></svg><span data-sleep-label>Таймер</span></button>
-    <a class="read-quiet hide-sm" href="https://eyra.ink/journal/dosug/kak-rasplanovat-vecher-doma/" target="_blank" rel="noopener">Читать статью ↗</a>
-    <div class="vol hide-sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 10v4h3l4 3V7L7 10H4z"/><path d="M16 9.5a4 4 0 0 1 0 5"/></svg><div class="bar"><i></i></div></div>
-    <a class="icon-btn" href="player.html" data-open-player aria-label="Открыть выпуск"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m6 14 6-6 6 6"/></svg></a>
-  </div>
-</div>
-
-<script src="catalog.js?v=hub23"></script>
-<script src="player.js?v=hub23"></script>
-<script src="eyra-chrome.js?v=hub23"></script>
+<script src="catalog.js?v=hub24"></script>
+<script src="player.js?v=hub24"></script>
+<script src="eyra-chrome.js?v=hub24"></script>
 </body></html>

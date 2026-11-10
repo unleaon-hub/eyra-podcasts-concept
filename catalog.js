@@ -314,8 +314,12 @@
     if(h1) h1.textContent = ep.title;
     const host = $(".now-copy .host-line");
     if(host){
-      host.style.removeProperty("--accent");
-      host.innerHTML = '<span class="host-name"><a href="'+showHref(ex)+'">'+escapeHtml(ex.name)+'</a></span><span class="host-rest"> · '+escapeHtml(ex.role)+' · '+ep.minutes+' мин</span>';
+      host.setAttribute("data-expert", ex.slug);
+      host.style.setProperty("--accent", ex.accent);
+      host.style.setProperty("--pos", "var(--focus-"+ex.slug+", 50% 18%)");
+      host.innerHTML = '<a class="host-ava-link" href="'+showHref(ex)+'" aria-label="Колонка: '+escapeHtml(ex.name)+'"><img class="host-ava" src="'+ex.photo+'" alt="" width="24" height="24"></a>'+
+        '<span class="host-name"><a href="'+showHref(ex)+'">'+escapeHtml(ex.name)+'</a></span>'+
+        '<span class="host-rest"> · '+escapeHtml(ex.role)+'</span>';
     }
     $$(".now-copy .read-quiet, .now-copy .mode-switch a").forEach(a=>{
       a.href = ep.url;
@@ -327,9 +331,14 @@
     const crumb = $(".now-page > .crumb");
     if(crumb) crumb.innerHTML = '<a href="hub.html">Подкасты</a> · <a href="'+topicHref(topic)+'">'+escapeHtml(topic.name)+'</a>';
 
-    const dalee = rest.slice(0,6);
+    const dalee = rest.slice(0,4);
     const daleeMix = new Set(dalee.map(a=>slugOf(a))).size > 1;
     renderEpTable($("#dalee-list"), dalee, Object.assign({}, extra, {host:true, cover:daleeMix, markStarted:false, upNext:true}));
+    const daleeAll = $(".dalee-all a, #dalee .dalee-all a");
+    if(daleeAll){
+      daleeAll.href = showHref(ex);
+      daleeAll.textContent = "Все выпуски " + ex.genitive + " →";
+    }
 
     const escheTitle = $("#esche .h-section");
     if(escheTitle) escheTitle.textContent = "Ещё у " + ex.genitive;

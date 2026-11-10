@@ -248,16 +248,15 @@
 
   function initMiniOnPlayerPage(){
     const now = document.querySelector(".now-stage") || document.querySelector(".now-page");
+    if(!now) return;
+    const root = document.documentElement;
+    root.classList.add("player-page", "now-in-view");
+    root.style.setProperty("--mini", "0px");
     const mini = document.querySelector(".mini-player");
-    if(!now || !mini) return;
-    document.documentElement.classList.add("player-page");
-    const io = new IntersectionObserver((entries)=>{
-      const on = entries.some(en => en.isIntersecting);
-      document.documentElement.classList.toggle("now-in-view", on);
-      mini.hidden = on;
-      mini.setAttribute("aria-hidden", String(on));
-    }, { threshold: 0.2, rootMargin: "0px 0px -15% 0px" });
-    io.observe(now);
+    if(mini){
+      mini.hidden = true;
+      mini.setAttribute("aria-hidden", "true");
+    }
   }
 
   applySpeed();
