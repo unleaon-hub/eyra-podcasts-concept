@@ -5021,3 +5021,23 @@ html.player-page .player-chrome .crumb{
   html.player-page .player-close{border:0}
   html.player-page .now-stage{padding-top:8px}
 }
+
+
+/* ——— hub30: hide mobile Читать; desktop close is a plain icon ——— */
+@media (max-width:480px){
+  html.player-page .ctrl-line .now-read,
+  html.player-page .now-read{
+    display:none !important;
+    margin:0 !important;
+  }
+  html.player-page .player-controls{margin-bottom:0;padding-bottom:0}
+}
+
+@media (min-width:861px){
+  html.player-page .player-close{
+    border:0 !important;
+    background:transparent !important;
+    box-shadow:none !important;
+    margin-left:auto;
+  }
+}
