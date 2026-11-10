@@ -7,30 +7,17 @@
 <meta name="description" content="Концепт раздела подкастов EYRA: аудиоверсии статей журнала.">
 <link rel="icon" href="assets/eyra-mark.svg">
 <link rel="preload" href="assets/manrope-variable.woff" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="shared.css?v=hub10">
+<link rel="stylesheet" href="shared.css?v=hub11">
 </head>
 <body class="is-playing" data-duration="420" data-progress="0.42">
 <div class="grain" aria-hidden="true"></div>
-<header class="site-header">
-  <a class="brand" href="https://eyra.ink/" rel="noopener">
-    <img src="assets/eyra-mark.svg" alt="">
-    <span>EYRA</span>
-  </a>
-  <nav class="nav" aria-label="Разделы сайта">
-    <a href="https://eyra.ink/#experts">Эксперты</a>
-    <a href="https://eyra.ink/#how">Как это работает</a>
-    <a href="https://eyra.ink/journal/">Журнал</a>
-    <a href="hub.html" class="is-on">Подкасты</a>
-  </nav>
-  <label class="header-search">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 5 5"/></svg>
-    <input type="search" placeholder="Найти выпуск или статью" aria-label="Поиск выпусков">
-  </label>
-  <div class="header-actions">
-    <a class="btn-paper" href="https://eyra.ink/#experts">Выбрать эксперта</a>
-  </div>
-</header>
-
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true"><defs>
+<symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+<symbol id="out" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12"/></symbol>
+</defs></svg>
+<header class="header wrap journal-header" id="page-top"><a class="brand" href="https://eyra.ink/" rel="noopener" aria-label="EYRA — на главную"><img src="assets/eyra-mark.svg" width="38" height="38" alt=""><span>EYRA</span></a><nav class="journal-nav" aria-label="Основная навигация"><a href="https://eyra.ink/#how">Как это работает</a><a href="https://eyra.ink/#questions">Вопросы</a><a href="https://eyra.ink/#experts">Эксперты</a><a href="https://eyra.ink/journal/">Блог</a><a href="hub.html" aria-current="page">Подкаст</a></nav><button class="menu-toggle journal-menu-toggle" type="button" aria-label="Открыть меню" aria-controls="journal-menu" aria-expanded="false"><svg aria-hidden="true" viewBox="0 0 28 28"><path d="M3 10h22M11 18h14"/></svg></button></header>
+<dialog class="journal-menu" id="journal-menu" aria-label="Навигация EYRA"><div class="journal-menu-head"><a class="brand" href="https://eyra.ink/" rel="noopener" aria-label="EYRA — на главную"><img src="assets/eyra-mark.svg" width="38" height="38" alt=""><span>EYRA</span></a><button type="button" class="journal-menu-close" aria-label="Закрыть меню"><svg aria-hidden="true" viewBox="0 0 28 28"><path d="m7 7 14 14M7 21 21 7"/></svg></button></div><nav aria-label="Мобильная навигация"><a href="https://eyra.ink/#how">Как это работает<svg class="journal-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 19 19 5M5 5h14v14"/></svg></a><a href="https://eyra.ink/#questions">Вопросы<svg class="journal-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 19 19 5M5 5h14v14"/></svg></a><a href="https://eyra.ink/#experts">Эксперты<svg class="journal-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 19 19 5M5 5h14v14"/></svg></a><a href="https://eyra.ink/journal/">Блог<svg class="journal-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 19 19 5M5 5h14v14"/></svg></a><a href="hub.html" aria-current="page">Подкаст<svg class="journal-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 19 19 5M5 5h14v14"/></svg></a></nav></dialog>
+<div class="eyra-content-surface">
 <main class="page">
   <div class="show-hero-bg" style="--accent:#a8bdd9"></div>
   <p class="crumb show-crumb"><a href="hub.html">Подкасты</a> · Отдых и впечатления</p>
@@ -254,7 +241,6 @@
   </div>
   
 <div class="catalog-expert-slot is-odd is-page">
-  <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true"><symbol id="out" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12"/></symbol></svg>
   <section class="expert" id="maya" aria-labelledby="maya-title" style="--accent:#a8bdd9;--button:#dce6f2">
     <div class="expert-grid">
       <div class="expert-intro">
@@ -284,16 +270,13 @@
     <div class="rail rail-exp"><a class="card-expert" href="show.html"><div class="avatar-wrap"><img src="assets/asya.webp" alt="Ася" width="200" height="200"></div><b>Ася</b><span>Психолог</span></a><a class="card-expert" href="show.html"><div class="avatar-wrap"><img src="assets/kira.webp" alt="Кира" width="200" height="200"></div><b>Кира</b><span>Нутрициолог</span></a><a class="card-expert" href="show.html"><div class="avatar-wrap"><img src="assets/vera.webp" alt="Вера" width="200" height="200"></div><b>Вера</b><span>Астролог</span></a><a class="card-expert" href="show.html"><div class="avatar-wrap"><img src="assets/lera.webp" alt="Лера" width="200" height="200"></div><b>Лера</b><span>Таролог</span></a><a class="card-expert" href="show.html"><div class="avatar-wrap"><img src="assets/mira.webp" alt="Мира" width="200" height="200"></div><b>Мира</b><span>Нумеролог</span></a><a class="card-expert" href="show.html"><div class="avatar-wrap"><img src="assets/nika.webp" alt="Ника" width="200" height="200"></div><b>Ника</b><span>Продюсер</span></a><a class="card-expert" href="show.html"><div class="avatar-wrap"><img src="assets/eva.webp" alt="Ева" width="200" height="200"></div><b>Ева</b><span>Нетворкинг</span></a><a class="card-expert" href="show.html"><div class="avatar-wrap"><img src="assets/sofia.webp" alt="София" width="200" height="200"></div><b>София</b><span>Финансы</span></a><a class="card-expert" href="show.html"><div class="avatar-wrap"><img src="assets/alisa.webp" alt="Алиса" width="200" height="200"></div><b>Алиса</b><span>Дейтинг</span></a></div>
   </section>
 
-<footer class="site-foot">
-  <span>EYRA</span>
-  <nav class="foot-nav">
-    <a href="hub.html">Подкасты</a>
-    <a href="https://eyra.ink/journal/">Журнал</a>
-    <a href="https://eyra.ink/#experts">Эксперты</a>
-  </nav>
-</footer>
 
 </main>
+</div>
+<footer class="footer" aria-label="О EYRA"><div class="wrap">
+<div class="footer-main"><div class="footer-identity"><a class="footer-wordmark" href="https://eyra.ink/" rel="noopener" aria-label="EYRA — на главную">EYRA</a></div><nav class="footer-experts" aria-label="Страницы экспертов"><a href="https://eyra.ink/experts/asya/" data-expert-link="asya"><span>Ася</span><small>Психолог</small><svg aria-hidden="true"><use href="#out"/></svg></a><a href="https://eyra.ink/experts/kira/" data-expert-link="kira"><span>Кира</span><small>Нутрициолог</small><svg aria-hidden="true"><use href="#out"/></svg></a><a href="https://eyra.ink/experts/vera/" data-expert-link="vera"><span>Вера</span><small>Астролог</small><svg aria-hidden="true"><use href="#out"/></svg></a><a href="https://eyra.ink/experts/lera/" data-expert-link="lera"><span>Лера</span><small>Таролог</small><svg aria-hidden="true"><use href="#out"/></svg></a><a href="https://eyra.ink/experts/mira/" data-expert-link="mira"><span>Мира</span><small>Нумеролог</small><svg aria-hidden="true"><use href="#out"/></svg></a><a href="https://eyra.ink/experts/nika/" data-expert-link="nika"><span>Ника</span><small>Продюсер</small><svg aria-hidden="true"><use href="#out"/></svg></a><a href="https://eyra.ink/experts/eva/" data-expert-link="eva"><span>Ева</span><small>Нетворкинг</small><svg aria-hidden="true"><use href="#out"/></svg></a><a href="https://eyra.ink/experts/maya/" data-expert-link="maya"><span>Майя</span><small>Лайфстайл</small><svg aria-hidden="true"><use href="#out"/></svg></a><a href="https://eyra.ink/experts/sofia/" data-expert-link="sofia"><span>София</span><small>Финансист</small><svg aria-hidden="true"><use href="#out"/></svg></a><a href="https://eyra.ink/experts/alisa/" data-expert-link="alisa"><span>Алиса</span><small>Дейтинг</small><svg aria-hidden="true"><use href="#out"/></svg></a></nav></div>
+<div class="footer-utility"><span>© 2026 EYRA</span><nav aria-label="Каталог EYRA"><a href="https://eyra.ink/journal/" data-eyra-journal-entry>Блог</a><a href="https://eyra.ink/#how">Как это работает</a><a href="https://eyra.ink/#questions">Вопросы и ответы</a><a href="#page-top" class="footer-up">Наверх<svg aria-hidden="true"><use href="#arrow"/></svg></a></nav></div>
+</div></footer>
 <div class="mini-player" role="region" aria-label="Сейчас играет">
   <div class="mini-left">
     <button data-open-full aria-label="Открыть плеер"><div class="typo-cover " style="--accent:#a8bdd9">
@@ -374,5 +357,6 @@
   </div>
 </div>
 
-<script src="player.js?v=hub10"></script>
+<script src="player.js?v=hub11"></script>
+<script src="eyra-chrome.js?v=hub11"></script>
 </body></html>
