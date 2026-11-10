@@ -103,6 +103,19 @@
     return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg>';
   }
 
+
+  function eschePlaqueHtml(a, ex){
+    const href = playerHref(a);
+    return '<article class="esche-plaque" data-episode data-slug="'+a.slug+'" style="--accent:'+ex.accent+'">'+
+      '<a class="esche-face" href="'+href+'">'+
+        '<span class="eyebrow">'+escapeHtml(ex.eyebrow)+'</span>'+
+        '<b>'+escapeHtml(a.title)+'</b>'+
+        '<span class="mins">'+a.minutes+' мин</span>'+
+      '</a>'+
+      '<a class="play-float" href="'+href+'" aria-label="Слушать «'+escapeHtml(a.title)+'»">'+playSvg()+'</a>'+
+    '</article>';
+  }
+
   function fillExpertCard(root, ex){
     if(!root || !ex) return;
     const sec = root.querySelector("section.expert") || root;
@@ -300,7 +313,7 @@
     const crumb = $(".now-page > .crumb");
     if(crumb) crumb.innerHTML = '<a href="hub.html">Подкасты</a> · <a href="'+topicHref(topic)+'">'+escapeHtml(topic.name)+'</a>';
 
-    const dalee = rest.slice(0,8);
+    const dalee = rest.slice(0,6);
     const daleeMix = new Set(dalee.map(a=>slugOf(a))).size > 1;
     renderEpTable($("#dalee-list"), dalee, Object.assign({}, extra, {host:true, cover:daleeMix, markStarted:false, upNext:true}));
 
@@ -308,11 +321,17 @@
     if(escheTitle) escheTitle.textContent = "Ещё у " + ex.genitive;
     const escheAll = $("#esche .shelf-tools a");
     if(escheAll) escheAll.href = showHref(ex);
-    const sameRest = eps.filter(a=>a.slug!==ep.slug);
-    const escheList = $("#esche-list, #esche .ep-table");
+    const taken = new Set(dalee.map(a=>a.slug));
+    taken.add(ep.slug);
+    const escheEps = eps.filter(a=>!taken.has(a.slug)).slice(0,8);
+    const escheList = $("#esche-list, #esche .rail, #esche .ep-table");
+    const escheSec = $("#esche");
     if(escheList){
-      renderEpTable(escheList, sameRest.slice(0,6), {markStarted:false});
+      escheList.classList.add("rail","esche-rail");
+      escheList.classList.remove("ep-table","esche-list");
+      escheList.innerHTML = escheEps.map(a=>eschePlaqueHtml(a, ex)).join("");
     }
+    if(escheSec) escheSec.hidden = !escheEps.length;
 
     const alike = $("#alike-grid, .alike-grid");
     if(alike){
