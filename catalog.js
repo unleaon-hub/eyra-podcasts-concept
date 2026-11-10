@@ -326,7 +326,7 @@
       a.setAttribute("target","_blank");
       a.setAttribute("rel","noopener");
     });
-    const about = $(".now-extra p");
+    const about = $(".now-about p, #about p, .now-extra p");
     if(about) about.textContent = ep.excerpt || "";
     const crumb = $(".now-page > .crumb");
     if(crumb) crumb.innerHTML = '<a href="hub.html">Подкасты</a> · <a href="'+topicHref(topic)+'">'+escapeHtml(topic.name)+'</a>';
