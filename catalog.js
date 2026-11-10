@@ -328,7 +328,7 @@
     });
     const about = $(".now-about p, #about p, .now-extra p");
     if(about) about.textContent = ep.excerpt || "";
-    const crumb = $(".now-page > .crumb");
+    const crumb = $(".now-page .crumb, .player-chrome .crumb");
     if(crumb) crumb.innerHTML = '<a href="hub.html">Подкасты</a> · <a href="'+topicHref(topic)+'">'+escapeHtml(topic.name)+'</a>';
 
     const dalee = rest.slice(0,4);
@@ -397,7 +397,15 @@
     const readMini = $(".mini-player .read-quiet, .mini-player .read-link");
     if(readMini){ readMini.href = ep.url; readMini.setAttribute("target","_blank"); readMini.setAttribute("rel","noopener"); }
 
-    window.EYRA_NOW = { expert: ex.slug, episode: ep.slug, href: playerHref(ep, extra) };
+    const rubricEl = $("[data-player-rubric]");
+    if(rubricEl) rubricEl.textContent = ex.eyebrow;
+    window.EYRA_NOW = {
+      expert: ex.slug, episode: ep.slug, href: playerHref(ep, extra),
+      title: ep.title, name: ex.name, category: ex.category, eyebrow: ex.eyebrow,
+      role: ex.role, photo: ex.photo, accent: ex.accent, url: ep.url,
+      duration: (ep.minutes||7)*60
+    };
+    if(window.EYRA_PLAYBACK && typeof window.EYRA_PLAYBACK.sync === "function") window.EYRA_PLAYBACK.sync();
   }
 
   function initTopic(){

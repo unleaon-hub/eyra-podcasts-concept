@@ -9,10 +9,95 @@
   }
   function writeStore(){
     try{
+      const prev = readStore();
+      const now = window.EYRA_NOW || {};
       localStorage.setItem(STORE, JSON.stringify({
-        progress, playing, speedIndex, updated: Date.now()
+        progress, playing, speedIndex, updated: Date.now(),
+        expert: now.expert || prev.expert,
+        episode: now.episode || prev.episode,
+        href: now.href || prev.href,
+        title: now.title || prev.title,
+        name: now.name || prev.name,
+        category: now.category || prev.category,
+        eyebrow: now.eyebrow || prev.eyebrow,
+        role: now.role || prev.role,
+        photo: now.photo || prev.photo,
+        accent: now.accent || prev.accent,
+        url: now.url || prev.url,
+        duration: now.duration || prev.duration
       }));
     }catch(e){}
+  }
+  function isPlayerPage(){
+    return !!(document.querySelector(".now-page") && /player\.html/.test(location.pathname));
+  }
+  function podcastReferrer(){
+    const ref = document.referrer;
+    if(!ref) return null;
+    try{
+      const u = new URL(ref);
+      if(u.origin !== location.origin) return null;
+      const file = (u.pathname.split("/").pop() || "index.html") || "index.html";
+      const ok = /^(hub|show|topic|mood|experts|index)\.html$/.test(file) || file === "" || file === "eyra-podcasts-concept";
+      return ok ? (u.pathname + u.search + u.hash) : null;
+    }catch(e){ return null; }
+  }
+  function goPlayerBack(){
+    writeStore();
+    const ref = podcastReferrer();
+    if(ref && history.length > 1){ history.back(); return; }
+    const slug = (window.EYRA_NOW && window.EYRA_NOW.expert) || "";
+    location.href = slug ? "show.html?e="+encodeURIComponent(slug) : "hub.html";
+  }
+  function closePlayer(){
+    writeStore();
+    const ref = podcastReferrer();
+    if(ref && history.length > 1){ history.back(); return; }
+    if(ref){ location.href = ref; return; }
+    location.href = "hub.html";
+  }
+  function restoreMiniFromStore(){
+    if(isPlayerPage()) return;
+    const s = readStore();
+    const mini = document.querySelector(".mini-player");
+    if(!mini || !s || !s.episode) return;
+    const img = mini.querySelector(".typo-cover img");
+    if(img && s.photo){ img.src = s.photo; img.alt = s.name || ""; }
+    const ty = mini.querySelector(".typo-cover");
+    if(ty && s.accent) ty.style.setProperty("--accent", s.accent);
+    const eye = mini.querySelector(".typo-cover .eyebrow");
+    if(eye && s.eyebrow) eye.textContent = s.eyebrow;
+    const coverB = mini.querySelector(".typo-cover b");
+    if(coverB && s.title) coverB.textContent = s.title;
+    const title = mini.querySelector(".meta b");
+    if(title && s.title) title.textContent = s.title;
+    const sub = mini.querySelector(".meta span");
+    if(sub) sub.textContent = [s.name, s.category].filter(Boolean).join(" · ");
+    const href = s.href || ("player.html?e="+(s.expert||"")+"&ep="+(s.episode||""));
+    mini.querySelectorAll("[data-open-player]").forEach(a=>{
+      if(a.tagName === "A") a.href = href;
+    });
+    const read = mini.querySelector(".read-quiet, .read-link");
+    if(read && s.url){
+      read.href = s.url;
+      read.setAttribute("target","_blank");
+      read.setAttribute("rel","noopener");
+    }
+    if(s.duration) document.body.dataset.duration = String(s.duration);
+    window.EYRA_NOW = Object.assign({}, window.EYRA_NOW, {
+      expert: s.expert, episode: s.episode, href: href,
+      title: s.title, name: s.name, category: s.category, eyebrow: s.eyebrow,
+      role: s.role, photo: s.photo, accent: s.accent, url: s.url, duration: s.duration
+    });
+    mini.hidden = false;
+    mini.removeAttribute("aria-hidden");
+    if(typeof s.progress === "number" && Number.isFinite(s.progress)){
+      progress = Math.min(0.995, Math.max(0, s.progress));
+    }
+    if(typeof s.playing === "boolean") playing = s.playing;
+    if(typeof s.speedIndex === "number" && s.speedIndex >= 0 && s.speedIndex < speeds.length){
+      speedIndex = s.speedIndex;
+    }
   }
   function playerHref(){
     const base = (window.EYRA_NOW && window.EYRA_NOW.href) ? window.EYRA_NOW.href : "player.html";
@@ -181,9 +266,21 @@
       sleep.setAttribute("aria-label","Таймер сна: "+opts[i]);
       const lab = sleep.querySelector("[data-sleep-label]");
       if(lab) lab.textContent = opts[i]==="Выкл" ? "Таймер" : opts[i];
+      return;
     }
+    const backBtn = e.target.closest("[data-player-back]");
+    if(backBtn){ e.preventDefault(); goPlayerBack(); return; }
+    const closeBtn = e.target.closest("[data-player-close]");
+    if(closeBtn){ e.preventDefault(); closePlayer(); return; }
   });
   document.addEventListener("keydown",(e)=>{
+    if(e.key==="Escape" && isPlayerPage()){
+      const menu = document.querySelector(".journal-menu");
+      if(menu && menu.open) return;
+      e.preventDefault();
+      closePlayer();
+      return;
+    }
     if(e.key===" " && !/input|textarea|button|a/i.test(e.target.tagName)){
       e.preventDefault(); setPlaying(!playing);
     }
@@ -259,10 +356,24 @@
     }
   }
 
+  restoreMiniFromStore();
   applySpeed();
   setPlaying(playing);
   applyProgress();
   initMiniOnPlayerPage();
+  window.addEventListener("pageshow", (e)=>{
+    if(isPlayerPage()) return;
+    const s = readStore();
+    if(!s || !s.episode) return;
+    if(typeof s.progress === "number") progress = Math.min(0.995, Math.max(0, s.progress));
+    if(typeof s.playing === "boolean") playing = s.playing;
+    if(typeof s.speedIndex === "number" && s.speedIndex >= 0 && s.speedIndex < speeds.length) speedIndex = s.speedIndex;
+    restoreMiniFromStore();
+    applySpeed();
+    setPlaying(playing);
+    applyProgress();
+  });
+  window.EYRA_PLAYBACK = { sync: writeStore, back: goPlayerBack, close: closePlayer };
   if(params.has("p") || params.has("play") || params.has("spd")){
     try{
       const u = new URL(location.href);

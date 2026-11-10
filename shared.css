@@ -4923,3 +4923,101 @@ html.player-page .now-art-wrap .typo-copy{display:none}
   html.player-page .now-art-wrap .typo-cover img[src*="sofia.webp"]{object-position:50% 10%}
   html.player-page .now-art-wrap .typo-cover img[src*="alisa.webp"]{object-position:50% 8%}
 }
+
+
+/* ——— hub29: player exit chrome (back / close) ——— */
+html.player-page .player-chrome{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin:8px 0 16px;
+  min-height:40px;
+  width:100%;
+  box-sizing:border-box;
+}
+html.player-page .player-back,
+html.player-page .player-close{
+  width:40px;
+  height:40px;
+  flex-shrink:0;
+  display:grid;
+  place-items:center;
+  padding:0;
+  border:0;
+  background:transparent;
+  color:#f2efe8;
+  opacity:.8;
+  border-radius:50%;
+  cursor:pointer;
+}
+html.player-page .player-back:hover,
+html.player-page .player-close:hover,
+html.player-page .player-back:focus-visible,
+html.player-page .player-close:focus-visible{
+  opacity:1;
+}
+html.player-page .player-back:focus-visible,
+html.player-page .player-close:focus-visible{
+  outline:2px solid var(--gold);
+  outline-offset:2px;
+}
+html.player-page .player-back svg,
+html.player-page .player-close svg{
+  width:20px;
+  height:20px;
+  display:block;
+}
+html.player-page .player-chrome-title{
+  display:none;
+  margin:0;
+  min-width:0;
+  flex:1 1 auto;
+  font-size:13px;
+  line-height:1.3;
+  color:var(--muted);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  text-align:center;
+}
+html.player-page .player-chrome .crumb{
+  display:block;
+  flex:1 1 auto;
+  min-width:0;
+  margin:0;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+@media (min-width:861px){
+  html.player-page .player-close{
+    border:1px solid color-mix(in srgb, #f2efe8 28%, transparent);
+    margin-left:auto;
+  }
+  html.player-page .player-chrome-title{display:none}
+  html.player-page .player-chrome .crumb{display:block}
+}
+
+@media (max-width:480px){
+  html.player-page .header,
+  html.player-page .journal-header,
+  html.player-page .journal-menu{
+    display:none !important;
+  }
+  html.player-page .player-chrome{
+    position:sticky;
+    top:0;
+    z-index:30;
+    width:100vw;
+    margin:0 calc(50% - 50vw) 0;
+    padding:4px 8px;
+    min-height:48px;
+    background:#111412;
+    gap:4px;
+  }
+  html.player-page .player-chrome .crumb{display:none}
+  html.player-page .player-chrome-title{display:block}
+  html.player-page .player-close{border:0}
+  html.player-page .now-stage{padding-top:8px}
+}
