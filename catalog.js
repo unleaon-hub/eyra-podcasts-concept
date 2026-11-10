@@ -53,17 +53,38 @@
     return articles.filter(a=>slugs.includes(a.rubric));
   }
   function moodBy(id){ return MOODS.find(m=>m.slug===id) || MOODS[0]; }
+  function interleaveByExpert(list){
+    const bags = new Map();
+    for(const a of list){
+      const k = a.expert;
+      if(!bags.has(k)) bags.set(k, []);
+      bags.get(k).push(a);
+    }
+    const qs = [...bags.values()];
+    const out = [];
+    while(qs.some(q=>q.length)){
+      for(const q of qs){ if(q.length) out.push(q.shift()); }
+    }
+    return out;
+  }
   function episodesOfMood(m){
     const hit = articles.filter(a=>m.re.test(a.title+" "+(a.excerpt||"")));
-    if(hit.length>=10) return hit;
     const used = new Set(hit.map(a=>a.slug));
+    const counts = {};
+    const uniq = () => Object.keys(counts).length;
+    for(const a of hit) counts[a.expert]=(counts[a.expert]||0)+1;
     for(const a of articles){
-      if(hit.length>=14) break;
-      if(!used.has(a.slug) && (a.rubric===m.fallback || (m.fallback==="obshchenie"&&a.rubric==="netvorking"))){
+      if(hit.length>=14 && uniq()>=4) break;
+      if(used.has(a.slug)) continue;
+      const same = a.rubric===m.fallback || (m.fallback==="obshchenie" && a.rubric==="netvorking");
+      const n = counts[a.expert]||0;
+      const needFaces = uniq()<4 && n===0;
+      if((same && n<3) || needFaces || (!same && n<1 && hit.length<12)){
         hit.push(a); used.add(a.slug);
+        counts[a.expert]=n+1;
       }
     }
-    return hit;
+    return interleaveByExpert(hit);
   }
   function showHref(ex){ return "show.html?e=" + ex.slug; }
   function topicHref(t){ return "topic.html?t=" + t.slug; }
@@ -177,12 +198,7 @@
     if(dek) dek.textContent = ex.dek;
     const host = $(".show-copy .host");
     if(host){
-      const img = host.querySelector("img");
-      if(img){ img.src = ex.photo; img.alt = ex.name; }
-      const b = host.querySelector("b");
-      if(b) b.textContent = ex.name;
-      const span = host.querySelector("span");
-      if(span) span.innerHTML = escapeHtml(ex.role) + ' · <a href="'+ex.page+'" rel="noopener">Страница эксперта</a>';
+      host.innerHTML = '<span class="host-name">'+escapeHtml(ex.name)+'</span><span class="host-rest"> · '+escapeHtml(ex.role)+' · <a href="'+ex.page+'" rel="noopener">Страница эксперта</a></span>';
     }
     const read = $(".show-actions a.btn-ghost");
     if(read){ read.href = (eps[0] && eps[0].url) || ex.journal; read.setAttribute("target","_blank"); read.setAttribute("rel","noopener"); }
@@ -234,8 +250,8 @@
     if(h1) h1.textContent = ep.title;
     const host = $(".now-copy .host-line");
     if(host){
-      host.style.setProperty("--accent", ex.accent);
-      host.innerHTML = '<a href="'+showHref(ex)+'"><img src="'+ex.photo+'" alt="">'+escapeHtml(ex.name)+' · '+escapeHtml(ex.role)+' · '+ep.minutes+' мин</a>';
+      host.style.removeProperty("--accent");
+      host.innerHTML = '<span class="host-name"><a href="'+showHref(ex)+'">'+escapeHtml(ex.name)+'</a></span><span class="host-rest"> · '+escapeHtml(ex.role)+' · '+ep.minutes+' мин</span>';
     }
     $$(".now-copy .mode-switch a").forEach(a=>{
       a.href = ep.url;
@@ -352,22 +368,26 @@
     const hero = $(".topic-hero");
     if(hero){
       hero.style.setProperty("--accent", t.accent);
-      const img = hero.querySelector(".topic-bg img");
-      if(img){
-        if(t.slug==="new"){ img.remove(); }
-        else { img.src = lead.photo; img.alt = t.name; }
+      hero.style.setProperty("--button", t.button || "#efe4d2");
+      const photos = hero.querySelector(".topic-photos");
+      if(photos){
+        let html = '<img class="topic-lead" src="'+lead.photo+'" alt="'+escapeHtml(lead.name)+'">';
+        if(exs.length>=2){
+          html += '<div class="topic-others">'+exs.slice(1,4).map(o=>
+            '<a href="'+showHref(o)+'" style="--accent:'+o.accent+'" aria-label="Колонка: '+escapeHtml(o.name)+'"><img src="'+o.photo+'" alt="'+escapeHtml(o.name)+'"></a>'
+          ).join("")+'</div>';
+        }
+        photos.innerHTML = html;
       }
     }
     const crumb = $(".topic-copy .crumb, .topic-hero .crumb");
     if(crumb) crumb.innerHTML = '<a href="hub.html">Подкасты</a> · '+escapeHtml(t.name);
+    const eye = $(".topic-copy .eyebrow");
+    if(eye) eye.textContent = t.slug==="new" ? "Новое" : "Рубрика";
     const h1 = $(".topic-copy h1");
     if(h1) h1.textContent = t.name;
-    const faces = $(".topic-copy .faces-overlap");
-    if(faces) faces.innerHTML = facesHtml(exs);
-    const play = $(".topic-copy .btn-paper, .topic-copy [data-listen-queue]");
-    if(play && eps[0]){
-      if(play.tagName==="A") play.href = playerHref(eps[0], {t:t.slug}) + "&play=1";
-    }
+    const play = $("a.hero-play, [data-listen-queue]", hero || document);
+    if(play && eps[0]) play.href = playerHref(eps[0], {t:t.slug}) + "&play=1";
     if(eps[0]) document.body.dataset.duration = String(eps[0].minutes*60);
     renderEpTable($(".ep-table"), eps, {host:true, t:t.slug});
     const rail = $("#topic-experts .rail, #topic-experts");
@@ -393,17 +413,34 @@
     const m = moodBy(q.get("m") || "vecher");
     const eps = episodesOfMood(m);
     document.title = m.name + " — EYRA";
+    const exs = [];
+    const seen = new Set();
+    for(const a of eps){
+      const s = slugOf(a);
+      if(seen.has(s)) continue;
+      seen.add(s); exs.push(expert(s));
+    }
     const hero = $(".mood-hero");
     if(hero){
       hero.style.setProperty("--mood-tint", m.tint);
       hero.style.setProperty("--accent", m.accent);
+      hero.setAttribute("data-mood", m.slug);
+      const cluster = hero.querySelector(".mood-cluster");
+      if(cluster){
+        const faces = (exs.length ? exs : [expert("maya")]).slice(0,4);
+        cluster.innerHTML = faces.map(o=>
+          '<a href="'+showHref(o)+'" style="--accent:'+o.accent+'" aria-label="Колонка: '+escapeHtml(o.name)+'"><img src="'+o.photo+'" alt="'+escapeHtml(o.name)+'"></a>'
+        ).join("");
+      }
     }
     const crumb = $(".mood-hero .crumb");
     if(crumb) crumb.innerHTML = '<a href="hub.html">Подкасты</a> · '+escapeHtml(m.name);
+    const eye = $(".mood-hero .eyebrow");
+    if(eye) eye.textContent = "Настроение";
     const h1 = $(".mood-hero h1");
     if(h1) h1.textContent = m.name;
-    const play = $(".mood-hero a.btn-paper, .mood-hero [data-listen-queue]");
-    if(play && eps[0] && play.tagName==="A") play.href = playerHref(eps[0], {m:m.slug}) + "&play=1";
+    const play = $(".mood-hero a.hero-play, .mood-hero [data-listen-queue]");
+    if(play && eps[0]) play.href = playerHref(eps[0], {m:m.slug}) + "&play=1";
     if(eps[0]) document.body.dataset.duration = String(eps[0].minutes*60);
     const list = $(".mood-eps");
     if(list){
@@ -411,7 +448,7 @@
         const ex = expert(slugOf(ep));
         const more = i>=10 ? " is-more" : "";
         return '<article class="mood-ep'+more+'" style="--accent:'+ex.accent+'">'+
-          '<span class="mood-num">'+(i+1)+'</span>'+
+          '<button class="ep-num" data-play aria-label="Слушать «'+escapeHtml(ep.title)+'»"><span>'+(i+1)+'</span>'+playSvg()+'</button>'+
           '<a href="'+playerHref(ep,{m:m.slug})+'" class="mood-ep-cover"><div class="typo-cover"><img src="'+ex.photo+'" alt=""></div></a>'+
           '<div class="mood-ep-copy"><a href="'+playerHref(ep,{m:m.slug})+'"><b>'+escapeHtml(ep.title)+'</b></a>'+
           '<span><a href="'+showHref(ex)+'">'+escapeHtml(ex.name)+'</a> · '+ep.minutes+' мин</span></div>'+
@@ -422,8 +459,8 @@
     }
     const chips = $("#other-moods");
     if(chips){
-      chips.innerHTML = MOODS.filter(x=>x.slug!==m.slug).map(x=>
-        '<a href="'+moodHref(x)+'" style="--tint:'+x.tint+'">'+escapeHtml(x.name)+'</a>'
+      chips.innerHTML = MOODS.map(x=>
+        '<a class="mood'+(x.slug===m.slug?' is-on':'')+'" href="'+moodHref(x)+'" style="background:'+x.tint+'"><b>'+escapeHtml(x.name)+'</b></a>'
       ).join("");
     }
   }
