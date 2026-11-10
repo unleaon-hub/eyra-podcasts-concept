@@ -3830,3 +3830,218 @@ body.is-playing .ep-item.is-active.has-num .ep-card-num .eq i{animation-name:eq-
 @media (prefers-reduced-motion:reduce){
   .other-moods .mood-plaque:hover{transform:none}
 }
+
+
+/* hub22: Ещё у typographic bento — one accent breath on the dark player */
+#esche{
+  --esche-radius:var(--r);
+  margin-top:64px;
+}
+#esche .esche-bento,
+#esche-list.esche-bento,
+.now-page #esche-list.esche-bento{
+  display:grid !important;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  grid-template-rows:158px 158px 136px;
+  gap:12px;
+  width:100%;
+  margin:0;
+  padding:0;
+  overflow:visible !important;
+  scroll-snap-type:none;
+  flex-wrap:unset;
+}
+#esche .esche-plaque{
+  position:relative;
+  isolation:isolate;
+  flex:none !important;
+  width:auto !important;
+  height:auto !important;
+  min-height:0 !important;
+  max-height:none !important;
+  aspect-ratio:auto !important;
+  border-radius:var(--esche-radius, var(--r));
+  overflow:hidden;
+  border:0;
+  box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--accent) 16%, #ffffff0d);
+  background:
+    linear-gradient(165deg,
+      color-mix(in srgb, var(--plaque) 32%, #161614) 0%,
+      color-mix(in srgb, var(--accent) 14%, #131412) 100%) !important;
+}
+#esche .esche-plaque .esche-face{
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  align-items:flex-start;
+  gap:0;
+  height:100%;
+  min-height:0;
+  aspect-ratio:auto !important;
+  padding:16px 48px 16px 18px;
+  background:transparent !important;
+  box-shadow:none !important;
+  border-radius:0;
+  color:var(--text);
+  text-decoration:none;
+  transform:none !important;
+}
+#esche .esche-plaque .esche-face .eyebrow{display:none !important}
+#esche .esche-plaque .esche-face b{
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+  font-weight:400 !important;
+  font-size:16px !important;
+  letter-spacing:-.03em;
+  line-height:1.2;
+  color:var(--text) !important;
+  text-shadow:0 1px 10px #11141266;
+}
+#esche .esche-plaque .esche-face .mins{
+  margin:8px 0 0;
+  font-size:13px;
+  font-weight:400;
+  color:color-mix(in srgb, var(--text) 62%, var(--accent));
+}
+#esche .esche-plaque .play-float{
+  position:absolute;
+  right:12px;
+  bottom:12px;
+  top:auto;
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  opacity:0;
+  transform:none;
+  z-index:3;
+  background:var(--paper);
+  color:var(--ink);
+}
+#esche .esche-plaque:hover .play-float,
+#esche .esche-plaque:focus-within .play-float{
+  opacity:1;
+  transform:none;
+}
+#esche .esche-plaque img{display:none !important}
+
+/* Feature: typographic journal cover, 2×2, the page's one tinted breath */
+#esche .esche-plaque.is-feature{
+  grid-column:1 / 3;
+  grid-row:1 / 3;
+  background:
+    linear-gradient(150deg,
+      color-mix(in srgb, var(--accent) 34%, #1a1614) 0%,
+      color-mix(in srgb, var(--plaque) 22%, #141312) 48%,
+      #121312 100%) !important;
+  box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--accent) 22%, #ffffff10);
+}
+#esche .esche-plaque.is-feature::before{
+  content:"";
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  border-radius:inherit;
+  opacity:.16;
+  mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .7 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+#esche .esche-plaque.is-feature::after{
+  content:"";
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  border-radius:inherit;
+  background:
+    radial-gradient(80% 70% at 12% 88%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 62%),
+    linear-gradient(180deg, transparent 42%, #11141299 100%);
+}
+#esche .esche-plaque.is-feature .esche-face{
+  position:relative;z-index:2;
+  padding:28px 88px 28px 28px;
+  justify-content:flex-end;
+}
+#esche .esche-plaque.is-feature .esche-face b{
+  font-size:clamp(24px, 2.15vw, 34px) !important;
+  letter-spacing:-.045em;
+  line-height:1.12;
+  -webkit-line-clamp:4;
+  max-width:18ch;
+}
+#esche .esche-plaque.is-feature .esche-face .mins{
+  margin-top:14px;
+  font-size:14px;
+  color:color-mix(in srgb, var(--gold) 70%, var(--text));
+}
+#esche .esche-plaque.is-feature .play-float{
+  width:56px;
+  height:56px;
+  right:22px;
+  bottom:22px;
+  opacity:1;
+  transform:none;
+}
+#esche .esche-plaque.is-feature .play-float svg{width:22px;height:22px}
+
+/* Varied depths on the four smaller plaques */
+#esche .esche-plaque.is-sq:nth-of-type(2){
+  grid-column:3;grid-row:1;
+  background:linear-gradient(165deg,
+    color-mix(in srgb, var(--plaque) 38%, #181614) 0%,
+    color-mix(in srgb, var(--accent) 16%, #141412) 100%) !important;
+}
+#esche .esche-plaque.is-sq:nth-of-type(3){
+  grid-column:3;grid-row:2;
+  background:linear-gradient(165deg,
+    color-mix(in srgb, var(--plaque) 24%, #151513) 0%,
+    color-mix(in srgb, var(--accent) 12%, #121211) 100%) !important;
+}
+#esche .esche-plaque.is-wide{
+  grid-column:1 / 3;grid-row:3;
+  background:linear-gradient(90deg,
+    color-mix(in srgb, var(--plaque) 30%, #161512) 0%,
+    color-mix(in srgb, var(--accent) 14%, #131312) 100%) !important;
+}
+#esche .esche-plaque.is-wide .esche-face{padding:16px 56px 16px 20px}
+#esche .esche-plaque.is-sq:nth-of-type(5){
+  grid-column:3;grid-row:3;
+  background:linear-gradient(165deg,
+    color-mix(in srgb, var(--plaque) 44%, #1a1816) 0%,
+    color-mix(in srgb, var(--accent) 18%, #141312) 100%) !important;
+}
+
+@media (max-width:760px){
+  #esche{margin-top:48px}
+  #esche .esche-bento,
+  #esche-list.esche-bento,
+  .now-page #esche-list.esche-bento{
+    display:grid !important;
+    grid-template-columns:repeat(2, minmax(0,1fr)) !important;
+    grid-template-rows:none;
+    gap:10px;
+    overflow:visible !important;
+    scroll-snap-type:none;
+    flex-wrap:unset !important;
+  }
+  #esche .esche-plaque,
+  #esche .esche-plaque.is-sq:nth-of-type(2),
+  #esche .esche-plaque.is-sq:nth-of-type(3),
+  #esche .esche-plaque.is-sq:nth-of-type(5),
+  #esche .esche-plaque.is-wide{
+    grid-column:auto;
+    grid-row:auto;
+    min-height:112px !important;
+    height:auto !important;
+  }
+  #esche .esche-plaque.is-feature{
+    grid-column:1 / -1;
+    grid-row:auto;
+    min-height:200px !important;
+  }
+  #esche .esche-plaque.is-feature .esche-face{padding:22px 80px 22px 20px}
+  #esche .esche-plaque.is-feature .esche-face b{font-size:24px !important}
+  #esche .esche-plaque.is-feature .play-float{width:52px;height:52px;right:16px;bottom:16px;opacity:1}
+  #esche .esche-plaque .esche-face{padding:14px 46px 14px 14px}
+  #esche .esche-plaque .play-float{opacity:1;transform:none;bottom:12px;top:auto}
+}
+
+@media (prefers-reduced-motion:reduce){
+  #esche .esche-plaque:hover .play-float{transform:none}
+}

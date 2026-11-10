@@ -104,10 +104,11 @@
   }
 
 
-  function eschePlaqueHtml(a, ex){
+  function eschePlaqueHtml(a, ex, kind){
     const href = playerHref(a);
     const pastel = ex.button || "#efe4d2";
-    return '<article class="esche-plaque" data-episode data-slug="'+a.slug+'" style="--accent:'+ex.accent+';--plaque:'+pastel+'">'+
+    const k = kind || "sq";
+    return '<article class="esche-plaque is-'+k+'" data-episode data-slug="'+a.slug+'" style="--accent:'+ex.accent+';--plaque:'+pastel+'">'+
       '<a class="esche-face" href="'+href+'">'+
         '<b>'+escapeHtml(a.title)+'</b>'+
         '<span class="mins">'+a.minutes+' мин</span>'+
@@ -336,15 +337,20 @@
     if(escheAll) escheAll.href = showHref(ex);
     const taken = new Set(dalee.map(a=>a.slug));
     taken.add(ep.slug);
-    const escheEps = eps.filter(a=>!taken.has(a.slug)).slice(0,6);
+    const escheEps = eps.filter(a=>!taken.has(a.slug)).slice(0,5);
     const escheList = $("#esche-list, #esche .rail, #esche .ep-table");
     const escheSec = $("#esche");
+    const escheKinds = ["feature","sq","sq","wide","sq"];
     if(escheList){
-      escheList.classList.add("rail","esche-rail");
-      escheList.classList.remove("ep-table","esche-list");
-      escheList.innerHTML = escheEps.map(a=>eschePlaqueHtml(a, ex)).join("");
+      escheList.classList.add("esche-bento");
+      escheList.classList.remove("rail","esche-rail","ep-table","esche-list");
+      escheList.innerHTML = escheEps.map((a,i)=>eschePlaqueHtml(a, ex, escheKinds[i]||"sq")).join("");
     }
-    if(escheSec) escheSec.hidden = !escheEps.length;
+    if(escheSec){
+      escheSec.hidden = !escheEps.length;
+      escheSec.style.setProperty("--accent", ex.accent);
+      escheSec.style.setProperty("--plaque", ex.button || "#efe4d2");
+    }
 
     const alike = $("#alike-grid, .alike-grid");
     if(alike){
