@@ -4206,3 +4206,40 @@ html.player-page:not(.footer-reveal) .footer{margin-top:auto}
     gap:8px;
   }
 }
+
+
+/* ——— hub25: player controls stay on one row at 360–390 ——— */
+@media (max-width:480px){
+  html.player-page .ctrl-row{
+    flex-wrap:nowrap;
+    gap:6px;
+  }
+  html.player-page .ctrl-row .side,
+  html.player-page .ctrl-row .like,
+  html.player-page .ctrl-row .icon-btn{
+    width:36px;
+    height:36px;
+    flex-shrink:0;
+  }
+  html.player-page .ctrl-row .chip-act[data-speed]{
+    height:36px;
+    min-width:36px;
+    padding:0 8px;
+    flex-shrink:0;
+  }
+  html.player-page .ctrl-row .chip-act[data-sleep]{
+    width:36px;
+    min-width:36px;
+    height:36px;
+    padding:0;
+    display:grid;
+    place-items:center;
+    flex-shrink:0;
+  }
+  html.player-page .ctrl-row .chip-act[data-sleep] [data-sleep-label]{display:none}
+  html.player-page .ctrl-row .chip-act[data-sleep] .chip-ico{
+    display:block;
+    width:18px;
+    height:18px;
+  }
+}
