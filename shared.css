@@ -4045,3 +4045,42 @@ body.is-playing .ep-item.is-active.has-num .ep-card-num .eq i{animation-name:eq-
 @media (prefers-reduced-motion:reduce){
   #esche .esche-plaque:hover .play-float{transform:none}
 }
+
+
+/* hub23: Ещё у tiles match Далее/Похожее darkness; tint only as a faint corner glow */
+#esche .esche-plaque,
+#esche .esche-plaque.is-feature,
+#esche .esche-plaque.is-wide,
+#esche .esche-plaque.is-sq:nth-of-type(2),
+#esche .esche-plaque.is-sq:nth-of-type(3),
+#esche .esche-plaque.is-sq:nth-of-type(5){
+  background: #171a17 !important;
+  box-shadow: inset 0 0 0 1px #ffffff0d !important;
+}
+#esche .esche-plaque.is-feature{
+  background:
+    radial-gradient(75% 70% at 8% 92%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 72%),
+    #171a17 !important;
+}
+#esche .esche-plaque.is-feature::before{opacity:.06}
+#esche .esche-plaque.is-feature::after{background:none !important}
+#esche .esche-plaque.is-sq:nth-of-type(2){
+  background:
+    radial-gradient(80% 70% at 100% 0%, color-mix(in srgb, var(--accent) 8%, transparent), transparent 70%),
+    #171a17 !important;
+}
+#esche .esche-plaque.is-sq:nth-of-type(3){
+  background:
+    radial-gradient(80% 70% at 0% 100%, color-mix(in srgb, var(--accent) 8%, transparent), transparent 70%),
+    #171a17 !important;
+}
+#esche .esche-plaque.is-wide{
+  background:
+    radial-gradient(70% 80% at 0% 50%, color-mix(in srgb, var(--accent) 8%, transparent), transparent 70%),
+    #171a17 !important;
+}
+#esche .esche-plaque.is-sq:nth-of-type(5){
+  background:
+    radial-gradient(80% 70% at 100% 100%, color-mix(in srgb, var(--accent) 8%, transparent), transparent 70%),
+    #171a17 !important;
+}
