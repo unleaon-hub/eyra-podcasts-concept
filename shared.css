@@ -926,22 +926,17 @@ button svg, a.btn-ghost svg, a.btn-paper svg, .like svg, .arrow svg,
 /* Bento rubrics */
 .bento{
   width:min(var(--max),calc(100% - 56px));margin:0 auto;
-  display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:190px 190px 150px 150px;gap:12px;
+  display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:190px 190px 112px 112px;gap:12px;
 }
-.bento > a,
-.bento > .rubric-tile{
+.bento a{
   border-radius:var(--r);position:relative;overflow:hidden;display:flex;
   flex-direction:column;justify-content:flex-end;padding:18px 18px 16px;
-  color:var(--text);text-decoration:none;
-  background:#141814;
+  color:var(--ink);text-decoration:none;
   transition:transform .4s var(--ease);
 }
-.bento > a:hover,
-.bento > .rubric-tile:hover{transform:translateY(-3px)}
-.bento .big:first-child,
-.bento > .rubric-tile.big:first-child{grid-column:1 / 3;grid-row:1 / 3}
-.bento .big.alt,
-.bento > .rubric-tile.big.alt{grid-column:3 / 5;grid-row:1 / 3}
+.bento a:hover{transform:translateY(-3px)}
+.bento .big:first-child{grid-column:1 / 3;grid-row:1 / 3}
+.bento .big.alt{grid-column:3 / 5;grid-row:1 / 3}
 .bento .big{
   grid-row:1 / span 3;color:var(--text);padding:24px;
   isolation:isolate;
@@ -3343,9 +3338,9 @@ body.is-playing .ep-item.is-active.has-num .ep-card-num .eq i{animation-name:eq-
   aspect-ratio:auto !important;
   padding:0 !important;
   border-radius:var(--r) !important;
-  background:#141814 !important;
-  color:var(--text) !important;
-  box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--accent, #ccb78f) 14%, #ffffff10) !important;
+  background:var(--plaque, var(--button, transparent)) !important;
+  color:var(--ink) !important;
+  box-shadow:none !important;
   filter:none !important;
   align-items:stretch !important;
   justify-content:flex-end !important;
@@ -3398,7 +3393,7 @@ body.is-playing .ep-item.is-active.has-num .ep-card-num .eq i{animation-name:eq-
     scroll-snap-align:start;
     border-radius:var(--r) !important;
     padding:0 !important;
-    background:#141814 !important;
+    background:var(--plaque, var(--button, transparent)) !important;
   }
   .other-topics .rubric-tile b{font-size:22px !important}
   .bento > .rubric-tile:not(.big){min-height:140px}
@@ -3551,4 +3546,122 @@ body.is-playing .ep-item.is-active.has-num .ep-card-num .eq i{animation-name:eq-
 @media(max-width:760px){
   .esche-plaque{flex:0 0 72%;width:72%}
   .esche-plaque .play-float{opacity:1}
+}
+
+/* hub21: hub Рубрики bento restored to hub19; topic other-rubrics = same small pastel plaques, 4×2 */
+.bento{
+  grid-template-rows:190px 190px 112px 112px;
+}
+.bento a:not(.big){
+  color:var(--ink);
+  background:transparent; /* inline pastel fills from HTML */
+}
+
+.other-topics,
+.other-topics.is-ten{
+  display:grid !important;
+  grid-template-columns:repeat(4, minmax(0,1fr)) !important;
+  gap:12px !important;
+  align-items:stretch;
+  flex-wrap:unset !important;
+  overflow:visible !important;
+  width:min(var(--max),calc(100% - 56px));
+  margin:8px auto 56px;
+  scroll-snap-type:none;
+}
+.other-topics > a,
+.other-topics .topic-tile,
+.other-topics .chip-pill,
+.other-topics .rubric-plaque,
+.other-topics .rubric-tile{
+  display:flex !important;
+  flex:none !important;
+  width:auto !important;
+  height:112px !important;
+  min-height:112px !important;
+  max-height:112px !important;
+  min-width:0 !important;
+  aspect-ratio:auto !important;
+  padding:18px 18px 16px !important;
+  border-radius:var(--r) !important;
+  align-items:flex-end !important;
+  justify-content:flex-start !important;
+  box-shadow:none !important;
+  box-sizing:border-box;
+  color:var(--ink) !important;
+  text-decoration:none;
+  filter:none !important;
+  overflow:hidden;
+  border:0 !important;
+}
+.other-topics .rubric-plaque-ava,
+.other-topics .topic-tile img,
+.other-topics > a img{display:none !important}
+.other-topics > a b,
+.other-topics .topic-tile b,
+.other-topics .chip-pill b,
+.other-topics .rubric-plaque b{
+  font-size:18px !important;
+  font-weight:400 !important;
+  letter-spacing:-.04em !important;
+  line-height:1.15 !important;
+  white-space:normal !important;
+  color:var(--ink) !important;
+  -webkit-line-clamp:2;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.other-topics .play-float{display:none !important}
+.other-topics > a:hover,
+.other-topics .topic-tile:hover{
+  transform:translateY(-3px);
+  filter:none !important;
+}
+
+@media (max-width:860px){
+  .bento{grid-template-columns:1fr 1fr;grid-template-rows:none;width:calc(100% - 32px)}
+  .bento .big,.bento .big:first-child,.bento .big.alt{grid-row:auto;grid-column:1 / -1;min-height:200px}
+  .bento a:not(.big){min-height:80px;height:auto;max-height:none}
+}
+
+@media (max-width:760px){
+  .other-topics,
+  .other-topics.is-ten{
+    display:grid !important;
+    grid-template-columns:repeat(2, minmax(0,1fr)) !important;
+    flex-wrap:unset !important;
+    overflow:visible !important;
+    gap:10px !important;
+    width:calc(100% - 32px);
+    margin-left:auto;margin-right:auto;
+    scroll-snap-type:none;
+  }
+  .other-topics > a,
+  .other-topics .topic-tile,
+  .other-topics .chip-pill,
+  .other-topics .rubric-plaque{
+    flex:none !important;
+    width:auto !important;
+    height:80px !important;
+    min-height:80px !important;
+    max-height:80px !important;
+    padding:14px 14px 12px !important;
+  }
+  .other-topics > a b,
+  .other-topics .topic-tile b{font-size:16px !important}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .other-topics > a:hover,
+  .other-topics .topic-tile:hover,
+  .bento a:hover{transform:none}
+}
+
+.other-topics > a,
+.other-topics .topic-tile,
+.other-topics .chip-pill{
+  background: var(--plaque) !important;
+  background-image: none !important;
+  color: var(--ink) !important;
 }

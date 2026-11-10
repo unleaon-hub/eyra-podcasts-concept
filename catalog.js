@@ -212,8 +212,21 @@
     return '<div class="'+cls+'" style="--accent:'+x.accent+'">'+
       '<a class="rubric-tile-hit" href="'+topicHref(x)+'">'+
         '<img src="'+lead.photo+'" alt="'+escapeHtml(lead.name)+'">'+
-        '<span>'+escapeHtml(lead.name)+'</span>'+
         '<b>'+escapeHtml(title)+'</b>'+
+      '</a>'+
+      '<a class="play-float" href="'+play+'" aria-label="Слушать: '+escapeHtml(x.name)+'">'+playSvg()+'</a>'+
+    '</div>';
+  }
+
+  function rubricPlaqueHtml(x){
+    const lead = leadOfTopic(x);
+    const first = (episodesOfTopic(x) || [])[0];
+    const play = first ? playerHref(first, {t:x.slug}) + "&play=1" : topicHref(x);
+    const accent = x.accent || lead.accent;
+    return '<div class="rubric-plaque" style="--accent:'+accent+'">'+
+      '<a class="rubric-plaque-hit" href="'+topicHref(x)+'">'+
+        '<img class="rubric-plaque-ava" src="'+lead.photo+'" alt="'+escapeHtml(lead.name)+'" width="80" height="80">'+
+        '<b>'+escapeHtml(x.name)+'</b>'+
       '</a>'+
       '<a class="play-float" href="'+play+'" aria-label="Слушать: '+escapeHtml(x.name)+'">'+playSvg()+'</a>'+
     '</div>';
@@ -423,8 +436,10 @@
     const others = $("#other-topics");
     if(others){
       const list = t.slug==="new" ? TOPICS : TOPICS.filter(x=>x.slug!==t.slug);
-      others.classList.toggle("is-ten", list.length===10);
-      others.innerHTML = list.map(x=>rubricTileHtml(x, {big:true, fullName:true})).join("");
+      others.classList.remove("is-ten");
+      others.innerHTML = list.slice(0,8).map(x=>
+        '<a class="topic-tile" href="'+topicHref(x)+'" style="--accent:'+x.accent+';--plaque:'+x.button+';background:'+x.button+'"><b>'+escapeHtml(x.short)+'</b></a>'
+      ).join("");
     }
   }
 
@@ -482,15 +497,6 @@
     ).join("");
   }
 
-  function initHub(){
-    const bento = $(".bento");
-    if(!bento || !experts.length) return;
-    const featured = ["emotsii","dosug"];
-    const big = featured.map((s,i)=>rubricTileHtml(topicBy(s), {big:true, alt:i===1, fullName:true}));
-    const rest = TOPICS.filter(x=>!featured.includes(x.slug)).map(x=>rubricTileHtml(x, {big:false}));
-    bento.innerHTML = big.join("") + rest.join("");
-  }
-
   async function boot(){
     try{
       const [e, a] = await Promise.all([
@@ -500,7 +506,6 @@
       experts = e; articles = a;
     }catch(err){ console.warn("catalog load failed", err); return; }
     window.EYRA = { expert, episodesOf, episodeBySlug, showHref, playerHref, slugOf, topicBy, moodBy, experts, articles };
-    if($(".bento")) initHub();
     if($(".show-hero")) initShow();
     if($(".now-page")) initPlayer();
     if($(".topic-hero")) initTopic();
