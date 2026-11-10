@@ -18,12 +18,12 @@
   ];
   const NEW_TOPIC = {slug:"new", name:"Новое", short:"Новое", accent:"#ccb78f", button:"#efe4d2"};
   const MOODS = [
-    {slug:"vecher", name:"Вечер", tint:"#dce6f2", accent:"#a8bdd9", re:/вечер|ноч[ьюие]|перед сном|пятниц/i, fallback:"dosug"},
-    {slug:"sily", name:"Силы", tint:"#e1ebdd", accent:"#b9cebb", re:/(?<![А-Яа-яЁё])сил[аыуе](?![А-Яа-яЁё])|выгор|восстанов|устал|энерг|истощен|нет сил|мало сил/i, fallback:"dosug"},
-    {slug:"trevoga", name:"Тревога", tint:"#efdfd0", accent:"#ddb79c", re:/тревог|страх|волнен|паник|беспокой|отказ|одиноч|бессон/i, fallback:"emotsii"},
-    {slug:"utro", name:"Утро", tint:"#f0e3cf", accent:"#d8b988", re:/(?<![А-Яа-яЁё])утр[оаеу](?![А-Яа-яЁё])|завтрак|с утра|утрен|подъ[её]м|начать день/i, fallback:"pitanie"},
-    {slug:"vyhodnye", name:"Выходные", tint:"#dce6f2", accent:"#a8bdd9", re:/выходн|суббот|воскресень/i, fallback:"dosug"},
-    {slug:"privychki", name:"Привычки", tint:"#e1ebdd", accent:"#b9cebb", re:/привычк|ритуал|режим дня|меню на|рутин|регуляр/i, fallback:"pitanie"}
+    {slug:"vecher", name:"Вечер", tint:"#c5d4eb", accent:"#8fa9cc", re:/вечер|ноч[ьюие]|перед сном|пятниц/i, fallback:"dosug"},
+    {slug:"sily", name:"Силы", tint:"#d2e0c8", accent:"#9bb89a", re:/(?<![А-Яа-яЁё])сил[аыуе](?![А-Яа-яЁё])|выгор|восстанов|устал|энерг|истощен|нет сил|мало сил/i, fallback:"dosug"},
+    {slug:"trevoga", name:"Тревога", tint:"#f0dccb", accent:"#ddb79c", re:/тревог|страх|волнен|паник|беспокой|отказ|одиноч|бессон/i, fallback:"emotsii"},
+    {slug:"utro", name:"Утро", tint:"#f3e4c4", accent:"#d8b988", re:/(?<![А-Яа-яЁё])утр[оаеу](?![А-Яа-яЁё])|завтрак|с утра|утрен|подъ[её]м|начать день/i, fallback:"pitanie"},
+    {slug:"vyhodnye", name:"Выходные", tint:"#d4d6f2", accent:"#a8abd4", re:/выходн|суббот|воскресень/i, fallback:"dosug"},
+    {slug:"privychki", name:"Привычки", tint:"#c8eedd", accent:"#8ec9b0", re:/привычк|ритуал|режим дня|меню на|рутин|регуляр/i, fallback:"pitanie"}
   ];
   const $ = (s, r=document) => r.querySelector(s);
   const $$ = (s, r=document) => [...r.querySelectorAll(s)];
@@ -158,23 +158,26 @@
       const ex = expert(slugOf(ep));
       const href = playerHref(ep, extra);
       const artEl = document.createElement("article");
-      artEl.className = "ep-item" + (useCover ? " has-cover" : " has-num") + (i===0 ? " is-active" : "") + (i>=10 ? " is-more" : "");
+      const started = i===0;
+      artEl.className = "ep-item" + (useCover ? " has-cover" : " has-num") + (started ? " is-active is-started" : "") + (i>=10 ? " is-more" : "");
       artEl.dataset.episode = "";
       artEl.dataset.slug = ep.slug;
       artEl.style.setProperty("--accent", ex.accent);
       const label = 'Слушать «'+escapeHtml(ep.title)+'»';
+      const eq = '<span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>';
       const thumb = useCover
-        ? '<a class="ep-card-thumb" href="'+href+'" style="--crop:'+CROP[i%CROP.length]+'"><img src="'+ex.photo+'" alt=""><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></a>'
-        : '<button class="ep-card-num" data-play aria-label="'+label+'" type="button"><span class="n">'+(i+1)+'</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button>';
+        ? '<a class="ep-card-thumb" href="'+href+'" style="--crop:'+CROP[i%CROP.length]+'"><img src="'+ex.photo+'" alt=""></a>'
+        : '<button class="ep-card-num" data-play aria-label="'+label+'" type="button"><span class="n">'+(i+1)+'</span>'+eq+'</button>';
       const meta = extra.host
-        ? '<p class="ep-meta"><a href="'+showHref(ex)+'">'+escapeHtml(ex.name)+'</a> · '+ep.minutes+' мин</p>'
-        : '<p class="ep-meta">'+ep.minutes+' мин</p>';
+        ? '<p class="ep-meta">'+(useCover?eq:"")+'<span class="ep-meta-txt"><a href="'+showHref(ex)+'">'+escapeHtml(ex.name)+'</a> · '+ep.minutes+' мин</span></p>'
+        : '<p class="ep-meta">'+(useCover?eq:"")+'<span class="ep-meta-txt">'+ep.minutes+' мин</span></p>';
+      const pip = started ? '<div class="progress-pip"><i style="width:42%"></i></div>' : '';
       artEl.innerHTML =
         thumb+
-        '<div class="ep-body"><p class="t"><a href="'+href+'">'+escapeHtml(ep.title)+'</a></p>'+meta+
-        '<div class="progress-pip"><i style="width:'+(i===0?'42%':'0')+'"></i></div></div>'+
+        '<div class="ep-body"><p class="t"><a href="'+href+'">'+escapeHtml(ep.title)+'</a></p>'+meta+'</div>'+
         '<button class="btn-round-play ep-card-play" data-play type="button" aria-label="'+label+'">'+playSvg()+'</button>'+
-        '<button class="like" type="button" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>';
+        '<button class="like" type="button" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>'+
+        pip;
       frag.appendChild(artEl);
     });
     if(moreBtn && moreBtn.parentElement===table) table.insertBefore(frag, moreBtn);
