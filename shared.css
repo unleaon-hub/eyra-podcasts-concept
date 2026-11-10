@@ -4243,3 +4243,172 @@ html.player-page:not(.footer-reveal) .footer{margin-top:auto}
     height:18px;
   }
 }
+
+
+/* ——— hub26: mobile player now-playing layout (≤480px only) ——— */
+html.player-page .skip-mark{display:none}
+@media (min-width:481px){
+  html.player-page .ctrl-tools{display:contents}
+}
+
+@media (max-width:480px){
+  html.player-page .now-page{
+    background:
+      linear-gradient(180deg,
+        color-mix(in srgb, var(--accent, #ccb78f) 6%, #111412) 0%,
+        #111412 44%);
+  }
+  html.player-page .now-page > .crumb{display:none}
+  html.player-page .now-stage{
+    padding:16px 0 8px;
+    gap:20px;
+  }
+  html.player-page .now-art-col,
+  html.player-page .now-art-wrap{
+    max-width:none;
+    width:100%;
+    height:auto;
+  }
+  html.player-page .now-art-wrap .glow{opacity:.18;inset:-10%;filter:blur(40px)}
+  html.player-page .now-art-wrap .typo-cover{
+    width:100%;
+    height:auto;
+    aspect-ratio:1;
+    min-height:0;
+    border-radius:16px;
+    box-shadow:0 18px 40px #00000050;
+  }
+  html.player-page .now-art-wrap .typo-cover > img{
+    width:100%;
+    height:100%;
+    inset:0;
+    right:0;
+    left:0;
+    object-fit:cover;
+    object-position:var(--focus-pos, var(--pos, 50% 18%));
+    -webkit-mask-image:none;
+    mask-image:none;
+  }
+  html.player-page .now-art-wrap .typo-cover::after,
+  html.player-page .now-art-wrap .typo-copy{display:none}
+
+  html.player-page .now-copy .show-link{
+    font-size:0;
+    line-height:0;
+    margin:2px 0 10px;
+    color:var(--gold);
+    text-decoration:none;
+    letter-spacing:0;
+  }
+  html.player-page .now-copy .show-link::before{
+    content:attr(data-rubric);
+    font-size:11px;
+    line-height:1.3;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-weight:500;
+  }
+  html.player-page .now-copy h1{
+    font-size:clamp(26px, 7.4vw, 32px);
+    line-height:1.15;
+    letter-spacing:-.04em;
+    max-width:none;
+    -webkit-line-clamp:unset;
+    margin:0 0 10px;
+  }
+  html.player-page .now-copy .host-line{
+    display:block;
+    margin:0 0 8px;
+    font-size:15px;
+    font-weight:400;
+    color:var(--muted);
+    line-height:1.4;
+  }
+  html.player-page .now-copy .host-line .host-ava-link,
+  html.player-page .now-copy .host-line img,
+  html.player-page .now-copy .host-ava{display:none !important}
+  html.player-page .now-copy .host-name,
+  html.player-page .now-copy .host-name a,
+  html.player-page .now-copy .host-rest{
+    color:var(--muted);
+    font-weight:400;
+  }
+  html.player-page .now-read{margin:0 0 22px}
+  html.player-page .now-copy .read-quiet{font-size:14px}
+
+  html.player-page .player-controls{gap:18px;margin-top:0}
+  html.player-page .ctrl-row{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:center;
+    gap:8px 32px;
+  }
+  html.player-page .ctrl-row .skip-back{order:0}
+  html.player-page .ctrl-row .main{order:1}
+  html.player-page .ctrl-row .skip-fwd{order:2}
+  html.player-page .ctrl-row .ctrl-tools{order:3}
+
+  html.player-page .ctrl-row .main{
+    width:72px;
+    height:72px;
+    flex-shrink:0;
+  }
+  html.player-page .ctrl-row .main svg{width:30px;height:30px}
+
+  html.player-page .ctrl-row .side{
+    width:56px;
+    height:56px;
+    color:var(--muted);
+    background:none;
+    flex-shrink:0;
+  }
+  html.player-page .ctrl-row .skip-curved{display:none}
+  html.player-page .ctrl-row .skip-mark{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:1px;
+    line-height:1;
+  }
+  html.player-page .ctrl-row .skip-mark svg{width:28px;height:16px;display:block}
+  html.player-page .ctrl-row .skip-num{
+    font-size:10px;
+    font-variant-numeric:tabular-nums;
+    letter-spacing:.04em;
+    color:currentColor;
+  }
+
+  html.player-page .ctrl-tools{
+    flex:1 0 100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-top:10px;
+    width:100%;
+  }
+  html.player-page .ctrl-row .chip-act[data-speed],
+  html.player-page .ctrl-row .chip-act[data-sleep]{
+    width:auto;
+    min-width:0;
+    height:36px;
+    padding:0 16px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+  }
+  html.player-page .ctrl-row .chip-act[data-sleep] [data-sleep-label]{display:inline}
+  html.player-page .ctrl-row .chip-act[data-sleep] .chip-ico{display:none !important}
+
+  html.player-page .ctrl-row .like,
+  html.player-page .ctrl-row .icon-btn{
+    width:44px;
+    height:44px;
+    background:none;
+    flex-shrink:0;
+  }
+
+  html.player-page .now-extra{margin-top:28px}
+}

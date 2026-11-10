@@ -301,7 +301,7 @@
 
     document.title = ep.title + " — EYRA";
     document.body.dataset.duration = String((ep.minutes||7)*60);
-    $$(".now-art-wrap, .now-art-wrap .typo-cover, .host-line").forEach(el=>el.style.setProperty("--accent", ex.accent));
+    $$(".now-page, .now-art-wrap, .now-art-wrap .typo-cover, .host-line").forEach(el=>el.style.setProperty("--accent", ex.accent));
     const cover = $(".now-art-wrap .typo-cover img") || $(".now-art-wrap img");
     if(cover){ cover.src = ex.photo; cover.alt = ex.name; }
     const eye = $(".now-art-wrap .eyebrow");
@@ -309,7 +309,7 @@
     const coverB = $(".now-art-wrap .typo-copy b");
     if(coverB) coverB.textContent = ep.title;
     const showLink = $(".now-copy .show-link");
-    if(showLink){ showLink.href = showHref(ex); showLink.textContent = ex.category; }
+    if(showLink){ showLink.href = showHref(ex); showLink.textContent = ex.category; showLink.setAttribute("data-rubric", ex.eyebrow); }
     const h1 = $(".now-copy h1");
     if(h1) h1.textContent = ep.title;
     const host = $(".now-copy .host-line");
