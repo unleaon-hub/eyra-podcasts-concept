@@ -7,7 +7,7 @@
 <meta name="description" content="Концепт раздела подкастов EYRA: аудиоверсии статей журнала.">
 <link rel="icon" href="assets/eyra-mark.svg">
 <link rel="preload" href="assets/manrope-variable.woff" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="shared.css?v=hub11">
+<link rel="stylesheet" href="shared.css?v=hub12">
 </head>
 <body class="is-playing" data-duration="420" data-progress="0.42">
 <div class="grain" aria-hidden="true"></div>
@@ -29,7 +29,7 @@
     <div class="show-copy">
       <h1>Отдых и впечатления</h1>
       <p class="dek">Практичные выпуски про вечер, выходные и отдых без надрыва.</p>
-      <div class="host">
+      <div class="host" style="--accent:#a8bdd9">
         <img src="assets/maya.webp" alt="">
         <div><b>Майя</b><span>Лайфстайл-ассистент · <a href="https://eyra.ink/experts/maya/">Страница эксперта</a></span></div>
       </div>
@@ -267,7 +267,7 @@
 
   <section class="cont-block shelf" id="other-cols">
     <div class="shelf-head"><h2 class="h-section">Другие колонки</h2></div>
-    <div class="rail rail-exp"><a class="card-expert" href="show.html"><div class="avatar-wrap"><img src="assets/asya.webp" alt="Ася" width="200" height="200"></div><b>Ася</b><span>Психолог</span></a><a class="card-expert" href="show.html"><div class="avatar-wrap"><img src="assets/kira.webp" alt="Кира" width="200" height="200"></div><b>Кира</b><span>Нутрициолог</span></a><a class="card-expert" href="show.html"><div class="avatar-wrap"><img src="assets/vera.webp" alt="Вера" width="200" height="200"></div><b>Вера</b><span>Астролог</span></a><a class="card-expert" href="show.html"><div class="avatar-wrap"><img src="assets/lera.webp" alt="Лера" width="200" height="200"></div><b>Лера</b><span>Таролог</span></a><a class="card-expert" href="show.html"><div class="avatar-wrap"><img src="assets/mira.webp" alt="Мира" width="200" height="200"></div><b>Мира</b><span>Нумеролог</span></a><a class="card-expert" href="show.html"><div class="avatar-wrap"><img src="assets/nika.webp" alt="Ника" width="200" height="200"></div><b>Ника</b><span>Продюсер</span></a><a class="card-expert" href="show.html"><div class="avatar-wrap"><img src="assets/eva.webp" alt="Ева" width="200" height="200"></div><b>Ева</b><span>Нетворкинг</span></a><a class="card-expert" href="show.html"><div class="avatar-wrap"><img src="assets/sofia.webp" alt="София" width="200" height="200"></div><b>София</b><span>Финансы</span></a><a class="card-expert" href="show.html"><div class="avatar-wrap"><img src="assets/alisa.webp" alt="Алиса" width="200" height="200"></div><b>Алиса</b><span>Дейтинг</span></a></div>
+    <div class="rail rail-exp"><a class="card-expert" href="https://eyra.ink/experts/asya/"><div class="avatar-wrap"><img src="assets/asya.webp" alt="Ася" width="200" height="200"></div><b>Ася</b><span>Психолог</span></a><a class="card-expert" href="https://eyra.ink/experts/kira/"><div class="avatar-wrap"><img src="assets/kira.webp" alt="Кира" width="200" height="200"></div><b>Кира</b><span>Нутрициолог</span></a><a class="card-expert" href="https://eyra.ink/experts/vera/"><div class="avatar-wrap"><img src="assets/vera.webp" alt="Вера" width="200" height="200"></div><b>Вера</b><span>Астролог</span></a><a class="card-expert" href="https://eyra.ink/experts/lera/"><div class="avatar-wrap"><img src="assets/lera.webp" alt="Лера" width="200" height="200"></div><b>Лера</b><span>Таролог</span></a><a class="card-expert" href="https://eyra.ink/experts/mira/"><div class="avatar-wrap"><img src="assets/mira.webp" alt="Мира" width="200" height="200"></div><b>Мира</b><span>Нумеролог</span></a><a class="card-expert" href="https://eyra.ink/experts/nika/"><div class="avatar-wrap"><img src="assets/nika.webp" alt="Ника" width="200" height="200"></div><b>Ника</b><span>Продюсер</span></a><a class="card-expert" href="https://eyra.ink/experts/eva/"><div class="avatar-wrap"><img src="assets/eva.webp" alt="Ева" width="200" height="200"></div><b>Ева</b><span>Нетворкинг</span></a><a class="card-expert" href="https://eyra.ink/experts/sofia/"><div class="avatar-wrap"><img src="assets/sofia.webp" alt="София" width="200" height="200"></div><b>София</b><span>Финансы</span></a><a class="card-expert" href="https://eyra.ink/experts/alisa/"><div class="avatar-wrap"><img src="assets/alisa.webp" alt="Алиса" width="200" height="200"></div><b>Алиса</b><span>Дейтинг</span></a></div>
   </section>
 
 
@@ -279,15 +279,15 @@
 </div></footer>
 <div class="mini-player" role="region" aria-label="Сейчас играет">
   <div class="mini-left">
-    <button data-open-full aria-label="Открыть плеер"><div class="typo-cover " style="--accent:#a8bdd9">
+    <a href="player.html" data-open-player aria-label="Открыть выпуск"><div class="typo-cover " style="--accent:#a8bdd9">
       <img src="assets/maya.webp" alt="Майя">
       <div class="typo-copy"><span class="eyebrow">Отдых</span><b>Как распланировать вечер дома, чтобы успеть и отдохнуть</b></div>
       
-    </div></button>
-    <div class="meta">
+    </div></a>
+    <a class="meta" href="player.html" data-open-player>
       <b>Как распланировать вечер дома, чтобы успеть и отдохнуть</b>
       <span>Майя · Отдых и впечатления</span>
-    </div>
+    </a>
   </div>
   <div class="mini-mid">
     <div class="mini-ctrls">
@@ -305,58 +305,10 @@
     <button class="icon-btn hide-sm" data-sleep aria-label="Таймер сна: Выкл"><svg class="chip-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v5l3 2"/></svg><span data-sleep-label>Таймер</span></button>
     <a class="read-link hide-sm" href="https://eyra.ink/journal/dosug/kak-rasplanovat-vecher-doma/" target="_blank" rel="noopener"><svg class="chip-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 4h9l3 3v13H6z"/><path d="M15 4v4h4"/><path d="M8 12h8M8 16h6"/></svg><span class="chip-txt">Читать статью</span></a>
     <div class="vol hide-sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 10v4h3l4 3V7L7 10H4z"/><path d="M16 9.5a4 4 0 0 1 0 5"/></svg><div class="bar"><i></i></div></div>
-    <button class="icon-btn" data-open-full aria-label="Развернуть плеер"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m6 14 6-6 6 6"/></svg></button>
+    <a class="icon-btn" href="player.html" data-open-player aria-label="Открыть выпуск"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m6 14 6-6 6 6"/></svg></a>
   </div>
 </div>
 
-<nav class="tabbar" aria-label="Мобильная навигация"><a href="https://eyra.ink/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 11 12 4l8 7v8a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-8z"/></svg>Главная</a><a href="hub.html" class="is-on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 12a6 6 0 0 0 12 0M12 18v3"/></svg>Подкасты</a><a href="https://eyra.ink/#experts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><circle cx="17" cy="9" r="2.4"/><path d="M21.5 19a4.5 4.5 0 0 0-6-4"/></svg>Эксперты</a><a href="https://eyra.ink/journal/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 5h6v14H5zM13 5h6v14h-6z"/></svg>Журнал</a></nav>
-
-<div id="full-player" class="full-player" hidden role="dialog" aria-modal="true" aria-label="Сейчас играет" aria-hidden="true">
-  <header class="fp-bar">
-    <button class="fp-close" data-close-full aria-label="Свернуть"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m6 14 6-6 6 6"/></svg></button>
-    <span class="eyebrow">Сейчас играет</span>
-    <button class="fp-close" data-close-full aria-label="Закрыть"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
-  </header>
-  <div class="inner">
-    <div class="now-art-wrap" style="--accent:#a8bdd9">
-      <div class="glow" style="background:radial-gradient(circle at 50% 50%, #a8bdd9, transparent 68%)"></div>
-      <div class="typo-cover " style="--accent:#a8bdd9">
-      <img src="assets/maya.webp" alt="Майя">
-      <div class="typo-copy"><span class="eyebrow">Отдых и впечатления</span><b>Как распланировать вечер дома, чтобы успеть и отдохнуть</b></div>
-      
-    </div>
-    </div>
-    <div class="now-copy">
-      <a class="show-link" href="show.html">Отдых и впечатления</a>
-      <h1>Как распланировать вечер дома, чтобы успеть и отдохнуть</h1>
-      <div class="host-line"><img src="assets/maya.webp" alt="">Майя · Лайфстайл-ассистент · 7 мин</div>
-      <div class="mode-switch" role="tablist" aria-label="Формат">
-        <button class="is-on" data-play data-keep-label><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg> Слушать</button>
-        <a href="https://eyra.ink/journal/dosug/kak-rasplanovat-vecher-doma/" target="_blank" rel="noopener">Читать статью</a>
-      </div>
-      <div class="player-controls" style="margin-top:28px">
-        <div class="timeline-block">
-          <div class="bar" data-progress><i></i></div>
-          <div class="times"><span data-time-cur>2:56</span><span data-time-left>-4:04</span></div>
-        </div>
-        <div class="ctrl-row">
-          <button class="side" aria-label="Назад 15 секунд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 8 4 11l3 3"/><path d="M4 11h9a5 5 0 1 1 0 10H8"/><text x="11.5" y="14.5" font-size="6" fill="currentColor" stroke="none" text-anchor="middle">15</text></svg></button>
-          <button class="main" data-play data-keep-label aria-label="Пауза"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/><rect x="14" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/></svg></button>
-          <button class="side" aria-label="Вперёд 15 секунд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 8 20 11l-3 3"/><path d="M20 11H11a5 5 0 1 0 0 10h5"/></svg></button>
-        </div>
-        <div class="chips">
-          <button class="chip-act" data-speed>1×</button>
-          <button class="chip-act" data-sleep><span data-sleep-label>Таймер</span></button>
-        </div>
-      </div>
-      <div class="now-extra">
-        <h3>О выпуске</h3>
-        <p>Практический принцип распределения вечерних часов: сколько дел реально вмещает вечер, в каком порядке чередовать дела и отдых, что вычеркнуть первым и как не уйти весь вечер в телефон. Аудиоверсия статьи из журнала EYRA.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script src="player.js?v=hub11"></script>
-<script src="eyra-chrome.js?v=hub11"></script>
+<script src="player.js?v=hub12"></script>
+<script src="eyra-chrome.js?v=hub12"></script>
 </body></html>

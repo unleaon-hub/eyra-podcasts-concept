@@ -3,15 +3,62 @@
   const $$ = (s, r=document) => [...r.querySelectorAll(s)];
   const speeds = [1, 1.25, 1.5, 2];
   let speedIndex = 0;
+  const STORE = "eyra.podcast.playback";
+  function readStore(){
+    try{ return JSON.parse(localStorage.getItem(STORE) || "{}"); }catch(e){ return {}; }
+  }
+  function writeStore(){
+    try{
+      localStorage.setItem(STORE, JSON.stringify({
+        progress, playing, speedIndex, updated: Date.now()
+      }));
+    }catch(e){}
+  }
+  function playerHref(){
+    const u = new URL("player.html", location.href);
+    u.searchParams.set("p", progress.toFixed(4));
+    u.searchParams.set("play", playing ? "1" : "0");
+    if(speedIndex) u.searchParams.set("spd", String(speeds[speedIndex]));
+    return u.pathname + u.search + u.hash;
+  }
+  function goToPlayer(e){
+    if(e) e.preventDefault();
+    writeStore();
+    const onPlayer = document.querySelector(".now-page") && /player\.html/.test(location.pathname);
+    if(onPlayer){
+      window.scrollTo({top:0, behavior:"smooth"});
+      return;
+    }
+    location.href = playerHref();
+  }
+  const params = new URLSearchParams(location.search);
+  const stored = readStore();
   let playing = document.body.classList.contains("is-playing");
   let progress = Number(document.body.dataset.progress || 0.42);
   let timer = null;
+  if(params.has("p") && Number.isFinite(Number(params.get("p")))){
+    progress = Math.min(0.995, Math.max(0, Number(params.get("p"))));
+  }else if(typeof stored.progress === "number" && Number.isFinite(stored.progress)){
+    progress = Math.min(0.995, Math.max(0, stored.progress));
+  }
+  if(params.has("play")){
+    playing = params.get("play") !== "0";
+  }else if(typeof stored.playing === "boolean"){
+    playing = stored.playing;
+  }
+  if(params.has("spd")){
+    const s = Number(String(params.get("spd")).replace(",", "."));
+    const idx = speeds.indexOf(s);
+    if(idx >= 0) speedIndex = idx;
+  }else if(typeof stored.speedIndex === "number" && stored.speedIndex >= 0 && stored.speedIndex < speeds.length){
+    speedIndex = stored.speedIndex;
+  }
 
   function iconPlay(){return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor" stroke="none"/></svg>'}
   function iconPause(){return '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/><rect x="14" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/></svg>'}
 
   function isGlobalPlay(btn){
-    return btn.closest(".mini-player, .full-player, .continue, .wave, .show-actions, .show-sticky, .now-page, .ritual, .feature");
+    return btn.closest(".mini-player, .continue, .wave, .show-actions, .show-sticky, .now-page, .ritual, .feature");
   }
   function setIcon(btn, on){
     const html = on ? iconPause() : iconPlay();
@@ -36,6 +83,7 @@
       }
     });
     if(on) startTick(); else stopTick();
+    writeStore();
   }
   function startTick(){
     stopTick();
@@ -55,23 +103,16 @@
     $$("[data-progress]").forEach(el=>{ el.style.setProperty("--p", (progress*100).toFixed(2)+"%"); });
     $$("[data-time-cur]").forEach(el=>{ el.textContent = fmt(cur); });
     $$("[data-time-left]").forEach(el=>{ el.textContent = "-"+fmt(dur-cur); });
+    writeStore();
   }
-  function openFull(open){
-    const fp = $("#full-player");
-    if(!fp) return;
-    fp.classList.toggle("is-open", open);
-    if(open) fp.removeAttribute("hidden"); else fp.setAttribute("hidden","");
-    fp.setAttribute("aria-hidden", String(!open));
-    document.body.style.overflow = open ? "hidden" : "";
-    if(open){
-      fp.setAttribute("tabindex","-1");
-      try{ fp.focus({preventScroll:true}); }catch(e){ fp.focus(); }
-    }
+  function applySpeed(){
+    const label = (speeds[speedIndex]%1===0? speeds[speedIndex]+"×" : String(speeds[speedIndex]).replace(".",",")+"×");
+    $$("[data-speed]").forEach(el=>{ el.textContent = label; el.setAttribute("aria-label","Скорость "+label); });
+    writeStore();
   }
   function cycleSpeed(){
     speedIndex = (speedIndex+1)%speeds.length;
-    const label = (speeds[speedIndex]%1===0? speeds[speedIndex]+"×" : String(speeds[speedIndex]).replace(".",",")+"×");
-    $$("[data-speed]").forEach(el=>{ el.textContent = label; el.setAttribute("aria-label","Скорость "+label); });
+    applySpeed();
   }
 
   document.addEventListener("click", (e)=>{
@@ -86,10 +127,8 @@
       setPlaying(!playing);
       return;
     }
-    const open = e.target.closest("[data-open-full]");
-    if(open){ e.preventDefault(); openFull(true); return; }
-    const close = e.target.closest("[data-close-full]");
-    if(close){ e.preventDefault(); openFull(false); return; }
+    const openPlayer = e.target.closest("[data-open-player]");
+    if(openPlayer){ goToPlayer(e); return; }
     const spd = e.target.closest("[data-speed]");
     if(spd){ e.preventDefault(); cycleSpeed(); return; }
     const mood = e.target.closest(".mood-btns button, .moods .chip, .filter, [data-filter]");
@@ -139,7 +178,6 @@
     }
   });
   document.addEventListener("keydown",(e)=>{
-    if(e.key==="Escape") openFull(false);
     if(e.key===" " && !/input|textarea|button|a/i.test(e.target.tagName)){
       e.preventDefault(); setPlaying(!playing);
     }
@@ -202,9 +240,31 @@
   }
   initShowMore();
 
+  function initMiniOnPlayerPage(){
+    const now = document.querySelector(".now-stage") || document.querySelector(".now-page");
+    const mini = document.querySelector(".mini-player");
+    if(!now || !mini) return;
+    document.documentElement.classList.add("player-page");
+    const io = new IntersectionObserver((entries)=>{
+      const on = entries.some(en => en.isIntersecting);
+      document.documentElement.classList.toggle("now-in-view", on);
+      mini.hidden = on;
+      mini.setAttribute("aria-hidden", String(on));
+    }, { threshold: 0.2, rootMargin: "0px 0px -15% 0px" });
+    io.observe(now);
+  }
+
+  applySpeed();
   setPlaying(playing);
   applyProgress();
-  if($("#full-player") && document.body.dataset.openFull==="1"){
-    openFull(true);
+  initMiniOnPlayerPage();
+  if(params.has("p") || params.has("play") || params.has("spd")){
+    try{
+      const u = new URL(location.href);
+      u.searchParams.delete("p");
+      u.searchParams.delete("play");
+      u.searchParams.delete("spd");
+      history.replaceState(null, "", u.pathname + (u.searchParams.toString() ? "?"+u.searchParams.toString() : "") + u.hash);
+    }catch(e){}
   }
 })();
