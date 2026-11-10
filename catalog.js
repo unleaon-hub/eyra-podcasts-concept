@@ -106,9 +106,9 @@
 
   function eschePlaqueHtml(a, ex){
     const href = playerHref(a);
-    return '<article class="esche-plaque" data-episode data-slug="'+a.slug+'" style="--accent:'+ex.accent+'">'+
+    const pastel = ex.button || "#efe4d2";
+    return '<article class="esche-plaque" data-episode data-slug="'+a.slug+'" style="--accent:'+ex.accent+';--plaque:'+pastel+'">'+
       '<a class="esche-face" href="'+href+'">'+
-        '<span class="eyebrow">'+escapeHtml(ex.eyebrow)+'</span>'+
         '<b>'+escapeHtml(a.title)+'</b>'+
         '<span class="mins">'+a.minutes+' мин</span>'+
       '</a>'+
@@ -336,7 +336,7 @@
     if(escheAll) escheAll.href = showHref(ex);
     const taken = new Set(dalee.map(a=>a.slug));
     taken.add(ep.slug);
-    const escheEps = eps.filter(a=>!taken.has(a.slug)).slice(0,8);
+    const escheEps = eps.filter(a=>!taken.has(a.slug)).slice(0,6);
     const escheList = $("#esche-list, #esche .rail, #esche .ep-table");
     const escheSec = $("#esche");
     if(escheList){
@@ -481,7 +481,7 @@
     const chips = $("#other-moods");
     if(chips){
       chips.innerHTML = MOODS.map(x=>
-        '<a class="chip-pill mood'+(x.slug===m.slug?' is-on':'')+'" href="'+moodHref(x)+'" style="background:'+x.tint+'"><b>'+escapeHtml(x.name)+'</b></a>'
+        '<a class="mood-plaque'+(x.slug===m.slug?' is-on':'')+'" href="'+moodHref(x)+'" style="--plaque:'+x.tint+';background:'+x.tint+'"><b>'+escapeHtml(x.name)+'</b></a>'
       ).join("");
     }
   }

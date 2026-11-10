@@ -3665,3 +3665,168 @@ body.is-playing .ep-item.is-active.has-num .ep-card-num .eq i{animation-name:eq-
   background-image: none !important;
   color: var(--ink) !important;
 }
+
+
+/* hub21: other-moods + esche compact pastel plaques */
+.other-moods{
+  display:grid !important;
+  grid-template-columns:repeat(3, minmax(0,1fr)) !important;
+  gap:12px !important;
+  flex-wrap:unset !important;
+  align-items:stretch !important;
+  width:min(var(--max),calc(100% - 56px));
+  margin:8px auto 56px;
+  overflow:visible !important;
+}
+.other-moods .mood-plaque{
+  display:flex !important;
+  flex:none !important;
+  width:auto !important;
+  height:112px !important;
+  min-height:112px !important;
+  max-height:112px !important;
+  aspect-ratio:auto !important;
+  padding:18px 18px 16px !important;
+  border-radius:var(--r) !important;
+  align-items:flex-end !important;
+  justify-content:flex-start !important;
+  background:var(--plaque) !important;
+  color:var(--ink) !important;
+  text-decoration:none;
+  box-shadow:none !important;
+  box-sizing:border-box;
+}
+.other-moods .mood-plaque b{
+  font-weight:400 !important;
+  font-size:18px !important;
+  letter-spacing:-.04em !important;
+  line-height:1.15 !important;
+  color:var(--ink) !important;
+}
+.other-moods .mood-plaque.is-on{
+  box-shadow:inset 0 0 0 1.5px color-mix(in srgb, var(--ink) 40%, transparent) !important;
+}
+.other-moods .mood-plaque:hover{transform:translateY(-3px)}
+.other-moods img{display:none !important}
+
+#esche .esche-rail,
+#esche-list.esche-rail,
+.now-page #esche-list.esche-rail{
+  display:grid !important;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:12px;
+  overflow:visible !important;
+  scroll-snap-type:none;
+  width:100%;
+  margin:0;
+  padding:0;
+}
+#esche .esche-plaque{
+  position:relative;
+  flex:none !important;
+  width:auto !important;
+  height:112px !important;
+  min-height:112px !important;
+  max-height:112px !important;
+  aspect-ratio:auto !important;
+  background:var(--plaque, #efe4d2) !important;
+  border-radius:var(--r);
+  box-shadow:none !important;
+  overflow:hidden;
+  border:0;
+}
+#esche .esche-plaque .esche-face{
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  align-items:flex-start;
+  gap:0;
+  height:100%;
+  aspect-ratio:auto !important;
+  padding:16px 52px 14px 18px;
+  background:transparent !important;
+  box-shadow:none !important;
+  border-radius:0;
+  color:var(--ink);
+  text-decoration:none;
+  transform:none !important;
+}
+#esche .esche-plaque .esche-face .eyebrow{display:none !important}
+#esche .esche-plaque .esche-face b{
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+  font-weight:400 !important;
+  font-size:16px !important;
+  letter-spacing:-.03em;
+  line-height:1.2;
+  color:var(--ink) !important;
+}
+#esche .esche-plaque .esche-face .mins{
+  margin:6px 0 0;
+  font-size:13px;
+  font-weight:400;
+  color:color-mix(in srgb, var(--ink) 62%, transparent);
+}
+#esche .esche-plaque .play-float{
+  position:absolute;
+  right:12px;
+  top:50%;
+  bottom:auto;
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  opacity:0;
+  transform:translateY(-50%);
+  z-index:3;
+  background:var(--paper);
+  color:var(--ink);
+}
+#esche .esche-plaque:hover .play-float,
+#esche .esche-plaque:focus-within .play-float{
+  opacity:1;
+  transform:translateY(-50%);
+}
+#esche .esche-plaque img{display:none !important}
+
+@media (max-width:760px){
+  .other-moods{
+    grid-template-columns:repeat(2, minmax(0,1fr)) !important;
+    width:calc(100% - 32px);
+    margin-left:auto;margin-right:auto;
+  }
+  .other-moods .mood-plaque{
+    height:80px !important;
+    min-height:80px !important;
+    max-height:80px !important;
+    padding:14px 14px 12px !important;
+  }
+  .other-moods .mood-plaque b{font-size:16px !important}
+
+  #esche .esche-rail,
+  #esche-list.esche-rail,
+  .now-page #esche-list.esche-rail{
+    display:flex !important;
+    flex-wrap:nowrap !important;
+    gap:10px;
+    overflow-x:auto !important;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;
+  }
+  #esche .esche-rail::-webkit-scrollbar{display:none}
+  #esche .esche-plaque{
+    flex:0 0 78% !important;
+    width:78% !important;
+    height:80px !important;
+    min-height:80px !important;
+    max-height:80px !important;
+    scroll-snap-align:start;
+  }
+  #esche .esche-plaque .esche-face{padding:12px 48px 12px 14px}
+  #esche .esche-plaque .play-float{opacity:1;transform:translateY(-50%)}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .other-moods .mood-plaque:hover{transform:none}
+}
