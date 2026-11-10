@@ -143,28 +143,41 @@
     }
   }
 
+  const CROP = ["50% 16%","62% 18%","38% 20%","50% 28%","44% 14%","58% 22%"];
+
   function renderEpTable(table, eps, extra){
     if(!table) return;
-    const moreBtn = table.querySelector("[data-show-more]");
-    $$(".ep-item", table).forEach(n=>n.remove());
+    extra = extra || {};
+    const moreBtn = table.querySelector("[data-show-more]") || document.querySelector("[data-show-more]");
+    $$(".ep-item, .mood-ep", table).forEach(n=>n.remove());
+    const head = table.querySelector(".head");
+    if(head) head.hidden = true;
     const frag = document.createDocumentFragment();
+    const useCover = !!extra.cover || !!extra.host;
     eps.forEach((ep, i)=>{
       const ex = expert(slugOf(ep));
+      const href = playerHref(ep, extra);
       const artEl = document.createElement("article");
-      artEl.className = "ep-item" + (i===0 ? " is-active" : "") + (i>=10 ? " is-more" : "");
+      artEl.className = "ep-item" + (useCover ? " has-cover" : " has-num") + (i===0 ? " is-active" : "") + (i>=10 ? " is-more" : "");
       artEl.dataset.episode = "";
       artEl.dataset.slug = ep.slug;
+      artEl.style.setProperty("--accent", ex.accent);
+      const label = 'Слушать «'+escapeHtml(ep.title)+'»';
+      const thumb = useCover
+        ? '<a class="ep-card-thumb" href="'+href+'" style="--crop:'+CROP[i%CROP.length]+'"><img src="'+ex.photo+'" alt=""><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></a>'
+        : '<button class="ep-card-num" data-play aria-label="'+label+'" type="button"><span class="n">'+(i+1)+'</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button>';
+      const meta = extra.host
+        ? '<p class="ep-meta"><a href="'+showHref(ex)+'">'+escapeHtml(ex.name)+'</a> · '+ep.minutes+' мин</p>'
+        : '<p class="ep-meta">'+ep.minutes+' мин</p>';
       artEl.innerHTML =
-        '<button class="ep-num" data-play aria-label="Слушать «'+escapeHtml(ep.title)+'»"><span>'+(i+1)+'</span>'+playSvg()+'</button>'+
-        '<div class="ep-body"><p class="t"><a href="'+playerHref(ep, extra)+'">'+escapeHtml(ep.title)+'</a></p>'+
-        (extra && extra.host ? '<p class="ep-host"><a href="'+showHref(ex)+'">'+escapeHtml(ex.name)+'</a></p>' : '')+
-        '</div>'+
-        '<span class="dur">'+ep.minutes+' мин</span>'+
-        '<div class="ep-prog"><div class="progress-pip"><i style="width:'+(i===0?'42%':'0')+'"></i></div></div>'+
-        '<button class="like" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>';
+        thumb+
+        '<div class="ep-body"><p class="t"><a href="'+href+'">'+escapeHtml(ep.title)+'</a></p>'+meta+
+        '<div class="progress-pip"><i style="width:'+(i===0?'42%':'0')+'"></i></div></div>'+
+        '<button class="btn-round-play ep-card-play" data-play type="button" aria-label="'+label+'">'+playSvg()+'</button>'+
+        '<button class="like" type="button" aria-label="В сохранённые"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg></button>';
       frag.appendChild(artEl);
     });
-    if(moreBtn) table.insertBefore(frag, moreBtn);
+    if(moreBtn && moreBtn.parentElement===table) table.insertBefore(frag, moreBtn);
     else table.appendChild(frag);
     if(moreBtn) moreBtn.hidden = eps.length <= 10;
   }
@@ -200,7 +213,7 @@
     if(host){
       host.innerHTML = '<span class="host-name">'+escapeHtml(ex.name)+'</span><span class="host-rest"> · '+escapeHtml(ex.role)+' · <a href="'+ex.page+'" rel="noopener">Страница эксперта</a></span>';
     }
-    const read = $(".show-actions a.btn-ghost");
+    const read = $(".show-actions a.read-quiet, .show-actions a.btn-ghost:not(.like)");
     if(read){ read.href = (eps[0] && eps[0].url) || ex.journal; read.setAttribute("target","_blank"); read.setAttribute("rel","noopener"); }
     if(eps[0]) document.body.dataset.duration = String(eps[0].minutes * 60);
     renderEpTable($(".ep-table"), eps, {});
@@ -253,7 +266,7 @@
       host.style.removeProperty("--accent");
       host.innerHTML = '<span class="host-name"><a href="'+showHref(ex)+'">'+escapeHtml(ex.name)+'</a></span><span class="host-rest"> · '+escapeHtml(ex.role)+' · '+ep.minutes+' мин</span>';
     }
-    $$(".now-copy .mode-switch a").forEach(a=>{
+    $$(".now-copy .read-quiet, .now-copy .mode-switch a").forEach(a=>{
       a.href = ep.url;
       a.setAttribute("target","_blank");
       a.setAttribute("rel","noopener");
@@ -403,7 +416,7 @@
     if(others){
       const list = t.slug==="new" ? TOPICS : TOPICS.filter(x=>x.slug!==t.slug);
       others.innerHTML = list.map(x=>
-        '<a href="'+topicHref(x)+'" style="--accent:'+x.accent+';background:'+x.button+'"><b>'+escapeHtml(x.short)+'</b></a>'
+        '<a class="chip-pill'+(x.slug===t.slug?' is-on':'')+'" href="'+topicHref(x)+'" style="--accent:'+x.accent+';background:'+x.button+'"><b>'+escapeHtml(x.short)+'</b></a>'
       ).join("");
     }
   }
@@ -442,25 +455,11 @@
     const play = $(".mood-hero a.hero-play, .mood-hero [data-listen-queue]");
     if(play && eps[0]) play.href = playerHref(eps[0], {m:m.slug}) + "&play=1";
     if(eps[0]) document.body.dataset.duration = String(eps[0].minutes*60);
-    const list = $(".mood-eps");
-    if(list){
-      list.innerHTML = eps.map((ep,i)=>{
-        const ex = expert(slugOf(ep));
-        const more = i>=10 ? " is-more" : "";
-        return '<article class="mood-ep'+more+'" style="--accent:'+ex.accent+'">'+
-          '<button class="ep-num" data-play aria-label="Слушать «'+escapeHtml(ep.title)+'»"><span>'+(i+1)+'</span>'+playSvg()+'</button>'+
-          '<a href="'+playerHref(ep,{m:m.slug})+'" class="mood-ep-cover"><div class="typo-cover"><img src="'+ex.photo+'" alt=""></div></a>'+
-          '<div class="mood-ep-copy"><a href="'+playerHref(ep,{m:m.slug})+'"><b>'+escapeHtml(ep.title)+'</b></a>'+
-          '<span><a href="'+showHref(ex)+'">'+escapeHtml(ex.name)+'</a> · '+ep.minutes+' мин</span></div>'+
-          '<span class="dur">'+ep.minutes+' мин</span></article>';
-      }).join("");
-      const moreBtn = $("[data-show-more]");
-      if(moreBtn) moreBtn.hidden = eps.length<=10;
-    }
+    renderEpTable($(".mood-eps"), eps, {host:true, cover:true, m:m.slug});
     const chips = $("#other-moods");
     if(chips){
       chips.innerHTML = MOODS.map(x=>
-        '<a class="mood'+(x.slug===m.slug?' is-on':'')+'" href="'+moodHref(x)+'" style="background:'+x.tint+'"><b>'+escapeHtml(x.name)+'</b></a>'
+        '<a class="chip-pill mood'+(x.slug===m.slug?' is-on':'')+'" href="'+moodHref(x)+'" style="background:'+x.tint+'"><b>'+escapeHtml(x.name)+'</b></a>'
       ).join("");
     }
   }

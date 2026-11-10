@@ -62,6 +62,10 @@
     return btn.closest(".mini-player, .continue, .wave, .show-actions, .show-sticky, .now-page, .ritual, .feature");
   }
   function setIcon(btn, on){
+    if(btn.classList.contains("ep-card-num")){
+      btn.setAttribute("aria-pressed", String(on));
+      return;
+    }
     const html = on ? iconPause() : iconPlay();
     const svg = btn.querySelector("svg");
     if(svg) svg.outerHTML = html;
