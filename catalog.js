@@ -260,6 +260,8 @@
     if(h1) h1.textContent = ex.category;
     const dek = $(".show-copy .dek");
     if(dek) dek.textContent = ex.dek;
+    const coverDek = $(".show-hero .cover-dek");
+    if(coverDek) coverDek.textContent = ex.dek;
     const host = $(".show-copy .host");
     if(host){
       host.innerHTML = '<span class="host-name">'+escapeHtml(ex.name)+'</span><span class="host-rest"> · '+escapeHtml(ex.role)+' · <a href="'+ex.page+'" rel="noopener">Страница эксперта</a></span>';
