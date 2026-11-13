@@ -1,0 +1,115 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><style>
+@font-face{font-family:Manrope;src:url(manrope.woff);font-weight:200 800}
+body{margin:0;background:#111412;color:#f2efe8;font-family:Manrope;padding:48px 56px 56px;width:1328px}
+h1{font-weight:400;font-size:30px;letter-spacing:-.01em;margin:0 0 8px}p.sub{margin:0 0 32px;color:#b4b7af;font-size:15px;max-width:980px;line-height:1.5}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.cell{margin:0;background:#161915;border-radius:16px;box-shadow:inset 0 0 0 1px #ffffff0f;height:250px;position:relative;overflow:hidden}
+.cell.paper{background:#f4efe6;box-shadow:none}.cell.paper figcaption{color:#57594f}
+figcaption{position:absolute;left:18px;top:16px;right:18px;font-size:13px;color:#b4b7af;line-height:1.35}
+.stage{position:absolute;inset:44px 0 0;display:grid;place-items:center}
+.stage .vf{position:relative;right:auto;bottom:auto}
+.is-focus .vf-btn{outline:2px solid #ccb78f;outline-offset:4px}
+.rm .vf-btn:before,.rm .vf-btn:after,.rm .vf-arc,.rm .vf-bars i{animation:none!important}
+.rm [data-state=connecting] .vf-arc{border-right-color:#ccb78f}.rm [data-state=connecting] .vf-bars i{opacity:.45}
+</style><link rel="stylesheet" href="voice-fab.css"></head><body>
+<h1>Голосовой консультант · состояния v2</h1>
+<p class="sub">Одна круглая кнопка 56 px (52 на мобильном), без подписей. Состояние читается только по рисунку и кольцам. Морф полоски ⇄ × за 240 мс. Подсказка остаётся только в aria-label и title.</p>
+<div class="grid"><figure class="cell"><figcaption>Ожидание · редкая рябь колец</figcaption><div class="stage"><div class="vf  " data-state="idle" data-t="1.5" style="--vf-lvl:0">
+  <button class="vf-btn" type="button" aria-label="Голосовой консультант EYRA: начать разговор" title="Голосовой консультант">
+    <span class="vf-arc" aria-hidden="true"></span><span class="vf-dot" aria-hidden="true"></span>
+    <span class="vf-bars" aria-hidden="true"><span><i></i><i></i><i></i><i></i><i></i></span></span>
+    <span class="vf-x" aria-hidden="true"><svg viewBox="0 0 16 16" style="stroke:currentColor"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9"/></svg></span>
+  </button>
+  <span class="vf-sr" aria-live="polite"></span>
+</div>
+</div></figure><figure class="cell"><figcaption>Наведение · кольцо чуть ярче, подъём 1 px</figcaption><div class="stage"><div class="vf is-hover " data-state="idle" data-t="6.5" style="--vf-lvl:0">
+  <button class="vf-btn" type="button" aria-label="Голосовой консультант EYRA: начать разговор" title="Голосовой консультант">
+    <span class="vf-arc" aria-hidden="true"></span><span class="vf-dot" aria-hidden="true"></span>
+    <span class="vf-bars" aria-hidden="true"><span><i></i><i></i><i></i><i></i><i></i></span></span>
+    <span class="vf-x" aria-hidden="true"><svg viewBox="0 0 16 16" style="stroke:currentColor"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9"/></svg></span>
+  </button>
+  <span class="vf-sr" aria-live="polite"></span>
+</div>
+</div></figure><figure class="cell"><figcaption>Фокус с клавиатуры · золотой контур</figcaption><div class="stage"><div class="vf is-focus " data-state="idle" data-t="6.5" style="--vf-lvl:0">
+  <button class="vf-btn" type="button" aria-label="Голосовой консультант EYRA: начать разговор" title="Голосовой консультант">
+    <span class="vf-arc" aria-hidden="true"></span><span class="vf-dot" aria-hidden="true"></span>
+    <span class="vf-bars" aria-hidden="true"><span><i></i><i></i><i></i><i></i><i></i></span></span>
+    <span class="vf-x" aria-hidden="true"><svg viewBox="0 0 16 16" style="stroke:currentColor"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9"/></svg></span>
+  </button>
+  <span class="vf-sr" aria-live="polite"></span>
+</div>
+</div></figure><figure class="cell"><figcaption>Подключение · золотая дуга + перелив полосок</figcaption><div class="stage"><div class="vf  in-call" data-state="connecting" data-t="0.35" style="--vf-lvl:0">
+  <button class="vf-btn" type="button" aria-label="Голосовой консультант EYRA: начать разговор" title="Голосовой консультант">
+    <span class="vf-arc" aria-hidden="true"></span><span class="vf-dot" aria-hidden="true"></span>
+    <span class="vf-bars" aria-hidden="true"><span><i></i><i></i><i></i><i></i><i></i></span></span>
+    <span class="vf-x" aria-hidden="true"><svg viewBox="0 0 16 16" style="stroke:currentColor"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9"/></svg></span>
+  </button>
+  <span class="vf-sr" aria-live="polite"></span>
+</div>
+</div></figure><figure class="cell"><figcaption>Слушает · тихий голос (0.15)</figcaption><div class="stage"><div class="vf  in-call" data-state="listening" data-t="1.5" style="--vf-lvl:0.15">
+  <button class="vf-btn" type="button" aria-label="Голосовой консультант EYRA: начать разговор" title="Голосовой консультант">
+    <span class="vf-arc" aria-hidden="true"></span><span class="vf-dot" aria-hidden="true"></span>
+    <span class="vf-bars" aria-hidden="true"><span><i></i><i></i><i></i><i></i><i></i></span></span>
+    <span class="vf-x" aria-hidden="true"><svg viewBox="0 0 16 16" style="stroke:currentColor"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9"/></svg></span>
+  </button>
+  <span class="vf-sr" aria-live="polite"></span>
+</div>
+</div></figure><figure class="cell"><figcaption>Слушает · громкий голос (0.9)</figcaption><div class="stage"><div class="vf  in-call" data-state="listening" data-t="1.5" style="--vf-lvl:0.9">
+  <button class="vf-btn" type="button" aria-label="Голосовой консультант EYRA: начать разговор" title="Голосовой консультант">
+    <span class="vf-arc" aria-hidden="true"></span><span class="vf-dot" aria-hidden="true"></span>
+    <span class="vf-bars" aria-hidden="true"><span><i></i><i></i><i></i><i></i><i></i></span></span>
+    <span class="vf-x" aria-hidden="true"><svg viewBox="0 0 16 16" style="stroke:currentColor"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9"/></svg></span>
+  </button>
+  <span class="vf-sr" aria-live="polite"></span>
+</div>
+</div></figure><figure class="cell"><figcaption>Отвечает · плавная волна, полоски золотые</figcaption><div class="stage"><div class="vf  in-call" data-state="speaking" data-t="0.3" style="--vf-lvl:0">
+  <button class="vf-btn" type="button" aria-label="Голосовой консультант EYRA: начать разговор" title="Голосовой консультант">
+    <span class="vf-arc" aria-hidden="true"></span><span class="vf-dot" aria-hidden="true"></span>
+    <span class="vf-bars" aria-hidden="true"><span><i></i><i></i><i></i><i></i><i></i></span></span>
+    <span class="vf-x" aria-hidden="true"><svg viewBox="0 0 16 16" style="stroke:currentColor"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9"/></svg></span>
+  </button>
+  <span class="vf-sr" aria-live="polite"></span>
+</div>
+</div></figure><figure class="cell"><figcaption>В разговоре + наведение / тап · ×, нажать = завершить</figcaption><div class="stage"><div class="vf is-hover in-call" data-state="listening" data-t="1.5" style="--vf-lvl:0.3">
+  <button class="vf-btn" type="button" aria-label="Голосовой консультант EYRA: начать разговор" title="Голосовой консультант">
+    <span class="vf-arc" aria-hidden="true"></span><span class="vf-dot" aria-hidden="true"></span>
+    <span class="vf-bars" aria-hidden="true"><span><i></i><i></i><i></i><i></i><i></i></span></span>
+    <span class="vf-x" aria-hidden="true"><svg viewBox="0 0 16 16" style="stroke:currentColor"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9"/></svg></span>
+  </button>
+  <span class="vf-sr" aria-live="polite"></span>
+</div>
+</div></figure><figure class="cell rm"><figcaption>Reduced motion · без ряби</figcaption><div class="stage"><div class="vf  " data-state="idle" data-t="1.5" style="--vf-lvl:0">
+  <button class="vf-btn" type="button" aria-label="Голосовой консультант EYRA: начать разговор" title="Голосовой консультант">
+    <span class="vf-arc" aria-hidden="true"></span><span class="vf-dot" aria-hidden="true"></span>
+    <span class="vf-bars" aria-hidden="true"><span><i></i><i></i><i></i><i></i><i></i></span></span>
+    <span class="vf-x" aria-hidden="true"><svg viewBox="0 0 16 16" style="stroke:currentColor"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9"/></svg></span>
+  </button>
+  <span class="vf-sr" aria-live="polite"></span>
+</div>
+</div></figure><figure class="cell rm"><figcaption>Reduced motion · подключение: статичная дуга</figcaption><div class="stage"><div class="vf  in-call" data-state="connecting" data-t="1.5" style="--vf-lvl:0">
+  <button class="vf-btn" type="button" aria-label="Голосовой консультант EYRA: начать разговор" title="Голосовой консультант">
+    <span class="vf-arc" aria-hidden="true"></span><span class="vf-dot" aria-hidden="true"></span>
+    <span class="vf-bars" aria-hidden="true"><span><i></i><i></i><i></i><i></i><i></i></span></span>
+    <span class="vf-x" aria-hidden="true"><svg viewBox="0 0 16 16" style="stroke:currentColor"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9"/></svg></span>
+  </button>
+  <span class="vf-sr" aria-live="polite"></span>
+</div>
+</div></figure><figure class="cell paper"><figcaption>На светлом подвале · ожидание</figcaption><div class="stage"><div class="vf on-paper " data-state="idle" data-t="1.5" style="--vf-lvl:0">
+  <button class="vf-btn" type="button" aria-label="Голосовой консультант EYRA: начать разговор" title="Голосовой консультант">
+    <span class="vf-arc" aria-hidden="true"></span><span class="vf-dot" aria-hidden="true"></span>
+    <span class="vf-bars" aria-hidden="true"><span><i></i><i></i><i></i><i></i><i></i></span></span>
+    <span class="vf-x" aria-hidden="true"><svg viewBox="0 0 16 16" style="stroke:currentColor"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9"/></svg></span>
+  </button>
+  <span class="vf-sr" aria-live="polite"></span>
+</div>
+</div></figure><figure class="cell paper"><figcaption>На светлом подвале · слушает (0.6)</figcaption><div class="stage"><div class="vf on-paper in-call" data-state="listening" data-t="1.5" style="--vf-lvl:0.6">
+  <button class="vf-btn" type="button" aria-label="Голосовой консультант EYRA: начать разговор" title="Голосовой консультант">
+    <span class="vf-arc" aria-hidden="true"></span><span class="vf-dot" aria-hidden="true"></span>
+    <span class="vf-bars" aria-hidden="true"><span><i></i><i></i><i></i><i></i><i></i></span></span>
+    <span class="vf-x" aria-hidden="true"><svg viewBox="0 0 16 16" style="stroke:currentColor"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9"/></svg></span>
+  </button>
+  <span class="vf-sr" aria-live="polite"></span>
+</div>
+</div></figure></div>
+<script>document.fonts.ready.then(()=>{for(const a of document.getAnimations()){const v=a.effect.target.closest('.vf');a.pause();a.currentTime=(+v.dataset.t||1.5)*1000}document.body.dataset.ready=1})</script>
+</body></html>

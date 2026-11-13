@@ -1,0 +1,31 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>EYRA · голосовой консультант v2 · прототип</title>
+<style>@font-face{font-family:Manrope;src:url(manrope.woff);font-weight:200 800}
+body{margin:0;background:#111412 url(bg-1440-mid.png) top center/1440px auto no-repeat;min-height:100vh;font-family:Manrope}
+@media(max-width:760px){body{background-image:url(bg-390-mid.png);background-size:390px auto}}
+.ctl{position:fixed;left:16px;top:16px;z-index:60;display:flex;gap:6px;flex-wrap:wrap;background:#171a17f2;padding:8px;border-radius:12px;box-shadow:inset 0 0 0 1px #ffffff14;font:500 12px Manrope;color:#b4b7af;align-items:center}
+.ctl button{font:inherit;color:#f2efe8;background:#ffffff10;border:0;border-radius:8px;padding:8px 10px;cursor:pointer}
+</style><link rel="stylesheet" href="voice-fab.css"></head><body>
+<div class="ctl">Демо: нажмите на кнопку справа внизу — фейковый движок проиграет разговор. <button id="auto">авто-цикл</button><button id="mic">ошибка: микрофон</button><button id="net">ошибка: сеть</button><button id="snd">звук: выкл</button></div>
+<div class="vf" data-state="idle" id="voice-fab">
+  <button class="vf-btn" type="button" aria-label="Голосовой консультант EYRA: начать разговор" title="Голосовой консультант">
+    <span class="vf-arc" aria-hidden="true"></span><span class="vf-dot" aria-hidden="true"></span>
+    <span class="vf-bars" aria-hidden="true"><span><i></i><i></i><i></i><i></i><i></i></span></span>
+    <span class="vf-x" aria-hidden="true"><svg viewBox="0 0 16 16" style="stroke:currentColor"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9"/></svg></span>
+  </button>
+  <span class="vf-sr" aria-live="polite"></span>
+</div>
+
+<script src="voice-fab.js"></script>
+<script>
+// fake voice engine: connecting 1.4 s → listening (random level) 3.2 s ⇄ speaking 3 s, until the orb is pressed
+let tm,iv;const fab=document.getElementById('voice-fab');
+function talk(){let t=0;iv=setInterval(()=>{t+=60;if(eyraVoice.state()==='listening')eyraVoice.level(Math.max(0,Math.sin(t/140)*.6+Math.sin(t/57)*.3+Math.random()*.2))},60);
+  const loop=()=>{eyraVoice.listening();tm=setTimeout(()=>{eyraVoice.level(0);eyraVoice.speaking();tm=setTimeout(loop,3000)},3200)};loop()}
+addEventListener('eyra-voice-start',()=>{tm=setTimeout(talk,1400)});
+addEventListener('eyra-voice-end',()=>{clearTimeout(tm);clearInterval(iv)});
+document.getElementById('mic').onclick=()=>{fab.querySelector('.vf-btn').click();setTimeout(()=>eyraVoice.error('mic-denied'),300)};
+document.getElementById('net').onclick=()=>{fab.querySelector('.vf-btn').click();setTimeout(()=>eyraVoice.error('network'),900)};
+document.getElementById('snd').onclick=e=>{const on=fab.dataset.sound!=='on';eyraVoice.sound(on);e.target.textContent='звук: '+(on?'вкл':'выкл')};
+addEventListener('eyra-voice-error',()=>{clearTimeout(tm);clearInterval(iv)});
+document.getElementById('auto').onclick=()=>{if(eyraVoice.state()==='idle')fab.querySelector('.vf-btn').click()};
+</script></body></html>
