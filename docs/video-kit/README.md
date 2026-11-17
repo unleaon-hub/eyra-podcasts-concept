@@ -8,7 +8,7 @@
 |---|---|---|---|
 | `youtube/` | `youtube-banner-2560x1440.jpg` | 2560×1440, 0,3 МБ (лимит 6 МБ) | YouTube → Настройка канала → Брендинг → Баннер. Всё важное в центральной зоне 1235×338. `preview-youtube-banner.png` — как он обрежется на ТВ, компьютере и телефоне |
 | `rutube/` | `rutube-banner-2204x864.jpg` | 2204×864, JPEG 0,3 МБ (лимит 10 МБ) | RUTUBE → Студия → Настройки канала → Обложка. Низ (~25%) закрывают аватар и «Подписаться», поэтому там пусто |
-| `avatar/` | `avatar-800.png` | 800×800 | Аватар канала для YouTube и RUTUBE: цветок в кольце из 10 акцентов экспертов. Запасной — `avatar-alt-gold-ring-800.png` (золотое кольцо). Все варианты — `avatar-ring-options.png`, мелкие размеры — `avatar-sizes-dark-light.png` |
+| `avatar/` | `avatar-800.png` | 800×800 PNG | Аватар канала для YouTube и RUTUBE: бейдж EYRA с 10 полосами в цветах экспертов, в центре кремовая полоса со словом «EYRA». Колонки подобраны так, что в круге у каждого цвета одинаковая площадь. Запасной — `avatar-alt-ring-800.png` (цветок в кольце из 10 акцентов), ещё один — `avatar-alt-gold-ring-800.png`. Как аватар выглядит в 800/98/48/32/24 px и в шапках каналов — `preview-avatar.png`. Исходник — `scripts/avatar/` |
 | `episode-covers/` | `<эксперт>-episode-1920x1080.jpg` | 1920×1080, до 0,5 МБ (лимит 2 МБ) | Обложка (превью) выпуска на YouTube и RUTUBE, по одной на эксперта |
 | `playlist-covers/youtube-square/` | `<эксперт>-square-1280x1280.jpg` | 1280×1280 | Квадратная обложка подкаста или плейлиста на YouTube |
 | `playlist-covers/rutube-16x9/` | `<эксперт>-rutube-playlist-1920x1080.jpg` | 1920×1080 | Обложка плейлиста или серии на RUTUBE (там нет квадрата): имя и рубрика без названия выпуска |
@@ -45,7 +45,7 @@ FRAME=kira-sahar-i-ustalost-frame-1920x1080.png ./make-episode-video.sh ep13.wav
 Название — 2–3 строки, лучше до ~32 знаков.
 Скрипт сам проверяет, что текст не заходит на эксперта и помещается в колонку; если нет, предупредит.
 Шаблон лежит в `scripts/template/` (HTML, данные экспертов, фоны и маски).
-Исходник баннеров — в `scripts/banner/` (`ch4.html`, `lock.js`, `tiles.py`).
+Исходник баннеров — в `scripts/banner/` (`ch4.html`, `lock.js`, `tiles.py`). Исходник аватара — `scripts/avatar/badge.html`, сборка: `cd scripts/avatar && python3 render.py` → `avatar-800.png`.
 
 ## Журнал правок
 См. `CHANGELOG.md`: что исправлено в трёх проходах.

@@ -1,0 +1,37 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:M;src:url(manrope.woff);font-weight:200 800}
+*{margin:0;box-sizing:border-box}body{width:800px;height:800px;position:relative;overflow:hidden;background:#fbf7ee}
+.s{position:absolute;width:160px}.band{position:absolute;left:0;right:0;background:#fbf7ee}
+#w{position:absolute;font-family:M;line-height:1;white-space:nowrap;color:#20221f}
+.mk{position:absolute;left:0;right:0;display:grid;place-items:center}
+</style></head><body><script>
+// Old EYRA badge, rebuilt 1:1 from covers/ palette (build.py cols). Params: band = band height share, ww = wordmark ink width, wt = weight, mark=1 flower instead of word
+const P=new URLSearchParams(location.search),band=+(P.get('band')||0.388),ww=+(P.get('ww')||0.703),wt=+(P.get('wt')||380),LS=+(P.get('ls')||-0.02),mark=P.get('mark');
+const TOP=['#F2A27A','#86CFA0','#F4BE55','#EFA3C8','#B49BF0'],bot=['#F09A84','#FFD978','#86ADF2','#C3DE6A','#F59AB8'];
+const H=800,b0=Math.round(H*(1-band)/2),b1=H-b0;let h='';
+// eq=1: column edges chosen so each column shows equal coloured area inside the circle (outside the band)
+let X=[0,160,320,480,640,800];
+if(P.get('eq')!=='0'){const R=400,hb=(b1-b0)/2;const f=x=>{const dx=x-R;const hy=Math.sqrt(Math.max(0,R*R-dx*dx));return 2*Math.max(0,hy-hb)};
+ const N=8000,cum=[0];for(let i=1;i<=N;i++){const x=(i-.5)*800/N;cum.push(cum[i-1]+f(x)*800/N)}
+ const tot=cum[N];X=[0];for(let k=1;k<5;k++){const t=tot*k/5;let i=cum.findIndex(v=>v>=t);X.push(Math.round(i*800/N))}X.push(800);document.body.dataset.cols=X.join(',')}
+const col=(c,i,t,hh)=>`<div class=s style="left:${X[i]}px;width:${X[i+1]-X[i]}px;top:${t}px;height:${hh}px;background:${c}"></div>`;
+TOP.forEach((c,i)=>h+=col(c,i,0,b0));bot.forEach((c,i)=>h+=col(c,i,b1,H-b1));
+h+=`<div class=band style="top:${b0}px;height:${b1-b0}px"></div>`;
+const fl=(s,sw)=>`<svg width="${s}" height="${s}" viewBox="0 0 48 48"><g fill="none" stroke="#20221f" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round">${[0,72,144,216,288].map(a=>`<path d="M24 20C17 14 19 6 24 3C29 6 31 14 24 20Z" transform="rotate(${a} 24 24)"/>`).join('')}</g></svg>`;
+if(mark){const s=(b1-b0)*+(P.get('ms')||0.86);h+=`<div class=mk style="top:${b0}px;height:${b1-b0}px">${fl(s,+(P.get('sw')||2.6))}</div>`}
+else h+=`<div id=w>EYRA</div>`;
+const cols=document.body.dataset.cols;document.body.innerHTML=h;if(cols)document.body.dataset.cols=cols;
+(async()=>{await document.fonts.ready;const w=document.getElementById('w');
+ if(w){w.style.fontWeight=wt;w.style.fontVariationSettings=`'wght' ${wt}`;w.style.letterSpacing=LS+'em';
+  const cv=document.createElement('canvas').getContext('2d');let fs=300;
+  const m=()=>{cv.font=`${wt} ${fs}px M`;cv.letterSpacing=(LS*fs)+'px';return cv.measureText('EYRA')};
+  for(let i=0;i<5;i++){const k=m();fs*=ww*800/(k.actualBoundingBoxLeft+k.actualBoundingBoxRight)}
+  const k=m();w.style.fontSize=fs+'px';
+  const inkW=k.actualBoundingBoxLeft+k.actualBoundingBoxRight,capH=k.actualBoundingBoxAscent;
+  w.style.left=(400-inkW/2+k.actualBoundingBoxLeft)+'px';
+  // baseline placement: put cap block centred in band
+  w.style.top='0px';const span=document.createElement('span');span.style.cssText='display:inline-block;width:0;height:0;vertical-align:baseline';w.appendChild(span);
+  const base=span.getBoundingClientRect().top-w.getBoundingClientRect().top;
+  w.style.top=(400+capH/2-base)+'px';document.body.dataset.ink=JSON.stringify({inkW,capH,fs,cols:document.body.dataset.cols})}
+ document.body.dataset.ready=1})();
+</script></body></html>
