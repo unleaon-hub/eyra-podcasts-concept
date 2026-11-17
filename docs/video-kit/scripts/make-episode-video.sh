@@ -14,6 +14,8 @@ ROW=$(awk -v e="$E" '$1==e' "$DIR/video-frame/layout.tsv")
 [ -n "$ROW" ] || { echo "Неизвестный эксперт: $E"; exit 1; }
 [ -f "$FRAME" ] || { echo "Нет кадра: $FRAME"; exit 1; }
 read -r _ WX WY WW WH BX BY BW BH C <<<"$ROW"
+# кадр из new-cover.py --kind *frame кладёт рядом <кадр>.layout: там волна стоит под его названием
+SIDE="${FRAME%.*}.layout"; [ -f "$SIDE" ] && read -r WX WY WW WH BX BY BW BH < "$SIDE"
 DUR=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$AUDIO")
 FPS=30; PRESET=${PRESET:-medium}; CRF=${CRF:-20}
 echo "→ $E · $(printf '%.0f' "$DUR") с · $OUT"

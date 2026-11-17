@@ -33,6 +33,9 @@ document.fonts.load('500 80px Manrope').then(()=>Promise.all([document.fonts.loa
    const pl=el('pill',X.show,{left:'72px',top:'0',padding:'13px 22px',fontSize:'24px',background:pillBg,color:INK});
    const hN=34,gap1=22,hT=t.offsetHeight,gap2=30,hP=pl.offsetHeight,tot=hN+gap1+hT+gap2+hP,y0=Math.round((X.cy||372)-tot/2);
    nm.style.top=y0+'px';t.style.top=(y0+hN+gap1)+'px';pl.style.top=(y0+hN+gap1+hT+gap2)+'px';
+ } else if(F==='ar'){
+   // article / post cover: clean scene, brand only (Дзен shows the article title under the card itself)
+   el('brand',mark(INK,1.6)+'<span>EYRA</span>',{left:'72px',top:'56px',fontSize:'28px',color:INK});
  } else if(F==='pl'){
    el('brand',mark(INK,1.6)+'<span>EYRA</span>',{left:'72px',top:'56px',fontSize:'28px',color:INK});
    const nm=el('t',X.name,{left:'64px',top:'0',fontSize:'150px',fontWeight:500,letterSpacing:'-.055em',lineHeight:1});

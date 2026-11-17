@@ -1,0 +1,41 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><style>
+@font-face{font-family:M;src:url(manrope.woff);font-weight:200 800}
+*{box-sizing:border-box;margin:0}body{width:1080px;height:1920px;position:relative;overflow:hidden;font-family:M;color:#1b1c19;-webkit-font-smoothing:antialiased}
+.bg{position:absolute;inset:0;width:1080px;height:1920px}
+.t{position:absolute;left:70px;width:940px;text-align:center;text-wrap:balance}
+.pill{position:absolute;border-radius:999px;font-weight:600;line-height:1;white-space:nowrap;font-size:30px;padding:16px 28px}
+canvas{position:absolute}
+</style></head><body>
+<script src="sdata.js"></script><script src="lock.js"></script><script>
+// EYRA · Дзен «Ролики»: vertical cover (f=c) or in-video frame with room for a live waveform (f=f)
+const P=new URLSearchParams(location.search),K=P.get('e')||'asya',F=P.get('f')||'c',X=Object.assign({},SX[K]);
+if(P.get('t'))X.thumb=P.get('t');
+const ty=v=>v.replace(/(^|[\s(«])([А-Яа-яЁё]{1,2}|без|для|над|под|про|при|что|как|от|до)\s+/g,(m,a,b)=>a+b+'\u00a0').replace(/\u00a0([А-Яа-яЁё]{1,2})\s+/g,'\u00a0$1\u00a0');
+X.thumb=ty(X.thumb.replace(/&nbsp;/g,'\u00a0'));
+const B=document.body,el=(cls,html,css)=>{const d=document.createElement('div');d.className=cls;d.innerHTML=html||'';Object.assign(d.style,css||{});B.append(d);return d};
+const HEAD=+(P.get('head')||800);
+Promise.all(['260 100px M','450 100px M','500 80px M','600 30px M'].map(f=>document.fonts.load(f))).then(()=>{
+ const im=new Image();im.src=P.get('bg')||`vbg-${K}.jpg`;im.className='bg';B.append(im);
+ // calm light veil over the upper wall so the title always sits on an even tone
+ el('','',{position:'absolute',left:0,right:0,top:0,height:HEAD+'px',background:`linear-gradient(180deg, rgba(250,246,240,.30) 0, rgba(250,246,240,.22) 60%, rgba(250,246,240,0) 100%)`});
+ const cv=document.createElement('canvas');B.append(cv);const L=lockup(cv,96,{});cv.style.left=(540-L.inkW/2-L.pad)+'px';cv.style.top=(186-L.pad)+'px';
+ const lockBottom=186+L.cap+96*0.17+L.tcap;
+ const nm=el('t',X.name+' · '+X.role,{top:0,fontSize:'38px',fontWeight:500,letterSpacing:'-.01em',lineHeight:1,color:'#3b3c37'});
+ const t=el('t',X.thumb,{top:0,fontWeight:500,letterSpacing:'-.035em',lineHeight:1.04,fontSize:(X.vfs||96)+'px'});
+ let fs=X.vfs||96;for(;fs>=76;fs-=2){t.style.fontSize=fs+'px';if(Math.round(t.scrollHeight/(fs*1.04))<=3&&t.scrollWidth<=941&&38+24+t.offsetHeight+34+(F==='c'?62:88)<=HEAD-36-(186+96*1.17+12+40))break}
+ const pillBg=`color-mix(in srgb, ${X.accent} 62%, #ffffff)`;
+ let tail,tailH;
+ if(F==='c'){tail=el('pill',ty(X.show),{left:'0',top:0,background:pillBg});tail.style.left=(540-tail.offsetWidth/2)+'px';tailH=tail.offsetHeight}
+ else{tailH=64+20+4}
+ const g1=24,g2=34,hN=38,hT=t.offsetHeight,tot=hN+g1+hT+g2+tailH;
+ const top0=lockBottom+40,bot0=HEAD-36,y0=Math.round(Math.max(top0,(top0+bot0)/2-tot/2));
+ nm.style.top=y0+'px';t.style.top=(y0+hN+g1)+'px';const ty0=y0+hN+g1+hT+g2;
+ if(F==='c')tail.style.top=ty0+'px';
+ else{const ww=700,wx=190;
+  el('','<div style="position:absolute;left:0;right:0;top:31px;height:2px;border-radius:2px;background:rgba(27,28,25,.10)"></div>',{position:'absolute',left:wx+'px',top:ty0+'px',width:ww+'px',height:'64px'});
+  el('','',{position:'absolute',left:wx+'px',top:(ty0+84)+'px',width:ww+'px',height:'4px',borderRadius:'4px',background:'rgba(27,28,25,.12)'});
+  window.layout={wave:[wx,ty0,ww,64],track:[wx,ty0+84,ww,4]}}
+ window.qa={fs,lines:Math.round(t.scrollHeight/(fs*1.04)),bottom:ty0+tailH,head:HEAD,lockBottom,top0};
+ im.decode().then(()=>setTimeout(()=>B.dataset.ready=1,150));
+});
+</script></body></html>

@@ -5,7 +5,8 @@ import numpy as np
 from PIL import Image, ImageFilter, ImageEnhance
 import os
 HERE=os.path.dirname(os.path.abspath(__file__));os.chdir(HERE)
-W=os.path.join(HERE,'..','template','work')+'/'
+_w=os.path.join(HERE,'..','template','work')
+W=(_w if os.path.isdir(_w) else '/workspace/eyra-podcasts/shots/video-covers/scene/work')+'/'
 F=json.load(open('faces1.json'));es='asya kira vera lera mira nika eva maya sofia alisa'.split()
 CW,CH=1080,1920;LY=300
 def bg(e,s=1.2,over=0):
