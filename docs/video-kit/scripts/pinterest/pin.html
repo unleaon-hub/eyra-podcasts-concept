@@ -1,0 +1,54 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><style>
+@font-face{font-family:M;src:url(manrope.woff);font-weight:200 800}
+*{box-sizing:border-box;margin:0}body{width:1000px;height:1500px;position:relative;overflow:hidden;font-family:M;color:#1b1c19;-webkit-font-smoothing:antialiased;background:#f5f0e8}
+.bg{position:absolute;inset:0;width:1000px;height:1500px}
+.t{position:absolute;left:70px;width:860px;text-align:center;text-wrap:balance}
+canvas{position:absolute}
+</style></head><body>
+<script src="sdata.js"></script><script src="lock.js"></script><script>
+// EYRA · Pinterest. m=a: title on the sunlit wall above the scene; m=b: paper frame (photo + title + footer lockup); m=c: board cover (topic + name)
+const P=new URLSearchParams(location.search),K=P.get('e')||'asya',MODE=P.get('m')||'a',X=Object.assign({},SX[K]);
+const ty=v=>v.replace(/(^|[\s(«])([А-Яа-яЁё]{1,2}|без|для|над|под|про|при|что|как|от|до|не)\s+/g,(m,a,b)=>a+b+'\u00a0').replace(/\u00a0([А-Яа-яЁё]{1,2})\s+/g,'\u00a0$1\u00a0');
+const T=ty((P.get('t')||X.thumb).replace(/&nbsp;/g,' ')),S=P.get('s')?ty(P.get('s')):'',HEAD=+(P.get('head')||700);
+const B=document.body,el=(cls,html,css)=>{const d=document.createElement('div');d.className=cls;d.innerHTML=html||'';Object.assign(d.style,css||{});B.append(d);return d};
+const fit=(t,max,min,lines,w,extra)=>{let fs=max;for(;fs>=min;fs-=2){t.style.fontSize=fs+'px';const lh=parseFloat(getComputedStyle(t).lineHeight);if(Math.round(t.scrollHeight/lh)<=lines&&t.scrollWidth<=w+1&&(!extra||extra()))break}return fs};
+Promise.all(['260 100px M','450 100px M','500 80px M','600 30px M'].map(f=>document.fonts.load(f))).then(()=>{
+ const qa={mode:MODE};let im;
+ if(MODE==='b'){
+  B.style.background='#f6f1ea';
+  const PH=860;im=new Image();im.src=P.get('bg')||`sq-${K}.jpg`;Object.assign(im.style,{position:'absolute',left:'48px',top:'48px',width:'904px',height:PH+'px',objectFit:'cover',objectPosition:'50% 40%',borderRadius:'26px'});B.append(im);
+  const cv=document.createElement('canvas');B.append(cv);const L=lockup(cv,40,{});const ly=1500-56-(40*1.17+L.tcap);cv.style.left=(500-L.inkW/2-L.pad)+'px';cv.style.top=(ly-L.pad)+'px';
+  const nm=el('t',X.name+' · '+X.role,{fontSize:'28px',fontWeight:500,lineHeight:1,color:'#5a5b54',letterSpacing:'-.005em'});
+  const t=el('t',T,{fontWeight:500,letterSpacing:'-.03em',lineHeight:1.06});
+  const s=S?el('t',S,{fontSize:'34px',fontWeight:450,lineHeight:1.22,color:'#4a4b45',letterSpacing:'-.01em'}):null;
+  const top0=48+PH+40,bot0=ly-40;const H=()=>28+18+t.offsetHeight+(s?18+s.offsetHeight:0);
+  qa.fs=fit(t,70,50,3,860,()=>H()<=bot0-top0);
+  const y0=Math.round(top0+(bot0-top0-H())/2);nm.style.top=y0+'px';t.style.top=(y0+46)+'px';if(s)s.style.top=(y0+46+t.offsetHeight+18)+'px';
+  qa.bottom=y0+H();qa.limit=bot0;qa.lines=Math.round(t.offsetHeight/(qa.fs*1.06));
+ } else {
+  im=new Image();im.src=P.get('bg')||`pbg${MODE==='c'?'b':'a'}-${K}.jpg`;im.className='bg';B.append(im);
+  el('','',{position:'absolute',left:0,right:0,top:0,height:HEAD+'px',background:'linear-gradient(180deg, rgba(250,246,240,.34) 0, rgba(250,246,240,.24) 60%, rgba(250,246,240,0) 100%)'});
+  const cv=document.createElement('canvas');B.append(cv);
+  if(MODE==='c'){
+   // content kept inside the centred square (y 250..1250) that Pinterest uses for the board tile: block centred between 300 and head-36
+   const cap=50;const L=lockup(cv,cap,{});const lh=cap*1.17+L.tcap;
+   const tp=el('t',ty(P.get('t')||X.show),{fontWeight:500,letterSpacing:'-.035em',lineHeight:1.04});qa.fs=P.get('fs')?(tp.style.fontSize=P.get('fs')+'px',+P.get('fs')):fit(tp,92,60,1,860);{const r=document.createRange();r.selectNodeContents(tp);qa.w=Math.round(r.getBoundingClientRect().width);qa.lines=Math.round(tp.offsetHeight/(qa.fs*1.04))}
+   const nm=el('t',X.name+' · '+X.role,{fontSize:'34px',fontWeight:500,lineHeight:1,color:'#3b3c37'});
+   const tot=lh+30+tp.offsetHeight+16+34,LY=Math.round(Math.max(300,(300+HEAD-36)/2-tot/2));
+   cv.style.left=(500-L.inkW/2-L.pad)+'px';cv.style.top=(LY-L.pad)+'px';const lb=LY+lh;
+   tp.style.top=(lb+30)+'px';nm.style.top=(lb+30+tp.offsetHeight+16)+'px';
+   qa.bottom=lb+30+tp.offsetHeight+16+34;qa.limit=HEAD-36;qa.top=LY;
+  } else {
+   const LY=64,cap=58;const L=lockup(cv,cap,{});cv.style.left=(500-L.inkW/2-L.pad)+'px';cv.style.top=(LY-L.pad)+'px';const lb=LY+cap*1.17+L.tcap;
+   const nm=el('t',X.name+' · '+X.role,{fontSize:'30px',fontWeight:500,lineHeight:1,color:'#3b3c37'});
+   const t=el('t',T,{fontWeight:500,letterSpacing:'-.035em',lineHeight:1.04});
+   const s=S?el('t',S,{fontSize:'37px',fontWeight:450,lineHeight:1.22,color:'#3f403a',letterSpacing:'-.01em'}):null;
+   const top0=lb+44,bot0=HEAD-36;const H=()=>30+20+t.offsetHeight+(s?20+s.offsetHeight:0);
+   qa.fs=fit(t,84,58,3,860,()=>H()<=bot0-top0);
+   const y0=Math.round(Math.max(top0,top0+(bot0-top0-H())/2));nm.style.top=y0+'px';t.style.top=(y0+50)+'px';if(s)s.style.top=(y0+50+t.offsetHeight+20)+'px';
+   qa.bottom=y0+H();qa.limit=bot0;qa.lines=Math.round(t.offsetHeight/(qa.fs*1.04));
+  }
+ }
+ window.qa=qa;im.decode().then(()=>setTimeout(()=>B.dataset.ready=1,150));
+});
+</script></body></html>
