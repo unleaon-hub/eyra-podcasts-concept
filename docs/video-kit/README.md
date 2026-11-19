@@ -1,4 +1,4 @@
-# EYRA · видео-кит подкастов (YouTube + RUTUBE + VK + Дзен + Pinterest)
+# EYRA · видео-кит подкастов (YouTube + RUTUBE + VK + Дзен + Pinterest + Instagram)
 
 Светлый «сценовый» стиль: 10 экспертов, у каждой своя сцена и свой предмет.
 
@@ -103,6 +103,31 @@ python3 new-pin.py maya "Отдых и привычки" --kind board     # об
 python3 render-all.py                                         # пересобрать всё из pins.tsv
 ```
 На картинке — заголовок (часть названия статьи до двоеточия) и подстрока (после). Полный вопрос — в поле «Название» (до 100 символов, ключевое слово в первых 40), описание — до 800 символов. Скрипт печатает QA: кегль и зазор до головы; `BAD` — текст не влез, сократите заголовок.
+
+## Instagram
+
+Пробный набор — в `instagram/`: обзор `instagram/instagram-overview.png`, тексты и порядок публикации `instagram/TEXTS.md`, требования с источниками `instagram/README.md`.
+
+| Файл | Размер | Куда в Instagram |
+|---|---|---|
+| `instagram/profile/avatar-800.png` | 800×800 | Профиль → Редактировать → Изменить фото |
+| `instagram/grid/01…09-*-1080x1350.jpg` | 1080×1350 (4:5) | 9 постов. Публиковать **с 09 по 01** — тогда сетка идёт радугой. Всё важное в центре 1012×1350: сетка профиля показывает пост в 3:4 |
+| `instagram/carousel/maya-1…6-of-6-1080x1350.jpg` | 1080×1350 | Один пост-карусель (до 20 слайдов, у нас 6), порядок 1–6 |
+| `instagram/stories/*-1080x1920.jpg` | 1080×1920 | Сторис: вопрос дня, опрос, цитата, новый выпуск. Текст в зоне y 300–1010, стикер добавить в приложении в оставленное место |
+| `instagram/highlights/<id>-highlight-1080x1920.jpg` | 1080×1920 | Обложки «Актуального»: иконка в центральном круге |
+| `instagram/reels/covers/<id>-reels-cover-1080x1920.jpg` | 1080×1920 | Обложка Reels. Текст на y 300–870: выше нижних 35% (подпись и кнопки) и ниже верхних 14%; в сетке Reels обрезается до 3:4 — название целиком |
+| `instagram/reels/frames/<id>.png` + `.layout` | 1080×1920 | Кадр для тизера: `FRAME=instagram/reels/frames/eva.png START=754 LEN=45 ./scripts/make-vertical-teaser.sh ep12.wav eva` |
+
+Новые картинки:
+```bash
+cd scripts/instagram
+python3 new-post.py alisa "Что написать после свидания"                     # пост 1080×1350
+python3 new-post.py nika "Рассказать о себе — …" --kind quote               # цитата
+python3 new-post.py asya "Что помогает вам успокоиться вечером?" --kind story-question
+python3 new-post.py eva "Как найти друзей взрослому" --kind reels-frame      # кадр + .layout для тизера
+python3 render-all.py                                                       # весь набор из set.json
+```
+Скрипт печатает `OK`/`BAD`; с `BAD` не публиковать — сократите текст. Тексты цитат, советов и сторис — черновик (`instagram/TEXTS.md`).
 
 ## Видео для нового выпуска (ffmpeg)
 

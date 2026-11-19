@@ -1,0 +1,107 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><style>
+@font-face{font-family:M;src:url(manrope.woff);font-weight:200 800}
+*{box-sizing:border-box;margin:0}body{position:relative;overflow:hidden;font-family:M;color:#1b1c19;-webkit-font-smoothing:antialiased;background:#f5f0e8}
+.bg{position:absolute;left:0;top:0}
+.t{position:absolute;text-align:center;text-wrap:balance}
+.pill{position:absolute;border-radius:999px;font-weight:600;line-height:1;white-space:nowrap}
+canvas{position:absolute}
+.g{position:absolute;pointer-events:none}
+</style></head><body>
+<script src="sdata.js"></script><script src="lock.js"></script><script src="icons.js"></script><script>
+// EYRA · Instagram. m = post | carcover | quote | tip | final | story-question | story-poll | story-episode | story-quote | reels-cover | reels-frame | highlight
+const P=new URLSearchParams(location.search),K=P.get('e')||'asya',MODE=P.get('m')||'post',X=Object.assign({},SX[K]);
+const STORY=MODE.startsWith('story')||MODE.startsWith('reels')||MODE==='highlight',W=1080,H=STORY?1920:1350;
+document.body.style.width=W+'px';document.body.style.height=H+'px';
+const ty=v=>v.replace(/&nbsp;/g,' ').replace(/(^|[\s(«])([А-Яа-яЁё]{1,2}|без|для|над|под|про|при|что|как|от|до|не)\s+/g,(m,a,b)=>a+b+'\u00a0').replace(/\u00a0([А-Яа-яЁё]{1,2})\s+/g,'\u00a0$1\u00a0');
+const T=ty(P.get('t')||X.thumb),S=P.get('s')?ty(P.get('s')):'',HEAD=+(P.get('head')||0);
+const B=document.body,el=(cls,html,css)=>{const d=document.createElement('div');d.className=cls;d.innerHTML=html||'';Object.assign(d.style,css||{});B.append(d);return d};
+const mix=(a,b,p)=>`color-mix(in srgb, ${a} ${p}%, ${b})`;
+const ink='#1b1c19',tint=mix(X.accent,'#f8f4ee',30),deep=mix(X.accent,ink,45);
+const fit=(t,max,min,lines,extra)=>{let fs=max;for(;fs>=min;fs-=2){t.style.fontSize=fs+'px';const lh=parseFloat(getComputedStyle(t).lineHeight);if(Math.round(t.scrollHeight/lh)<=lines&&(!extra||extra()))break}if(fs<min){fs=min;t.style.fontSize=fs+'px'}return fs};
+const lock=(cap,y,opt)=>{const cv=document.createElement('canvas');B.append(cv);const L=lockup(cv,cap,opt||{});cv.style.left=(W/2-L.inkW/2-L.pad)+'px';cv.style.top=(y-L.pad)+'px';return {L,bottom:y+cap*1.17+L.tcap}};
+const txt=(html,css)=>el('t',html,Object.assign({left:'110px',width:'860px'},css));
+const veil=h=>el('','',{position:'absolute',left:0,right:0,top:0,height:h+'px',background:'linear-gradient(180deg, rgba(250,246,240,.34) 0, rgba(250,246,240,.24) 60%, rgba(250,246,240,0) 100%)'});
+const imgs=[];const bg=src=>{const im=new Image();im.src=src;im.className='bg';im.style.width=W+'px';im.style.height=H+'px';B.append(im);imgs.push(im);return im};
+const face=(size,x,y)=>{const im=new Image();im.src=`face-${K}.png`;Object.assign(im.style,{position:'absolute',width:size+'px',height:size+'px',left:x+'px',top:y+'px',borderRadius:'50%'});B.append(im);imgs.push(im);return im};
+const pill=(text,y,css)=>{const p=el('pill',text,Object.assign({fontSize:'30px',padding:'16px 28px',background:mix(X.accent,'#ffffff',62),top:y+'px'},css));p.style.left=(W/2-p.offsetWidth/2)+'px';return p};
+const qa={mode:MODE,e:K};
+const guides=()=>{ if(P.get('guide')!=='1')return;
+  if(STORY){const z='rgba(230,60,60,.16)';[[0,0,W,269],[0,1248,W,672],[0,0,65,H],[W-65,0,65,H]].forEach(r=>el('g','',{left:r[0]+'px',top:r[1]+'px',width:r[2]+'px',height:r[3]+'px',background:z}))}
+  else{el('g','',{left:'34px',top:0,width:'1012px',height:'1350px',outline:'4px dashed rgba(230,60,60,.7)',outlineOffset:'-4px'})}
+};
+Promise.all(['260 100px M','450 100px M','500 80px M','600 30px M','200 100px M'].map(f=>document.fonts.load(f))).then(()=>{
+ if(MODE==='post'||MODE==='carcover'){
+  bg(`bg-post-${K}.jpg`);veil(HEAD);const lk=lock(50,64);
+  const nm=txt(MODE==='carcover'?'':X.name+' · '+X.role,{fontSize:'30px',fontWeight:500,lineHeight:1,color:'#3b3c37'});
+  const t=txt(T,{fontWeight:500,letterSpacing:'-.035em',lineHeight:1.04});
+  const s=S?txt(S,{fontSize:'36px',fontWeight:450,lineHeight:1.22,color:'#3f403a',letterSpacing:'-.01em'}):null;
+  const pl=MODE==='carcover'?pill(ty(P.get('p')||X.show),0):null;
+  const top0=lk.bottom+40,bot0=HEAD-36;const hN=MODE==='carcover'?0:30+18;const Hh=()=>hN+t.offsetHeight+(s?18+s.offsetHeight:0)+(pl?28+pl.offsetHeight:0);
+  qa.fs=fit(t,84,58,3,()=>Hh()<=bot0-top0);
+  const y0=Math.round(top0+(bot0-top0-Hh())/2);nm.style.top=y0+'px';let y=y0+hN;t.style.top=y+'px';y+=t.offsetHeight;
+  if(s){y+=18;s.style.top=y+'px';y+=s.offsetHeight}if(pl){y+=28;pl.style.top=y+'px';y+=pl.offsetHeight}
+  qa.bottom=y;qa.limit=bot0;
+ } else if(MODE==='quote'||MODE==='story-quote'){
+  B.style.background=tint;const lk=lock(STORY?54:46,STORY?300:84);
+  const q=txt('«'+T+'»',{fontWeight:500,letterSpacing:'-.03em',lineHeight:1.12,color:ink});
+  const fs=STORY?150:132,gap=26;
+  const nm=txt(X.name+' · '+X.role,{fontSize:(STORY?36:32)+'px',fontWeight:500,lineHeight:1,color:'#3b3c37'});
+  const top0=lk.bottom+60,bot0=STORY?1248-40:1350-90;const Hh=()=>q.offsetHeight+60+fs+gap+36;
+  qa.fs=fit(q,STORY?78:70,48,6,()=>Hh()<=bot0-top0);
+  const y0=Math.round(top0+(bot0-top0-Hh())/2);q.style.top=y0+'px';const fy=y0+q.offsetHeight+60;face(fs,W/2-fs/2,fy);nm.style.top=(fy+fs+gap)+'px';
+  qa.bottom=fy+fs+gap+36;qa.limit=bot0;
+ } else if(MODE==='tip'){
+  B.style.background=mix(X.accent,'#faf6ef',20);lock(40,80);
+  const n=el('t',P.get('n')||'01',{left:'110px',width:'860px',fontSize:'200px',fontWeight:200,letterSpacing:'-.04em',lineHeight:1,color:deep,textAlign:'left'});
+  el('','',{position:'absolute',left:'114px',top:'0',width:'120px',height:'4px',borderRadius:'4px',background:deep,opacity:.55}).id='rule';
+  const t=el('t',T,{left:'110px',width:'860px',fontWeight:500,letterSpacing:'-.03em',lineHeight:1.06,textAlign:'left'});
+  const b=el('t',ty(P.get('b')||''),{left:'110px',width:'840px',fontSize:'42px',fontWeight:450,lineHeight:1.34,color:'#3f403a',textAlign:'left',textWrap:'pretty'});
+  const top0=290,bot0=1150;const Hh=()=>200+40+4+44+t.offsetHeight+34+b.offsetHeight;
+  qa.fs=fit(t,88,60,3,()=>Hh()<=bot0-top0);
+  const y0=top0;n.style.top=y0+'px';document.getElementById('rule').style.top=(y0+240)+'px';t.style.top=(y0+288)+'px';b.style.top=(y0+288+t.offsetHeight+34)+'px';
+  face(64,110,1214);
+  el('t',X.name+' · '+X.role,{left:'192px',width:'560px',top:'1232px',fontSize:'30px',fontWeight:500,lineHeight:1,color:'#55564f',textAlign:'left'});
+  el('t',P.get('pg')||'',{left:'770px',width:'200px',top:'1232px',fontSize:'30px',fontWeight:500,lineHeight:1,color:'#55564f',textAlign:'right'});
+  qa.bottom=y0+Hh();qa.limit=bot0;
+ } else if(MODE==='final'){
+  B.style.background=tint;const fs=200;face(fs,W/2-fs/2,300);
+  const lk=lock(120,560);
+  const a=txt(ty(P.get('t')||'Полный выпуск — на eyra.ink'),{fontSize:'48px',fontWeight:500,letterSpacing:'-.02em',lineHeight:1.2,top:(lk.bottom+90)+'px'});
+  const b=txt(X.name+' · '+ty(X.show),{fontSize:'32px',fontWeight:500,lineHeight:1,color:'#55564f',top:(lk.bottom+90+a.offsetHeight+24)+'px'});
+  qa.bottom=lk.bottom+90+a.offsetHeight+24+32;qa.limit=1260;qa.fs=48;
+ } else if(MODE.startsWith('story-')){
+  bg(`bg-story-${K}.jpg`);veil(HEAD);const lk=lock(52,300);
+  const lab={'story-question':'Вопрос дня','story-poll':'Опрос','story-episode':'Новый выпуск'}[MODE];
+  const pl=pill(P.get('p')||lab,0);
+  const t=txt(T,{fontWeight:500,letterSpacing:'-.035em',lineHeight:1.04});
+  const nm=txt(X.name+' · '+X.role,{fontSize:'34px',fontWeight:500,lineHeight:1,color:'#3b3c37'});
+  const ZH=MODE==='story-episode'?110:MODE==='story-poll'?220:230;   // room left for the app sticker: link / poll / question box
+  const top0=lk.bottom+48,bot0=HEAD-36;const Hh=()=>pl.offsetHeight+30+t.offsetHeight+24+34+40+ZH;
+  qa.fs=fit(t,92,64,3,()=>Hh()<=bot0-top0);
+  let y=Math.round(top0+(bot0-top0-Hh())/2);pl.style.top=y+'px';y+=pl.offsetHeight+30;t.style.top=y+'px';y+=t.offsetHeight+24;nm.style.top=y+'px';y+=34+40;
+  window.zone=[110,y,860,ZH];
+  if(P.get('guide')==='1'){const z=el('g','<div style="font:600 28px M;color:rgba(160,40,40,.75);text-align:center;padding-top:'+(ZH/2-16)+'px">'+({'story-question':'стикер «Вопросы»','story-poll':'стикер «Опрос»','story-episode':'стикер «Ссылка»'}[MODE])+'</div>',{left:'160px',top:y+'px',width:'760px',height:ZH+'px',border:'4px dashed rgba(200,60,60,.6)',borderRadius:'28px'})}
+  qa.bottom=y+ZH;qa.limit=bot0;
+ } else if(MODE.startsWith('reels')){
+  bg(`bg-reels-${K}.jpg`);veil(HEAD);const lk=lock(64,300);
+  const nm=txt(X.name+' · '+X.role,{fontSize:'38px',fontWeight:500,lineHeight:1,color:'#3b3c37'});
+  const t=txt(T,{fontWeight:500,letterSpacing:'-.035em',lineHeight:1.04,left:'80px',width:'920px'});
+  const F=MODE==='reels-frame';const pl=F?null:pill(ty(P.get('p')||X.show),0);
+  const tailH=F?88:pl.offsetHeight;
+  const top0=lk.bottom+44,bot0=HEAD-36;const Hh=()=>38+24+t.offsetHeight+34+tailH;
+  qa.fs=fit(t,96,72,3,()=>Hh()<=bot0-top0);
+  let y=Math.round(top0+(bot0-top0-Hh())/2);nm.style.top=y+'px';y+=38+24;t.style.top=y+'px';y+=t.offsetHeight+34;
+  if(F){const wx=190,ww=700;el('','<div style="position:absolute;left:0;right:0;top:31px;height:2px;border-radius:2px;background:rgba(27,28,25,.10)"></div>',{position:'absolute',left:wx+'px',top:y+'px',width:ww+'px',height:'64px'});
+   el('','',{position:'absolute',left:wx+'px',top:(y+84)+'px',width:ww+'px',height:'4px',borderRadius:'4px',background:'rgba(27,28,25,.12)'});window.layout={wave:[wx,y,ww,64],track:[wx,y+84,ww,4]}}
+  else pl.style.top=y+'px';
+  qa.bottom=y+tailH;qa.limit=bot0;
+ } else if(MODE==='highlight'){
+  B.style.background=mix(X.accent,'#ffffff',78);
+  el('','',{position:'absolute',left:'160px',top:'580px',width:'760px',height:'760px',borderRadius:'50%',background:mix(X.accent,'#ffffff',48)});
+  el('',`<svg viewBox="0 0 24 24" width="420" height="420" fill="none" stroke="${deep}" stroke-width="1.05" stroke-linecap="round" stroke-linejoin="round">${ICONS[K]}</svg>`,{position:'absolute',left:'330px',top:'750px',width:'420px',height:'420px'});
+  qa.bottom=0;qa.limit=1;qa.fs=0;
+ }
+ guides();window.qa=qa;
+ Promise.all(imgs.map(i=>i.decode())).then(()=>setTimeout(()=>B.dataset.ready=1,150));
+});
+</script></body></html>
