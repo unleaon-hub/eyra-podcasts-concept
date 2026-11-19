@@ -1,0 +1,96 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8">
+<!-- Threads profile / thread mock for EYRA (layout approximation, not Meta's UI). ?v=profile | thread&e=asya -->
+<style>
+@font-face{font-family:M;src:url(../instagram/manrope.woff)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#fff;font-family:M,system-ui,sans-serif;color:#000;width:390px;-webkit-font-smoothing:antialiased}
+.sb{height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 26px 0 30px;font-weight:700;font-size:15px}
+.top{height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 16px}
+.ic{width:24px;height:24px;stroke:#000;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.prof{padding:6px 16px 0}
+.row{display:flex;justify-content:space-between;align-items:center}
+.nm{font-size:24px;font-weight:700;letter-spacing:-.02em;line-height:1.15;max-width:270px}
+.hd{font-size:15px;margin-top:4px;display:flex;align-items:center;gap:6px}
+.pill{background:#f1f1f1;color:#999;font-size:11px;padding:3px 8px;border-radius:30px}
+.av{width:72px;height:72px;border-radius:50%;object-fit:cover;flex:none}
+.bio{font-size:15px;line-height:1.35;margin-top:14px;white-space:pre-line}
+.meta{display:flex;justify-content:space-between;align-items:center;margin-top:12px;font-size:15px;color:#999}
+.meta a{color:#999;text-decoration:none}
+.btns{display:flex;gap:8px;margin-top:16px}.btns div{flex:1;border:1px solid #d9d9d9;border-radius:10px;text-align:center;font-weight:600;font-size:14px;padding:8px 0}
+.tabs{display:flex;margin-top:12px;border-bottom:1px solid #e5e5e5}.tabs div{flex:1;text-align:center;font-size:15px;font-weight:600;color:#999;padding:12px 0 11px}
+.tabs .on{color:#000;border-bottom:1.5px solid #000;margin-bottom:-1px}
+.post{display:flex;gap:10px;padding:12px 16px 10px;border-bottom:1px solid #eee;position:relative}
+.post.cont{border-bottom:0}
+.l{flex:none;width:36px;display:flex;flex-direction:column;align-items:center}
+.l img{width:36px;height:36px;border-radius:50%;object-fit:cover}
+.l .ln{flex:1;width:2px;background:#e5e5e5;margin-top:6px;border-radius:2px}
+.r{flex:1;min-width:0}
+.u{font-size:15px;font-weight:700;display:flex;gap:6px;align-items:center}.u .t{color:#999;font-weight:400}.u .dots{margin-left:auto;color:#000;letter-spacing:1px}
+.pin{font-size:13px;color:#999;margin:0 0 4px 46px;display:flex;gap:6px;align-items:center}
+.tx{font-size:15px;line-height:1.38;white-space:pre-line;margin-top:2px;word-wrap:break-word}
+.tx a{color:#0a58ca;text-decoration:none}
+.topic{color:#999;font-weight:400}.topic b{color:#000;font-weight:600}
+.media{margin-top:8px;border-radius:10px;overflow:hidden;border:1px solid rgba(0,0,0,.08);display:block}
+.media img{display:block;width:100%}
+.single{width:100%}
+.car{margin:8px -16px 0 0;display:flex;gap:6px;overflow:hidden}
+.car img{height:300px;width:240px;object-fit:cover;border-radius:10px;border:1px solid rgba(0,0,0,.08);flex:none}
+.lp{margin-top:8px;border:1px solid #e3e3e3;border-radius:12px;overflow:hidden}
+.lp img{display:block;width:100%}
+.lp .cap{padding:9px 12px 10px;font-size:13px;line-height:1.3}.lp .cap .d{color:#999}.lp .cap .h{font-weight:600}
+.acts{display:flex;gap:18px;margin-top:10px}.acts svg{width:20px;height:20px}
+.poll{margin-top:8px}.poll div{border:1px solid #ddd;border-radius:12px;padding:10px 14px;font-size:15px;margin-bottom:6px}
+.poll .m{font-size:13px;color:#999;border:0;padding:2px 0}
+.note{font-size:11px;color:#aaa;text-align:center;padding:14px 16px 20px}
+.thr .tx{font-size:15px}
+</style>
+<script src="../../threads/threads-texts.js"></script>
+<script src="../instagram/site.js"></script>
+</head><body>
+<script>
+const P=new URLSearchParams(location.search),V=P.get('v')||'profile',E=P.get('e')||'asya',S=window.SITE,TT=window.TT,TD=window.TD;
+const IC={heart:'<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>',
+ chat:'<path d="M20 12a8 8 0 1 1-3.2-6.4L20 4l-.9 3.6A8 8 0 0 1 20 12z"/>',
+ rep:'<path d="M17 2l3 3-3 3"/><path d="M4 11V9a4 4 0 0 1 4-4h12"/><path d="M7 22l-3-3 3-3"/><path d="M20 13v2a4 4 0 0 1-4 4H4"/>',
+ send:'<path d="M21 3L10 14"/><path d="M21 3l-7 18-4-7-7-4z"/>',
+ pin:'<path d="M9 3h6l-1 6 4 4H6l4-4z"/><path d="M12 13v8"/>',
+ globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',
+ menu:'<path d="M4 9h16M4 15h10"/>',ig:'<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="#000"/>',
+ back:'<path d="M15 5l-7 7 7 7"/>'};
+const ic=(n,c='ic',st='')=>`<svg class="${c}" viewBox="0 0 24 24" style="${st}">${IC[n]}</svg>`;
+const AV='../../threads/profile/avatar-800.png',H=TD.handle,TH='../../threads/',IGd='../instagram/';
+const esc=t=>t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/(https?:\/\/\S+)/g,'<a>$1</a>');
+const acts=`<div class="acts">${ic('heart')}${ic('chat')}${ic('rep')}${ic('send')}</div>`;
+// on a post with a link preview Threads shows the card; we hide the raw URL line like the app does when it ends the text
+const noUrl=t=>t.replace(/\s*(→\s*)?https?:\/\/\S+\s*$/,'').replace(/→\s*$/,'');
+function post({id,time='',topic='',media='',pin=false,cont=false,hideUrl=false}){
+  const t=TT[id];return `${pin?`<div class="pin" style="padding:10px 16px 0;margin:0 0 -6px 46px">${ic('pin','ic','width:14px;height:14px;stroke:#999')}Закреплено</div>`:''}
+  <div class="post${cont?' cont':''}"><div class="l"><img src="${AV}">${cont?'<div class="ln"></div>':''}</div><div class="r">
+  <div class="u">${H}${topic?`<span class="topic">› <b>${topic}</b></span>`:''}<span class="t">${time}</span><span class="dots">···</span></div>
+  <div class="tx">${esc(hideUrl?noUrl(t):t)}</div>${media}${acts}</div></div>`}
+const img=(src)=>`<div class="media"><img class="single" src="${src}"></div>`;
+const car=(arr)=>`<div class="car">${arr.map(s=>`<img src="${s}">`).join('')}</div>`;
+const lp=(e)=>{const s=e==='home'?{name:'EYRA',url:'https://eyra.ink/'}:S[e];return `<div class="lp"><img src="${TH}link-preview/og-${e}-1200x630.jpg"><div class="cap"><div class="d">eyra.ink</div><div class="h">${e==='home'?'EYRA — каталог ИИ-экспертов в Telegram':s.name+' — личный '+s.role+' в Telegram'}</div></div></div>`};
+let h=`<div class="sb"><span>9:41</span><span>▮▮▮ ◔ ▭</span></div>`;
+if(V==='profile'){
+ h+=`<div class="top">${ic('globe')}<span style="display:flex;gap:18px">${ic('ig')}${ic('menu')}</span></div>
+ <div class="prof"><div class="row"><div><div class="nm">${TD.name}</div><div class="hd">${H}<span class="pill">threads.net</span></div></div><img class="av" src="${AV}" style="box-shadow:0 0 0 1px #eee"></div>
+ <div class="bio">${TD.bio}</div>
+ <div class="meta"><span>Подписчики · <a>eyra.ink</a></span><span style="display:flex;gap:14px">${ic('ig','ic','stroke:#000')}</span></div>
+ <div class="btns"><div>Редактировать профиль</div><div>Поделиться профилем</div></div></div>
+ <div class="tabs"><div class="on">Треды</div><div>Ответы</div><div>Медиа</div><div>Репосты</div></div>`;
+ h+=post({id:'pinned',pin:true,time:'1 д',media:car(['1-pin-about','2-pin-how','3-pin-offer'].map(n=>'../../instagram/pinned/'+n+'-1080x1350.jpg'))});
+ h+=post({id:'asya-1',time:'2 ч',topic:'Психология',media:img(TH+'posts/asya-post-1080x1350.jpg')});
+ h+=post({id:'nika-quote',time:'5 ч',topic:'Личный бренд',media:img(TH+'quotes/nika-quote-1080x1350.jpg')});
+ h+=post({id:'kira-cta',time:'8 ч',topic:'Питание',media:lp('kira'),hideUrl:true});
+ h+=post({id:'sofia-carousel',time:'12 ч',topic:'Личные финансы',media:car([1,2,3].map(n=>`../../instagram/carousel/sofia/sofia-${n}-of-7-1080x1350.jpg`))});
+} else {
+ const s=S[E];h+=`<div class="top">${ic('back')}<span style="font-weight:700;font-size:16px">Ветка</span><span style="width:24px"></span></div>`;
+ h+=post({id:E+'-1',time:'2 ч',topic:'',media:img(TH+`posts/${E}-post-1080x1350.jpg`),cont:true});
+ for(let n=2;n<=5;n++)h+=post({id:`${E}-${n}`,time:'2 ч',cont:true});
+ h+=post({id:E+'-cta',time:'2 ч',media:lp(E),hideUrl:true});
+}
+h+=`<div class="note">Макет раскладки Threads для EYRA (приблизительно, не интерфейс Meta). Тексты — черновик из THREADS.md. Превью ссылки показано с предложенной светлой og-картинкой; сейчас сайт отдаёт свою (тёмную) — меняется на сайте.</div>`;
+document.body.innerHTML=h;
+Promise.all([...document.images].map(i=>i.complete?1:new Promise(r=>{i.onload=i.onerror=r}))).then(()=>document.body.dataset.ready=1);
+</script></body></html>

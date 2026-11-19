@@ -1,4 +1,4 @@
-# EYRA · видео-кит подкастов (YouTube + RUTUBE + VK + Дзен + Pinterest + Instagram)
+# EYRA · видео-кит подкастов (YouTube + RUTUBE + VK + Дзен + Pinterest + Instagram + Threads)
 
 Светлый «сценовый» стиль: 10 экспертов, у каждой своя сцена и свой предмет.
 
@@ -136,6 +136,17 @@ python3 new-carousel.py asya                              # карусель и�
 python3 render-all.py                                     # весь набор (set.json + carousels.tsv)
 ```
 Все виды — `python3 new-post.py -h`. Скрипт печатает `OK`/`BAD`; с `BAD` не публиковать — сократите текст. Тексты советов, цитат и сторис — черновик (`instagram/TEXTS.md`). Имена, роли и оффер — из `scripts/instagram/site.js` (снимок eyra.ink).
+
+## Threads
+
+Тот же стиль, что Instagram v5. Подробно, с требованиями и источниками — `threads/README.md`; тексты — `threads/THREADS.md` (черновик). Макеты: `threads/previews/threads-profile-mock.png` и `threads-thread-mock-asya.png`.
+
+- Фото профиля — `threads/profile/avatar-800.png` (тот же, что в Instagram) или «Импорт из Instagram».
+- Закреп — в Threads только **один**: пост-карусель из трёх закрепов Instagram (`instagram/pinned/`) с текстом из `THREADS.md`, п. 2.
+- 10 тредов экспертов: первый пост — `threads/posts/<id>-post-1080x1350.jpg` (сцена + вопрос), ответы — 4 совета, финал — ссылка на страницу эксперта (из неё Threads делает превью).
+- 10 постов-цитат — `threads/quotes/`; карусели (по желанию) — те же `instagram/carousel/<id>/`, 4:5 подходит.
+- `threads/link-preview/` — светлые og-картинки 1200×630. В Threads их не загружают: это предложение для `og:image` на сайте.
+- Пересборка: `cd scripts/threads && python3 render-threads.py && python3 mktexts.py && python3 shot-mock.py`.
 
 ## Видео для нового выпуска (ffmpeg)
 

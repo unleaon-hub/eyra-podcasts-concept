@@ -11,13 +11,13 @@ canvas{position:absolute}
 .chip{display:inline-block;border-radius:999px;font-weight:600;line-height:1;white-space:nowrap;margin:0 8px 12px 0}
 .cap{text-transform:uppercase;letter-spacing:.16em;font-weight:600}
 </style></head><body>
-<script src="sdata.js"></script><script src="site.js"></script><script src="lock.js"></script><script src="icons.js"></script><script src="icons2.js"></script><script src="cut.js"></script><script>
+<script src="sdata.js"></script><script src="site.js"></script><script src="lock.js"></script><script src="icons.js"></script><script src="icons2.js"></script><script src="cut.js"></script><script src="ogside.js"></script><script>
 // EYRA · Instagram v5 (Правка 13: symmetric pinned triptych plate-pin-L/C/R, fixed card boxes, larger avatars). v4 (Правка 12): in-between assets on photo plates (plate-<id>.jpg = her interior still-life, plate-pin-*.jpg) + frosted glass, light leak, grain.
 // feed/carousel 1080x1350: post | carcover | quote | bigquote | dialog | numeral | meet | checklist | mythfact | tip | cta | final | pin-about | pin-how | pin-offer
 // 1080x1920: story-question | story-poll | story-episode | story-quote | story-expert | story-offer | reels-cover | reels-frame | reels-end | highlight | highlight-start
 const P=new URLSearchParams(location.search),K=P.get('e')||'asya',MODE=P.get('m')||'post',X=Object.assign({},SX[K]),SI=SITE[K]||SITE.asya,O=OFFER;
 X.role=SI.role;X.name=SI.name;
-const STORY=MODE.startsWith('story')||MODE.startsWith('reels')||MODE.startsWith('highlight'),W=1080,H=STORY?1920:1350;
+const STORY=MODE.startsWith('story')||MODE.startsWith('reels')||MODE.startsWith('highlight'),OG=MODE.startsWith('og'),W=OG?1200:1080,H=OG?630:STORY?1920:1350;
 document.body.style.width=W+'px';document.body.style.height=H+'px';
 const ty=v=>(v||'').replace(/&nbsp;/g,' ').replace(/(^|[\s(«])([А-Яа-яЁё]{1,2}|без|для|над|под|про|при|что|как|от|до|не|ИИ)\s+/g,(m,a,b)=>a+b+'\u00a0').replace(/\u00a0([А-Яа-яЁё]{1,2})\s+/g,'\u00a0$1\u00a0').replace(/\s+(—)\s+/g,'\u00a0$1 ').replace(/(\d)\s+(₽|дней|дня|день)/g,'$1\u00a0$2');
 const T=ty(P.get('t')||X.thumb),S=P.get('s')?ty(P.get('s')):'',HEAD=+(P.get('head')||0),ITEMS=(P.get('i')||'').split('|').filter(Boolean).map(ty);
@@ -211,6 +211,32 @@ Promise.all([...['260 100px M','450 100px M','500 80px M','600 30px M','200 100p
   const ft=txt({'pin-about':O.free+' · '+O.nocard,'pin-how':'Выбрать эксперта — '+O.link.toLowerCase(),'pin-offer':'Выбрать эксперта — '+O.link.toLowerCase()}[MODE],{fontSize:'30px',fontWeight:600,lineHeight:1,color:dg,top:(CB-88)+'px'});
   el('','',{position:'absolute',left:'470px',width:'140px',height:'2px',top:(CB-122)+'px',background:'rgba(27,28,25,.12)'});
   qa.bottom=mid.offsetTop+mid.offsetHeight;qa.limit=MB;qa.fs=66;qa.hl=h.offsetHeight;
+ } else if(MODE==='og'||MODE==='og-home'){
+  // Threads / link preview card 1200x630 (og:image). Same look: sunlit scene or still-life + frosted card + leak + grain
+  const HOME=MODE==='og-home';bg(HOME?'bg-og-home.jpg':`bg-og-${K}.jpg`);
+  el('','',{position:'absolute',inset:0,background:'radial-gradient(700px 420px at 50% 0%, rgba(255,226,186,.30), rgba(255,226,186,0) 70%)',mixBlendMode:'screen'});grain(.03);
+  const lockAt=(cap,cx,y)=>{const cv=document.createElement('canvas');B.append(cv);const L=lockup(cv,cap,{});cv.style.left=(cx-L.inkW/2-L.pad)+'px';cv.style.top=(y-L.pad)+'px';return y+cap*1.17+L.tcap};
+  if(HOME){
+   const g=glass({borderRadius:'36px'});wrap(g,40,404,150,150);
+   let y=lockAt(30,600,72)+22;
+   const h=txt(ty(O.hero),{left:'170px',width:'860px',top:y+'px',fontSize:'50px',fontWeight:500,letterSpacing:'-.03em',lineHeight:1.05,color:ink});y+=h.offsetHeight+24;
+   const row=el('','',{position:'absolute',left:'150px',width:'900px',top:y+'px',textAlign:'center'});
+   'asya kira vera lera mira nika eva maya sofia alisa'.split(' ').forEach(k=>{const im=new Image();im.src=`face-${k}.png`;Object.assign(im.style,{width:'68px',height:'68px',borderRadius:'50%',margin:'0 6px',boxShadow:'0 0 0 3px rgba(255,255,255,.9), 0 8px 18px -8px rgba(86,60,32,.35)'});row.append(im);imgs.push(im)});
+   y+=68+24;const f=txt(O.free+' · '+O.nocard,{left:'170px',width:'860px',top:y+'px',fontSize:'26px',fontWeight:600,lineHeight:1,color:mix('#d8b988',ink,45)});
+   qa.bottom=y+26;qa.limit=404-20;qa.fs=50;
+  } else {
+   const SD=(window.OGSIDE||{})[K]||'L',CL=SD==='L'?48:1200-48-560,cx=CL+280;
+   const g=glass({borderRadius:'36px'});Object.assign(g.style,{left:CL+'px',width:'560px',top:'48px',height:'534px'});
+   const T0=(css)=>Object.assign({left:(CL+40)+'px',width:'480px'},css);
+   let y=lockAt(28,cx,92)+30;
+   const eb=txt(O.chat,T0({top:y+'px',fontSize:'19px',lineHeight:1,color:'#6b6c64'}));eb.classList.add('cap');y+=19+22;
+   const nm=txt(X.name,T0({top:y+'px',fontSize:'92px',fontWeight:500,letterSpacing:'-.045em',lineHeight:1,color:ink}));y+=92+10;
+   const rl=txt(ty(SI.role),T0({top:y+'px',fontSize:'32px',fontWeight:500,lineHeight:1.1,color:'#3b3c37'}));y+=rl.offsetHeight+22;
+   const bn=txt(ty(SI.benefit),T0({top:y+'px',fontSize:'25px',fontWeight:450,lineHeight:1.32,color:'#55564f'}));y+=bn.offsetHeight+28;
+   el('','',{position:'absolute',left:(cx-50)+'px',width:'100px',height:'2px',top:y+'px',background:'rgba(27,28,25,.12)'});y+=24;
+   const f=txt(O.free+'<br>'+O.nocard,T0({top:y+'px',fontSize:'24px',fontWeight:600,lineHeight:1.2,color:deep}));y+=f.offsetHeight;
+   qa.bottom=y;qa.limit=582-34;qa.fs=92;
+  }
  } else if(MODE==='story-offer'){
   // light pinned cards in the v1 quote-card style: warm tint, lockup, Manrope 500, soft round faces
   const G='#d8b988',SO=MODE==='story-offer';const PK=SO?'pin-offer':MODE;plate(PK,SO?{pos:'40% 100%'}:{});const dg=mix(G,ink,45);

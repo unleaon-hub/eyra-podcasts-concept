@@ -41,6 +41,7 @@ def slug(s):
     return re.sub(r'[^a-z0-9]+', '-', s).strip('-')[:40] or 'post'
 
 def tall(kind): return kind.startswith(('story', 'reels', 'highlight'))
+def vp(kind): return (1200, 630) if kind.startswith('og') else (1080, 1920 if tall(kind) else 1350)
 
 async def render_many(jobs):
     """jobs: list of dicts {e, kind, t, s, n, b, pg, p, guide, out}. Returns qa list."""
@@ -56,7 +57,7 @@ async def render_many(jobs):
             for a in ('t', 's', 'n', 'b', 'pg', 'p', 'k', 'i'):
                 if j.get(a): q[a] = j[a]
             if j.get('guide'): q['guide'] = '1'
-            await pg.set_viewport_size({'width': 1080, 'height': 1920 if tall(k) else 1350})
+            w_, h_ = vp(k); await pg.set_viewport_size({'width': w_, 'height': h_})
             await pg.goto((HERE / 'ig.html').as_uri() + '?' + urllib.parse.urlencode(q))
             await pg.wait_for_selector('body[data-ready]', state='attached')
             qa = await pg.evaluate('qa'); out = Path(j['out']); out.parent.mkdir(parents=True, exist_ok=True)
