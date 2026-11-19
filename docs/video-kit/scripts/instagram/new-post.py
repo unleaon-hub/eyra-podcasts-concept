@@ -1,17 +1,26 @@
 #!/usr/bin/env python3
-"""EYRA · Instagram: пост, слайд карусели, сторис, обложка/кадр Reels или обложка «Актуального» в светлом стиле.
+"""EYRA · Instagram v2: пост, слайд карусели, сторис, Reels или «Актуальное» в светлом стиле EYRA.
+Имена, роли, оффер и примеры общения берутся с eyra.ink (site.js) — не пишите их руками.
 
-  python3 new-post.py alisa "Что написать после свидания"                              -> пост 1080×1350 (сцена + вопрос)
-  python3 new-post.py eva "Когда среда не работает" "как выйти из круга знакомств"      -> с подстрокой
-  python3 new-post.py nika "Рассказать о себе — …" --kind quote                         -> карточка-цитата
-  python3 new-post.py maya "Как восстановиться за выходной" --kind carcover --pill "4 идеи от Майи"
-  python3 new-post.py maya "Начните с тишины" --kind tip --n 01 --body "Первый час — …" --pg "2 / 6"
-  python3 new-post.py maya --kind final                                                  -> последний слайд карусели
-  python3 new-post.py asya "Что помогает вам успокоиться вечером?" --kind story-question -> сторис 1080×1920
-      (story-poll, story-episode, story-quote — так же; место под стикер оставлено, сам стикер ставится в приложении)
-  python3 new-post.py eva "Как найти друзей взрослому" --kind reels-cover                -> обложка Reels 1080×1920
-  python3 new-post.py eva "Как найти друзей взрослому" --kind reels-frame                -> кадр для тизера + .layout
-  python3 new-post.py vera --kind highlight                                              -> обложка «Актуального»
+Лента / карусель 1080×1350:
+  python3 new-post.py alisa "Что написать после свидания"                         -> сцена + вопрос
+  python3 new-post.py asya "Как пережить расставание" --kind carcover --pill "4 совета от Аси"
+  python3 new-post.py vera --kind meet --kicker "Знакомьтесь"                     -> портрет на цвете, имя крупно
+  python3 new-post.py eva --kind dialog                                           -> пример общения с сайта
+  python3 new-post.py sofia "Простое правило бюджета" --kind numeral --n "50/30/20" --items "50% — обязательные|30% — желания|20% — накопления"
+  python3 new-post.py maya "Тихий вечер — тоже план" --kind bigquote               -> большая цитата на цвете
+  python3 new-post.py lera "Миф…" "Как на деле…" --kind mythfact
+  python3 new-post.py asya "4 шага на вечер" --kind checklist --items "Шаг 1|Шаг 2|Шаг 3"
+  python3 new-post.py kira "Добавлять, а не запрещать" --kind tip --n 02 --body "…" --pg "3 / 7"
+  python3 new-post.py kira --kind cta --pg "7 / 7"                                -> финал: Telegram, 7 дней бесплатно, без карты
+  python3 new-post.py asya --kind pin-about | pin-how | pin-offer                  -> тёмные закрепы
+Сторис / Reels 1080×1920:
+  python3 new-post.py asya "Что помогает вам успокоиться вечером?" --kind story-question   (story-poll, story-quote, story-episode)
+  python3 new-post.py nika --kind story-expert                                     -> знакомство + место под стикер «Ссылка»
+  python3 new-post.py asya --kind story-offer                                      -> «7 дней бесплатно»
+  python3 new-post.py eva "Как найти друзей взрослому" --kind reels-cover | reels-frame (кадр + .layout)
+  python3 new-post.py eva --kind reels-end                                         -> финальная заставка для тизера
+  python3 new-post.py vera --kind highlight ;  python3 new-post.py asya --kind highlight-start
 
 --guide рисует безопасные зоны (для проверки, не публиковать). Печатает OK/BAD; с BAD не публиковать — сократите текст.
 Нужно: Python 3, pip install playwright pillow; Chrome в системе или `playwright install chromium`.
@@ -23,15 +32,18 @@ from PIL import Image
 
 HERE = Path(__file__).resolve().parent
 EXPERTS = 'asya kira vera lera mira nika eva maya sofia alisa'.split()
-KINDS = 'post carcover quote tip final story-question story-poll story-episode story-quote reels-cover reels-frame highlight'.split()
+KINDS = ('post carcover quote bigquote dialog numeral meet checklist mythfact tip cta final pin-about pin-how pin-offer '
+         'story-question story-poll story-episode story-quote story-expert story-offer reels-cover reels-frame reels-end highlight highlight-start').split()
 HD = json.load(open(HERE / 'ibg.json'))
+SITE = json.loads(open(HERE / 'site.js', encoding='utf-8').read().split('window.SITE=')[1].split(';\nwindow.OFFER=')[0])
+NEED_TEXT = 'post carcover quote bigquote numeral checklist mythfact tip story-question story-poll story-episode story-quote reels-cover reels-frame'.split()
 
 def slug(s):
     tr = dict(zip('абвгдеёжзийклмнопрстуфхцчшщъыьэюя', ['a','b','v','g','d','e','e','zh','z','i','y','k','l','m','n','o','p','r','s','t','u','f','h','ts','ch','sh','sch','','y','','e','yu','ya']))
     s = ''.join(tr.get(c, c) for c in s.lower())
     return re.sub(r'[^a-z0-9]+', '-', s).strip('-')[:40] or 'post'
 
-def tall(kind): return kind.startswith('story') or kind.startswith('reels') or kind == 'highlight'
+def tall(kind): return kind.startswith(('story', 'reels', 'highlight'))
 
 async def render_many(jobs):
     """jobs: list of dicts {e, kind, t, s, n, b, pg, p, guide, out}. Returns qa list."""
@@ -44,7 +56,7 @@ async def render_many(jobs):
         for j in jobs:
             k = j['kind']; grp = 'story' if k.startswith('story') else 'reels' if k.startswith('reels') else 'post'
             q = {'m': k, 'e': j['e'], 'head': HD[grp][j['e']]['head']}
-            for a in ('t', 's', 'n', 'b', 'pg', 'p'):
+            for a in ('t', 's', 'n', 'b', 'pg', 'p', 'k', 'i'):
                 if j.get(a): q[a] = j[a]
             if j.get('guide'): q['guide'] = '1'
             await pg.set_viewport_size({'width': 1080, 'height': 1920 if tall(k) else 1350})
@@ -60,7 +72,7 @@ async def render_many(jobs):
                 lay = await pg.evaluate('window.layout'); w = lay['wave']; t = lay['track']
                 out.with_suffix('.layout').write_text(' '.join(str(round(v)) for v in w + t) + '\n')
             qa['ok'] = qa['bottom'] <= qa['limit'] and not errs; qa['out'] = str(out); res.append(qa)
-            print('OK ' if qa['ok'] else 'BAD', out.name, 'fs', qa.get('fs'), 'gap', round(qa['limit'] - qa['bottom']) if k != 'highlight' else '-', *errs)
+            print('OK ' if qa['ok'] else 'BAD', out.name, 'fs', qa.get('fs'), 'gap', round(qa['limit'] - qa['bottom']) if not k.startswith('highlight') else '-', *errs)
             errs.clear()
         await b.close()
     return res
@@ -68,13 +80,13 @@ async def render_many(jobs):
 def main():
     a = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     a.add_argument('expert', choices=EXPERTS); a.add_argument('text', nargs='?', default=''); a.add_argument('sub', nargs='?', default='')
-    a.add_argument('--kind', choices=KINDS, default='post'); a.add_argument('--n'); a.add_argument('--body'); a.add_argument('--pg'); a.add_argument('--pill')
+    a.add_argument('--kind', choices=KINDS, default='post'); a.add_argument('--n'); a.add_argument('--body'); a.add_argument('--pg'); a.add_argument('--pill'); a.add_argument('--kicker'); a.add_argument('--items')
     a.add_argument('--guide', action='store_true'); a.add_argument('--out')
     x = a.parse_args()
-    if x.kind not in ('final', 'highlight') and not x.text: a.error('нужен текст')
+    if x.kind in NEED_TEXT and not x.text: a.error('нужен текст')
     ext = 'png' if x.kind == 'reels-frame' else 'jpg'; size = '1080x1920' if tall(x.kind) else '1080x1350'
     out = x.out or f"{x.expert}-{x.kind}-{slug(x.text) if x.text else x.kind}-{size}.{ext}"
-    r = asyncio.run(render_many([{'e': x.expert, 'kind': x.kind, 't': x.text, 's': x.sub, 'n': x.n, 'b': x.body, 'pg': x.pg, 'p': x.pill, 'guide': x.guide, 'out': out}]))
+    r = asyncio.run(render_many([{'e': x.expert, 'kind': x.kind, 't': x.text, 's': x.sub, 'n': x.n, 'b': x.body, 'pg': x.pg, 'p': x.pill, 'k': x.kicker, 'i': x.items, 'guide': x.guide, 'out': out}]))
     sys.exit(0 if r[0]['ok'] else 1)
 
 if __name__ == '__main__':

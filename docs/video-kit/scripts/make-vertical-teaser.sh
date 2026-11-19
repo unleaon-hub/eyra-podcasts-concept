@@ -6,9 +6,10 @@
 # Пример:  START=754 LEN=45 ./make-vertical-teaser.sh ep12.wav asya ep12-asya-teaser.mp4
 # Свой кадр с названием выпуска: FRAME=/путь/кадр.png (python3 new-cover.py asya "Название" --kind vertical-frame)
 # Громкость: по умолчанию выравнивается до −14 LUFS (Дзен просит тише −12 LUFS); LOUD=0 — оставить как есть.
+# Финальная заставка (Reels): END=../instagram/reels/end/asya-reels-end-1080x1920.jpg [ENDLEN=3] — приклеится в конце, звук там тишина.
 # Выход: MP4 1080×1920, H.264 High yuv420p 30 к/с, AAC 48 кГц стерео 192 кбит/с, faststart.
 set -euo pipefail
-[ $# -ge 2 ] || { sed -n '2,10p' "$0"; exit 1; }
+[ $# -ge 2 ] || { sed -n '2,11p' "$0"; exit 1; }
 AUDIO=$1; E=$2; OUT=${3:-${AUDIO%.*}-$E-teaser.mp4}
 DIR=$(cd "$(dirname "$0")/.." && pwd)
 FRAME=${FRAME:-$DIR/dzen/roliki/frames/$E.png}
@@ -25,7 +26,8 @@ awk -v d="$DUR" 'BEGIN{exit !(d>=5)}' || { echo "Отрезок короче 5 �
 FPS=30; PRESET=${PRESET:-medium}; CRF=${CRF:-20}
 NORM=""; [ "${LOUD:-1}" = "1" ] && NORM="loudnorm=I=-14:TP=-1.5:LRA=11,"
 FO=$(awk -v d="$DUR" 'BEGIN{printf "%.3f", d-0.8}')
-echo "→ $E · ${DUR} с с ${START} с · $OUT"
+FINAL=$OUT; END=${END:-}; [ -n "$END" ] && { [ -f "$END" ] || { echo "Нет заставки: $END"; exit 1; }; OUT="${FINAL%.*}.body.mp4"; }
+echo "→ $E · ${DUR} с с ${START} с · $FINAL"
 ffmpeg -hide_banner -loglevel warning -stats -y \
   -loop 1 -framerate $FPS -i "$FRAME" -ss "$START" -t "$DUR" -i "$AUDIO" \
   -filter_complex "\
@@ -37,4 +39,12 @@ color=c=0x${C}:s=${BW}x${BH}:r=${FPS},format=rgba,geq=r='r(X,Y)':g='g(X,Y)':b='b
   -c:v libx264 -preset "$PRESET" -crf "$CRF" -profile:v high -level 4.2 -pix_fmt yuv420p -r $FPS -g $((FPS*2)) -bf 2 \
   -c:a aac -b:a 192k -ar 48000 -ac 2 \
   -movflags +faststart "$OUT"
-echo "✓ $OUT"
+if [ -n "$END" ]; then
+  EL=${ENDLEN:-3}
+  ffmpeg -hide_banner -loglevel warning -stats -y -i "$OUT" -loop 1 -framerate $FPS -t "$EL" -i "$END" -f lavfi -t "$EL" -i anullsrc=r=48000:cl=stereo \
+    -filter_complex "[1:v]scale=1080:1920,format=yuv420p,fade=t=in:st=0:d=0.35,setsar=1[ev];[0:v]setsar=1[mv];[mv][0:a][ev][2:a]concat=n=2:v=1:a=1[v][a]" \
+    -map "[v]" -map "[a]" -c:v libx264 -preset "$PRESET" -crf "$CRF" -profile:v high -level 4.2 -pix_fmt yuv420p -r $FPS -g $((FPS*2)) -bf 2 \
+    -c:a aac -b:a 192k -ar 48000 -ac 2 -movflags +faststart "$FINAL"
+  rm -f "$OUT"
+fi
+echo "✓ $FINAL"
