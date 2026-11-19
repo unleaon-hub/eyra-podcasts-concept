@@ -106,16 +106,16 @@ python3 render-all.py                                         # пересобр
 
 ## Instagram
 
-Набор — в `instagram/` (лента в стиле первого варианта, карусели v2). Обзор: `instagram/instagram-overview.png`. Макет профиля: `instagram/previews/mock-profile.png`. Тексты, порядок и подписи: `instagram/TEXTS.md`. Требования с источниками: `instagram/README.md`.
+Набор — в `instagram/` (лента в стиле первого варианта, карусели v2, промежуточные картинки на фото-подложках — Правка 12). Обзор: `instagram/instagram-overview.png`. Макет профиля: `instagram/previews/mock-profile.png`. Было/стало: `instagram/previews/before-after-v3-v4.png`. Тексты, порядок и подписи: `instagram/TEXTS.md`. Требования с источниками: `instagram/README.md`.
 
 **Цель** — разговор с экспертом в Telegram. Оффер дословно с eyra.ink: «7 дней бесплатно · Без банковской карты»; «Затем — 990 ₽ за 30 дней. Продлеваете сами. Без автосписаний.»
 
 | Файл | Размер | Куда в Instagram |
 |---|---|---|
 | `instagram/profile/avatar-800.png` | 800×800 | Профиль → Редактировать → Изменить фото |
-| `instagram/pinned/1…3-*.jpg` | 1080×1350 | 3 светлых закрепа: «Найдите своего ИИ-эксперта», «Начать просто», «7 дней бесплатно» |
-| `instagram/grid/01…09-*.jpg` | 1080×1350 (4:5) | 9 постов: светлые сцены, обложки каруселей, карточки-цитаты. Публиковать **с 09 по 01**. В сетке видно 3:4 (центр 1012×1350) |
-| `instagram/carousel/<id>/<id>-1…7-of-7-*.jpg` | 1080×1350 | 10 каруселей по 7 слайдов, порядок 1–7 |
+| `instagram/pinned/1…3-*.jpg` | 1080×1350 | 3 закрепа на фото-натюрмортах с матовой карточкой: «Найдите своего ИИ-эксперта», «Начать просто», «7 дней бесплатно» |
+| `instagram/grid/01…09-*.jpg` | 1080×1350 (4:5) | 9 постов: светлые сцены, обложки каруселей, цитаты на натюрморте из интерьера эксперта. Публиковать **с 09 по 01**. В сетке видно 3:4 (центр 1012×1350) |
+| `instagram/carousel/<id>/<id>-1…7-of-7-*.jpg` | 1080×1350 | 10 каруселей по 7 слайдов, порядок 1–7; слайды 2–7 — на размытом интерьере эксперта |
 | `instagram/stories/…`, `instagram/stories/experts/…` | 1080×1920 | Сторис: оффер, знакомство с экспертом (стикер «Ссылка»), вопрос, опрос, цитата, выпуск |
 | `instagram/highlights/…` | 1080×1920 | 11 обложек «Актуального»: «Начать» + 10 экспертов |
 | `instagram/reels/covers/…`, `frames/…`, `end/…` | 1080×1920 | Обложка Reels, кадр тизера (+ `.layout`), финальная заставка |
@@ -130,7 +130,7 @@ FRAME=../instagram/reels/frames/eva.png END=../instagram/reels/end/eva-reels-end
 ```bash
 cd scripts/instagram
 python3 new-post.py alisa "Что написать после свидания"   # пост ленты: сцена + вопрос
-python3 new-post.py nika "Рассказать о себе — …" --kind quote   # карточка-цитата
+python3 new-post.py nika "Рассказать о себе — …" --kind quote   # цитата на натюрморте plate-nika.jpg
 python3 new-post.py asya --kind story-expert              # сторис-знакомство под стикер «Ссылка»
 python3 new-carousel.py asya                              # карусель из carousels.tsv
 python3 render-all.py                                     # весь набор (set.json + carousels.tsv)

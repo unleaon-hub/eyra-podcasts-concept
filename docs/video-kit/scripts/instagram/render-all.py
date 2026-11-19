@@ -5,13 +5,13 @@
   python3 render-all.py            # всё
   python3 render-all.py grid pinned   # только части: pinned grid carousel stories highlights reels
 """
-import asyncio, importlib.util, json, sys
+import asyncio, importlib.util, json, os, sys
 from pathlib import Path
 HERE = Path(__file__).resolve().parent
 def load(name, file):
     spec = importlib.util.spec_from_file_location(name, HERE / file); m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m); return m
 np_ = load('np', 'new-post.py'); nc = load('nc', 'new-carousel.py')
-OUT = HERE.parent.parent / 'instagram'; S = json.load(open(HERE / 'set.json', encoding='utf-8')); CAR = nc.read_tsv(HERE / 'carousels.tsv')
+OUT = Path(os.environ.get('IG_OUT') or HERE.parent.parent / 'instagram'); S = json.load(open(HERE / 'set.json', encoding='utf-8')); CAR = nc.read_tsv(HERE / 'carousels.tsv')
 SX = {}
 for line in open(HERE / 'sdata.js', encoding='utf-8'):
     if ':{name:' in line:
