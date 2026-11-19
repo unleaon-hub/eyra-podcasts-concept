@@ -55,7 +55,7 @@ Promise.all([...['260 100px M','450 100px M','500 80px M','600 30px M','200 100p
   const s=S?txt(S,{fontSize:'36px',fontWeight:450,lineHeight:1.22,color:'#3f403a',letterSpacing:'-.01em'}):null;
   const pl=MODE==='carcover'?pill(ty(P.get('p')||X.show)+`<span style="display:inline-block;width:30px;height:30px;vertical-align:-6px;margin-left:12px"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="${ink}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICONS2.arrow}</svg></span>`,0,{background:A,fontSize:'32px',padding:'18px 30px'}):null;
   const top0=lk.bottom+40,bot0=HEAD-36;const hN=MODE==='carcover'?0:30+18;const Hh=()=>hN+t.offsetHeight+(s?18+s.offsetHeight:0)+(pl?28+pl.offsetHeight:0);
-  qa.fs=fit(t,88,58,3,()=>Hh()<=bot0-top0);
+  qa.fs=fit(t,MODE==='carcover'?88:84,58,3,()=>Hh()<=bot0-top0);
   const y0=Math.round(top0+(bot0-top0-Hh())/2);nm.style.top=y0+'px';let y=y0+hN;t.style.top=y+'px';y+=t.offsetHeight;
   if(s){y+=18;s.style.top=y+'px';y+=s.offsetHeight}if(pl){y+=28;pl.style.top=y+'px';y+=pl.offsetHeight}
   if(MODE==='carcover'&&P.get('pg'))el('','',{position:'absolute',left:0,right:0,bottom:0,height:'14px',background:A});
@@ -170,33 +170,35 @@ Promise.all([...['260 100px M','450 100px M','500 80px M','600 30px M','200 100p
   const a=txt(ty(P.get('t')||'Полный выпуск — на eyra.ink'),{fontSize:'48px',fontWeight:500,letterSpacing:'-.02em',lineHeight:1.2,top:(lk.bottom+90)+'px'});
   const b=txt(X.name+' · '+ty(X.show),{fontSize:'32px',fontWeight:500,lineHeight:1,color:'#55564f',top:(lk.bottom+90+a.offsetHeight+24)+'px'});
   qa.bottom=lk.bottom+90+a.offsetHeight+24+32;qa.limit=1260;qa.fs=48;
- } else if(MODE==='pin-about'){
-  darkBg();lockD(46,72);
-  const eb=txt(O.eyebrow,{top:'190px',fontSize:'26px',lineHeight:1,color:GOLD});eb.classList.add('cap');
-  const h=txt(ty(P.get('t')||O.hero),{top:'250px',fontSize:'100px',fontWeight:400,letterSpacing:'-.04em',lineHeight:1.02,color:CREAM,width:'900px',left:'90px'});qa.fs=fit(h,104,76,2);
-  const ids='asya kira vera lera mira nika eva maya sofia alisa'.split(' ');const fs=150,gx=176,x0=(W-gx*4-fs)/2;let y0=250+h.offsetHeight+70;
-  ids.forEach((k,i)=>{const x=x0+(i%5)*gx,y=y0+Math.floor(i/5)*236;face(fs,x,y,k,[4,SITE[k].accent]);el('t',SITE[k].name,{left:(x-20)+'px',width:(fs+40)+'px',top:(y+fs+18)+'px',fontSize:'28px',fontWeight:500,lineHeight:1,color:CREAM})});
-  const f=txt(O.free+' · '+O.nocard,{top:'1236px',fontSize:'30px',fontWeight:600,lineHeight:1,color:GOLD});
-  qa.bottom=y0+236+fs+18+28;qa.limit=1200;
- } else if(MODE==='pin-how'){
-  darkBg();lockD(46,72);
-  const h=ltx(ty(O.how),{top:'200px',fontSize:'110px',fontWeight:400,letterSpacing:'-.04em',lineHeight:1,color:CREAM});
-  let y=200+h.offsetHeight+60;
-  O.steps.forEach((s,i)=>{const r=el('','',{position:'absolute',left:'100px',width:'880px',top:y+'px',display:'flex',gap:'36px',padding:'34px 0',borderTop:'2px solid rgba(242,239,232,.14)'});
-   el('','0'+(i+1),{flex:'0 0 150px',fontSize:'110px',fontWeight:200,letterSpacing:'-.05em',lineHeight:.9,color:GOLD},r);
-   el('',`<div style="font-size:52px;font-weight:500;letter-spacing:-.02em;line-height:1.1;color:${CREAM}">${ty(s[0])}</div><div style="font-size:32px;font-weight:450;line-height:1.35;color:${MUT};margin-top:12px">${ty(s[1])}</div>`,{},r);y+=r.offsetHeight});
-  txt(O.free+' · '+O.nocard,{top:'1236px',fontSize:'30px',fontWeight:600,lineHeight:1,color:GOLD});
-  qa.bottom=y;qa.limit=1200;qa.fs=110;
- } else if(MODE==='pin-offer'||MODE==='story-offer'){
-  const SO=MODE==='story-offer';darkBg();SO?lockD(56,300):lockD(46,72);
-  const Y=SO?410:150;
-  const n=txt('7',{top:Y+'px',fontSize:(SO?400:500)+'px',fontWeight:200,letterSpacing:'-.06em',lineHeight:.86,color:GOLD});
-  const d=txt('дней бесплатно',{top:(Y+(SO?350:440))+'px',fontSize:(SO?'84px':'96px'),fontWeight:400,letterSpacing:'-.04em',lineHeight:1,color:CREAM});
-  const c=pill(O.nocard,Y+(SO?470:575),{background:'transparent',border:`2px solid ${GOLD}`,color:CREAM,fontSize:'36px',padding:'20px 34px'});
-  const s=txt(ty(O.after+' '+O.after2),{top:(Y+(SO?570:700))+'px',fontSize:'32px',fontWeight:450,lineHeight:1.35,color:MUT,width:'760px',left:'160px'});
-  let y=Y+(SO?570:700)+s.offsetHeight;
-  if(SO){y+=40;zoneBox(y,110,'стикер «Ссылка» → eyra.ink');y+=110;qa.limit=1248-30}else{txt(ty('Выбрать эксперта — '+O.link.toLowerCase()),{top:'1230px',fontSize:'32px',fontWeight:600,lineHeight:1,color:CREAM});qa.limit=1190}
-  qa.bottom=y;qa.fs=96;
+ } else if(MODE==='pin-about'||MODE==='pin-how'||MODE==='pin-offer'||MODE==='story-offer'){
+  // light pinned cards in the v1 quote-card style: warm tint, lockup, Manrope 500, soft round faces
+  const G='#d8b988',SO=MODE==='story-offer';B.style.background=mix(G,'#f8f4ee',30);const dg=mix(G,ink,45);
+  const lk=lock(SO?54:46,SO?300:84);const top0=lk.bottom+(SO?60:50),bot0=SO?1248-40:1350-80;const parts=[];
+  const big=(t,max,min,lines)=>{const d=txt(ty(t),{fontWeight:500,letterSpacing:'-.03em',lineHeight:1.12,color:ink});parts.push([d,()=>fit(d,max,min,lines)]);return d};
+  const line=(t,fs,c,w)=>{const d=txt(ty(t),{fontSize:fs+'px',fontWeight:w||500,lineHeight:1.3,color:c||'#3b3c37'});parts.push([d]);return d};
+  const gap=g=>parts.push([null,g]);
+  if(MODE==='pin-about'){
+   line(O.eyebrow,30,'#55564f');gap(26);big(O.hero,80,60,2);gap(56);
+   const row=el('','',{position:'absolute',left:'0',width:W+'px',textAlign:'center'});parts.push([row]);
+   'asya kira vera lera mira nika eva maya sofia alisa'.split(' ').forEach((k,i)=>{const w=el('','',{display:'inline-block',width:'150px',margin:'0 8px 26px',verticalAlign:'top'},row);
+    const im=new Image();im.src=`face-${k}.png`;Object.assign(im.style,{width:'118px',height:'118px',borderRadius:'50%',display:'block',margin:'0 auto'});w.append(im);imgs.push(im);
+    el('',SITE[k].name,{fontSize:'26px',fontWeight:500,marginTop:'12px',color:'#3b3c37'},w);if(i===4)el('','',{display:'block'},row)});
+   gap(10);line(O.free+' · '+O.nocard,32,dg,600);
+  } else if(MODE==='pin-how'){
+   big(O.how,84,60,1);gap(60);
+   O.steps.forEach((st,i)=>{line('0'+(i+1),40,dg,400);gap(6);line(st[0],50,ink,500);gap(8);line(st[1],31,'#55564f',450);gap(i<2?48:0)});
+  } else {
+   icon('mark',SO?160:150,dg,2.1,{left:(W/2-(SO?80:75))+'px'});parts.push([B.lastChild]);gap(SO?44:36);
+   big(O.free,SO?104:96,70,1);gap(20);line(O.nocard,SO?48:44,'#3b3c37',500);gap(34);
+   line(O.after+' '+O.after2,SO?32:31,'#55564f',450).style.cssText+=';width:760px;left:160px';
+   if(!SO){gap(56);line('Выбрать эксперта — '+O.link.toLowerCase(),32,dg,600)}
+  }
+  parts.forEach(p=>p[1]&&p[0]&&p[1]());
+  const hgt=()=>parts.reduce((h,p)=>h+(p[0]?p[0].offsetHeight:p[1]),0);
+  const ZH=SO?110:0,extra=SO?50+ZH:0;let y=Math.round(top0+(bot0-top0-hgt()-extra)/2);
+  parts.forEach(p=>{if(p[0]){p[0].style.top=y+'px';y+=p[0].offsetHeight}else y+=p[1]});
+  if(SO){y+=50;zoneBox(y,ZH,'стикер «Ссылка» → eyra.ink');y+=ZH}
+  qa.bottom=y;qa.limit=bot0;qa.fs=0;
  } else if(MODE.startsWith('story-')){
   bg(`bg-story-${K}.jpg`);veil(HEAD);const lk=lock(52,300);
   const EX=MODE==='story-expert';
@@ -231,8 +233,9 @@ Promise.all([...['260 100px M','450 100px M','500 80px M','600 30px M','200 100p
   icon(K,420,deep,1.05,{left:'330px',top:'750px'});
   qa.bottom=0;qa.limit=1;qa.fs=0;
  } else if(MODE==='highlight-start'){
-  B.style.background=DARK;el('','',{position:'absolute',left:'160px',top:'580px',width:'760px',height:'760px',borderRadius:'50%',background:'#1d211e'});
-  icon('mark',440,GOLD,2.2,{left:'320px',top:'740px'});
+  const G='#d8b988';B.style.background=mix(G,'#ffffff',78);
+  el('','',{position:'absolute',left:'160px',top:'580px',width:'760px',height:'760px',borderRadius:'50%',background:mix(G,'#ffffff',48)});
+  icon('mark',440,mix(G,ink,45),2.1,{left:'320px',top:'740px'});
   qa.bottom=0;qa.limit=1;qa.fs=0;
  }
  guides();window.qa=qa;

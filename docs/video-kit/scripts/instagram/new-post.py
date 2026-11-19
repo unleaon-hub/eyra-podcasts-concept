@@ -5,15 +5,12 @@
 Лента / карусель 1080×1350:
   python3 new-post.py alisa "Что написать после свидания"                         -> сцена + вопрос
   python3 new-post.py asya "Как пережить расставание" --kind carcover --pill "4 совета от Аси"
-  python3 new-post.py vera --kind meet --kicker "Знакомьтесь"                     -> портрет на цвете, имя крупно
-  python3 new-post.py eva --kind dialog                                           -> пример общения с сайта
-  python3 new-post.py sofia "Простое правило бюджета" --kind numeral --n "50/30/20" --items "50% — обязательные|30% — желания|20% — накопления"
-  python3 new-post.py maya "Тихий вечер — тоже план" --kind bigquote               -> большая цитата на цвете
-  python3 new-post.py lera "Миф…" "Как на деле…" --kind mythfact
-  python3 new-post.py asya "4 шага на вечер" --kind checklist --items "Шаг 1|Шаг 2|Шаг 3"
+  python3 new-post.py nika "Рассказать о себе — …" --kind quote                    -> карточка-цитата (лента)
+  (meet, dialog, numeral, bigquote, mythfact, checklist — типы v2: для ленты не использовать, meet нужен как слайд 6 карусели)
+  python3 new-post.py vera --kind meet --kicker "Кто такая Вера"                    -> слайд «Кто такая …»
   python3 new-post.py kira "Добавлять, а не запрещать" --kind tip --n 02 --body "…" --pg "3 / 7"
   python3 new-post.py kira --kind cta --pg "7 / 7"                                -> финал: Telegram, 7 дней бесплатно, без карты
-  python3 new-post.py asya --kind pin-about | pin-how | pin-offer                  -> тёмные закрепы
+  python3 new-post.py asya --kind pin-about | pin-how | pin-offer                  -> светлые закрепы
 Сторис / Reels 1080×1920:
   python3 new-post.py asya "Что помогает вам успокоиться вечером?" --kind story-question   (story-poll, story-quote, story-episode)
   python3 new-post.py nika --kind story-expert                                     -> знакомство + место под стикер «Ссылка»
