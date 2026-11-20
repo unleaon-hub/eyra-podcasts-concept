@@ -2,10 +2,10 @@
 <!-- Concept F «Глубина»: E2 layout (benchmark system) on a two-zone scene: light sunlit wall under the text | deep wall
      with art, plant and a prop behind the expert. The headline crosses the wall edge; glyphs flip ink -> white exactly
      where the background is dark (benchmark: «плаНЫ» split mid-letter at the wall edge, white #fff over rgb(41,48,51)).
-     ?e=<expert>[&h=line1|line2]  -->
+     ?e=<expert>[&h=line1|line2][&sd=scenes-f2]  (F2: deeper back wall, see mk-bg-f2.py) -->
 <style>html,body{margin:0;background:#fff}canvas{display:block}</style>
 <canvas id="c"></canvas>
-<script src="../instagram/site.js"></script><script src="heads-f.js"></script><script src="scenes-f/geo.js"></script>
+<script src="../instagram/site.js"></script><script src="heads-f.js"></script><script>document.write(`<script src="${new URLSearchParams(location.search).get('sd')||'scenes-f'}/geo.js"><\/script>`)</script>
 <script>
 const P=new URLSearchParams(location.search),E=P.get('e')||'mira',W=1440,H=1080,S=SITE[E],GE=GEO[E];
 const HD=P.get('h')?P.get('h').split('|'):HEADS_F[E];
@@ -19,7 +19,7 @@ function setf(c,font,fs,ls){c.font=`${fs}px ${font}`;c.letterSpacing=(ls||0)*fs+
 function width(t,font,fs,ls){setf(g,font,fs,ls);return g.measureText(t).width}
 const OPS=[];  // every text op is drawn twice: ink everywhere, white clipped to the dark-background mask
 function text(t,x,y,font,fs,col,ls,light){OPS.push([t,x,y,font,fs,col,ls,light])}
-Promise.all(fonts.map(([n,u])=>new FontFace(n,`url(${u})`,n==='MR'?{weight:'200 800'}:{}).load().then(f=>document.fonts.add(f)))).then(()=>new Promise(r=>{const im=new Image();im.onload=()=>r(im);im.src=`scenes-f/${E}-16x9.jpg?t=${Date.now()}`})).then(im=>{
+Promise.all(fonts.map(([n,u])=>new FontFace(n,`url(${u})`,n==='MR'?{weight:'200 800'}:{}).load().then(f=>document.fonts.add(f)))).then(()=>new Promise(r=>{const im=new Image();im.onload=()=>r(im);im.src=`${P.get('sd')||'scenes-f'}/${E}-16x9.jpg?t=${Date.now()}`})).then(im=>{
   const L=80;
   // headline size: benchmark 135.7px; shrink only if a line is wider than 700 (benchmark line 2 ends at x≈690)
   let fs=135.7;const wmax=Math.max(...HD.map(l=>width(l,'PL',fs,-.03)));if(wmax>700)fs*=700/wmax;const k=fs/135.7;
