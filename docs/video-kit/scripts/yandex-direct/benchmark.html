@@ -1,0 +1,43 @@
+<!doctype html><meta charset="utf-8">
+<!-- Concept E: faithful reproduction of the approved benchmark layout (ref-6-mira-lilac.png).
+     All coordinates measured on the benchmark (1448x1086) and scaled x0.9945 to 1440x1080.
+     ?e=<expert>&v=1|2|3&f=4x3|16x9  (v1 faithful, v2 +EYRA wordmark +«Без банковской карты», v3 = v2 with accent pill) -->
+<style>html,body{margin:0;background:#fff}canvas{display:block}</style>
+<canvas id="c"></canvas>
+<script src="../instagram/site.js"></script><script src="heads-e.js"></script><script src="bg/crop.js"></script>
+<script>
+const P=new URLSearchParams(location.search),E=P.get('e')||'mira',V=+(P.get('v')||1),F=P.get('f')||'4x3';
+const W=F==='16x9'?1920:1440,H=1080,S=SITE[E],cv=document.getElementById('c');cv.width=W;cv.height=H;const g=cv.getContext('2d');
+const INK='#17191d';
+function rgb(h){return[1,3,5].map(i=>parseInt(h.substr(i,2),16))}
+function hsl(r,g_,b){r/=255;g_/=255;b/=255;const M=Math.max(r,g_,b),m=Math.min(r,g_,b),l=(M+m)/2;let h=0,s=0;if(M!==m){const d=M-m;s=l>.5?d/(2-M-m):d/(M+m);h=M===r?(g_-b)/d+(g_<b?6:0):M===g_?(b-r)/d+2:(r-g_)/d+4;h*=60}return[h,s,l]}
+function css(h,s,l){return`hsl(${h.toFixed(1)} ${(s*100).toFixed(1)}% ${(l*100).toFixed(1)}%)`}
+const [ah,as]=hsl(...rgb(S.accent));
+const PILLTXT=css(ah,Math.min(1,as*1.9+.25),.88);   // benchmark: (216,201,253) on dark pill
+const PILLACC=css(ah,Math.min(1,as*1.5+.15),.72);   // E3: richer accent pill, dark text
+const fonts=[['PL','fonts/Pretendard-Light.otf'],['PR','fonts/Pretendard-Regular.otf'],['PM','fonts/Pretendard-Medium.otf'],['MR','../instagram/manrope.woff']];
+function text(t,x,y,font,fs,col,ls){g.font=`${fs}px ${font}`;g.letterSpacing=(ls||0)*fs+'px';g.fillStyle=col;g.textBaseline='alphabetic';g.fillText(t,x,y);return g.measureText(t).width}
+function width(t,font,fs,ls){g.font=`${fs}px ${font}`;g.letterSpacing=(ls||0)*fs+'px';return g.measureText(t).width}
+Promise.all(fonts.map(([n,u])=>new FontFace(n,`url(${u})`,n==='MR'?{weight:'200 800'}:{}).load().then(f=>document.fonts.add(f)))).then(()=>new Promise(r=>{const im=new Image();im.onload=()=>r(im);im.src=`bg/${E}-${F}.jpg?t=${Date.now()}`})).then(im=>{
+  g.drawImage(im,0,0,W,H);
+  const L=80, Hd=HEADS_E[E], MAXW=F==='4x3'?Math.min(700,CROP[E].x0head-55-L):700;  // benchmark line 2 runs to x≈690  // headline never reaches the face/hair
+  // name — Regular, cap 57
+  text(S.name+'.',L-7,202,'PR',80.2,INK,.01);
+  // headline — Light, 135.7px, leading 117, tracking -0.03em; shrink only if a line would reach the face
+  let fs=135.7;const wmax=Math.max(...Hd.map(l=>width(l,'PL',fs,-.03)));if(wmax>MAXW)fs*=MAXW/wmax;
+  const k=fs/135.7;Hd.forEach((l,i)=>text(l,L-10,395+i*116.5*k,'PL',fs,INK,-.03));
+  // role — Regular, cap 40, leading 67
+  // long role («ИИ-финансовый советник») moves its last word to line 2 instead of shrinking
+  const rs=56.3;let r1=S.role,r2='в Telegram';if(width(r1,'PR',rs,.035)>560){const k=r1.lastIndexOf(' ');r2=r1.slice(k+1)+' в Telegram';r1=r1.slice(0,k)}
+  text(r1,L-5,643,'PR',rs,INK,.035);text(r2,L-5,710,'PR',rs,INK,.035);
+  // pill — fully rounded, x 63–562, y 773–872; text Medium, 408px wide, starts at x 116
+  const px=63,py=773,pw=499,ph=99;g.beginPath();g.roundRect(px,py,pw,ph,ph/2);g.fillStyle=V===3?PILLACC:'rgb(19,25,26)';g.fill();
+  const pf=61.9*408/width(OFFER.free,'PM',61.9,-.005);text(OFFER.free,116,842,'PM',pf,V===3?INK:PILLTXT,-.005);
+  if(V>=2){
+    // tiny thin wordmark, top-left (outside the kebab zone at top-right)
+    g.font='300 32px MR';g.letterSpacing='10px';g.fillStyle='rgba(23,25,29,.78)';g.fillText('EYRA',L,86);
+    text(OFFER.nocard,L,937,'PR',40,'rgba(23,25,29,.80)',-.005);
+  }
+  document.title='ready';
+});
+</script>
