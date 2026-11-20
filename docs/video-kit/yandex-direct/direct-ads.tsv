@@ -1,0 +1,245 @@
+expert	n	creative_files	field	text	url	limit	len_direct	len_total	ok
+*			уточнение	7 дней бесплатно		25	16	16	OK
+*			уточнение	Без банковской карты		25	20	20	OK
+*			уточнение	Без автосписаний		25	16	16	OK
+*			уточнение	Разговор в Telegram		25	19	19	OK
+kira			отображаемая ссылка	ИИ-нутрициолог	https://eyra.ink/experts/kira/	20	14	14	OK
+kira	1	creatives/kira/1-pohudet-{4x3,1x1,16x9,3x4}.jpg	заголовок	Похудеть без диет — ИИ-нутрициолог Кира в Telegram	https://eyra.ink/experts/kira/	56	50	50	OK
+kira	1	creatives/kira/1-pohudet-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	7 дней бесплатно	https://eyra.ink/experts/kira/	30	16	16	OK
+kira	1	creatives/kira/1-pohudet-{4x3,1x1,16x9,3x4}.jpg	текст	Питание и привычки в вашем ритме. Небольшие шаги каждый день. Без карты.	https://eyra.ink/experts/kira/	81	69	72	OK
+kira	2	creatives/kira/2-bez-goloda-{4x3,1x1,16x9,3x4}.jpg	заголовок	Худеть без голода: питание под ваш обычный день	https://eyra.ink/experts/kira/	56	46	47	OK
+kira	2	creatives/kira/2-bez-goloda-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	ИИ-нутрициолог в Telegram	https://eyra.ink/experts/kira/	30	25	25	OK
+kira	2	creatives/kira/2-bez-goloda-{4x3,1x1,16x9,3x4}.jpg	текст	Кира подскажет, как питаться регулярнее без жёстких запретов. 7 дней бесплатно.	https://eyra.ink/experts/kira/	81	76	79	OK
+kira	3	creatives/kira/3-hvatit-sryvatsya-{4x3,1x1,16x9,3x4}.jpg	заголовок	Хватит срываться: питание без жёстких запретов	https://eyra.ink/experts/kira/	56	45	46	OK
+kira	3	creatives/kira/3-hvatit-sryvatsya-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	Кира — ИИ-нутрициолог	https://eyra.ink/experts/kira/	30	21	21	OK
+kira	3	creatives/kira/3-hvatit-sryvatsya-{4x3,1x1,16x9,3x4}.jpg	текст	Небольшие шаги, которые вписываются в обычный день. Неделя бесплатно, без карты.	https://eyra.ink/experts/kira/	81	76	80	OK
+kira	4	creatives/kira/4-est-vkusno-{4x3,1x1,16x9,3x4}.jpg	заголовок	Есть вкусно и худеть — ИИ-нутрициолог Кира	https://eyra.ink/experts/kira/	56	42	42	OK
+kira	4	creatives/kira/4-est-vkusno-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	Неделя бесплатно	https://eyra.ink/experts/kira/	30	16	16	OK
+kira	4	creatives/kira/4-est-vkusno-{4x3,1x1,16x9,3x4}.jpg	текст	Привычки и питание в вашем ритме. Личный разговор в Telegram. Без банковской карты.	https://eyra.ink/experts/kira/	81	80	83	OK
+kira	5	creatives/kira/5-menyu-{4x3,1x1,16x9,3x4}.jpg	заголовок	Меню на неделю с ИИ-нутрициологом Кирой	https://eyra.ink/experts/kira/	56	39	39	OK
+kira	5	creatives/kira/5-menyu-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	Личный разговор в Telegram	https://eyra.ink/experts/kira/	30	26	26	OK
+kira	5	creatives/kira/5-menyu-{4x3,1x1,16x9,3x4}.jpg	текст	Соберём меню под ваш ритм, вкус и время. Первые 7 дней бесплатно, без карты.	https://eyra.ink/experts/kira/	81	72	76	OK
+kira			быстрая ссылка	Познакомиться с Кирой	https://eyra.ink/experts/kira/	30	21	21	OK
+kira			описание б/с	Когда хочется наладить питание в своём ритме.	https://eyra.ink/experts/kira/	60	45	45	OK
+kira			быстрая ссылка	Как начать	https://eyra.ink/experts/kira/#how	30	10	10	OK
+kira			описание б/с	Откройте Telegram, нажмите «Начать» и расскажите о себе	https://eyra.ink/experts/kira/#how	60	55	55	OK
+kira			быстрая ссылка	Пример разговора	https://eyra.ink/experts/kira/#chat	30	16	16	OK
+kira			описание б/с	Посмотрите, как проходит личный разговор в Telegram	https://eyra.ink/experts/kira/#chat	60	51	51	OK
+kira			быстрая ссылка	Все ИИ-эксперты EYRA	https://eyra.ink/#experts	30	20	20	OK
+kira			описание б/с	Десять личных ИИ-экспертов в Telegram на выбор	https://eyra.ink/#experts	60	46	46	OK
+asya			отображаемая ссылка	ИИ-психолог	https://eyra.ink/experts/asya/	20	11	11	OK
+asya	1	creatives/asya/1-ne-s-kem-{4x3,1x1,16x9,3x4}.jpg	заголовок	Не с кем поговорить? ИИ-психолог Ася в Telegram	https://eyra.ink/experts/asya/	56	47	47	OK
+asya	1	creatives/asya/1-ne-s-kem-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	7 дней бесплатно	https://eyra.ink/experts/asya/	30	16	16	OK
+asya	1	creatives/asya/1-ne-s-kem-{4x3,1x1,16x9,3x4}.jpg	текст	Разговор о чувствах, отношениях и усталости. Начните с того, что на душе.	https://eyra.ink/experts/asya/	81	69	73	OK
+asya	2	creatives/asya/2-trevozhno-{4x3,1x1,16x9,3x4}.jpg	заголовок	Тревожно? Поговорите с ИИ-психологом Асей	https://eyra.ink/experts/asya/	56	41	41	OK
+asya	2	creatives/asya/2-trevozhno-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	Личный разговор в Telegram	https://eyra.ink/experts/asya/	30	26	26	OK
+asya	2	creatives/asya/2-trevozhno-{4x3,1x1,16x9,3x4}.jpg	текст	Можно начать с того, что сейчас на душе. 7 дней бесплатно, без банковской карты.	https://eyra.ink/experts/asya/	81	76	80	OK
+asya	3	creatives/asya/3-ustali-{4x3,1x1,16x9,3x4}.jpg	заголовок	Устали от всего? Поговорим — ИИ-психолог Ася	https://eyra.ink/experts/asya/	56	44	44	OK
+asya	3	creatives/asya/3-ustali-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	Неделя бесплатно	https://eyra.ink/experts/asya/	30	16	16	OK
+asya	3	creatives/asya/3-ustali-{4x3,1x1,16x9,3x4}.jpg	текст	Выговориться и разобраться в чувствах в удобное время. Без банковской карты.	https://eyra.ink/experts/asya/	81	74	76	OK
+asya	4	creatives/asya/4-ne-spitsya-{4x3,1x1,16x9,3x4}.jpg	заголовок	Опять не спится? Поговорите с ИИ-психологом	https://eyra.ink/experts/asya/	56	43	43	OK
+asya	4	creatives/asya/4-ne-spitsya-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	Ася — ИИ-психолог в Telegram	https://eyra.ink/experts/asya/	30	28	28	OK
+asya	4	creatives/asya/4-ne-spitsya-{4x3,1x1,16x9,3x4}.jpg	текст	Спокойный разговор о том, что тревожит. 7 дней бесплатно, без автосписаний.	https://eyra.ink/experts/asya/	81	71	75	OK
+asya	5	creatives/asya/5-nakryvaet-{4x3,1x1,16x9,3x4}.jpg	заголовок	Когда накрывает — поговорите с ИИ-психологом Асей	https://eyra.ink/experts/asya/	56	49	49	OK
+asya	5	creatives/asya/5-nakryvaet-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	7 дней бесплатно	https://eyra.ink/experts/asya/	30	16	16	OK
+asya	5	creatives/asya/5-nakryvaet-{4x3,1x1,16x9,3x4}.jpg	текст	Разговор о чувствах и усталости в Telegram. Без банковской карты и автосписаний.	https://eyra.ink/experts/asya/	81	78	80	OK
+asya			быстрая ссылка	Познакомиться с Асей	https://eyra.ink/experts/asya/	30	20	20	OK
+asya			описание б/с	Когда хочется выговориться и разобраться в чувствах.	https://eyra.ink/experts/asya/	60	52	52	OK
+asya			быстрая ссылка	Как начать	https://eyra.ink/experts/asya/#how	30	10	10	OK
+asya			описание б/с	Откройте Telegram, нажмите «Начать» и расскажите о себе	https://eyra.ink/experts/asya/#how	60	55	55	OK
+asya			быстрая ссылка	Пример разговора	https://eyra.ink/experts/asya/#chat	30	16	16	OK
+asya			описание б/с	Посмотрите, как проходит личный разговор в Telegram	https://eyra.ink/experts/asya/#chat	60	51	51	OK
+asya			быстрая ссылка	Все ИИ-эксперты EYRA	https://eyra.ink/#experts	30	20	20	OK
+asya			описание б/с	Десять личных ИИ-экспертов в Telegram на выбор	https://eyra.ink/#experts	60	46	46	OK
+eva			отображаемая ссылка	нетворкинг	https://eyra.ink/experts/eva/	20	10	10	OK
+eva	1	creatives/eva/1-dlya-dela-{4x3,1x1,16x9,3x4}.jpg	заголовок	Знакомства для дела — ИИ-ассистент Ева в Telegram	https://eyra.ink/experts/eva/	56	49	49	OK
+eva	1	creatives/eva/1-dlya-dela-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	7 дней бесплатно	https://eyra.ink/experts/eva/	30	16	16	OK
+eva	1	creatives/eva/1-dlya-dela-{4x3,1x1,16x9,3x4}.jpg	текст	Нужные знакомства, первое сообщение и развитие полезных связей. Без карты.	https://eyra.ink/experts/eva/	81	71	74	OK
+eva	2	creatives/eva/2-nuzhnye-{4x3,1x1,16x9,3x4}.jpg	заголовок	Нужные знакомства с ИИ-ассистентом по нетворкингу	https://eyra.ink/experts/eva/	56	49	49	OK
+eva	2	creatives/eva/2-nuzhnye-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	Ева — нетворкинг в Telegram	https://eyra.ink/experts/eva/	30	27	27	OK
+eva	2	creatives/eva/2-nuzhnye-{4x3,1x1,16x9,3x4}.jpg	текст	С вниманием к вашей цели и интересам другой стороны. Неделя бесплатно.	https://eyra.ink/experts/eva/	81	68	70	OK
+eva	3	creatives/eva/3-boites-{4x3,1x1,16x9,3x4}.jpg	заголовок	Боитесь написать? Ева поможет начать разговор	https://eyra.ink/experts/eva/	56	45	45	OK
+eva	3	creatives/eva/3-boites-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	ИИ-ассистент по нетворкингу	https://eyra.ink/experts/eva/	30	27	27	OK
+eva	3	creatives/eva/3-boites-{4x3,1x1,16x9,3x4}.jpg	текст	Соберём короткое первое сообщение под вашу цель. 7 дней бесплатно, без карты.	https://eyra.ink/experts/eva/	81	74	77	OK
+eva	4	creatives/eva/4-pervym-{4x3,1x1,16x9,3x4}.jpg	заголовок	Напишите первым — с ИИ-ассистентом Евой	https://eyra.ink/experts/eva/	56	39	39	OK
+eva	4	creatives/eva/4-pervym-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	Неделя бесплатно	https://eyra.ink/experts/eva/	30	16	16	OK
+eva	4	creatives/eva/4-pervym-{4x3,1x1,16x9,3x4}.jpg	текст	Первое сообщение и полезные связи, которые открывают возможности. Без карты.	https://eyra.ink/experts/eva/	81	73	76	OK
+eva	5	creatives/eva/5-partner-{4x3,1x1,16x9,3x4}.jpg	заголовок	Найти партнёра для проекта с ИИ-ассистентом Евой	https://eyra.ink/experts/eva/	56	48	48	OK
+eva	5	creatives/eva/5-partner-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	Нетворкинг в Telegram	https://eyra.ink/experts/eva/	30	21	21	OK
+eva	5	creatives/eva/5-partner-{4x3,1x1,16x9,3x4}.jpg	текст	Как написать, чтобы не выглядеть навязчиво. 7 дней бесплатно, без автосписаний.	https://eyra.ink/experts/eva/	81	75	79	OK
+eva			быстрая ссылка	Познакомиться с Евой	https://eyra.ink/experts/eva/	30	20	20	OK
+eva			описание б/с	Когда нужны знакомства, которые открывают возможности.	https://eyra.ink/experts/eva/	60	54	54	OK
+eva			быстрая ссылка	Как начать	https://eyra.ink/experts/eva/#how	30	10	10	OK
+eva			описание б/с	Откройте Telegram, нажмите «Начать» и расскажите о себе	https://eyra.ink/experts/eva/#how	60	55	55	OK
+eva			быстрая ссылка	Пример разговора	https://eyra.ink/experts/eva/#chat	30	16	16	OK
+eva			описание б/с	Посмотрите, как проходит личный разговор в Telegram	https://eyra.ink/experts/eva/#chat	60	51	51	OK
+eva			быстрая ссылка	Все ИИ-эксперты EYRA	https://eyra.ink/#experts	30	20	20	OK
+eva			описание б/с	Десять личных ИИ-экспертов в Telegram на выбор	https://eyra.ink/#experts	60	46	46	OK
+sofia			отображаемая ссылка	финансовый-советник	https://eyra.ink/experts/sofia/	20	19	19	OK
+sofia	1	creatives/sofia/1-kuda-uhodyat-{4x3,1x1,16x9,3x4}.jpg	заголовок	Куда уходят деньги? ИИ-финансовый советник София	https://eyra.ink/experts/sofia/	56	48	48	OK
+sofia	1	creatives/sofia/1-kuda-uhodyat-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	7 дней бесплатно	https://eyra.ink/experts/sofia/	30	16	16	OK
+sofia	1	creatives/sofia/1-kuda-uhodyat-{4x3,1x1,16x9,3x4}.jpg	текст	Расходы, бюджет и накопления. Понятные расчёты и посильный план. Без карты.	https://eyra.ink/experts/sofia/	81	71	75	OK
+sofia	2	creatives/sofia/2-tayut-{4x3,1x1,16x9,3x4}.jpg	заголовок	Деньги тают? Разберите расходы вместе с Софией	https://eyra.ink/experts/sofia/	56	46	46	OK
+sofia	2	creatives/sofia/2-tayut-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	ИИ-советник в Telegram	https://eyra.ink/experts/sofia/	30	22	22	OK
+sofia	2	creatives/sofia/2-tayut-{4x3,1x1,16x9,3x4}.jpg	текст	Понятные расчёты и посильный план к вашим целям. Неделя бесплатно, без карты.	https://eyra.ink/experts/sofia/	81	74	77	OK
+sofia	3	creatives/sofia/3-plan-{4x3,1x1,16x9,3x4}.jpg	заголовок	Свой план накоплений с ИИ-советником Софией	https://eyra.ink/experts/sofia/	56	43	43	OK
+sofia	3	creatives/sofia/3-plan-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	Неделя бесплатно	https://eyra.ink/experts/sofia/	30	16	16	OK
+sofia	3	creatives/sofia/3-plan-{4x3,1x1,16x9,3x4}.jpg	текст	Посильный план к вашим денежным целям. Личный разговор в Telegram. Без карты.	https://eyra.ink/experts/sofia/	81	74	77	OK
+sofia	4	creatives/sofia/4-otlozhit-{4x3,1x1,16x9,3x4}.jpg	заголовок	Отложить с зарплаты: план с ИИ-советником Софией	https://eyra.ink/experts/sofia/	56	47	48	OK
+sofia	4	creatives/sofia/4-otlozhit-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	Без банковской карты	https://eyra.ink/experts/sofia/	30	20	20	OK
+sofia	4	creatives/sofia/4-otlozhit-{4x3,1x1,16x9,3x4}.jpg	текст	Разберём расходы и соберём посильный план накоплений. 7 дней бесплатно.	https://eyra.ink/experts/sofia/	81	69	71	OK
+sofia	5	creatives/sofia/5-byudzhet-{4x3,1x1,16x9,3x4}.jpg	заголовок	Бюджет без стресса — ИИ-финансовый советник София	https://eyra.ink/experts/sofia/	56	49	49	OK
+sofia	5	creatives/sofia/5-byudzhet-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	Личный разговор в Telegram	https://eyra.ink/experts/sofia/	30	26	26	OK
+sofia	5	creatives/sofia/5-byudzhet-{4x3,1x1,16x9,3x4}.jpg	текст	Расходы и накопления в понятных расчётах. Первые 7 дней бесплатно, без карты.	https://eyra.ink/experts/sofia/	81	74	77	OK
+sofia			быстрая ссылка	Познакомиться с Софией	https://eyra.ink/experts/sofia/	30	22	22	OK
+sofia			описание б/с	Разобраться с деньгами и увереннее строить планы	https://eyra.ink/experts/sofia/	60	48	48	OK
+sofia			быстрая ссылка	Как начать	https://eyra.ink/experts/sofia/#how	30	10	10	OK
+sofia			описание б/с	Откройте Telegram, нажмите «Начать» и расскажите о себе	https://eyra.ink/experts/sofia/#how	60	55	55	OK
+sofia			быстрая ссылка	Пример разговора	https://eyra.ink/experts/sofia/#chat	30	16	16	OK
+sofia			описание б/с	Посмотрите, как проходит личный разговор в Telegram	https://eyra.ink/experts/sofia/#chat	60	51	51	OK
+sofia			быстрая ссылка	Все ИИ-эксперты EYRA	https://eyra.ink/#experts	30	20	20	OK
+sofia			описание б/с	Десять личных ИИ-экспертов в Telegram на выбор	https://eyra.ink/#experts	60	46	46	OK
+mira			отображаемая ссылка	ИИ-нумеролог	https://eyra.ink/experts/mira/	20	12	12	OK
+mira	1	creatives/mira/1-chto-skazhut-{4x3,1x1,16x9,3x4}.jpg	заголовок	Что скажут ваши числа — ИИ-нумеролог Мира	https://eyra.ink/experts/mira/	56	41	41	OK
+mira	1	creatives/mira/1-chto-skazhut-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	7 дней бесплатно	https://eyra.ink/experts/mira/	30	16	16	OK
+mira	1	creatives/mira/1-chto-skazhut-{4x3,1x1,16x9,3x4}.jpg	текст	Личные числа по дате рождения. Понятное объяснение и небольшой шаг. Без карты.	https://eyra.ink/experts/mira/	81	75	78	OK
+mira	2	creatives/mira/2-obsudim-{4x3,1x1,16x9,3x4}.jpg	заголовок	Обсудим ваши планы с ИИ-нумерологом Мирой	https://eyra.ink/experts/mira/	56	41	41	OK
+mira	2	creatives/mira/2-obsudim-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	Личный разговор в Telegram	https://eyra.ink/experts/mira/	30	26	26	OK
+mira	2	creatives/mira/2-obsudim-{4x3,1x1,16x9,3x4}.jpg	текст	Выберите, чему уделить внимание сейчас. 7 дней бесплатно, без банковской карты.	https://eyra.ink/experts/mira/	81	75	79	OK
+mira	3	creatives/mira/3-vash-god-{4x3,1x1,16x9,3x4}.jpg	заголовок	Ваш год по числам — разбор с ИИ-нумерологом	https://eyra.ink/experts/mira/	56	43	43	OK
+mira	3	creatives/mira/3-vash-god-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	Мира — ИИ-нумеролог	https://eyra.ink/experts/mira/	30	19	19	OK
+mira	3	creatives/mira/3-vash-god-{4x3,1x1,16x9,3x4}.jpg	текст	Личные числа по дате рождения и понятное объяснение. Неделя бесплатно.	https://eyra.ink/experts/mira/	81	68	70	OK
+mira	4	creatives/mira/4-chislo-sudby-{4x3,1x1,16x9,3x4}.jpg	заголовок	Число судьбы: понятный разбор от ИИ-нумеролога	https://eyra.ink/experts/mira/	56	45	46	OK
+mira	4	creatives/mira/4-chislo-sudby-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	Неделя бесплатно	https://eyra.ink/experts/mira/	30	16	16	OK
+mira	4	creatives/mira/4-chislo-sudby-{4x3,1x1,16x9,3x4}.jpg	текст	Мира объяснит ваши личные числа простыми словами. Без банковской карты.	https://eyra.ink/experts/mira/	81	69	71	OK
+mira	5	creatives/mira/5-data-rozhdeniya-{4x3,1x1,16x9,3x4}.jpg	заголовок	Ваша дата рождения в числах — ИИ-нумеролог Мира	https://eyra.ink/experts/mira/	56	47	47	OK
+mira	5	creatives/mira/5-data-rozhdeniya-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	Без банковской карты	https://eyra.ink/experts/mira/	30	20	20	OK
+mira	5	creatives/mira/5-data-rozhdeniya-{4x3,1x1,16x9,3x4}.jpg	текст	Тема дня и небольшой практический шаг. Первые 7 дней бесплатно в Telegram.	https://eyra.ink/experts/mira/	81	72	74	OK
+mira			быстрая ссылка	Познакомиться с Мирой	https://eyra.ink/experts/mira/	30	21	21	OK
+mira			описание б/с	Когда хочется выбрать, чему уделить внимание сейчас.	https://eyra.ink/experts/mira/	60	52	52	OK
+mira			быстрая ссылка	Как начать	https://eyra.ink/experts/mira/#how	30	10	10	OK
+mira			описание б/с	Откройте Telegram, нажмите «Начать» и расскажите о себе	https://eyra.ink/experts/mira/#how	60	55	55	OK
+mira			быстрая ссылка	Пример разговора	https://eyra.ink/experts/mira/#chat	30	16	16	OK
+mira			описание б/с	Посмотрите, как проходит личный разговор в Telegram	https://eyra.ink/experts/mira/#chat	60	51	51	OK
+mira			быстрая ссылка	Все ИИ-эксперты EYRA	https://eyra.ink/#experts	30	20	20	OK
+mira			описание б/с	Десять личных ИИ-экспертов в Telegram на выбор	https://eyra.ink/#experts	60	46	46	OK
+lera			отображаемая ссылка	ИИ-таролог	https://eyra.ink/experts/lera/	20	10	10	OK
+lera	1	creatives/lera/1-ujti-ili-{4x3,1x1,16x9,3x4}.jpg	заголовок	Уйти или остаться? Расклад с ИИ-тарологом Лерой	https://eyra.ink/experts/lera/	56	47	47	OK
+lera	1	creatives/lera/1-ujti-ili-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	7 дней бесплатно	https://eyra.ink/experts/lera/	30	16	16	OK
+lera	1	creatives/lera/1-ujti-ili-{4x3,1x1,16x9,3x4}.jpg	текст	Посмотрите на ситуацию с разных сторон и услышьте себя. Без банковской карты.	https://eyra.ink/experts/lera/	81	75	77	OK
+lera	2	creatives/lera/2-vernyotsya-{4x3,1x1,16x9,3x4}.jpg	заголовок	Он вернётся? Посмотрите на ситуацию иначе с Лерой	https://eyra.ink/experts/lera/	56	49	49	OK
+lera	2	creatives/lera/2-vernyotsya-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	ИИ-таролог в Telegram	https://eyra.ink/experts/lera/	30	21	21	OK
+lera	2	creatives/lera/2-vernyotsya-{4x3,1x1,16x9,3x4}.jpg	текст	Расклады Таро о желаниях и выборе. Неделя бесплатно, без автосписаний.	https://eyra.ink/experts/lera/	81	67	70	OK
+lera	3	creatives/lera/3-na-lyubov-{4x3,1x1,16x9,3x4}.jpg	заголовок	Расклад на любовь от ИИ-таролога Леры	https://eyra.ink/experts/lera/	56	37	37	OK
+lera	3	creatives/lera/3-na-lyubov-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	Неделя бесплатно	https://eyra.ink/experts/lera/	30	16	16	OK
+lera	3	creatives/lera/3-na-lyubov-{4x3,1x1,16x9,3x4}.jpg	текст	Посмотрите на отношения с разных сторон. Личный разговор в Telegram. Без карты.	https://eyra.ink/experts/lera/	81	76	79	OK
+lera	4	creatives/lera/4-chto-zhdyot-{4x3,1x1,16x9,3x4}.jpg	заголовок	Что ждёт в любви? Расклад Таро с ИИ-тарологом	https://eyra.ink/experts/lera/	56	45	45	OK
+lera	4	creatives/lera/4-chto-zhdyot-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	Лера — ИИ-таролог	https://eyra.ink/experts/lera/	30	17	17	OK
+lera	4	creatives/lera/4-chto-zhdyot-{4x3,1x1,16x9,3x4}.jpg	текст	Расклады, чтобы взглянуть на выбор иначе и услышать себя. 7 дней бесплатно.	https://eyra.ink/experts/lera/	81	72	75	OK
+lera	5	creatives/lera/5-karta-dnya-{4x3,1x1,16x9,3x4}.jpg	заголовок	Карта дня для вас — ИИ-таролог Лера в Telegram	https://eyra.ink/experts/lera/	56	46	46	OK
+lera	5	creatives/lera/5-karta-dnya-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	Без банковской карты	https://eyra.ink/experts/lera/	30	20	20	OK
+lera	5	creatives/lera/5-karta-dnya-{4x3,1x1,16x9,3x4}.jpg	текст	Расклады Таро о желаниях и выборе. Первые 7 дней бесплатно, без автосписаний.	https://eyra.ink/experts/lera/	81	74	77	OK
+lera			быстрая ссылка	Познакомиться с Лерой	https://eyra.ink/experts/lera/	30	21	21	OK
+lera			описание б/с	Когда перед вами выбор и хочется взглянуть на него иначе.	https://eyra.ink/experts/lera/	60	57	57	OK
+lera			быстрая ссылка	Как начать	https://eyra.ink/experts/lera/#how	30	10	10	OK
+lera			описание б/с	Откройте Telegram, нажмите «Начать» и расскажите о себе	https://eyra.ink/experts/lera/#how	60	55	55	OK
+lera			быстрая ссылка	Пример разговора	https://eyra.ink/experts/lera/#chat	30	16	16	OK
+lera			описание б/с	Посмотрите, как проходит личный разговор в Telegram	https://eyra.ink/experts/lera/#chat	60	51	51	OK
+lera			быстрая ссылка	Все ИИ-эксперты EYRA	https://eyra.ink/#experts	30	20	20	OK
+lera			описание б/с	Десять личных ИИ-экспертов в Telegram на выбор	https://eyra.ink/#experts	60	46	46	OK
+vera			отображаемая ссылка	ИИ-астролог	https://eyra.ink/experts/vera/	20	11	11	OK
+vera	1	creatives/vera/1-zvyozdy-{4x3,1x1,16x9,3x4}.jpg	заголовок	Что говорят звёзды? ИИ-астролог Вера в Telegram	https://eyra.ink/experts/vera/	56	47	47	OK
+vera	1	creatives/vera/1-zvyozdy-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	7 дней бесплатно	https://eyra.ink/experts/vera/	30	16	16	OK
+vera	1	creatives/vera/1-zvyozdy-{4x3,1x1,16x9,3x4}.jpg	текст	Личный разбор по данным рождения: планы, отношения, внимание к себе. Без карты.	https://eyra.ink/experts/vera/	81	74	79	OK
+vera	2	creatives/vera/2-retrograd-{4x3,1x1,16x9,3x4}.jpg	заголовок	Ретроград? Разберём спокойно с ИИ-астрологом	https://eyra.ink/experts/vera/	56	44	44	OK
+vera	2	creatives/vera/2-retrograd-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	Вера — ИИ-астролог	https://eyra.ink/experts/vera/	30	18	18	OK
+vera	2	creatives/vera/2-retrograd-{4x3,1x1,16x9,3x4}.jpg	текст	Личный разбор по данным рождения и ваши планы. Неделя бесплатно, без карты.	https://eyra.ink/experts/vera/	81	72	75	OK
+vera	3	creatives/vera/3-podhodite-{4x3,1x1,16x9,3x4}.jpg	заголовок	Подходите друг другу? Разбор с ИИ-астрологом Верой	https://eyra.ink/experts/vera/	56	50	50	OK
+vera	3	creatives/vera/3-podhodite-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	Неделя бесплатно	https://eyra.ink/experts/vera/	30	16	16	OK
+vera	3	creatives/vera/3-podhodite-{4x3,1x1,16x9,3x4}.jpg	текст	Об отношениях по данным рождения. Личный разговор в Telegram. Без банковской карты.	https://eyra.ink/experts/vera/	81	80	83	OK
+vera	4	creatives/vera/4-natalnaya-{4x3,1x1,16x9,3x4}.jpg	заголовок	Натальная карта: личный разбор от ИИ-астролога	https://eyra.ink/experts/vera/	56	45	46	OK
+vera	4	creatives/vera/4-natalnaya-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	Личный разговор в Telegram	https://eyra.ink/experts/vera/	30	26	26	OK
+vera	4	creatives/vera/4-natalnaya-{4x3,1x1,16x9,3x4}.jpg	текст	Вера объяснит карту по данным рождения простыми словами. 7 дней бесплатно.	https://eyra.ink/experts/vera/	81	72	74	OK
+vera	5	creatives/vera/5-mesyac-{4x3,1x1,16x9,3x4}.jpg	заголовок	Ваш месяц по звёздам — ИИ-астролог Вера	https://eyra.ink/experts/vera/	56	39	39	OK
+vera	5	creatives/vera/5-mesyac-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	Без банковской карты	https://eyra.ink/experts/vera/	30	20	20	OK
+vera	5	creatives/vera/5-mesyac-{4x3,1x1,16x9,3x4}.jpg	текст	Понять свой ритм и осмыслить планы на месяц. Первые 7 дней бесплатно в Telegram.	https://eyra.ink/experts/vera/	81	78	80	OK
+vera			быстрая ссылка	Познакомиться с Верой	https://eyra.ink/experts/vera/	30	21	21	OK
+vera			описание б/с	Когда хочется понять себя и осмыслить свои планы.	https://eyra.ink/experts/vera/	60	49	49	OK
+vera			быстрая ссылка	Как начать	https://eyra.ink/experts/vera/#how	30	10	10	OK
+vera			описание б/с	Откройте Telegram, нажмите «Начать» и расскажите о себе	https://eyra.ink/experts/vera/#how	60	55	55	OK
+vera			быстрая ссылка	Пример разговора	https://eyra.ink/experts/vera/#chat	30	16	16	OK
+vera			описание б/с	Посмотрите, как проходит личный разговор в Telegram	https://eyra.ink/experts/vera/#chat	60	51	51	OK
+vera			быстрая ссылка	Все ИИ-эксперты EYRA	https://eyra.ink/#experts	30	20	20	OK
+vera			описание б/с	Десять личных ИИ-экспертов в Telegram на выбор	https://eyra.ink/#experts	60	46	46	OK
+nika			отображаемая ссылка	ИИ-продюсер	https://eyra.ink/experts/nika/	20	11	11	OK
+nika	1	creatives/nika/1-ne-zamechayut-{4x3,1x1,16x9,3x4}.jpg	заголовок	Вас не замечают? ИИ-продюсер Ника в Telegram	https://eyra.ink/experts/nika/	56	44	44	OK
+nika	1	creatives/nika/1-ne-zamechayut-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	7 дней бесплатно	https://eyra.ink/experts/nika/	30	16	16	OK
+nika	1	creatives/nika/1-ne-zamechayut-{4x3,1x1,16x9,3x4}.jpg	текст	Позиционирование и путь к новым возможностям с опорой на ваш опыт. Без карты.	https://eyra.ink/experts/nika/	81	75	77	OK
+nika	2	creatives/nika/2-zametnee-{4x3,1x1,16x9,3x4}.jpg	заголовок	Стать заметнее в своём деле с ИИ-продюсером Никой	https://eyra.ink/experts/nika/	56	49	49	OK
+nika	2	creatives/nika/2-zametnee-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	Личный разговор в Telegram	https://eyra.ink/experts/nika/	30	26	26	OK
+nika	2	creatives/nika/2-zametnee-{4x3,1x1,16x9,3x4}.jpg	текст	С опорой на ваш опыт и сильные стороны. Неделя бесплатно, без банковской карты.	https://eyra.ink/experts/nika/	81	76	79	OK
+nika	3	creatives/nika/3-brend-{4x3,1x1,16x9,3x4}.jpg	заголовок	Свой бренд с нуля вместе с ИИ-продюсером	https://eyra.ink/experts/nika/	56	40	40	OK
+nika	3	creatives/nika/3-brend-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	Ника — ИИ-продюсер	https://eyra.ink/experts/nika/	30	18	18	OK
+nika	3	creatives/nika/3-brend-{4x3,1x1,16x9,3x4}.jpg	текст	Амбиции, позиционирование и новые возможности. 7 дней бесплатно, без карты.	https://eyra.ink/experts/nika/	81	71	75	OK
+nika	4	creatives/nika/4-o-chyom-{4x3,1x1,16x9,3x4}.jpg	заголовок	О чём писать в блоге? Идеи с ИИ-продюсером Никой	https://eyra.ink/experts/nika/	56	48	48	OK
+nika	4	creatives/nika/4-o-chyom-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	Неделя бесплатно	https://eyra.ink/experts/nika/	30	16	16	OK
+nika	4	creatives/nika/4-o-chyom-{4x3,1x1,16x9,3x4}.jpg	текст	Темы и позиционирование с опорой на ваши сильные стороны. Без банковской карты.	https://eyra.ink/experts/nika/	81	77	79	OK
+nika	5	creatives/nika/5-golos-{4x3,1x1,16x9,3x4}.jpg	заголовок	Свой голос в блоге — ИИ-продюсер Ника в Telegram	https://eyra.ink/experts/nika/	56	48	48	OK
+nika	5	creatives/nika/5-golos-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	Без банковской карты	https://eyra.ink/experts/nika/	30	20	20	OK
+nika	5	creatives/nika/5-golos-{4x3,1x1,16x9,3x4}.jpg	текст	Заявите о себе с опорой на ваш опыт. Первые 7 дней бесплатно, без автосписаний.	https://eyra.ink/experts/nika/	81	76	79	OK
+nika			быстрая ссылка	Познакомиться с Никой	https://eyra.ink/experts/nika/	30	21	21	OK
+nika			описание б/с	Когда хочется стать заметнее в своём деле.	https://eyra.ink/experts/nika/	60	42	42	OK
+nika			быстрая ссылка	Как начать	https://eyra.ink/experts/nika/#how	30	10	10	OK
+nika			описание б/с	Откройте Telegram, нажмите «Начать» и расскажите о себе	https://eyra.ink/experts/nika/#how	60	55	55	OK
+nika			быстрая ссылка	Пример разговора	https://eyra.ink/experts/nika/#chat	30	16	16	OK
+nika			описание б/с	Посмотрите, как проходит личный разговор в Telegram	https://eyra.ink/experts/nika/#chat	60	51	51	OK
+nika			быстрая ссылка	Все ИИ-эксперты EYRA	https://eyra.ink/#experts	30	20	20	OK
+nika			описание б/с	Десять личных ИИ-экспертов в Telegram на выбор	https://eyra.ink/#experts	60	46	46	OK
+maya			отображаемая ссылка	лайфстайл	https://eyra.ink/experts/maya/	20	9	9	OK
+maya	1	creatives/maya/1-skuchnye-{4x3,1x1,16x9,3x4}.jpg	заголовок	Скучные выходные? Идеи от ИИ-ассистента Майи	https://eyra.ink/experts/maya/	56	44	44	OK
+maya	1	creatives/maya/1-skuchnye-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	7 дней бесплатно	https://eyra.ink/experts/maya/	30	16	16	OK
+maya	1	creatives/maya/1-skuchnye-{4x3,1x1,16x9,3x4}.jpg	текст	Планы на выходные и маленькие открытия под ваш вкус, силы и бюджет. Без карты.	https://eyra.ink/experts/maya/	81	75	78	OK
+maya	2	creatives/maya/2-kuda-pojti-{4x3,1x1,16x9,3x4}.jpg	заголовок	Куда пойти вечером? Спросите ИИ-ассистента Майю	https://eyra.ink/experts/maya/	56	47	47	OK
+maya	2	creatives/maya/2-kuda-pojti-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	Лайфстайл в Telegram	https://eyra.ink/experts/maya/	30	20	20	OK
+maya	2	creatives/maya/2-kuda-pojti-{4x3,1x1,16x9,3x4}.jpg	текст	Идеи для вечера под ваш вкус и бюджет. Неделя бесплатно, без банковской карты.	https://eyra.ink/experts/maya/	81	75	78	OK
+maya	3	creatives/maya/3-kak-odin-{4x3,1x1,16x9,3x4}.jpg	заголовок	Дни как один? Новые впечатления с Майей	https://eyra.ink/experts/maya/	56	39	39	OK
+maya	3	creatives/maya/3-kak-odin-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	ИИ-лайфстайл-ассистент	https://eyra.ink/experts/maya/	30	22	22	OK
+maya	3	creatives/maya/3-kak-odin-{4x3,1x1,16x9,3x4}.jpg	текст	Маленькие открытия под ваш вкус, силы и бюджет. 7 дней бесплатно, без карты.	https://eyra.ink/experts/maya/	81	72	76	OK
+maya	4	creatives/maya/4-subbota-{4x3,1x1,16x9,3x4}.jpg	заголовок	Планы на субботу с ИИ-ассистентом Майей	https://eyra.ink/experts/maya/	56	39	39	OK
+maya	4	creatives/maya/4-subbota-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	Неделя бесплатно	https://eyra.ink/experts/maya/	30	16	16	OK
+maya	4	creatives/maya/4-subbota-{4x3,1x1,16x9,3x4}.jpg	текст	Идеи для выходных без больших трат и шумных компаний. Личный разговор в Telegram.	https://eyra.ink/experts/maya/	81	79	81	OK
+maya	5	creatives/maya/5-bez-rutiny-{4x3,1x1,16x9,3x4}.jpg	заголовок	Вечер без рутины — идеи от ИИ-ассистента Майи	https://eyra.ink/experts/maya/	56	45	45	OK
+maya	5	creatives/maya/5-bez-rutiny-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	Без банковской карты	https://eyra.ink/experts/maya/	30	20	20	OK
+maya	5	creatives/maya/5-bez-rutiny-{4x3,1x1,16x9,3x4}.jpg	текст	Тихий вечер с маленьким открытием под ваш вкус. Первые 7 дней бесплатно.	https://eyra.ink/experts/maya/	81	70	72	OK
+maya			быстрая ссылка	Познакомиться с Майей	https://eyra.ink/experts/maya/	30	21	21	OK
+maya			описание б/с	Когда дни похожи друг на друга и хочется новых впечатлений.	https://eyra.ink/experts/maya/	60	59	59	OK
+maya			быстрая ссылка	Как начать	https://eyra.ink/experts/maya/#how	30	10	10	OK
+maya			описание б/с	Откройте Telegram, нажмите «Начать» и расскажите о себе	https://eyra.ink/experts/maya/#how	60	55	55	OK
+maya			быстрая ссылка	Пример разговора	https://eyra.ink/experts/maya/#chat	30	16	16	OK
+maya			описание б/с	Посмотрите, как проходит личный разговор в Telegram	https://eyra.ink/experts/maya/#chat	60	51	51	OK
+maya			быстрая ссылка	Все ИИ-эксперты EYRA	https://eyra.ink/#experts	30	20	20	OK
+maya			описание б/с	Десять личных ИИ-экспертов в Telegram на выбор	https://eyra.ink/#experts	60	46	46	OK
+alisa			отображаемая ссылка	дейтинг-ассистент	https://eyra.ink/experts/alisa/	20	17	17	OK
+alisa	1	creatives/alisa/1-chto-otvetit-{4x3,1x1,16x9,3x4}.jpg	заголовок	Что ему ответить? ИИ-дейтинг-ассистент Алиса	https://eyra.ink/experts/alisa/	56	44	44	OK
+alisa	1	creatives/alisa/1-chto-otvetit-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	7 дней бесплатно	https://eyra.ink/experts/alisa/	30	16	16	OK
+alisa	1	creatives/alisa/1-chto-otvetit-{4x3,1x1,16x9,3x4}.jpg	текст	Переписка, знакомства и свидания с вниманием к вашим желаниям. Без карты.	https://eyra.ink/experts/alisa/	81	70	73	OK
+alisa	2	creatives/alisa/2-ne-pishut-{4x3,1x1,16x9,3x4}.jpg	заголовок	Не пишут первыми? Разберём переписку с Алисой	https://eyra.ink/experts/alisa/	56	45	45	OK
+alisa	2	creatives/alisa/2-ne-pishut-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	ИИ-дейтинг в Telegram	https://eyra.ink/experts/alisa/	30	21	21	OK
+alisa	2	creatives/alisa/2-ne-pishut-{4x3,1x1,16x9,3x4}.jpg	текст	Знакомства и развитие взаимного интереса. Неделя бесплатно, без банковской карты.	https://eyra.ink/experts/alisa/	81	78	81	OK
+alisa	3	creatives/alisa/3-soobshchenie-{4x3,1x1,16x9,3x4}.jpg	заголовок	Первое сообщение, которое хочется продолжить	https://eyra.ink/experts/alisa/	56	43	44	OK
+alisa	3	creatives/alisa/3-soobshchenie-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	Алиса — ИИ-дейтинг-ассистент	https://eyra.ink/experts/alisa/	30	28	28	OK
+alisa	3	creatives/alisa/3-soobshchenie-{4x3,1x1,16x9,3x4}.jpg	текст	Переписка и флирт с вниманием к вашим желаниям. 7 дней бесплатно, без карты.	https://eyra.ink/experts/alisa/	81	73	76	OK
+alisa	4	creatives/alisa/4-anketa-{4x3,1x1,16x9,3x4}.jpg	заголовок	Анкета, что цепляет — с ИИ-ассистентом Алисой	https://eyra.ink/experts/alisa/	56	44	45	OK
+alisa	4	creatives/alisa/4-anketa-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	Неделя бесплатно	https://eyra.ink/experts/alisa/	30	16	16	OK
+alisa	4	creatives/alisa/4-anketa-{4x3,1x1,16x9,3x4}.jpg	текст	Знакомства, переписка и свидания. Личный разговор в Telegram. Без банковской карты.	https://eyra.ink/experts/alisa/	81	79	83	OK
+alisa	5	creatives/alisa/5-svidanie-{4x3,1x1,16x9,3x4}.jpg	заголовок	Первое свидание? Подготовьтесь с ИИ-ассистентом	https://eyra.ink/experts/alisa/	56	47	47	OK
+alisa	5	creatives/alisa/5-svidanie-{4x3,1x1,16x9,3x4}.jpg	доп. заголовок	Без банковской карты	https://eyra.ink/experts/alisa/	30	20	20	OK
+alisa	5	creatives/alisa/5-svidanie-{4x3,1x1,16x9,3x4}.jpg	текст	Алиса поможет с перепиской и первым свиданием. Первые 7 дней бесплатно.	https://eyra.ink/experts/alisa/	81	69	71	OK
+alisa			быстрая ссылка	Познакомиться с Алисой	https://eyra.ink/experts/alisa/	30	22	22	OK
+alisa			описание б/с	Нравиться, знакомиться и получать больше взаимности	https://eyra.ink/experts/alisa/	60	51	51	OK
+alisa			быстрая ссылка	Как начать	https://eyra.ink/experts/alisa/#how	30	10	10	OK
+alisa			описание б/с	Откройте Telegram, нажмите «Начать» и расскажите о себе	https://eyra.ink/experts/alisa/#how	60	55	55	OK
+alisa			быстрая ссылка	Пример разговора	https://eyra.ink/experts/alisa/#chat	30	16	16	OK
+alisa			описание б/с	Посмотрите, как проходит личный разговор в Telegram	https://eyra.ink/experts/alisa/#chat	60	51	51	OK
+alisa			быстрая ссылка	Все ИИ-эксперты EYRA	https://eyra.ink/#experts	30	20	20	OK
+alisa			описание б/с	Десять личных ИИ-экспертов в Telegram на выбор	https://eyra.ink/#experts	60	46	46	OK

@@ -1,0 +1,97 @@
+<!doctype html><meta charset="utf-8">
+<!-- Yandex Direct batch, approved F2 system. Same layout in every format, recomposed (not auto-cropped):
+     scene scale z and crop are solved so the wall edge sits under the headline tail (split-tone glyphs), the face stays
+     whole and the pill stays on the light wall. Layout is the benchmark grid (1440x1080 design units) scaled by k.
+     ?e=<id>&n=1..5&f=4x3|16x9|1x1|3x4 -->
+<style>html,body{margin:0;background:#fff}canvas{display:block}</style>
+<canvas id="c"></canvas>
+<script src="../instagram/site.js"></script><script src="batch/heads.js"></script><script src="batch/geo.js"></script>
+<script>
+const P=new URLSearchParams(location.search),E=P.get('e')||'mira',N=+(P.get('n')||1),F=P.get('f')||'4x3',S=SITE[E];
+const [slug,head,SV,ZF0]=BATCH[E][N-1],HD=head.split('|');
+const FMT={'4x3':{W:1440,H:1080,k:1,lx:0},'16x9':{W:1920,H:1080,k:1.06,lx:50},'1x1':{W:1080,H:1080,k:.8,lx:0},'3x4':{W:1080,H:1440,k:.8,lx:0}}[F];
+const W=FMT.W,H=FMT.H,cv=document.getElementById('c');cv.width=W;cv.height=H;const g=cv.getContext('2d');
+const HASX=!!GEO[`${E}-${SV}-3x4`];let v34=F==='3x4'&&HASX,GE=v34?GEO[`${E}-${SV}-3x4`]:GEO[`${E}-${SV}`];   // v34 = tall (outpainted) scene in use
+const INK='#17191d';
+function rgb(h){return[1,3,5].map(i=>parseInt(h.substr(i,2),16))}
+function hsl(r,g_,b){r/=255;g_/=255;b/=255;const M=Math.max(r,g_,b),m=Math.min(r,g_,b),l=(M+m)/2;let h=0,s=0;if(M!==m){const d=M-m;s=l>.5?d/(2-M-m):d/(M+m);h=M===r?(g_-b)/d+(g_<b?6:0):M===g_?(b-r)/d+2:(r-g_)/d+4;h*=60}return[h,s,l]}
+const [ah,as]=hsl(...rgb(S.accent));const PILLTXT=`hsl(${ah} ${Math.min(100,(as*1.9+.25)*100)}% 88%)`;
+const fonts=[['PL','fonts/Pretendard-Light.otf'],['PR','fonts/Pretendard-Regular.otf'],['PM','fonts/Pretendard-Medium.otf'],['MR','../instagram/manrope.woff']];
+function setf(c,font,fs,ls){c.font=`${fs}px ${font}`;c.letterSpacing=(ls||0)*fs+'px';c.textBaseline='alphabetic'}
+function width(t,font,fs,ls){setf(g,font,fs,ls);return g.measureText(t).width}
+Promise.all(fonts.map(([n,u])=>new FontFace(n,`url(${u})`,n==='MR'?{weight:'200 800'}:{}).load().then(f=>document.fonts.add(f)))).then(()=>Promise.all(['','-3x4'].map(x=>new Promise(r=>{const im=new Image();im.onload=()=>r(im);im.onerror=()=>r(null);im.src=`batch/scenes/${E}-${SV}${x}.jpg?t=${Date.now()}`})))).then(([imN,imX])=>{
+  let im,Sw,Sh;const L=80;function useScene(tall){v34=tall;GE=tall?GEO[`${E}-${SV}-3x4`]:GEO[`${E}-${SV}`];im=tall?imX:imN;Sw=im.naturalWidth;Sh=im.naturalHeight}
+  // ---- design-space layout (benchmark grid) ----
+  let fs=135.7;const wl=Math.max(...HD.map(l=>width(l,'PL',fs,-.03)));if(wl>700)fs*=700/wl;
+  const rs=56.3;let r1=S.role,r2='в Telegram';if(width(r1,'PR',rs,.035)>560){const j=r1.lastIndexOf(' ');if(j>0){r2=r1.slice(j+1)+' в Telegram';r1=r1.slice(0,j)}else{const h=r1.lastIndexOf('-');r2=r1.slice(h+1)+' в Telegram';r1=r1.slice(0,h+1)}}  // no space: break after the last hyphen (ИИ-лайфстайл- / ассистент)
+  const SMW=width('Без банковской карты','PR',40,0);
+  const roleW=Math.max(width(r1,'PR',rs,.035),width(r2,'PR',rs,.035));
+  let k=FMT.k,lx=FMT.lx,z,off,sy,bo,endO;
+  let keepR;        // face (+ some hair) must stay whole
+  const fs0=fs;let ZF=ZF0;
+  // narrow formats: if the zoom variant would shrink the layout, fall back to no zoom (variety then comes from scene a/b)
+  // candidates: [tall scene?, zoom]. 3:4 always uses the outpainted tall scene; 1:1 falls back to it when the
+  // plain scene would shrink the layout; narrow formats drop the zoom variant before shrinking.
+  const CANDS=F==='3x4'?[[true,ZF0],[true,1]]:F==='1x1'?[[false,ZF0],[false,1],[true,1]]:[[false,ZF0]];
+  for(const [tl,zc] of CANDS){if(tl&&!imX)continue;useScene(tl);keepR=Math.min(GE.fxr,GE.hcx+180)+8;ZF=zc;k=FMT.k;fs=fs0;
+  for(let it=0;it<12;it++){
+    endO=lx+k*(L-10+Math.min(wl*fs/135.7,700));
+    const cross=Math.max(24,Math.min(110*k,(GE.hx-GE.bx)*1.0-50));   // tail of the headline over the dark wall
+    const T=Math.max(endO-cross,lx+k*562+40);               // never put the wall edge under the pill (short headlines may not cross)
+    z=Math.max(H/Sh,W/Sw)*ZF;
+    // with off at max, boundary = W - z*(Sw-bx); if T is left of that, zoom in until reachable
+    if(T<W-z*(Sw-GE.bx)) z=Math.max(z,(W-T)/(Sw-GE.bx));
+    off=GE.bx-T/z; const offMax=Sw-W/z, offFace=keepR-(W-10)/z; off=Math.max(0,offFace,Math.min(offMax,off)); off=Math.min(off,offMax);
+    if(F==='4x3'&&ZF===1) off=Math.min(off,GE.bx-560);               // F2 rule: light zone ≥ 560 px
+    // body rows (role lines) and head band: if the role or headline would touch the expert, first slide the scene
+    // (expert moves right, face must stay whole), only then shrink the layout
+    const visH_=H/z, sy_=v34?Math.max(0,Math.min(Sh-visH_,GE.top-.42*visH_)):Math.max(0,Math.min(Sh-visH_,(Sh-visH_)*(ZF>1?.0:.15)+(ZF>1?Math.max(0,GE.top-60):0)));
+    const ly_=(H-1080*k)/2-((F==='1x1'||F==='3x4')?10*k:0); let rmin=1e9;
+    const mlAt=(y0,y1)=>{let m=1e9;for(let yd=y0;yd<=y1;yd+=10){const ys=sy_+(ly_+k*yd)/z;m=Math.min(m,GE.ml[Math.max(0,Math.min(GE.ml.length-1,Math.floor(ys/10)))])}return m};
+    rmin=Math.min(mlAt(595,725),GE.hx+200/z);
+    const pmin=mlAt(770,875), smin=mlAt(900,945);                       // pill rows, «Без банковской карты» rows
+    const roleE=lx+k*(L-5+roleW), smallE=lx+k*(L+SMW), offLo=Math.max(0,offFace);
+    const need=Math.max(roleE+20-(rmin-off)*z, endO+45*k-(GE.hx-off)*z, lx+k*562+20-(pmin-off)*z, smallE+20-(smin-off)*z);   // >0: overlap in canvas px
+    if(need>0) off=Math.max(offLo,off-need/z);
+    bo=(GE.bx-off)*z;
+    const pillR=lx+k*562, hairO=(GE.hx-off)*z;
+    let bad=false;
+    if(pillR>bo-12){k*=.96;bad=true}                                   // pill must stay on the light wall
+    if(roleE>(rmin-off)*z-20||lx+k*562>(pmin-off)*z-20||smallE>(smin-off)*z-20){k*=.96;bad=true}   // role, pill and small line must not touch the expert                          // role must not touch the expert's body (mask rows)
+    const maxEnd=hairO-45*k; if(endO>maxEnd){fs*=Math.max(.9,(maxEnd-lx-k*(L-10))/(k*Math.min(wl*fs/135.7,700)));bad=true}
+    if(!bad)break;
+  }
+  if(k>=.95*FMT.k)break;}
+  const visH=H/z; sy=Math.max(0,Math.min(Sh-visH,(Sh-visH)*(ZF>1?.0:.15)+(ZF>1?Math.max(0,GE.top-60):0)));
+  if(v34) sy=Math.max(0,Math.min(Sh-visH,GE.top-.42*visH));   // 3:4 on the outpainted tall scene: head top at ~42% height
+  g.drawImage(im,off,sy,W/z,visH,0,0,W,H);
+  // dark-background mask from the actual pixels (split-tone glyphs)
+  const id=g.getImageData(0,0,W,H).data,Y=new Float32Array(W*H);for(let i=0;i<W*H;i++)Y[i]=.2126*id[4*i]+.7152*id[4*i+1]+.0722*id[4*i+2];
+  const R=3,T2=new Float32Array(W*H),B=new Float32Array(W*H);
+  for(let y=0;y<H;y++){let s=0;for(let x=-R;x<=R;x++)s+=Y[y*W+Math.min(W-1,Math.max(0,x))];for(let x=0;x<W;x++){T2[y*W+x]=s/(2*R+1);s+=Y[y*W+Math.min(W-1,x+R+1)]-Y[y*W+Math.max(0,x-R)]}}
+  for(let x=0;x<W;x++){let s=0;for(let y=-R;y<=R;y++)s+=T2[Math.min(H-1,Math.max(0,y))*W+x];for(let y=0;y<H;y++){B[y*W+x]=s/(2*R+1);s+=T2[Math.min(H-1,y+R+1)*W+x]-T2[Math.max(0,y-R)*W+x]}}
+  const mk=document.createElement('canvas');mk.width=W;mk.height=H;const mg=mk.getContext('2d'),md=mg.createImageData(W,H);
+  for(let i=0;i<W*H;i++)md.data[4*i+3]=B[i]<92?255:0;mg.putImageData(md,0,0);
+  // ---- draw layout: design units -> canvas via (k, lx, ly) ----
+  const ly=(H-1080*k)/2+(F==='4x3'||F==='16x9'?0:-10)*k;
+  const OPS=[],BOX=[];const kf=fs/135.7;
+  const T=(t,x,y,font,f,col,ls)=>{OPS.push([t,x,y,font,f,col,ls]);setf(g,font,f,ls);const m=g.measureText(t);BOX.push([x,y-m.actualBoundingBoxAscent,m.width,m.actualBoundingBoxAscent+m.actualBoundingBoxDescent])};
+  T(S.name+'.',L-7,202,'PR',80.2,INK,.01);
+  HD.forEach((l,i)=>T(l,L-10,395+i*116.5*kf,'PL',fs,INK,-.03));
+  T(r1,L-5,643,'PR',rs,INK,.035);T(r2,L-5,710,'PR',rs,INK,.035);
+  T(OFFER.nocard,L,937,'PR',40,'rgba(23,25,29,.80)',-.005);
+  g.setTransform(k,0,0,k,lx,ly);
+  g.beginPath();g.roundRect(63,773,499,99,49.5);g.fillStyle='rgb(19,25,26)';g.fill();BOX.push([63,773,499,99]);
+  OPS.forEach(o=>{setf(g,o[3],o[4],o[6]);g.fillStyle=o[5];g.fillText(o[0],o[1],o[2])});
+  const pf=61.9*408/width(OFFER.free,'PM',61.9,-.005);setf(g,'PM',pf,-.005);g.fillStyle=PILLTXT;g.fillText(OFFER.free,116,842);
+  g.font='300 32px MR';g.letterSpacing='10px';g.fillStyle='rgba(23,25,29,.78)';g.fillText('EYRA',L,86);BOX.push([L,64,g.measureText('EYRA').width,23]);
+  const wt=document.createElement('canvas');wt.width=W;wt.height=H;const wg=wt.getContext('2d');wg.setTransform(k,0,0,k,lx,ly);
+  OPS.forEach(o=>{setf(wg,o[3],o[4],o[6]);wg.fillStyle='#fff';wg.fillText(o[0],o[1],o[2])});
+  wg.setTransform(1,0,0,1,0,0);wg.globalCompositeOperation='destination-in';wg.drawImage(mk,0,0);g.setTransform(1,0,0,1,0,0);g.drawImage(wt,0,0);
+  // text area: union of text/pill boxes (canvas px), Direct recommends ≤ 20 %
+  const occ=new Uint8Array(W*H);let a=0;BOX.forEach(([x,y,w,h])=>{const X0=Math.max(0,Math.floor(lx+k*x)),Y0=Math.max(0,Math.floor(ly+k*y)),X1=Math.min(W,Math.ceil(lx+k*(x+w))),Y1=Math.min(H,Math.ceil(ly+k*(y+h)));for(let yy=Y0;yy<Y1;yy++)for(let xx=X0;xx<X1;xx++){const i=yy*W+xx;if(!occ[i]){occ[i]=1;a++}}});
+  const fO=[(GE.fxl-off)*z,(keepR-8-off)*z];
+  window.INFO={f:F,tall:v34,zf:ZF,sy:Math.round(sy),k:+k.toFixed(3),z:+z.toFixed(3),off:Math.round(off),edge:Math.round(bo),end:Math.round(lx+k*(L-10+Math.min(wl*kf,700))),hair:Math.round((GE.hx-off)*z),faceR:Math.round(fO[1]),fs:+fs.toFixed(1),text:+(100*a/(W*H)).toFixed(1),faceOK:fO[1]<=W-2&&fO[0]>=0};
+  document.title='ready';
+});
+</script>
